@@ -1,0 +1,42 @@
+{
+  "ersst": {
+    "variance_fraction_pct": 20.5
+  },
+  "ACCESS-CM2 r1": {
+    "variance_fraction_pct": 17.0,
+    "pattern_corr_vs_obs": 0.844
+  },
+  "ACCESS-CM2 r2": {
+    "variance_fraction_pct": 16.1,
+    "pattern_corr_vs_obs": 0.764
+  },
+  "ACCESS-CM2 r3": {
+    "variance_fraction_pct": 21.2,
+    "pattern_corr_vs_obs": 0.76
+  },
+  "ACCESS-CM2 r4": {
+    "variance_fraction_pct": 17.3,
+    "pattern_corr_vs_obs": 0.205
+  },
+  "ACCESS-CM2 r5": {
+    "variance_fraction_pct": 19.1,
+    "pattern_corr_vs_obs": 0.842
+  },
+  "note_r4_mode_swap": {
+    "finding": "In member r4 the canonical PDO appears as EOF2, not EOF1; EOF1 is a KOE-dominated mode (EOF1/EOF2 near-degenerate).",
+    "modes": {
+      "EOF1": {
+        "variance_fraction_pct": 17.3,
+        "abs_pattern_corr_vs_obs": 0.205
+      },
+      "EOF2": {
+        "variance_fraction_pct": 14.0,
+        "abs_pattern_corr_vs_obs": 0.848
+      },
+      "EOF3": {
+        "variance_fraction_pct": 8.5,
+        "abs_pattern_corr_vs_obs": 0.325
+      }
+    }
+  }
+}

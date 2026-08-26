@@ -1,0 +1,51 @@
+{
+  "members": [
+    "r3",
+    "r5",
+    "r4"
+  ],
+  "scenarios": {
+    "ssp245": {
+      "r3": {
+        "pdo_mode": 1,
+        "pdo_corr_with_obs": 0.642,
+        "n_pos": 33,
+        "n_neg": 45
+      },
+      "r5": {
+        "pdo_mode": 3,
+        "pdo_corr_with_obs": 0.6,
+        "n_pos": 38,
+        "n_neg": 40
+      },
+      "r4": {
+        "pdo_mode": 1,
+        "pdo_corr_with_obs": 0.672,
+        "n_pos": 34,
+        "n_neg": 44
+      },
+      "ens_diff_corr_vs_hist": -0.074
+    },
+    "ssp585": {
+      "r3": {
+        "pdo_mode": 1,
+        "pdo_corr_with_obs": 0.644,
+        "n_pos": 39,
+        "n_neg": 39
+      },
+      "r5": {
+        "pdo_mode": 2,
+        "pdo_corr_with_obs": 0.845,
+        "n_pos": 34,
+        "n_neg": 44
+      },
+      "r4": {
+        "pdo_mode": 2,
+        "pdo_corr_with_obs": 0.854,
+        "n_pos": 43,
+        "n_neg": 35
+      },
+      "ens_diff_corr_vs_hist": -0.076
+    }
+  }
+}
