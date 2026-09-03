@@ -3,3 +3,4 @@ data/
 __pycache__/
 *.pyc
 pip_install.log
+ref_old/

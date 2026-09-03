@@ -1,11 +1,14 @@
 """Shared PDO machinery for Tasks 2-4.
 
-Extends task1_pdo with:
-  - PDO-mode selection: the EOF (of the first 3) whose pattern best matches a
-    reference PDO pattern is taken as the PDO mode. Guards against mode
-    swapping (e.g. historical r4, where the PDO appears as EOF2).
-  - 9-yr (108-month) centred running mean of the PDO index and JJA-based
-    classification of years into positive / negative phase (Task 2.docx).
+Follows the course documents exactly (same recipe as the old MIROC6 run):
+  - PDO = EOF1 of monthly SST anomalies over the North Pacific
+    (20N-60N, 110E-250E), sqrt(cos(lat)) weights, per-gridpoint LINEAR
+    detrend, monthly climatology removed (Task 1.docx).
+  - PDO index = normalized PC1; sign fixed so that the positive phase has
+    cool SST in the central/western North Pacific core.
+  - 9-yr (108-month) centred running mean of the index; each year is
+    classified positive/negative from the JJA mean of the smoothed index
+    (Task 2.docx).
 """
 from pathlib import Path
 
@@ -39,13 +42,13 @@ def load_north_pacific(path, var, period=HIST_PERIOD):
     return da.sel(lon=slice(LON_MIN, LON_MAX))
 
 
-def compute_pdo_modes(da, neofs=3, detrend_deg=1):
-    """Detrend -> anomalies -> first `neofs` EOFs with sqrt(cos(lat)) weights.
+def compute_pdo_eof1(da):
+    """Linear detrend -> anomalies -> EOF1 with sqrt(cos(lat)) weights.
 
-    detrend_deg=2 for future scenarios, where the warming is non-linear.
-    Returns (anom, eofs[k,lat,lon], pcs[t,k], varfrac[k]).
+    Returns (anom, eof1[lat,lon] as covariance map, pc1[t] normalized,
+    varfrac[3]).
     """
-    fit = da.polyfit(dim="time", deg=detrend_deg)
+    fit = da.polyfit(dim="time", deg=1)
     trend = xr.polyval(da.time, fit.polyfit_coefficients)
     da_dt = da - trend
 
@@ -54,26 +57,22 @@ def compute_pdo_modes(da, neofs=3, detrend_deg=1):
 
     wgts = np.sqrt(np.cos(np.deg2rad(anom.lat.values)))[:, np.newaxis]
     solver = Eof(anom.values.astype("float64"), weights=wgts)
-    eofs = solver.eofsAsCovariance(neofs=neofs, pcscaling=1)
-    pcs = solver.pcs(npcs=neofs, pcscaling=1)
-    varfrac = solver.varianceFraction(neigs=neofs)
-    return anom, eofs, pcs, varfrac
+    eof1 = solver.eofsAsCovariance(neofs=1, pcscaling=1)[0]
+    pc1 = solver.pcs(npcs=1, pcscaling=1)[:, 0]
+    varfrac = solver.varianceFraction(neigs=3)
+
+    # sign convention: positive PDO = cool central/western North Pacific
+    la, lo = anom.lat.values, anom.lon.values
+    core = np.nanmean(eof1[np.ix_((la >= 35) & (la <= 45),
+                                  (lo >= 160) & (lo <= 200))])
+    if core > 0:
+        eof1, pc1 = -eof1, -pc1
+    return anom, eof1, pc1, varfrac
 
 
 def pattern_corr(a, b):
     m = np.isfinite(a) & np.isfinite(b)
     return np.corrcoef(a[m], b[m])[0, 1]
-
-
-def select_pdo_mode(eofs, pcs, ref_eof1):
-    """Pick the EOF best matching `ref_eof1` (same grid); align its sign.
-
-    Returns (mode_index, eof, pc, corr_with_ref).
-    """
-    corrs = [pattern_corr(eofs[k], ref_eof1) for k in range(eofs.shape[0])]
-    k = int(np.argmax(np.abs(corrs)))
-    sgn = 1.0 if corrs[k] >= 0 else -1.0
-    return k, sgn * eofs[k], sgn * pcs[:, k], corrs[k] * sgn
 
 
 def pdo_index_and_phases(pc, time):
@@ -91,27 +90,20 @@ def pdo_index_and_phases(pc, time):
     return s, sm, yearly, pos_years, neg_years
 
 
-def get_pdo(tos_path, var, ref_eof1=None, period=HIST_PERIOD, detrend_deg=1):
-    """Full pipeline for one dataset. If `ref_eof1` is None, EOF1 is the PDO.
+def get_pdo(tos_path, var, period=HIST_PERIOD, ref_eof1=None):
+    """Full pipeline for one dataset; the PDO is always EOF1.
 
-    Returns dict with anom coords, eof (pattern), pc (index), varfrac,
-    mode (0-based), corr_ref, and phase info.
+    `ref_eof1` (optional, same grid) only adds a diagnostic pattern
+    correlation to the output - it never changes the chosen mode.
     """
     da = load_north_pacific(tos_path, var, period).load()
-    anom, eofs, pcs, varfrac = compute_pdo_modes(da, detrend_deg=detrend_deg)
-    if ref_eof1 is None:
-        # sign convention: positive PDO = cool central/western North Pacific
-        la, lo = anom.lat.values, anom.lon.values
-        core = np.nanmean(eofs[0][np.ix_((la >= 35) & (la <= 45),
-                                         (lo >= 160) & (lo <= 200))])
-        sgn = -1.0 if core > 0 else 1.0
-        k, eof, pc, corr = 0, sgn * eofs[0], sgn * pcs[:, 0], np.nan
-    else:
-        k, eof, pc, corr = select_pdo_mode(eofs, pcs, ref_eof1)
-    raw, sm, yearly, pos_years, neg_years = pdo_index_and_phases(pc, anom.time.values)
+    anom, eof1, pc1, varfrac = compute_pdo_eof1(da)
+    corr = (pattern_corr(eof1, ref_eof1) if ref_eof1 is not None else np.nan)
+    raw, sm, yearly, pos_years, neg_years = pdo_index_and_phases(
+        pc1, anom.time.values)
     return {
         "lat": anom.lat.values, "lon": anom.lon.values, "time": anom.time.values,
-        "eof": eof, "pc": pc, "varfrac": varfrac, "mode": k, "corr_ref": corr,
+        "eof": eof1, "pc": pc1, "varfrac": varfrac, "corr_ref": corr,
         "pc_raw": raw, "pc_smooth": sm, "yearly": yearly,
         "pos_years": pos_years, "neg_years": neg_years,
     }
