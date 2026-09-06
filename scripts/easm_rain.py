@@ -2,12 +2,13 @@
 
 Recipe (Task 2.docx, same as the old MIROC6 run):
   - region 15N-45N, 100E-130E
-  - JJA seasonal value = sum of the three monthly totals per year
+  - monthly total (mm/month) / days in month = monthly rate (mm/day);
+    JJA seasonal value = mean of the three monthly rates per year
   - anomaly = seasonal value minus whole-period seasonal mean
   - composite = mean over PDO+ years minus mean over PDO- years
 Model precipitation is interpolated onto the GPCC 0.5-degree grid (the
 "ec" grid of the old outputs) so that all members and the observations
-share one grid. Maps are expressed in mm/day (seasonal total / 92 days).
+share one grid. Maps are expressed in mm/day.
 """
 from pathlib import Path
 
@@ -19,7 +20,6 @@ REPO = Path(__file__).resolve().parents[1]
 
 LAT_MIN, LAT_MAX = 15, 45
 LON_MIN, LON_MAX = 100, 130
-JJA_DAYS = 92.0
 PAD = 3.0  # extra margin kept before regridding
 
 
@@ -71,10 +71,16 @@ def load_east_china_monthly_mm(path, var, period, target_grid=None):
 
 
 def jja_anomaly_mmday(da_mm):
-    """Yearly JJA total -> anomaly vs whole-period mean, in mm/day."""
+    """Monthly mm/month -> mm/day rates; yearly JJA mean -> anomaly.
+
+    Same as the old MIROC6 notebooks: divide each monthly total by its
+    number of days, average the three JJA rates per year, then subtract
+    the whole-period mean of that seasonal value.
+    """
     jja = da_mm.sel(time=da_mm.time.dt.month.isin([6, 7, 8]))
-    tot = jja.groupby("time.year").sum("time", min_count=3) / JJA_DAYS
-    anom = tot - tot.mean("year")
+    rate = jja / jja.time.dt.days_in_month
+    seas = rate.groupby("time.year").mean("time")
+    anom = seas - seas.mean("year")
     anom.attrs["units"] = "mm/day"
     return anom
 

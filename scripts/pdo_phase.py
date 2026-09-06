@@ -86,7 +86,7 @@ def pdo_index_and_phases(pc, time):
     jja = sm[sm.index.month.isin(JJA)]
     yearly = jja.groupby(jja.index.year).mean().dropna()
     pos_years = yearly.index[yearly.values > 0].to_numpy()
-    neg_years = yearly.index[yearly.values <= 0].to_numpy()
+    neg_years = yearly.index[yearly.values < 0].to_numpy()
     return s, sm, yearly, pos_years, neg_years
 
 

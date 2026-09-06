@@ -6,7 +6,9 @@ Reads the per-member results of Task 2 (results/task2_<m>.nc) and computes,
 grid-point by grid-point across members, the ensemble mean and variance of
 the PDO EOF1 pattern and of the rainfall composites (diff and each phase).
 Members are ranked by pattern correlation between their composite difference
-and the observed one (same GPCC 0.5-deg grid) -> best 3 go to Task 4.
+and the ALL-MEMBER ENSEMBLE-MEAN composite (the old MIROC6 criterion) ->
+best 3 go to Task 4.  Correlation with the observed composite is kept as a
+diagnostic only.
 
 Figures (mirroring the old MIROC6 outputs):
   Task3_Figure1_PDO_EOF1_Spread.png        r1-r5 EOF1 + across-member variance
@@ -130,7 +132,7 @@ def figure3_composite_spread(rain, coords, corrs, path):
         cf = ax.contourf(lo, la, rain["diff"][i], levels=lev, cmap="BrBG",
                          transform=ccrs.PlateCarree(), extend="both")
         _map_axis(ax)
-        ax.set_title(f"{m} Composite (Pos$-$Neg)   r(obs)={corrs[m]:.2f}")
+        ax.set_title(f"{m} Composite (Pos$-$Neg)   r(ens)={corrs[m]:.2f}")
     ax = axes.flat[-1]
     cf2 = ax.contourf(lo, la, var, levels=15, cmap="YlOrRd",
                       transform=ccrs.PlateCarree(), extend="max")
@@ -142,7 +144,7 @@ def figure3_composite_spread(rain, coords, corrs, path):
                  shrink=0.85, pad=0.02)
     fig.suptitle("Task 3 Figure 3: East China JJA Rainfall Composite "
                  "(Pos$-$Neg, r1–r5) + Spread\nACCESS-CM2 Historical "
-                 "1900–2014  |  r(obs) = pattern corr vs observed composite",
+                 "1900–2014  |  r(ens) = pattern corr vs 5-member-mean composite",
                  fontsize=13)
     fig.savefig(path, dpi=200, bbox_inches="tight")
     plt.close(fig)
@@ -174,12 +176,18 @@ def figure4_phase_spread(rain, coords, path):
 def main():
     pdo_eofs, pcs, rain, counts, coords = stack_members()
 
-    # obs composite (already on the same GPCC 0.5-deg grid) for ranking
-    obs = xr.open_dataset(RES / "task2_obs.nc")
-    obs_diff = obs["rain_diff"].values
-    corrs = {m: float(pattern_corr(rain["diff"][i], obs_diff))
+    # ranking criterion (same as the old MIROC6 run): pattern correlation of
+    # each member's composite difference with the all-member ensemble mean
+    ens_diff = np.nanmean(rain["diff"], axis=0)
+    corrs = {m: float(pattern_corr(rain["diff"][i], ens_diff))
              for i, m in enumerate(MEMBERS)}
     best3 = sorted(corrs, key=lambda m: -corrs[m])[:3]
+
+    # diagnostic only: correlation with the observed composite (same grid)
+    obs = xr.open_dataset(RES / "task2_obs.nc")
+    obs_diff = obs["rain_diff"].values
+    corrs_obs = {m: float(pattern_corr(rain["diff"][i], obs_diff))
+                 for i, m in enumerate(MEMBERS)}
 
     out = xr.Dataset(
         {
@@ -206,9 +214,12 @@ def main():
     figure4_phase_spread(rain, coords,
                          FIG / "Task3_Figure4_Positive_Negative_Rainfall_Spread.png")
 
-    summary = {"pattern_corr_vs_obs_composite": corrs, "best3": best3}
+    summary = {"pattern_corr_vs_ensemble_mean_composite": corrs,
+               "pattern_corr_vs_obs_composite": corrs_obs,
+               "best3": best3}
     (RES / "task3_summary.json").write_text(json.dumps(summary, indent=2))
-    print("pattern corr vs obs composite:", corrs)
+    print("pattern corr vs ensemble-mean composite:", corrs)
+    print("pattern corr vs obs composite (diagnostic):", corrs_obs)
     print("best 3 members for Task 4:", best3)
 
 
