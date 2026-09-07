@@ -12,6 +12,8 @@
   模式降水统一插值到 **GPCC 0.5° 网格**（旧版 npy 的 "ec" 网格）。
 - Task 3 选 best3：各成员合成差与**全体成员平均合成差**的空间相关排序取前三
   （旧 notebook `select_best_members` 的标准；与观测的相关仅作诊断输出）。
+- **降水只保留陆地**：模式降水插值到 GPCC 网格后套用 GPCC 陆地掩膜（GPCC 为站点资料，
+  海洋格点恒为 NaN），所有降水图和空间相关都只含陆地格点，海洋在图上涂浅灰。
 
 ## 数据
 
@@ -34,6 +36,8 @@ venv/bin/python scripts/task1_compare.py         # 成员 vs 观测：方差比�
 venv/bin/python scripts/task2_composite.py       # Task 2 观测 + 5 成员位相合成
 venv/bin/python scripts/task3_spread.py          # Task 3 spread + best3 选择
 venv/bin/python scripts/task4_future.py          # Task 4 未来情景（ssp245/ssp585 × best3）
+venv/bin/python scripts/task5_ssp_minus_obs.py   # Task 5 SSP 降水气候态 − GPCC 观测
+venv/bin/python scripts/task6_spectrum.py        # Task 6 PC1 傅立叶功率谱 / cycle+energy
 ```
 
 共享模块：`pdo_phase.py`（EOF1 PDO + 9 年平滑 JJA 定位相）、`easm_rain.py`（华东 JJA 降水异常、
@@ -67,8 +71,8 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   （方差极大值在黑潮延伸体锋区——成员间 PDO 型差异主要来自 KOE）。
 - `Task3_Figure2_PC1.png`：r1–r5 PC1 + 9 年滑动平均。
 - `Task3_Figure3_Rainfall_Composite_Spread.png`：各成员合成差 + 跨成员方差，标注与 5 成员平均
-  合成差的空间相关（旧 notebook 的选择标准）：
-  **r1 = 0.37、r2 = 0.60、r3 = 0.43、r4 = 0.53、r5 = 0.74**。
+  合成差的空间相关（旧 notebook 的选择标准，改陆地掩膜后只算陆地格点）：
+  **r1 = 0.45、r2 = 0.58、r3 = 0.25、r4 = 0.47、r5 = 0.77**。
   诊断参考——与观测合成型的相关：r1 = −0.17、r2 = −0.06、r3 = 0.20、r4 = −0.23、r5 = 0.12
   （自由耦合模式内部变率与观测不同步，低相关属预期）。
 - `Task3_Figure4_Positive_Negative_Rainfall_Spread.png`：正/负位相降水异常的跨成员方差。
@@ -87,15 +91,58 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 
 - 图 `Task4_T4-1`–`T4-7`：未来 PDO EOF1、PC1、正/负位相降水、逐成员合成差、
   best3 平均合成差（historical vs ssp245 vs ssp585）、SSP585−SSP245 情景差。
-- best3 平均合成差与历史型的空间相关：ssp245 = 0.04、ssp585 = 0.34；两情景之间 0.19
+- best3 平均合成差与历史型的空间相关（陆地格点）：ssp245 = −0.17、ssp585 = 0.20；两情景之间 0.08
   （`task4_summary.json`）——**PDO–华东夏季降水关系在未来情景下与历史型差异明显，且情景间不一致**。
 - 注意：ssp585 下强迫增暖强烈，线性去趋势后 EOF1 不一定是经典 PDO 型
   （如 ssp585 r4 与观测型相关 −0.30）；这是任务文档规定方法（EOF1 + 线性去趋势）下的真实结果，
   解释未来合成图时需留意。
 
+## Task 5（SSP 情景降水 − 历史观测，全部 5 成员，陆地）
+
+JJA 降水气候态（mm/day，GPCC 0.5° 网格、陆地掩膜）：各情景 2015–2100 减 GPCC 观测 1900–2014。
+
+- `Task5_Figure1_SSP_minus_Obs_MemberMean.png`：观测气候态 | ssp245−obs | ssp585−obs（5 成员平均）。
+- `Task5_Figure2_SSP_minus_Obs_by_member.png`：2×5 逐成员差值。
+- 区域平均（陆地）：**ssp245 = +1.35 mm/day，ssp585 = +1.45 mm/day**（`task5_summary.json`）；
+  空间上江南−华南显著偏湿（>+5 mm/day），朝鲜半岛与华北略偏干。
+- 注意该差值同时包含**模式气候态偏差**与**未来增暖增湿信号**，不能全部解释为气候变化响应。
+
+## Task 6（PC1 傅立叶功率谱：cycle 周期与 energy，方法按导师论文 Fig 1c）
+
+方法 = 导师论文（Atmosphere 2020, 11, 3, doi:10.3390/atmos11010003）图 1c：
+对**月分辨率归一化 PC1** 做 periodogram（傅立叶变换的功率谱），叠加由 lag-1 自相关拟合的
+**AR1 红噪声理论谱**（Gilman et al. 1963）及其 **90%/95% χ² 置信线**；谱做 5 点 Daniell 平滑
+（dof≈10，原始 periodogram 每 bin 仅 2 dof、单点噪声尖峰会假超线）。
+
+- **cycle**：搜索窗口 [2 年, 记录长度/3] 内超过置信线的最强谱峰对应的周期
+  （更长周期在记录内不足 3 个循环、与趋势不可分；1 年整峰为残余年循环，均排除）。
+- **energy**：谱峰附近连续超过红噪声背景的频段上对 PSD 积分（Parseval：全谱积分 = PC1 总方差
+  = 1 σ²），同时给出其占总方差的比例。
+
+| 序列 | cycle（年） | 显著性 | energy（σ²，占方差） |
+|---|---|---|---|
+| obs (ERSSTv4) | 28.8 | 95% | 0.23（23%） |
+| r1 / r2 / r3 / r4 / r5 | 10.5 / 38.3 / 38.3 / 38.3 / 28.8 | 90–95% | 0.18–0.42（18–41%） |
+| ssp245 r5 / r2 / r4 | 2.2 / 28.7 / 28.7 | 95% / 不显著 / 95% | 0.07–0.15（7–15%） |
+| ssp585 r5 / r2 / r4 | 28.7 / 28.7 / 2.5 | 不显著 / 95% / 不显著 | 0.05–0.15（5–17%） |
+
+- 图：`Task6_Figure1_Historical_PC1_Spectrum.png`（obs + r1–r5）、
+  `Task6_Figure2_Future_PC1_Spectrum.png`（ssp245/ssp585 × best3）、
+  `Task6_Figure3_Cycle_Energy_Summary.png`（周期 + 能量汇总条形图）；
+  数值：`results/task6_summary.json`。
+- **主要结论**：历史时期（观测与 5 成员）PDO PC1 的年代际–多年代际 cycle（约 10–38 年）
+  能量占总方差 18–41%（观测 23%）；未来情景下该 cycle 能量降到 5–17%
+  （ssp245 平均 10%、ssp585 平均 12%），**PDO 低频循环显著减弱、变率向高频移动**——
+  这正是 Task 3/4 中未来 PC1 子图彼此差异大、位相结构变乱的量化解释。
+- ssp585 谱中 1 年整的尖峰为强迫增暖下残余年循环，已从 cycle 搜索中排除。
+
 ## 备注
 
 - Task 1–4 文档在 `docs/`；旧 MIROC6 版示例输出（Drive `task1-2_output`、`task3/4_*_outputs`）为图式参照。
+  导师论文 `atmosphere-11-00003-v2.pdf`（Task 6 方法来源）与其重点图（`微信图片_*.png`，
+  即论文 Figure 1，图 c 为功率谱模板）在仓库根目录。
+- 本轮改动：所有降水图改为只保留陆地（GPCC 掩膜）并重跑 Task 2–4——best3 仍为 r5/r2/r4，
+  但相关数值有变（见上）；新增 Task 5（SSP−观测降水差）与 Task 6（PC1 功率谱 cycle/energy）。
 - 相对上一版 GitHub 结果的修正：去掉了 PDO 模态自动选择（一律 EOF1）、去掉了未来情景 SST 的
   二次去趋势（一律线性）、模式降水改为插值到 GPCC 0.5° 网格再合成（与旧 MIROC6 流程一致）、
   图集版式改回旧版 Task3_Figure1–4 / Task4_T4-1–7。

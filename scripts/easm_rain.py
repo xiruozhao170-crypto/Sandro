@@ -35,11 +35,31 @@ def gpcc_grid(path=None):
     return lat, lon
 
 
+def land_mask(target_grid=None, path=None):
+    """Boolean land mask (True = land) on the GPCC 0.5-degree grid.
+
+    GPCC is a gauge-based land-only dataset: ocean cells are NaN in every
+    month.  Cells with at least one finite monthly value are land.
+    """
+    path = path or REPO / "data/precip.mon.total.v2018.nc"
+    tlat, tlon = target_grid if target_grid is not None else gpcc_grid(path)
+    ds = xr.open_dataset(path)
+    da = ds["precip"].isel(time=slice(0, 12))
+    if da.lat.values[0] > da.lat.values[-1]:
+        da = da.isel(lat=slice(None, None, -1))
+    da = da.sel(lat=tlat, lon=tlon).load()
+    ds.close()
+    mask = np.isfinite(da.values).any(axis=0)
+    return xr.DataArray(mask, coords={"lat": tlat, "lon": tlon},
+                        dims=("lat", "lon"))
+
+
 def load_east_china_monthly_mm(path, var, period, target_grid=None):
     """Monthly precipitation totals (mm/month) over East China.
 
     target_grid=(lat, lon): bilinearly interpolate onto that grid
-    (used for the model members -> GPCC 0.5-degree grid).
+    (used for the model members -> GPCC 0.5-degree grid) and mask out
+    ocean cells so only land precipitation is analysed/plotted.
     """
     ds = xr.open_dataset(path)
     da = ds[var]
@@ -65,6 +85,7 @@ def load_east_china_monthly_mm(path, var, period, target_grid=None):
     if target_grid is not None:
         tlat, tlon = target_grid
         da = da.interp(lat=tlat, lon=tlon, method="linear")
+        da = da.where(land_mask(target_grid))
     else:
         da = da.sel(lat=slice(LAT_MIN, LAT_MAX), lon=slice(LON_MIN, LON_MAX))
     return da

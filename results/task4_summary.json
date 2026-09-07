@@ -24,7 +24,7 @@
         "n_pos": 39,
         "n_neg": 39
       },
-      "ens_diff_corr_vs_hist": 0.036
+      "ens_diff_corr_vs_hist": -0.173
     },
     "ssp585": {
       "r5": {
@@ -45,8 +45,8 @@
         "n_pos": 45,
         "n_neg": 33
       },
-      "ens_diff_corr_vs_hist": 0.342
+      "ens_diff_corr_vs_hist": 0.201
     }
   },
-  "ssp585_vs_ssp245_ens_diff_corr": 0.188
+  "ssp585_vs_ssp245_ens_diff_corr": 0.083
 }

@@ -18,6 +18,8 @@ def _map_axis(ax):
     # NB: gridlines(draw_labels=True) breaks constrained_layout with colorbars
     ax.coastlines(lw=1.0)
     ax.add_feature(cfeature.BORDERS, lw=0.4, ls=":")
+    # rainfall fields are land-only (GPCC mask); shade the ocean lightly
+    ax.add_feature(cfeature.OCEAN, facecolor="0.92", zorder=0)
     ax.set_xticks(np.arange(100, 131, 10), crs=ccrs.PlateCarree())
     ax.set_yticks(np.arange(20, 45, 5), crs=ccrs.PlateCarree())
     ax.xaxis.set_major_formatter(LongitudeFormatter())
