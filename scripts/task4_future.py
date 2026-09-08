@@ -1,17 +1,16 @@
 """Task 4: PDO-rainfall composites under future scenarios (ACCESS-CM2).
 
-Uses the 3 prescribed members (r2, r3, r5; "best3" in
-results/task3_summary.json) and repeats the Task 2/3 procedure for
+Runs all five members (r1-r5) and repeats the Task 2/3 procedure for
 ssp245 and ssp585 (2015-2100), exactly as in the historical run:
 PDO = EOF1 of linearly detrended monthly SST anomalies; phases from the
 JJA mean of the 9-yr smoothed PC1; rainfall on the GPCC 0.5-deg grid.
 
 Figures (mirroring the old MIROC6 T4 outputs, adapted to 2 scenarios):
-  Task4_T4-1_Future_PDO_EOF1_by_member.png       2x3 EOF1 maps
-  Task4_T4-2_Future_PC1_by_member.png            2x3 PC1 + smoothed
+  Task4_T4-1_Future_PDO_EOF1_by_member.png       2x5 EOF1 maps
+  Task4_T4-2_Future_PC1_by_member.png            2x5 PC1 + smoothed
   Task4_T4-3_Positive_Phase_Rainfall_by_member.png
   Task4_T4-4_Negative_Phase_Rainfall_by_member.png
-  Task4_T4-5_Composite_Difference_3MemberMean.png  hist / ssp245 / ssp585
+  Task4_T4-5_Composite_Difference_MemberMean.png   hist / ssp245 / ssp585
   Task4_T4-6_Composite_Difference_by_member.png
   Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png
 Outputs: results/task4_<scen>_<m>.nc, results/task4_summary.json
@@ -41,17 +40,18 @@ RES = REPO / "results"
 FIG = REPO / "figures"
 
 SCENARIOS = ["ssp245", "ssp585"]
+MEMBERS = ["r1", "r2", "r3", "r4", "r5"]
 FUT_PERIOD = slice("2015-01-01", "2100-12-31")
 
 
 def grid_maps(fields, titles, path, suptitle, cmap, units, coords=None,
               east_china=True, levels=None):
-    """2x3 grid of maps: rows = scenarios, cols = members."""
-    nrow, ncol = 2, 3
+    """2x5 grid of maps: rows = scenarios, cols = members."""
+    nrow, ncol = 2, 5
     proj = (ccrs.PlateCarree() if east_china
             else ccrs.PlateCarree(central_longitude=180))
     fig, axes = plt.subplots(nrow, ncol,
-                             figsize=(15, 8.6 if east_china else 6.6),
+                             figsize=(22, 8.4 if east_china else 5.8),
                              constrained_layout=True,
                              subplot_kw={"projection": proj})
     lev = levels if levels is not None else _sym_levels(
@@ -72,7 +72,7 @@ def grid_maps(fields, titles, path, suptitle, cmap, units, coords=None,
 
 
 def pc_grid(pdos, titles, path, suptitle):
-    fig, axes = plt.subplots(2, 3, figsize=(16, 7), sharey=True)
+    fig, axes = plt.subplots(2, 5, figsize=(24, 7), sharey=True)
     for ax, pdo, ttl in zip(axes.flat, pdos, titles):
         raw, sm = pdo["pc_raw"], pdo["pc_smooth"]
         ax.fill_between(raw.index, raw.values, 0, where=raw.values > 0,
@@ -95,25 +95,24 @@ def pc_grid(pdos, titles, path, suptitle):
 
 
 def main():
-    best3 = json.loads((RES / "task3_summary.json").read_text())["best3"]
     obs_eof = xr.open_dataset(RES / "task2_obs.nc")["pdo_eof"].values
     grid = gpcc_grid()
-    print("members:", best3)
+    print("members:", MEMBERS)
 
-    # historical baseline: same 3 members from Task 2
+    # historical baseline: same members from Task 2
     hist_diff = []
-    for m in best3:
+    for m in MEMBERS:
         ds = xr.open_dataset(RES / f"task2_{m}.nc")
         hist_diff.append(ds["rain_diff"].values)
         rl, rn = ds["rlat"].values, ds["rlon"].values
     hist_diff_mean = np.nanmean(hist_diff, axis=0)
 
-    summary = {"members": best3, "scenarios": {}}
+    summary = {"members": MEMBERS, "scenarios": {}}
     results = {}  # (scen, m) -> dict(pdo=..., comp=...)
 
     for scen in SCENARIOS:
         scen_sum = {}
-        for m in best3:
+        for m in MEMBERS:
             pdo = get_pdo(
                 DATA / f"processed/tos_2deg_{scen}_{m}i1p1f1.nc", "tos",
                 period=FUT_PERIOD, ref_eof1=obs_eof)
@@ -133,7 +132,7 @@ def main():
                   f"pos={comp['n_pos']}yr neg={comp['n_neg']}yr")
         summary["scenarios"][scen] = scen_sum
 
-    cells = [(scen, m) for scen in SCENARIOS for m in best3]
+    cells = [(scen, m) for scen in SCENARIOS for m in MEMBERS]
 
     # T4-1 EOF1 maps
     grid_maps(
@@ -143,7 +142,7 @@ def main():
          f"({results[(scen, m)]['pdo']['varfrac'][0]*100:.0f}%)"
          for scen, m in cells],
         FIG / "Task4_T4-1_Future_PDO_EOF1_by_member.png",
-        "Task 4-1: Future PDO EOF1 Covariance Patterns (best-3 members)\n"
+        "Task 4-1: Future PDO EOF1 Covariance Patterns (r1–r5)\n"
         "ACCESS-CM2 2015–2100  (°C per normalized PC1)",
         "RdBu_r", "°C per normalized PC1", east_china=False)
 
@@ -153,7 +152,7 @@ def main():
              f"neg={results[(scen, m)]['comp']['n_neg']}yr)"
              for scen, m in cells],
             FIG / "Task4_T4-2_Future_PC1_by_member.png",
-            "Task 4-2: Future PDO PC1 and 9-yr Running Mean (best-3 members)\n"
+            "Task 4-2: Future PDO PC1 and 9-yr Running Mean (r1–r5)\n"
             "ACCESS-CM2 2015–2100")
 
     # T4-3 / T4-4 phase rainfall maps
@@ -165,7 +164,7 @@ def main():
             [(results[c]["comp"][key].values, rl, rn) for c in cells],
             [f"{scen} {m}" for scen, m in cells],
             FIG / name,
-            f"Task 4: {ttl} (best-3 members)\nACCESS-CM2 2015–2100  |  "
+            f"Task 4: {ttl} (r1–r5)\nACCESS-CM2 2015–2100  |  "
             "9-yr running mean phases", "BrBG", "mm/day")
 
     # T4-6 composite difference by member
@@ -178,7 +177,7 @@ def main():
 
     # T4-5 member-mean composite difference: historical vs scenarios
     ens = {scen: np.nanmean([results[(scen, m)]["comp"]["diff"].values
-                             for m in best3], axis=0) for scen in SCENARIOS}
+                             for m in MEMBERS], axis=0) for scen in SCENARIOS}
     fields = [hist_diff_mean, ens["ssp245"], ens["ssp585"]]
     labels = ["historical 1900–2014", "ssp245 2015–2100", "ssp585 2015–2100"]
     lev = _sym_levels(*fields)
@@ -191,10 +190,10 @@ def main():
         ax.set_title(ttl)
     fig.colorbar(cf, ax=axes.ravel().tolist(), label="mm/day", shrink=0.8,
                  pad=0.02)
-    fig.suptitle("Task 4-5: Composite Difference (Pos$-$Neg), mean of best-3 "
-                 "members\nACCESS-CM2: historical vs future scenarios",
+    fig.suptitle("Task 4-5: Composite Difference (Pos$-$Neg), mean of r1–r5\n"
+                 "ACCESS-CM2: historical vs future scenarios",
                  fontsize=13)
-    fig.savefig(FIG / "Task4_T4-5_Composite_Difference_3MemberMean.png",
+    fig.savefig(FIG / "Task4_T4-5_Composite_Difference_MemberMean.png",
                 dpi=200, bbox_inches="tight")
     plt.close(fig)
 
@@ -208,7 +207,7 @@ def main():
     _map_axis(ax)
     fig.colorbar(cf, ax=ax, label="mm/day", shrink=0.85)
     ax.set_title("Task 4-7: Composite Difference, SSP585 $-$ SSP245\n"
-                 "(mean of best-3 members, 2015–2100)")
+                 "(mean of r1–r5, 2015–2100)")
     fig.savefig(FIG / "Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png",
                 dpi=200, bbox_inches="tight")
     plt.close(fig)

@@ -10,9 +10,9 @@
 - 降水合成：华东 15–45°N / 100–130°E，每月总量 ÷ 当月天数得 mm/day，JJA 三个月平均成季节值，
   减全时段季节平均得异常（与旧 notebook 完全相同的定义）；正位相平均 − 负位相平均 = 合成差；
   模式降水统一插值到 **GPCC 0.5° 网格**（旧版 npy 的 "ec" 网格）。
-- Task 4/6 使用的 3 个成员为**指定的 r2、r3、r5**（不再按相关排名自动选择）；
-  各成员合成差与全体成员平均合成差的空间相关（旧 notebook `select_best_members` 的
-  排名标准）以及与观测的相关仍作诊断输出。
+- Task 4 对**全部 5 个成员 r1–r5** 跑未来情景（不再选 best members）；
+  Task 6 的未来谱使用指定成员 r2/r3/r5。各成员合成差与全体成员平均合成差的空间相关
+  （旧 notebook `select_best_members` 的排名标准）以及与观测的相关仍作诊断输出。
 - **降水只保留陆地**：模式降水插值到 GPCC 网格后套用 GPCC 陆地掩膜（GPCC 为站点资料，
   海洋格点恒为 NaN），所有降水图和空间相关都只含陆地格点，海洋在图上涂浅灰。
 
@@ -35,8 +35,8 @@ venv/bin/python scripts/regrid_tos.py            # tos 原生网格 -> 2°（15 
 venv/bin/python scripts/task1_pdo.py ersst       # Task 1 观测 PDO（access_r1..r5 同理）
 venv/bin/python scripts/task1_compare.py         # 成员 vs 观测：方差比例、空间型相关
 venv/bin/python scripts/task2_composite.py       # Task 2 观测 + 5 成员位相合成
-venv/bin/python scripts/task3_spread.py          # Task 3 spread（成员 r2/r3/r5 供 Task 4/6）
-venv/bin/python scripts/task4_future.py          # Task 4 未来情景（ssp245/ssp585 × best3）
+venv/bin/python scripts/task3_spread.py          # Task 3 spread（r2/r3/r5 供 Task 6 未来谱）
+venv/bin/python scripts/task4_future.py          # Task 4 未来情景（ssp245/ssp585 × r1–r5）
 venv/bin/python scripts/task5_ssp_minus_obs.py   # Task 5 SSP 降水气候态 − GPCC 观测
 venv/bin/python scripts/task6_spectrum.py        # Task 6 PC1 傅立叶功率谱 / cycle+energy
 ```
@@ -79,27 +79,32 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   诊断参考——与观测合成型的相关：r1 = −0.17、r2 = −0.06、r3 = 0.20、r4 = −0.23、r5 = 0.12
   （自由耦合模式内部变率与观测不同步，低相关属预期）。
 - `Task3_Figure4_Positive_Negative_Rainfall_Spread.png`：正/负位相降水异常的跨成员方差。
-- **Task 4/6 成员 = r2, r3, r5（指定，不按相关排名）**。
+- **Task 4 使用全部成员 r1–r5；Task 6 未来谱成员 = r2, r3, r5（指定）**。
 
-## Task 4（未来情景 ssp245 / ssp585，指定成员 r2/r3/r5，2015–2100，方法与历史完全相同）
+## Task 4（未来情景 ssp245 / ssp585，全部成员 r1–r5，2015–2100，方法与历史完全相同）
 
 | 情景 | 成员 | EOF1 方差 | 与观测历史 PDO 型相关 | pos/neg 年数 |
 |---|---|---|---|---|
+| ssp245 | r1 | 15.8% | 0.70 | 38/40 |
 | ssp245 | r2 | 15.1% | 0.42 | 41/37 |
 | ssp245 | r3 | 18.5% | 0.61 | 36/42 |
+| ssp245 | r4 | 16.5% | 0.51 | 39/39 |
 | ssp245 | r5 | 15.5% | 0.56 | 40/38 |
+| ssp585 | r1 | 16.3% | 0.42 | 30/48 |
 | ssp585 | r2 | 18.0% | 0.73 | 45/33 |
 | ssp585 | r3 | 18.1% | **−0.40** | 50/28 |
+| ssp585 | r4 | 19.0% | **−0.30** | 45/33 |
 | ssp585 | r5 | 19.3% | 0.45 | 30/48 |
 
-- 图 `Task4_T4-1`–`T4-7`：未来 PDO EOF1、PC1、正/负位相降水、逐成员合成差、
-  3 成员平均合成差（historical vs ssp245 vs ssp585）、SSP585−SSP245 情景差。
-- 3 成员平均合成差与历史型的空间相关（陆地格点）：ssp245 = −0.00、ssp585 = −0.34；
-  两情景之间 −0.14（`task4_summary.json`）——**PDO–华东夏季降水关系在未来情景下
+- 图 `Task4_T4-1`–`T4-7`（成员图均为 2×5：行 = 情景，列 = r1–r5）：未来 PDO EOF1、PC1、
+  正/负位相降水、逐成员合成差、5 成员平均合成差（historical vs ssp245 vs ssp585，
+  `Task4_T4-5_Composite_Difference_MemberMean.png`）、SSP585−SSP245 情景差。
+- 5 成员平均合成差与历史型的空间相关（陆地格点）：ssp245 = −0.24、ssp585 = −0.00；
+  两情景之间 −0.07（`task4_summary.json`）——**PDO–华东夏季降水关系在未来情景下
   与历史型差异明显，且情景间不一致**。
 - 注意：ssp585 下强迫增暖强烈，线性去趋势后 EOF1 不一定是经典 PDO 型
-  （如 ssp585 r3 与观测型相关 −0.40）；这是任务文档规定方法（EOF1 + 线性去趋势）下的真实结果，
-  解释未来合成图时需留意。
+  （如 ssp585 r3 = −0.40、r4 = −0.30，与观测型相关为负）；这是任务文档规定方法
+  （EOF1 + 线性去趋势）下的真实结果，解释未来合成图时需留意。
 
 ## Task 5（SSP 情景降水 − 历史观测，全部 5 成员，陆地）
 
@@ -145,9 +150,11 @@ JJA 降水气候态（mm/day，GPCC 0.5° 网格、陆地掩膜）：各情景 2
 - Task 1–4 文档在 `docs/`；旧 MIROC6 版示例输出（Drive `task1-2_output`、`task3/4_*_outputs`）为图式参照。
   导师论文 `atmosphere-11-00003-v2.pdf`（Task 6 方法来源）与其重点图（`微信图片_*.png`，
   即论文 Figure 1，图 c 为功率谱模板）在仓库根目录。
-- 本轮改动：①同一幅图内的 colorbar 统一（`task1_pdo_members` 六面板共用一套色标、
-  task2 三联图 (a)(b)(c) 共用一套色标）；②Task 4/6 成员改为**指定 r2/r3/r5**
-  （此前按"vs 全体成员平均合成差相关"排名取 r5/r2/r4），Task 3–6 重跑，数值见上。
+- 本轮改动：Task 4 改为**全部 5 个成员 r1–r5**（2×5 图版式），不再选 best members；
+  Task 6 未来谱暂仍用 r2/r3/r5。
+- 前轮改动：①同一幅图内的 colorbar 统一（`task1_pdo_members` 六面板共用一套色标、
+  task2 三联图 (a)(b)(c) 共用一套色标）；②Task 4/6 成员曾改为指定 r2/r3/r5
+  （此前按"vs 全体成员平均合成差相关"排名取 r5/r2/r4）。
 - 上一轮改动：所有降水图改为只保留陆地（GPCC 掩膜）并重跑 Task 2–4；
   新增 Task 5（SSP−观测降水差）与 Task 6（PC1 功率谱 cycle/energy）。
 - 相对上一版 GitHub 结果的修正：去掉了 PDO 模态自动选择（一律 EOF1）、去掉了未来情景 SST 的

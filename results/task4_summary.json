@@ -1,11 +1,19 @@
 {
   "members": [
+    "r1",
     "r2",
     "r3",
+    "r4",
     "r5"
   ],
   "scenarios": {
     "ssp245": {
+      "r1": {
+        "eof1_varfrac": 0.1579,
+        "eof1_corr_with_obs_hist": 0.696,
+        "n_pos": 38,
+        "n_neg": 40
+      },
       "r2": {
         "eof1_varfrac": 0.1505,
         "eof1_corr_with_obs_hist": 0.418,
@@ -18,15 +26,27 @@
         "n_pos": 36,
         "n_neg": 42
       },
+      "r4": {
+        "eof1_varfrac": 0.1647,
+        "eof1_corr_with_obs_hist": 0.511,
+        "n_pos": 39,
+        "n_neg": 39
+      },
       "r5": {
         "eof1_varfrac": 0.1546,
         "eof1_corr_with_obs_hist": 0.557,
         "n_pos": 40,
         "n_neg": 38
       },
-      "ens_diff_corr_vs_hist": -0.002
+      "ens_diff_corr_vs_hist": -0.237
     },
     "ssp585": {
+      "r1": {
+        "eof1_varfrac": 0.1635,
+        "eof1_corr_with_obs_hist": 0.423,
+        "n_pos": 30,
+        "n_neg": 48
+      },
       "r2": {
         "eof1_varfrac": 0.1799,
         "eof1_corr_with_obs_hist": 0.734,
@@ -39,14 +59,20 @@
         "n_pos": 50,
         "n_neg": 28
       },
+      "r4": {
+        "eof1_varfrac": 0.1896,
+        "eof1_corr_with_obs_hist": -0.303,
+        "n_pos": 45,
+        "n_neg": 33
+      },
       "r5": {
         "eof1_varfrac": 0.1933,
         "eof1_corr_with_obs_hist": 0.453,
         "n_pos": 30,
         "n_neg": 48
       },
-      "ens_diff_corr_vs_hist": -0.342
+      "ens_diff_corr_vs_hist": -0.003
     }
   },
-  "ssp585_vs_ssp245_ens_diff_corr": -0.138
+  "ssp585_vs_ssp245_ens_diff_corr": -0.069
 }
