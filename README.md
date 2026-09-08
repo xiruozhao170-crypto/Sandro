@@ -64,7 +64,9 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   合成型：PDO+ 时华北/黄淮显著偏旱、江南-华南偏湿差异显著（白点 p<0.1），与 Yu 2013 图 2d 一致。
 - 模式成员（全部用 EOF1）：r1 62/45、r2 57/50、r3 54/53、r4 55/52、r5 50/57（pos/neg 年数）。
 - 图：`task2_pdo_timeseries.png`（观测+5 成员，红蓝柱 + 9 年滑动黑线）、
-  `task2_<tag>_three_panels.png`（正位相 / 负位相 / 合成差三联图）。
+  `task2_<tag>_three_panels.png`（正位相 / 负位相 / 合成差三联图）、
+  `task2_composite_obs_members.png`（obs + r1–r5 合成差 2×3 总览，共用色标，
+  白点 p<0.1；`task2_composite_grid.py` 从已存 results 出图）。
 
 ## Task 3（5 成员 spread，图式沿用旧版 Task3_Figure1–4）
 
