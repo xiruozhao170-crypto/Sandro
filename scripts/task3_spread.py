@@ -5,7 +5,8 @@ the new dataset supplies 5).
 Reads the per-member results of Task 2 (results/task2_<m>.nc) and computes,
 grid-point by grid-point across members, the ensemble mean and variance of
 the PDO EOF1 pattern and of the rainfall composites (diff and each phase).
-The members used in Task 4/6 are prescribed (r2, r3, r5).  The pattern
+The members used in the Task 5 future spectra are prescribed (r2, r3, r5;
+Task 4 runs all five members).  The pattern
 correlations of each member's composite difference with the all-member
 ensemble mean (the old MIROC6 ranking criterion) and with the observed
 composite are kept as diagnostics only.
@@ -181,7 +182,7 @@ def main():
     ens_diff = np.nanmean(rain["diff"], axis=0)
     corrs = {m: float(pattern_corr(rain["diff"][i], ens_diff))
              for i, m in enumerate(MEMBERS)}
-    # members for Task 4/6 are prescribed, not ranked
+    # members for the Task 5 future spectra are prescribed, not ranked
     best3 = ["r2", "r3", "r5"]
 
     # diagnostic only: correlation with the observed composite (same grid)

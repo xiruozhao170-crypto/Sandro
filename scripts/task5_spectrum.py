@@ -1,4 +1,4 @@
-"""Task 6: Fourier power-spectrum analysis of the PDO PC1 time series.
+"""Task 5: Fourier power-spectrum analysis of the PDO PC1 time series.
 
 Follows Figure 1c of the advisor's paper (Atmosphere 2020, 11, 3,
 doi:10.3390/atmos11010003): the periodogram (Fourier transform) of the
@@ -19,10 +19,10 @@ Series analysed
   future (2015-2100):     ssp245 and ssp585, the best-3 members of Task 3
 
 Figures:
-  Task6_Figure1_Historical_PC1_Spectrum.png   2x3: obs + r1-r5
-  Task6_Figure2_Future_PC1_Spectrum.png       2x3: ssp245/ssp585 x best3
-  Task6_Figure3_Cycle_Energy_Summary.png      dominant period + energy bars
-Outputs: results/task6_summary.json
+  Task5_Figure1_Historical_PC1_Spectrum.png   2x3: obs + r1-r5
+  Task5_Figure2_Future_PC1_Spectrum.png       2x3: ssp245/ssp585 x best3
+  Task5_Figure3_Cycle_Energy_Summary.png      dominant period + energy bars
+Outputs: results/task5_summary.json
 """
 import json
 from pathlib import Path
@@ -182,7 +182,7 @@ def summary_figure(order, specs, groups, path):
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in colors.values()]
     axes[1].legend(handles, colors.keys(), frameon=False, fontsize=9,
                    loc="lower right")
-    fig.suptitle("Task 6: PDO PC1 dominant cycle and its energy\n"
+    fig.suptitle("Task 5: PDO PC1 dominant cycle and its energy\n"
                  "(periodogram peak above red-noise background)", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.9])
     fig.savefig(path, dpi=200, bbox_inches="tight")
@@ -213,21 +213,21 @@ def main():
 
     spectrum_figure(
         [(f"{l}   (r1={specs[l]['r1']:.2f})", specs[l]) for l in hist_labels],
-        FIG / "Task6_Figure1_Historical_PC1_Spectrum.png",
-        "Task 6 Figure 1: Power spectrum of the historical PDO PC1 "
+        FIG / "Task5_Figure1_Historical_PC1_Spectrum.png",
+        "Task 5 Figure 1: Power spectrum of the historical PDO PC1 "
         "(1900–2014, monthly)\nblack: periodogram | red: AR1 red noise | "
         "gray: 90% (dashed) and 95% (solid) confidence levels")
 
     spectrum_figure(
         [(f"{l}   (r1={specs[l]['r1']:.2f})", specs[l]) for l in fut_labels],
-        FIG / "Task6_Figure2_Future_PC1_Spectrum.png",
-        "Task 6 Figure 2: Power spectrum of the future PDO PC1 "
+        FIG / "Task5_Figure2_Future_PC1_Spectrum.png",
+        "Task 5 Figure 2: Power spectrum of the future PDO PC1 "
         "(2015–2100, monthly, best-3 members)\nblack: periodogram | red: AR1 "
         "red noise | gray: 90% (dashed) and 95% (solid) confidence levels")
 
     order = hist_labels + fut_labels
     summary_figure(order, specs, groups,
-                   FIG / "Task6_Figure3_Cycle_Energy_Summary.png")
+                   FIG / "Task5_Figure3_Cycle_Energy_Summary.png")
 
     summary = {}
     for l in order:
@@ -255,8 +255,8 @@ def main():
                 [specs[l]["energy_frac"] for l in keys])), 4),
         }
 
-    (RES / "task6_summary.json").write_text(json.dumps(summary, indent=2))
-    print("saved results/task6_summary.json")
+    (RES / "task5_summary.json").write_text(json.dumps(summary, indent=2))
+    print("saved results/task5_summary.json")
 
 
 if __name__ == "__main__":
