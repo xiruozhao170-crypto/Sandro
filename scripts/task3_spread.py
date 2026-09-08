@@ -5,10 +5,10 @@ the new dataset supplies 5).
 Reads the per-member results of Task 2 (results/task2_<m>.nc) and computes,
 grid-point by grid-point across members, the ensemble mean and variance of
 the PDO EOF1 pattern and of the rainfall composites (diff and each phase).
-Members are ranked by pattern correlation between their composite difference
-and the ALL-MEMBER ENSEMBLE-MEAN composite (the old MIROC6 criterion) ->
-best 3 go to Task 4.  Correlation with the observed composite is kept as a
-diagnostic only.
+The members used in Task 4/6 are prescribed (r2, r3, r5).  The pattern
+correlations of each member's composite difference with the all-member
+ensemble mean (the old MIROC6 ranking criterion) and with the observed
+composite are kept as diagnostics only.
 
 Figures (mirroring the old MIROC6 outputs):
   Task3_Figure1_PDO_EOF1_Spread.png        r1-r5 EOF1 + across-member variance
@@ -176,12 +176,13 @@ def figure4_phase_spread(rain, coords, path):
 def main():
     pdo_eofs, pcs, rain, counts, coords = stack_members()
 
-    # ranking criterion (same as the old MIROC6 run): pattern correlation of
-    # each member's composite difference with the all-member ensemble mean
+    # diagnostic only: pattern correlation of each member's composite
+    # difference with the all-member ensemble mean (the old ranking criterion)
     ens_diff = np.nanmean(rain["diff"], axis=0)
     corrs = {m: float(pattern_corr(rain["diff"][i], ens_diff))
              for i, m in enumerate(MEMBERS)}
-    best3 = sorted(corrs, key=lambda m: -corrs[m])[:3]
+    # members for Task 4/6 are prescribed, not ranked
+    best3 = ["r2", "r3", "r5"]
 
     # diagnostic only: correlation with the observed composite (same grid)
     obs = xr.open_dataset(RES / "task2_obs.nc")

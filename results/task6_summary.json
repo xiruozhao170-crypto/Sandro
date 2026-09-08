@@ -71,18 +71,6 @@
     "cycle_energy_sigma2": 0.4198,
     "cycle_energy_frac_of_variance": 0.4061
   },
-  "ssp245 r5": {
-    "group": "ssp245",
-    "lag1_autocorr": 0.844,
-    "dominant_period_years": 2.21,
-    "significance": "95%",
-    "band_period_years": [
-      2.05,
-      2.46
-    ],
-    "cycle_energy_sigma2": 0.1016,
-    "cycle_energy_frac_of_variance": 0.1018
-  },
   "ssp245 r2": {
     "group": "ssp245",
     "lag1_autocorr": 0.854,
@@ -95,29 +83,29 @@
     "cycle_energy_sigma2": 0.0716,
     "cycle_energy_frac_of_variance": 0.0732
   },
-  "ssp245 r4": {
+  "ssp245 r3": {
     "group": "ssp245",
-    "lag1_autocorr": 0.854,
+    "lag1_autocorr": 0.899,
     "dominant_period_years": 28.67,
+    "significance": "90%",
+    "band_period_years": [
+      21.5,
+      43.0
+    ],
+    "cycle_energy_sigma2": 0.1896,
+    "cycle_energy_frac_of_variance": 0.1893
+  },
+  "ssp245 r5": {
+    "group": "ssp245",
+    "lag1_autocorr": 0.844,
+    "dominant_period_years": 2.21,
     "significance": "95%",
     "band_period_years": [
-      17.2,
-      43.0
+      2.05,
+      2.46
     ],
-    "cycle_energy_sigma2": 0.1479,
-    "cycle_energy_frac_of_variance": 0.1533
-  },
-  "ssp585 r5": {
-    "group": "ssp585",
-    "lag1_autocorr": 0.869,
-    "dominant_period_years": 28.67,
-    "significance": "red noise",
-    "band_period_years": [
-      17.2,
-      43.0
-    ],
-    "cycle_energy_sigma2": 0.1432,
-    "cycle_energy_frac_of_variance": 0.14
+    "cycle_energy_sigma2": 0.1016,
+    "cycle_energy_frac_of_variance": 0.1018
   },
   "ssp585 r2": {
     "group": "ssp585",
@@ -131,17 +119,29 @@
     "cycle_energy_sigma2": 0.151,
     "cycle_energy_frac_of_variance": 0.1667
   },
-  "ssp585 r4": {
+  "ssp585 r3": {
     "group": "ssp585",
-    "lag1_autocorr": 0.86,
-    "dominant_period_years": 2.46,
+    "lag1_autocorr": 0.864,
+    "dominant_period_years": 28.67,
     "significance": "red noise",
     "band_period_years": [
-      2.21,
-      2.46
+      28.67,
+      43.0
     ],
-    "cycle_energy_sigma2": 0.0536,
-    "cycle_energy_frac_of_variance": 0.0537
+    "cycle_energy_sigma2": 0.0723,
+    "cycle_energy_frac_of_variance": 0.0765
+  },
+  "ssp585 r5": {
+    "group": "ssp585",
+    "lag1_autocorr": 0.869,
+    "dominant_period_years": 28.67,
+    "significance": "red noise",
+    "band_period_years": [
+      17.2,
+      43.0
+    ],
+    "cycle_energy_sigma2": 0.1432,
+    "cycle_energy_frac_of_variance": 0.14
   },
   "_mean_historical": {
     "dominant_period_years": 30.84,
@@ -149,10 +149,10 @@
   },
   "_mean_ssp245": {
     "dominant_period_years": 19.85,
-    "cycle_energy_frac_of_variance": 0.1094
+    "cycle_energy_frac_of_variance": 0.1214
   },
   "_mean_ssp585": {
-    "dominant_period_years": 19.93,
-    "cycle_energy_frac_of_variance": 0.1201
+    "dominant_period_years": 28.67,
+    "cycle_energy_frac_of_variance": 0.1277
   }
 }

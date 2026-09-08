@@ -1,7 +1,7 @@
 """Task 4: PDO-rainfall composites under future scenarios (ACCESS-CM2).
 
-Uses the 3 members that best represent the historical rainfall composite
-(results/task3_summary.json) and repeats the Task 2/3 procedure for
+Uses the 3 prescribed members (r2, r3, r5; "best3" in
+results/task3_summary.json) and repeats the Task 2/3 procedure for
 ssp245 and ssp585 (2015-2100), exactly as in the historical run:
 PDO = EOF1 of linearly detrended monthly SST anomalies; phases from the
 JJA mean of the 9-yr smoothed PC1; rainfall on the GPCC 0.5-deg grid.

@@ -30,17 +30,17 @@ def _map_axis(ax):
 def rainfall_three_panels(comp, title, path):
     """(a) PDO+ anomaly, (b) PDO- anomaly, (c) composite diff w/ p<0.1 dots."""
     lat, lon = comp["pos"].lat, comp["pos"].lon
-    lev_ab = _sym_levels(comp["pos"].values, comp["neg"].values)
-    lev_c = _sym_levels(comp["diff"].values)
+    lev = _sym_levels(comp["pos"].values, comp["neg"].values,
+                      comp["diff"].values)
 
     fig, axes = plt.subplots(1, 3, figsize=(19, 6.2), constrained_layout=True,
                              subplot_kw={"projection": ccrs.PlateCarree()})
     panels = [
-        ("(a)  PDO Positive Phase\nJJA Rainfall Anomaly", comp["pos"], lev_ab),
-        ("(b)  PDO Negative Phase\nJJA Rainfall Anomaly", comp["neg"], lev_ab),
-        ("(c)  Composite (Pos $-$ Neg)\nwhite dots: p<0.1", comp["diff"], lev_c),
+        ("(a)  PDO Positive Phase\nJJA Rainfall Anomaly", comp["pos"]),
+        ("(b)  PDO Negative Phase\nJJA Rainfall Anomaly", comp["neg"]),
+        ("(c)  Composite (Pos $-$ Neg)\nwhite dots: p<0.1", comp["diff"]),
     ]
-    for i, (ax, (ttl, fld, lev)) in enumerate(zip(axes, panels)):
+    for i, (ax, (ttl, fld)) in enumerate(zip(axes, panels)):
         cf = ax.contourf(lon, lat, fld, levels=lev, cmap="BrBG",
                          transform=ccrs.PlateCarree(), extend="both")
         if i == 2:

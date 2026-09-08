@@ -49,6 +49,8 @@ def main():
         (f"ACCESS-CM2 {m}", xr.open_dataset(RES / f"task1_pdo_access_{m}.nc"))
         for m in MEMBERS
     ]
+    lim = max(float(np.nanmax(np.abs(ds.eof1.values))) for _, ds in panels)
+    levels = np.linspace(-lim, lim, 21)
     for k, (label, ds) in enumerate(panels):
         vf = float(ds.variance_fraction[0]) * 100
         r = pattern_corr(ds.eof1, obs.eof1) if label != "ERSSTv4 (obs)" else 1.0
@@ -59,9 +61,8 @@ def main():
             }
         ax = fig.add_subplot(2, 3, k + 1,
                              projection=ccrs.PlateCarree(central_longitude=180))
-        lim = float(np.nanmax(np.abs(ds.eof1.values)))
         cf = ax.contourf(ds.lon, ds.lat, ds.eof1,
-                         levels=np.linspace(-lim, lim, 21), cmap="RdBu_r",
+                         levels=levels, cmap="RdBu_r",
                          transform=ccrs.PlateCarree(), extend="both")
         ax.coastlines()
         ax.add_feature(cfeature.LAND, facecolor="0.85")
