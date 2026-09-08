@@ -13,6 +13,7 @@ Figures (mirroring the old MIROC6 T4 outputs, adapted to 2 scenarios):
   Task4_T4-5_Composite_Difference_MemberMean.png   hist / ssp245 / ssp585
   Task4_T4-6_Composite_Difference_by_member.png
   Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png  1x5 per member
+  Task4_T4-8_Composite_Difference_SSP585_minus_Obs.png    1x5 per member
 Outputs: results/task4_<scen>_<m>.nc, results/task4_summary.json
 """
 import json
@@ -214,6 +215,27 @@ def main():
                  "SSP585 $-$ SSP245 by member\nACCESS-CM2 2015–2100",
                  fontsize=13, y=1.06)
     fig.savefig(FIG / "Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png",
+                dpi=200, bbox_inches="tight")
+    plt.close(fig)
+
+    # T4-8 each member's ssp585 composite minus the observed composite
+    obs_diff = xr.open_dataset(RES / "task2_obs.nc")["rain_diff"].values
+    dds = [results[("ssp585", m)]["comp"]["diff"].values - obs_diff
+           for m in MEMBERS]
+    lev = _sym_levels(*dds)
+    fig, axes = plt.subplots(1, 5, figsize=(22, 5.2), constrained_layout=True,
+                             subplot_kw={"projection": ccrs.PlateCarree()})
+    for ax, dd, m in zip(axes, dds, MEMBERS):
+        cf = ax.contourf(rn, rl, dd, levels=lev, cmap="BrBG",
+                         transform=ccrs.PlateCarree(), extend="both")
+        _map_axis(ax)
+        ax.set_title(f"{m}  SSP585 $-$ obs")
+    fig.colorbar(cf, ax=axes.ravel().tolist(), label="mm/day",
+                 orientation="horizontal", fraction=0.05, pad=0.03, aspect=45)
+    fig.suptitle("Task 4-8: Composite Difference (Pos$-$Neg), "
+                 "SSP585 (2015–2100) $-$ obs (1900–2014) by member\n"
+                 "ACCESS-CM2 vs ERSSTv4+GPCC", fontsize=13, y=1.06)
+    fig.savefig(FIG / "Task4_T4-8_Composite_Difference_SSP585_minus_Obs.png",
                 dpi=200, bbox_inches="tight")
     plt.close(fig)
 
