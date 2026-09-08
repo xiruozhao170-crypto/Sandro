@@ -98,7 +98,7 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 
 - 图 `Task4_T4-1`–`T4-7`（成员图均为 2×5：行 = 情景，列 = r1–r5）：未来 PDO EOF1、PC1、
   正/负位相降水、逐成员合成差、5 成员平均合成差（historical vs ssp245 vs ssp585，
-  `Task4_T4-5_Composite_Difference_MemberMean.png`）、SSP585−SSP245 情景差。
+  `Task4_T4-5_Composite_Difference_MemberMean.png`）、逐成员 SSP585−SSP245 情景差（1×5）。
 - 5 成员平均合成差与历史型的空间相关（陆地格点）：ssp245 = −0.24、ssp585 = −0.00；
   两情景之间 −0.07（`task4_summary.json`）——**PDO–华东夏季降水关系在未来情景下
   与历史型差异明显，且情景间不一致**。

@@ -12,7 +12,7 @@ Figures (mirroring the old MIROC6 T4 outputs, adapted to 2 scenarios):
   Task4_T4-4_Negative_Phase_Rainfall_by_member.png
   Task4_T4-5_Composite_Difference_MemberMean.png   hist / ssp245 / ssp585
   Task4_T4-6_Composite_Difference_by_member.png
-  Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png
+  Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png  1x5 per member
 Outputs: results/task4_<scen>_<m>.nc, results/task4_summary.json
 """
 import json
@@ -197,17 +197,22 @@ def main():
                 dpi=200, bbox_inches="tight")
     plt.close(fig)
 
-    # T4-7 scenario difference of the member-mean composites
-    dd = ens["ssp585"] - ens["ssp245"]
-    lev = _sym_levels(dd)
-    fig = plt.figure(figsize=(7.2, 5.8))
-    ax = plt.axes(projection=ccrs.PlateCarree())
-    cf = ax.contourf(rn, rl, dd, levels=lev, cmap="BrBG",
-                     transform=ccrs.PlateCarree(), extend="both")
-    _map_axis(ax)
-    fig.colorbar(cf, ax=ax, label="mm/day", shrink=0.85)
-    ax.set_title("Task 4-7: Composite Difference, SSP585 $-$ SSP245\n"
-                 "(mean of r1–r5, 2015–2100)")
+    # T4-7 scenario difference (ssp585 - ssp245) of each member's composite
+    dds = [results[("ssp585", m)]["comp"]["diff"].values
+           - results[("ssp245", m)]["comp"]["diff"].values for m in MEMBERS]
+    lev = _sym_levels(*dds)
+    fig, axes = plt.subplots(1, 5, figsize=(22, 5.2), constrained_layout=True,
+                             subplot_kw={"projection": ccrs.PlateCarree()})
+    for ax, dd, m in zip(axes, dds, MEMBERS):
+        cf = ax.contourf(rn, rl, dd, levels=lev, cmap="BrBG",
+                         transform=ccrs.PlateCarree(), extend="both")
+        _map_axis(ax)
+        ax.set_title(f"{m}  SSP585 $-$ SSP245")
+    fig.colorbar(cf, ax=axes.ravel().tolist(), label="mm/day",
+                 orientation="horizontal", fraction=0.05, pad=0.03, aspect=45)
+    fig.suptitle("Task 4-7: Composite Difference (Pos$-$Neg), "
+                 "SSP585 $-$ SSP245 by member\nACCESS-CM2 2015–2100",
+                 fontsize=13, y=1.06)
     fig.savefig(FIG / "Task4_T4-7_Scenario_Difference_SSP585_minus_SSP245.png",
                 dpi=200, bbox_inches="tight")
     plt.close(fig)
