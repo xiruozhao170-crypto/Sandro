@@ -1,5 +1,26 @@
 # Sandro: PDO–EASM 分析（ACCESS-CM2，按旧 MIROC6 流程重做）
 
+## 新增 Task 6：JJA 西太平洋副热带高压位置
+
+按 Dong (2016, [doi:10.1002/asl.634](https://rmets.onlinelibrary.wiley.com/doi/10.1002/asl.634)) 的 Figure 4(a) 图式，绘制 **500 hPa、5870 gpm** 的 PDO 正/负位相合成等值线。本任务按用户确认使用 **r1、r2、r5**，保留所有 ENSO 状态，PDO 分组严格复用本仓库结果。仅绘制 **JJA**。
+
+| 图像 | 内容 |
+|---|---|
+| [汇总图](figures/task6_wpsh/Figure4_JJA_WPSH_overview.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_overview.svg) | 观测参照、historical、SSP245、SSP585；模式为 r1/r2/r5 各自位相合成后的等权平均 |
+| [逐成员图](figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.svg) | 3×3：行 = historical/SSP245/SSP585，列 = r1/r2/r5 |
+| [共同时间窗对照](figures/task6_wpsh/Figure4_JJA_WPSH_common_period.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_common_period.svg) | 1948–2014 年观测参照与历史三个成员，沿用各自原始 PDO 指数 |
+
+观测高度补充使用 **NOAA NCEP/NCAR 再分析（1948–2014）**；历史/未来时段沿用仓库的 1900–2014 / 2015–2100。14 个模式高度文件全部登记，其中两份 r1 SSP585 的 2101–2300 延伸文件超出本次时段，未加入合成。实际合成年份受原有 9 年平滑端点限制，已逐年列出。
+
+[方法、数据来源与复现步骤](docs/Task6_WPSH_method.md) · [绘图代码](scripts/task6_wpsh.py) · [结果与检验](results/task6_wpsh)
+
+```powershell
+python scripts/task6_wpsh.py --data-root 'E:\Sandro Dachuang'
+python scripts/validate_task6_wpsh.py --data-root 'E:\Sandro Dachuang'
+```
+
+## 原有 Task 1–5
+
 用导师提供的新数据 **ACCESS-CM2**（5 成员 r1–r5，替代旧 MIROC6 10 成员）重跑 Task 1–4。
 方法严格沿用旧数据版本的代码思路（任务文档 Task1–4.docx 的规定流程），
 不做任何额外的"改进"（上一版曾引入 EOF 模态自动选择和二次去趋势，本版已全部去掉）：

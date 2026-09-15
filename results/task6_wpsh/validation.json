@@ -1,0 +1,137 @@
+{
+  "status": "passed",
+  "raw_model_seasons_checked": [
+    {
+      "dataset": "historical_r1",
+      "year": 1904,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "historical_r1",
+      "year": 1915,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "historical_r2",
+      "year": 1904,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "historical_r2",
+      "year": 1917,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "historical_r5",
+      "year": 1904,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "historical_r5",
+      "year": 1914,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp245_r1",
+      "year": 2019,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp245_r1",
+      "year": 2031,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp245_r2",
+      "year": 2019,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp245_r2",
+      "year": 2025,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp245_r5",
+      "year": 2019,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp245_r5",
+      "year": 2022,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp585_r1",
+      "year": 2019,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp585_r1",
+      "year": 2020,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp585_r2",
+      "year": 2028,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp585_r2",
+      "year": 2019,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp585_r5",
+      "year": 2019,
+      "phase": 1,
+      "max_raw_JJA_error_gpm": 0.0
+    },
+    {
+      "dataset": "ssp585_r5",
+      "year": 2021,
+      "phase": -1,
+      "max_raw_JJA_error_gpm": 0.0
+    }
+  ],
+  "composite_reconstruction": "Passed for all 13 annual datasets and both PDO phases",
+  "member_means": "Passed for historical, SSP245, SSP585",
+  "observation_raw_season": "1948 JJA agrees with downloaded NCEP data",
+  "csv_year_lists": "Agree with NetCDF phase lists",
+  "contour_availability": "GeoJSON and summary agree with each composite's range; below-threshold fields have no invented contours",
+  "inputs": "14 inventoried, 12 used, correct members/500 hPa/5870 gpm",
+  "figures": [
+    {
+      "file": "Figure4_JJA_WPSH_common_period.png",
+      "width": 4200,
+      "height": 2700
+    },
+    {
+      "file": "Figure4_JJA_WPSH_overview.png",
+      "width": 4200,
+      "height": 2700
+    },
+    {
+      "file": "Figure4_JJA_WPSH_selected_members.png",
+      "width": 5400,
+      "height": 3480
+    }
+  ],
+  "svg": "All three SVG figures contain no embedded raster images"
+}

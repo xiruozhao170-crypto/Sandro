@@ -1,0 +1,490 @@
+{
+  "obs": {
+    "dataset": "obs",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 27,
+    "n_neg": 36,
+    "pos_years": "1961,1962,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001",
+    "neg_years": "1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,2002,2003,2004,2005,2006,2007,2008,2009,2010",
+    "phase_file": "results\\task2_obs.nc",
+    "phase_file_sha256": "2e2f88e3d54e89a3b95f4d2498da4448cd6285d339699205a157fd56649fd053",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1948-2014",
+    "used_period": "1948-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5638.804452401621,
+        5885.818467881943
+      ],
+      "neg": [
+        5630.398817274307,
+        5882.296242042824
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "historical_r1": {
+    "dataset": "historical_r1",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 62,
+    "n_neg": 45,
+    "pos_years": "1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998",
+    "neg_years": "1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1952,1953,1972,1973,1974,1975,1976,1977,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010",
+    "phase_file": "results\\task2_r1.nc",
+    "phase_file_sha256": "1f5fd25ba2767a660bdcb001387edd460f78e1a5fa1b188d572d991a06c499b5",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1900-2014",
+    "used_period": "1904-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5556.826528897847,
+        5867.641885080645
+      ],
+      "neg": [
+        5563.650578703704,
+        5869.428935185185
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": false,
+      "neg": false
+    }
+  },
+  "historical_common_r1": {
+    "dataset": "historical_common_r1",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 43,
+    "n_neg": 20,
+    "pos_years": "1948,1949,1950,1951,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998",
+    "neg_years": "1952,1953,1972,1973,1974,1975,1976,1977,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010",
+    "phase_file": "results\\task2_r1.nc",
+    "phase_file_sha256": "1f5fd25ba2767a660bdcb001387edd460f78e1a5fa1b188d572d991a06c499b5",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1948-2014",
+    "used_period": "1948-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5555.2823401162805,
+        5868.574763808138
+      ],
+      "neg": [
+        5570.653971354166,
+        5874.9727213541655
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": false,
+      "neg": true
+    }
+  },
+  "historical_r2": {
+    "dataset": "historical_r2",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 57,
+    "n_neg": 50,
+    "pos_years": "1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1933,1934,1935,1951,1952,1953,1954,1955,1956,1957,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996",
+    "neg_years": "1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1958,1959,1960,1961,1962,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010",
+    "phase_file": "results\\task2_r2.nc",
+    "phase_file_sha256": "90b3d32ed3f5bdb0fc8e3666e1bb862ab5e3a232a95344f75a52cb7d4690a4ef",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1900-2014",
+    "used_period": "1904-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5565.5823739035095,
+        5865.163240131578
+      ],
+      "neg": [
+        5569.159609375,
+        5869.612447916667
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": false,
+      "neg": false
+    }
+  },
+  "historical_common_r2": {
+    "dataset": "historical_common_r2",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 41,
+    "n_neg": 22,
+    "pos_years": "1951,1952,1953,1954,1955,1956,1957,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996",
+    "neg_years": "1948,1949,1950,1958,1959,1960,1961,1962,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010",
+    "phase_file": "results\\task2_r2.nc",
+    "phase_file_sha256": "90b3d32ed3f5bdb0fc8e3666e1bb862ab5e3a232a95344f75a52cb7d4690a4ef",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1948-2014",
+    "used_period": "1948-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5567.05872078252,
+        5866.0318851626025
+      ],
+      "neg": [
+        5576.43495501894,
+        5874.679509943183
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": false,
+      "neg": true
+    }
+  },
+  "historical_r5": {
+    "dataset": "historical_r5",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 50,
+    "n_neg": 57,
+    "pos_years": "1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1969,1970,1971,1972,1973,1974,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007",
+    "neg_years": "1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,2008,2009,2010",
+    "phase_file": "results\\task2_r5.nc",
+    "phase_file_sha256": "ae612916eb543678877e185b5ee6aba9e80d8a0724baeb3d66ef618d0713b4c6",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1900-2014",
+    "used_period": "1904-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5564.618177083333,
+        5874.300833333334
+      ],
+      "neg": [
+        5573.320015533626,
+        5869.200063961987
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": false
+    }
+  },
+  "historical_common_r5": {
+    "dataset": "historical_common_r5",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 32,
+    "n_neg": 31,
+    "pos_years": "1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1969,1970,1971,1972,1973,1974,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007",
+    "neg_years": "1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,2008,2009,2010",
+    "phase_file": "results\\task2_r5.nc",
+    "phase_file_sha256": "ae612916eb543678877e185b5ee6aba9e80d8a0724baeb3d66ef618d0713b4c6",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "1948-2014",
+    "used_period": "1948-2010",
+    "composite_ranges_gpm": {
+      "pos": [
+        5571.060953776041,
+        5876.867919921875
+      ],
+      "neg": [
+        5577.564726142473,
+        5868.585055443548
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": false
+    }
+  },
+  "ssp245_r1": {
+    "dataset": "ssp245_r1",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 38,
+    "n_neg": 40,
+    "pos_years": "2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2038,2041,2042,2043,2044,2045,2046,2069,2070,2071,2072,2073,2074,2075,2076,2077,2078,2088,2089,2090,2091,2092,2093,2094,2095,2096",
+    "neg_years": "2031,2032,2033,2034,2035,2036,2037,2039,2040,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062,2063,2064,2065,2066,2067,2068,2079,2080,2081,2082,2083,2084,2085,2086,2087",
+    "phase_file": "results\\task4_ssp245_r1.nc",
+    "phase_file_sha256": "6336d90f3a285ad32774a98339e1a2b22613406dbd23819b8bc12c301846a487",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "composite_ranges_gpm": {
+      "pos": [
+        5650.898745888157,
+        5922.985300164472
+      ],
+      "neg": [
+        5649.323925781249,
+        5923.6291666666675
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "ssp245_r2": {
+    "dataset": "ssp245_r2",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 41,
+    "n_neg": 37,
+    "pos_years": "2019,2020,2021,2022,2023,2024,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062,2063,2064,2065,2066,2073,2074,2075,2076,2077,2078,2079,2080,2081,2083,2084,2085,2086",
+    "neg_years": "2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2067,2068,2069,2070,2071,2072,2082,2087,2088,2089,2090,2091,2092,2093,2094,2095,2096",
+    "phase_file": "results\\task4_ssp245_r2.nc",
+    "phase_file_sha256": "335825a935d089ce3486f7f5cfffdb31f70ae31f6803dd54b2c46224d93acf64",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "composite_ranges_gpm": {
+      "pos": [
+        5648.573138973577,
+        5925.402184959351
+      ],
+      "neg": [
+        5645.2297649211705,
+        5920.985888231981
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "ssp245_r5": {
+    "dataset": "ssp245_r5",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 40,
+    "n_neg": 38,
+    "pos_years": "2019,2020,2021,2023,2026,2030,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2061,2062,2063,2064,2065,2066,2067,2068,2069,2070,2071,2072,2073,2074,2075,2076,2077,2078,2079,2080,2081,2082,2083",
+    "neg_years": "2022,2024,2025,2027,2028,2029,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2053,2054,2055,2056,2057,2058,2059,2060,2084,2085,2086,2087,2088,2089,2090,2091,2092,2093,2094,2095,2096",
+    "phase_file": "results\\task4_ssp245_r5.nc",
+    "phase_file_sha256": "566e1b53395eabb02c06eaad563b8ccebd64ee897beab346aa3855132f968076",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "composite_ranges_gpm": {
+      "pos": [
+        5661.213834635416,
+        5932.434440104166
+      ],
+      "neg": [
+        5657.705489309211,
+        5926.3080797697385
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "ssp585_r1": {
+    "dataset": "ssp585_r1",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 30,
+    "n_neg": 48,
+    "pos_years": "2019,2023,2024,2025,2026,2027,2028,2037,2038,2039,2057,2058,2059,2060,2061,2062,2063,2064,2065,2066,2067,2068,2069,2070,2071,2082,2083,2084,2085,2096",
+    "neg_years": "2020,2021,2022,2029,2030,2031,2032,2033,2034,2035,2036,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2072,2073,2074,2075,2076,2077,2078,2079,2080,2081,2086,2087,2088,2089,2090,2091,2092,2093,2094,2095",
+    "phase_file": "results\\task4_ssp585_r1.nc",
+    "phase_file_sha256": "f0487cf4fbd64a5566fa960c2523f964dddb045fc7ba260a9c662cb5e0e8d258",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "composite_ranges_gpm": {
+      "pos": [
+        5668.336631944444,
+        5939.41462673611
+      ],
+      "neg": [
+        5663.47794596354,
+        5943.78851996528
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "ssp585_r2": {
+    "dataset": "ssp585_r2",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 45,
+    "n_neg": 33,
+    "pos_years": "2028,2029,2030,2031,2032,2033,2034,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062,2063,2064,2065,2066,2067,2068,2069,2070,2071,2072,2073,2074,2075,2076,2077,2078",
+    "neg_years": "2019,2020,2021,2022,2023,2024,2025,2026,2027,2035,2036,2037,2038,2039,2040,2079,2080,2081,2082,2083,2084,2085,2086,2087,2088,2089,2090,2091,2092,2093,2094,2095,2096",
+    "phase_file": "results\\task4_ssp585_r2.nc",
+    "phase_file_sha256": "319c6333700d23e740a067ad3cf578b3a04660cdab59b102b65ee83355ded2b9",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "composite_ranges_gpm": {
+      "pos": [
+        5666.13125,
+        5937.40587384259
+      ],
+      "neg": [
+        5676.893031881312,
+        5950.846393623738
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "ssp585_r5": {
+    "dataset": "ssp585_r5",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "season": "JJA",
+    "n_pos": 30,
+    "n_neg": 48,
+    "pos_years": "2019,2020,2029,2030,2031,2032,2033,2034,2035,2036,2037,2060,2061,2062,2063,2064,2065,2066,2067,2068,2069,2070,2071,2072,2089,2090,2093,2094,2095,2096",
+    "neg_years": "2021,2022,2023,2024,2025,2026,2027,2028,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2073,2074,2075,2076,2077,2078,2079,2080,2081,2082,2083,2084,2085,2086,2087,2088,2091,2092",
+    "phase_file": "results\\task4_ssp585_r5.nc",
+    "phase_file_sha256": "ae45f8a56a1348903d197f49091790d883ad24ec95eae0afbc85a27fd7c46439",
+    "phase_method": "Repository EOF1 PC; 108-month centered mean; sign of JJA mean",
+    "enso_filter": "None (explicit user instruction)",
+    "height_processing": "Absolute geopotential height; no detrending, anomalies or bias correction",
+    "temporal_averaging": "Equal monthly weights within JJA; equal year weights within each phase",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "composite_ranges_gpm": {
+      "pos": [
+        5677.264843749999,
+        5951.172786458332
+      ],
+      "neg": [
+        5686.695041232638,
+        5943.299967447915
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "historical_member_mean": {
+    "dataset": "historical_member_mean",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "members": "r1,r2,r5",
+    "averaging": "Equal member weights AFTER each member's PDO phase compositing",
+    "requested_period": "1900-2014",
+    "used_period": "1904-2010",
+    "enso_filter": "None (explicit user instruction)",
+    "composite_ranges_gpm": {
+      "pos": [
+        5562.43965832901,
+        5868.987923681853
+      ],
+      "neg": [
+        5568.841201520873,
+        5869.297964790448
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": false,
+      "neg": false
+    }
+  },
+  "ssp245_member_mean": {
+    "dataset": "ssp245_member_mean",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "members": "r1,r2,r5",
+    "averaging": "Equal member weights AFTER each member's PDO phase compositing",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "enso_filter": "None (explicit user instruction)",
+    "composite_ranges_gpm": {
+      "pos": [
+        5653.738082664186,
+        5926.940641742663
+      ],
+      "neg": [
+        5650.769799399523,
+        5923.631871653728
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  },
+  "ssp585_member_mean": {
+    "dataset": "ssp585_member_mean",
+    "pressure_hPa": 500.0,
+    "wpsh_contour_gpm": 5870.0,
+    "members": "r1,r2,r5",
+    "averaging": "Equal member weights AFTER each member's PDO phase compositing",
+    "requested_period": "2015-2100",
+    "used_period": "2019-2096",
+    "enso_filter": "None (explicit user instruction)",
+    "composite_ranges_gpm": {
+      "pos": [
+        5670.6503665123455,
+        5942.642843364197
+      ],
+      "neg": [
+        5675.68867302583,
+        5945.967866326021
+      ]
+    },
+    "contour_exists_in_computed_domain": {
+      "pos": true,
+      "neg": true
+    }
+  }
+}
