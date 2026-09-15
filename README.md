@@ -9,6 +9,11 @@
 | [汇总图](figures/task6_wpsh/Figure4_JJA_WPSH_overview.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_overview.svg) | 观测参照、historical、SSP245、SSP585；模式为 r1/r2/r5 各自位相合成后的等权平均 |
 | [逐成员图](figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.svg) | 3×3：行 = historical/SSP245/SSP585，列 = r1/r2/r5 |
 | [共同时间窗对照](figures/task6_wpsh/Figure4_JJA_WPSH_common_period.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_common_period.svg) | 1948–2014 年观测参照与历史三个成员，沿用各自原始 PDO 指数 |
+| [观测/历史正负位相分开图](figures/task6_wpsh/Figure4_JJA_WPSH_observation_historical_phase_separated.png) | 左列 PDO 正位相、右列负位相，单条连续实线显示 |
+| [SSP245 正负位相分开图](figures/task6_wpsh/Figure4_JJA_WPSH_ssp245_phase_separated.png) | r1/r2/r5 三行，正负位相左右对照，避免线条相互遮挡 |
+| [SSP585 正负位相分开图](figures/task6_wpsh/Figure4_JJA_WPSH_ssp585_phase_separated.png) | 同上，SSP585；新增三图均附同名 SVG |
+
+**图像复查更新：**地图已扩大至 90°E–160°W、0–50°N，减轻原图北侧与东侧裁切；叠加图调整了线宽和虚线间隔。正负位相接近时请优先看上述分开图。部分历史合成最大值低于 5870 gpm，因此没有该等值线，已明确标注；32 组数值场均无缺测值。[逐组合成与显示检查表](results/task6_wpsh/contour_display_audit.csv)记录了原因。
 
 观测高度补充使用 **NOAA NCEP/NCAR 再分析（1948–2014）**；历史/未来时段沿用仓库的 1900–2014 / 2015–2100。14 个模式高度文件全部登记，其中两份 r1 SSP585 的 2101–2300 延伸文件超出本次时段，未加入合成。实际合成年份受原有 9 年平滑端点限制，已逐年列出。
 

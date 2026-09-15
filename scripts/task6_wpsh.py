@@ -31,7 +31,7 @@ REPO = Path(__file__).resolve().parents[1]
 MEMBERS = ("r1", "r2", "r5")
 EXPERIMENTS = ("historical", "ssp245", "ssp585")
 LEVEL = 5870.0
-EXTENT = (100, 180, 0, 40)
+EXTENT = (90, 200, 0, 50)
 NCSS = ("https://psl.noaa.gov/thredds/ncss/grid/Datasets/"
         "ncep.reanalysis.derived/pressure/hgt.mon.mean.nc")
 POS, NEG = "#b52230", "#2459a6"
@@ -209,19 +209,23 @@ def map_axis(ax):
     ax.set_extent(EXTENT, crs=ccrs.PlateCarree())
     ax.add_feature(cfeature.LAND.with_scale("110m"), facecolor="#f0f0ec", zorder=0)
     ax.coastlines(resolution="110m", linewidth=.65, color="#555555")
-    ax.set_xticks([100, 120, 140, 160, 180], crs=ccrs.PlateCarree())
-    ax.set_yticks([0, 10, 20, 30, 40], crs=ccrs.PlateCarree())
+    ax.set_xticks([100, 120, 140, 160, 180, 200], crs=ccrs.PlateCarree())
+    ax.set_yticks([0, 10, 20, 30, 40, 50], crs=ccrs.PlateCarree())
     ax.xaxis.set_major_formatter(LongitudeFormatter())
     ax.yaxis.set_major_formatter(LatitudeFormatter())
     ax.tick_params(labelsize=9, length=3)
-    ax.gridlines(xlocs=[100, 120, 140, 160, 180], ylocs=[0, 10, 20, 30, 40],
+    ax.gridlines(xlocs=[100, 120, 140, 160, 180, 200], ylocs=[0, 10, 20, 30, 40, 50],
                  linewidth=.35, color="gray", alpha=.4, linestyle=":")
 
 
-def draw_panel(ax, ds, title):
+def draw_panel(ax, ds, title, phases=("pos", "neg")):
     map_axis(ax)
     unavailable = []
-    for name, color, style in [("z500_pos", POS, "solid"), ("z500_neg", NEG, "dashed")]:
+    for phase in phases:
+        name = f"z500_{phase}"
+        color = POS if phase == "pos" else NEG
+        # Separate-phase panels use continuous lines; overlay retains the paper's styles.
+        style = (0, (6, 4)) if phase == "neg" and len(phases) == 2 else "solid"
         field = ds[name]
         if not float(field.min()) < LEVEL < float(field.max()):
             label = "PDO+" if name.endswith("pos") else "PDO-"
@@ -229,27 +233,31 @@ def draw_panel(ax, ds, title):
                                 f"regional maximum = {float(field.max()):.1f} gpm", color))
             continue
         ax.contour(field.lon, field.lat, field, levels=[LEVEL], colors=[color],
-                   linestyles=[style], linewidths=2, transform=ccrs.PlateCarree(), zorder=3)
+                   linestyles=[style], linewidths=1.35 if phase == "neg" else 1.65,
+                   transform=ccrs.PlateCarree(), zorder=3)
     for i, (message, color) in enumerate(unavailable):
-        ax.text(.97, .13 + i * .21, message, transform=ax.transAxes, ha="right",
+        ax.text(.97, .10 + i * .17, message, transform=ax.transAxes, ha="right",
                 va="bottom", fontsize=9, color=color, zorder=5,
                 bbox=dict(facecolor="white", edgecolor="none", alpha=.88, pad=3))
     period = ds.attrs["requested_period"]
     counts = (f"PDO+ n={ds.attrs['n_pos']}  |  PDO- n={ds.attrs['n_neg']}"
-              if "n_pos" in ds.attrs else "Equal mean of r1, r2, r5 phase composites")
-    ax.set_title(f"{title}\n{period}  |  {counts}", loc="left", fontsize=10.5, pad=8)
+              if "n_pos" in ds.attrs else "r1/r2/r5 mean")
+    if len(phases) == 1 and "n_pos" in ds.attrs:
+        counts = f"n={ds.attrs['n_' + phases[0]]} years"
+    ax.set_title(f"{title}\n{period}  |  {counts}", loc="left", fontsize=10.5, pad=9)
 
 
-def save_figure(fig, path, title, subtitle):
+def save_figure(fig, path, title, subtitle, separated=False):
     fig.suptitle(title, fontsize=17, fontweight="semibold", y=.98)
     fig.text(.5, .935, subtitle, ha="center", fontsize=10, color="#444444")
-    handles = [Line2D([], [], color=POS, lw=2, label="PDO positive: 5870 gpm", linestyle="-"),
-               Line2D([], [], color=NEG, lw=2, label="PDO negative: 5870 gpm", linestyle="--")]
+    handles = [Line2D([], [], color=POS, lw=1.65, label="PDO positive: 5870 gpm", linestyle="-"),
+               Line2D([], [], color=NEG, lw=1.35, label="PDO negative: 5870 gpm",
+                      linestyle="-" if separated else (0, (6, 4)))]
     fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(.5, .035),
                ncol=2, frameon=False, fontsize=11)
-    fig.text(.5, .016, "All ENSO states retained | Native grids | Absolute height | Only complete JJA height seasons",
+    fig.text(.5, .016, "5870-gpm height contours | All ENSO states | Lines meeting the map frame continue outside the view",
              ha="center", fontsize=9, color="#555555")
-    fig.subplots_adjust(left=.055, right=.985, bottom=.115, top=.865, wspace=.19, hspace=.42)
+    fig.subplots_adjust(left=.055, right=.975, bottom=.11, top=.87, wspace=.23, hspace=.49)
     path.parent.mkdir(parents=True, exist_ok=True)
     for suffix in (".png", ".svg"):
         destination = path.with_suffix(suffix)
@@ -259,6 +267,54 @@ def save_figure(fig, path, title, subtitle):
             destination.write_text("\n".join(line.rstrip() for line in destination.read_text(encoding="utf-8").splitlines()) + "\n",
                                    encoding="utf-8")
     plt.close(fig)
+
+
+def contour_display_audit(collections):
+    """Audit physical absence, missing values and clipping without changing fields."""
+    import contourpy
+    from shapely.geometry import LineString, box
+
+    rows = []
+    boxes = {"old": box(100, 0, 180, 40), "new": box(90, 0, 200, 50)}
+    for key, ds in collections.items():
+        for phase in ("pos", "neg"):
+            field = ds[f"z500_{phase}"]
+            assert np.isfinite(field).all(), (key, phase)
+            segments = contourpy.contour_generator(x=field.lon.values, y=field.lat.values,
+                                                   z=field.values).lines(LEVEL)
+            lines = [LineString(segment) for segment in segments if len(segment) > 1]
+            bounds = [field.lon.min().item(), field.lon.max().item(),
+                      field.lat.min().item(), field.lat.max().item()]
+            status = ("below_threshold" if float(field.max()) < LEVEL else
+                      "above_threshold" if float(field.min()) > LEVEL else
+                      "contour_present" if lines else "no_resolved_contour")
+            row = dict(dataset=key, phase=phase, min_gpm=float(field.min()), max_gpm=float(field.max()),
+                       missing_values=0, source_contour_segments=len(lines), status=status,
+                       field_west=bounds[0], field_east=bounds[1], field_south=bounds[2], field_north=bounds[3])
+            for view, region in boxes.items():
+                row[f"{view}_clipped_length_degrees"] = sum(line.difference(region).length for line in lines)
+                row[f"{view}_visible_length_degrees"] = sum(line.intersection(region).length for line in lines)
+                row[f"{view}_frame_crossings"] = sum(len(line.intersection(region.boundary).geoms)
+                                                     if hasattr(line.intersection(region.boundary), "geoms")
+                                                     else int(not line.intersection(region.boundary).is_empty)
+                                                     for line in lines)
+            assert row["new_visible_length_degrees"] + 1e-8 >= row["old_visible_length_degrees"]
+            rows.append(row)
+    destination = REPO / "results/task6_wpsh/contour_display_audit.csv"
+    pd.DataFrame(rows).to_csv(destination, index=False)
+
+
+def phase_separated_figure(collections, entries, path, title):
+    """Identical maps for each phase avoid obscuring nearly coincident contours."""
+    fig, axes = plt.subplots(len(entries), 2, figsize=(14, 3.25 * len(entries) + 1.8),
+                             subplot_kw={"projection": ccrs.PlateCarree(central_longitude=140)})
+    for i, (key, label) in enumerate(entries):
+        for j, (phase, phase_label) in enumerate((("pos", "PDO positive"), ("neg", "PDO negative"))):
+            draw_panel(axes[i, j], collections[key],
+                       f"({chr(97 + i * 2 + j)}) {label} | {phase_label}", phases=(phase,))
+    save_figure(fig, path, title,
+                "Left: PDO positive | Right: PDO negative | JJA, 500 hPa, 5870 gpm",
+                separated=True)
 
 
 def contour_features(ds):
@@ -357,6 +413,7 @@ def main():
 
 
 def render(collections, figures):
+    contour_display_audit(collections)
     plt.rcParams.update({"font.family": "DejaVu Sans", "svg.fonttype": "none",
                          "svg.hashsalt": "Sandro-JJA-WPSH-5870"})
     projection = ccrs.PlateCarree(central_longitude=140)
@@ -383,7 +440,17 @@ def render(collections, figures):
                    f"({chr(98+i)}) ACCESS-CM2 historical {member}i1p1f1")
     save_figure(fig, figures / "Figure4_JJA_WPSH_common_period",
                 "JJA WPSH: observation and historical members", "Common height-data window: 1948-2014 | Original repository PDO indices and phase definitions retained")
-    print("Rendered all three PNG/SVG figures.", flush=True)
+    phase_separated_figure(collections,
+                           [("obs", "Observation: NCEP/NCAR")] +
+                           [(f"historical_{m}", f"Historical {m}i1p1f1") for m in MEMBERS],
+                           figures / "Figure4_JJA_WPSH_observation_historical_phase_separated",
+                           "JJA WPSH: observation and historical phases")
+    for experiment in ("ssp245", "ssp585"):
+        phase_separated_figure(collections,
+                               [(f"{experiment}_{m}", f"{experiment.upper()} {m}i1p1f1") for m in MEMBERS],
+                               figures / f"Figure4_JJA_WPSH_{experiment}_phase_separated",
+                               f"JJA WPSH: {experiment.upper()} phases by member")
+    print("Rendered six PNG/SVG figures and the contour display audit.", flush=True)
 
 
 if __name__ == "__main__":

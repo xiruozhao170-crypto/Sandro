@@ -123,6 +123,11 @@
       "height": 2700
     },
     {
+      "file": "Figure4_JJA_WPSH_observation_historical_phase_separated.png",
+      "width": 4200,
+      "height": 4440
+    },
+    {
       "file": "Figure4_JJA_WPSH_overview.png",
       "width": 4200,
       "height": 2700
@@ -131,7 +136,31 @@
       "file": "Figure4_JJA_WPSH_selected_members.png",
       "width": 5400,
       "height": 3480
+    },
+    {
+      "file": "Figure4_JJA_WPSH_ssp245_phase_separated.png",
+      "width": 4200,
+      "height": 3465
+    },
+    {
+      "file": "Figure4_JJA_WPSH_ssp585_phase_separated.png",
+      "width": 4200,
+      "height": 3465
     }
   ],
-  "svg": "All three SVG figures contain no embedded raster images"
+  "svg": "All six SVG figures contain no embedded raster images",
+  "rendering_recheck": {
+    "phase_panels_checked": 32,
+    "contour_geometry": "Matches native-grid 5870-gpm contours",
+    "map_extent_degrees": [
+      90,
+      200,
+      0,
+      50
+    ],
+    "missing_composite_values": 0,
+    "clipping": "Expanded map shows at least as much of every curve as the old map",
+    "absent_contours": "Explicitly labelled; no replacement threshold or displaced lines"
+  },
+  "numerical_checks": "Previous raw-season and composite checks retained; this rerun checks rendering only"
 }

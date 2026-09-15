@@ -8,7 +8,13 @@ This task plots the **5870 geopotential-metre contour of the 500-hPa JJA mean he
 - [Selected members](../figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.png): historical, SSP245 and SSP585 in rows; r1, r2 and r5 in columns. Each panel contains its own positive and negative PDO composites.
 - [Common-period comparison](../figures/task6_wpsh/Figure4_JJA_WPSH_common_period.png): observation and the three historical members restricted to the same 1948–2014 height-data window, while retaining the original PDO indices and classifications.
 
-Each PNG has a matching editable vector SVG. Red solid lines denote PDO positive and blue dashed lines PDO negative. The line-style convention follows the paper. There are no June-only, July-only or August-only panels.
+Each PNG has a matching editable vector SVG. In overlaid comparisons, red solid lines denote PDO positive and blue dashed lines PDO negative, following the paper. In the new separate-phase figures, each panel uses a continuous line, and its heading identifies the phase. There are no June-only, July-only or August-only panels.
+
+For clearer inspection of nearly coincident phase contours, use these additional figures (each also available as SVG):
+
+- [Observation and historical phases separately](../figures/task6_wpsh/Figure4_JJA_WPSH_observation_historical_phase_separated.png): four rows for observation/r1/r2/r5; positive phase on the left, negative on the right.
+- [SSP245 phases separately](../figures/task6_wpsh/Figure4_JJA_WPSH_ssp245_phase_separated.png): three member rows; positive on the left, negative on the right.
+- [SSP585 phases separately](../figures/task6_wpsh/Figure4_JJA_WPSH_ssp585_phase_separated.png): the same layout for SSP585.
 
 **An absent contour is a valid result at this fixed threshold.** If a phase composite never reaches 5870 gpm in the computed region, its panel explicitly reports the absence and the regional maximum. The threshold is not lowered and no contour is invented. This occurs for several historical composites; `summary.json` records contour availability and field ranges for every dataset and phase.
 
@@ -52,7 +58,24 @@ The exact download request and SHA-256 checksum are in the manifest. `hgt` is al
 
 The original phase routine takes the mean of whichever smoothed JJA index values are finite. Consequently its first eligible year can contain fewer than three finite **smoothed PDO** months. This existing endpoint behaviour is retained exactly. Every **height** season nevertheless requires all three JJA months. Nominal height-data periods appear in panel subtitles; `phase_years.csv` and NetCDF attributes contain the actual included years. The nine-year smoothing reduces the eligible endpoint coverage (historical PDO: 1904–2010; future PDO: 2019–2096).
 
-The plotted domain is 100–180°E, 0–40°N. A curve meeting an edge continues outside the map; its intersection with the frame is not necessarily the true westernmost or northernmost WPSH point. Contour GeoJSON contains the larger computed domain, with segments split across the dateline. These maps do not add significance shading, because the reference Figure 4 is a positional-contour comparison.
+The plotted domain is now **90–200°E, 0–50°N** (200°E is labelled 160°W). The earlier 100–180°E, 0–40°N frame cut off parts of the available contours, including some SSP585 contours north of 40°N. Expanding the frame displays more of the existing data. A curve meeting the new edge can still continue outside the view; its intersection with the frame is not necessarily the true westernmost or northernmost WPSH point. No extra data are extrapolated outside the saved native grid. Contour GeoJSON contains the computed domain, with segments split across the dateline. These maps do not add significance shading, because the reference Figure 4 is a positional-contour comparison.
+
+### Recheck of overlapping and absent contours
+
+The original equal-width overlaid curves were difficult to distinguish when the two composites gave nearly the same contour. Updated overlays use thinner, unequal line widths and a more open negative-phase dash pattern. Separate-phase figures show each curve continuously on an identical map, so coincidence cannot hide either phase. Titles are shortened, panel spacing is increased, and no geographical offset is applied to a curve.
+
+All 32 saved dataset/phase composite fields were checked: **no missing or non-finite grid values** were found. Contour extraction confirms that some historical fields do not reach 5870 gpm:
+
+| Historical, 1900–2014 nominal window | PDO-positive maximum (gpm) | PDO-negative maximum (gpm) |
+|---|---:|---:|
+| r1 | 5867.64 | 5869.43 |
+| r2 | 5865.16 | 5869.61 |
+| r5 | 5874.30 | 5869.20 |
+| Equal mean of member phase composites | 5868.99 | 5869.30 |
+
+Only the positive r5 composite in this table has a 5870-gpm contour in the computed region. The lack of a curve in the other historical groups is a threshold result, not a missing-data gap. Compositing can remove contours that exist in individual years. The observation/historical common-period figure uses different year subsets, so its contour availability can differ.
+
+[contour_display_audit.csv](../results/task6_wpsh/contour_display_audit.csv) records field ranges, missing-value counts, contour segment counts, and the lengths inside/outside the old and new frames. Length columns use planar longitude/latitude degrees solely to check clipping; they are not physical distances. The figure validation checks both individual-phase drawing and absence annotations against independent contour extraction for all 32 combinations. Previous raw-season and numerical composite checks remain recorded separately in `validation.json`.
 
 ## Reproduce
 
@@ -63,10 +86,11 @@ python scripts/task6_wpsh.py --data-root 'E:\Sandro Dachuang'
 python scripts/validate_task6_wpsh.py --data-root 'E:\Sandro Dachuang'
 ```
 
-To redraw all three figures using only the submitted NetCDF results, without downloading the original model data:
+To redraw all six figures using only the submitted NetCDF results, without downloading the original model data:
 
 ```powershell
 python scripts/task6_wpsh.py --redraw
+python scripts/validate_task6_wpsh.py --figures-only
 ```
 
 On this workstation Python was invoked at `D:\Program Files\anaconda3\python.exe`. Versions used are saved in the manifest. Cartopy needs its Natural Earth 110m coastline and land datasets (automatically downloaded on first use if not cached). The script checks the 14-file inventory, complete monthly source timelines, model/member identities, pressure, units, complete JJA seasons, finite fields and saved PDO phases. It records contour availability, including legitimate absent contours.
@@ -76,5 +100,7 @@ Intermediate annual height caches and the downloaded observation subset are unde
 ## 中文说明
 
 本次按用户确认的 **r1、r2、r5** 绘制，沿用 GitHub 原有 PDO 分组，**不剔除 ENSO 年**。仅使用 JJA 和 500 hPa 的 **5870 gpm** 等值线。主图比较观测参照与历史、SSP245、SSP585 的三成员平均；逐成员图给出全部九组模式结果；另附 1948–2014 共同时间窗的观测—历史对照。
+
+复查后将地图扩大到 **90°E–160°W、0–50°N**，调整叠加线宽和虚线间隔，并新增观测/历史、SSP245、SSP585 的正负位相分开图。分开图左右分别为正、负位相，各自使用连续实线。历史部分无曲线是由于合成场最高值低于 5870 gpm；原图另有部分曲线超出 40°N、180°E 而被地图边框裁切。32 组合成场均无缺测值，重画轮廓与原有数值场一致。这里的线是 **500 hPa 等压面上的位势高度等值线**。
 
 原始 14 个文件中有两份 r1 SSP585 的 2101–2300 延伸数据，超出仓库现有 PDO 指数和其他成员的覆盖，因此登记但不加入 2015–2100 合成。观测高度由 NOAA NCEP/NCAR 再分析补充，其时间范围为 1948–2014；与原论文的 ERA-40 数据不同。合成保留绝对高度，不能将 `zg` 再除以重力加速度，也不能先求高度距平后再画 5870 等值线。全部实际合成年份、输入清单和可重画的 NetCDF 结果均随图提供。
