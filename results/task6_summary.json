@@ -7,6 +7,7 @@
     "r2": -20.2,
     "r5": -16.7
   },
+  "obs_area_fraction_ge_5870": 0.318,
   "obs": {
     "n_pos": 27,
     "n_neg": 36,
@@ -37,27 +38,30 @@
       "west_edge_clim": 147.2
     }
   },
-  "historical_bias_adjusted": {
+  "historical_equivalent_threshold": {
     "r1": {
+      "threshold_gpm": 5856.6,
       "n_pos": 62,
       "n_neg": 45,
-      "west_edge_pos": 122.8,
-      "west_edge_neg": 119.1,
-      "west_edge_clim": 120.9
+      "west_edge_pos": 137.8,
+      "west_edge_neg": 134.1,
+      "west_edge_clim": 135.9
     },
     "r2": {
+      "threshold_gpm": 5855.9,
       "n_pos": 57,
       "n_neg": 50,
-      "west_edge_pos": 132.2,
-      "west_edge_neg": 120.9,
-      "west_edge_clim": 122.8
+      "west_edge_pos": 139.7,
+      "west_edge_neg": 134.1,
+      "west_edge_clim": 135.9
     },
     "r5": {
+      "threshold_gpm": 5860.1,
       "n_pos": 50,
       "n_neg": 57,
-      "west_edge_pos": 119.1,
-      "west_edge_neg": 130.3,
-      "west_edge_clim": 120.9
+      "west_edge_pos": 134.1,
+      "west_edge_neg": 137.8,
+      "west_edge_clim": 134.1
     }
   },
   "ssp245": {
@@ -83,27 +87,30 @@
       "west_edge_clim": 100.3
     }
   },
-  "ssp245_bias_adjusted": {
+  "ssp245_equivalent_threshold": {
     "r1": {
+      "threshold_gpm": 5912.2,
       "n_pos": 38,
       "n_neg": 40,
-      "west_edge_pos": 100.3,
-      "west_edge_neg": 100.3,
-      "west_edge_clim": 100.3
+      "west_edge_pos": 135.9,
+      "west_edge_neg": 134.1,
+      "west_edge_clim": 135.9
     },
     "r2": {
+      "threshold_gpm": 5912.4,
       "n_pos": 41,
       "n_neg": 37,
-      "west_edge_pos": 100.3,
-      "west_edge_neg": 100.3,
-      "west_edge_clim": 100.3
+      "west_edge_pos": 128.4,
+      "west_edge_neg": 137.8,
+      "west_edge_clim": 134.1
     },
     "r5": {
+      "threshold_gpm": 5918.2,
       "n_pos": 40,
       "n_neg": 38,
-      "west_edge_pos": 100.3,
-      "west_edge_neg": 100.3,
-      "west_edge_clim": 100.3
+      "west_edge_pos": 132.2,
+      "west_edge_neg": 137.8,
+      "west_edge_clim": 134.1
     }
   },
   "ssp585": {
@@ -129,27 +136,30 @@
       "west_edge_clim": 100.3
     }
   },
-  "ssp585_bias_adjusted": {
+  "ssp585_equivalent_threshold": {
     "r1": {
+      "threshold_gpm": 5932.1,
       "n_pos": 30,
       "n_neg": 48,
-      "west_edge_pos": 100.3,
-      "west_edge_neg": 100.3,
-      "west_edge_clim": 100.3
+      "west_edge_pos": 141.6,
+      "west_edge_neg": 135.9,
+      "west_edge_clim": 137.8
     },
     "r2": {
+      "threshold_gpm": 5933.1,
       "n_pos": 45,
       "n_neg": 33,
-      "west_edge_pos": 100.3,
-      "west_edge_neg": 100.3,
-      "west_edge_clim": 100.3
+      "west_edge_pos": 143.4,
+      "west_edge_neg": 113.4,
+      "west_edge_clim": 135.9
     },
     "r5": {
+      "threshold_gpm": 5938.9,
       "n_pos": 30,
       "n_neg": 48,
-      "west_edge_pos": 100.3,
-      "west_edge_neg": 100.3,
-      "west_edge_clim": 100.3
+      "west_edge_pos": 132.2,
+      "west_edge_neg": 143.4,
+      "west_edge_clim": 137.8
     }
   }
 }

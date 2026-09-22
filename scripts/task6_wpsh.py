@@ -13,18 +13,29 @@ with the rainfall composites:
   historical   ACCESS-CM2 r1/r2/r5 zg500, 1900-2014
   ssp245/585   ACCESS-CM2 r1/r2/r5 zg500, 2015-2100
 
+The raw 5870-gpm threshold works for the NCEP observation panel only.
+ACCESS-CM2 zg500 is ~17-20 gpm too low at the ridge (and up to ~-47 gpm at
+30-40N, +5 gpm near the equator), so the historical composites peak at
+5865-5874 gpm and the 5870 line barely exists.  Under ssp245/ssp585 the
+whole subtropical height field rises (+40 / +86 gpm over 2015-2100), so
+the 5870 isoline detaches from the WPSH and becomes a quasi-zonal line
+near 35N.  Model panels therefore also use an "equivalent threshold"
+T_m: the level whose >=T_m area in the dataset's own JJA climatology
+(box 10-40N/110-180E, cos-lat weighted) equals the observed >=5870 area
+in NCEP 1948-2014.  A single additive bias offset is NOT used - the bias
+is strongly latitude-dependent, which distorts the contour geometry.
+
 Figures:
-  Task6_Figure1_WPSH_5870_JJA.png        2x2 obs / historical / ssp245 / ssp585
-  Task6_Figure2_WPSH_5870_by_member.png  3x3 member detail with climatology
-  Task6_Figure3_WPSH_bias_adjusted.png   2x2 as Fig 1 but model contours at
-                                         5870+bias (bias = member 1948-2014
-                                         climatology minus NCEP, box mean
-                                         10-40N/110-180E) - ACCESS-CM2 zg500
-                                         sits ~a few tens of gpm too low, so
-                                         the raw 5870 line barely exists in
-                                         the historical run
+  Task6_Figure1_WPSH_5870_JJA.png            2x2 raw fixed 5870 gpm
+                                             (faithful to Dong 2016; absent /
+                                             degenerate model lines are a real
+                                             result of bias + warming)
+  Task6_Figure2_WPSH_5870_by_member.png      3x3 member detail at each
+                                             dataset's equivalent threshold
+  Task6_Figure3_WPSH_equivalent_threshold.png  2x2 as Fig 1 but model
+                                             contours at T_m (main result)
 Outputs:
-  results/task6_summary.json  (n years used, 5870 western edge per dataset)
+  results/task6_summary.json  (n years, thresholds, 5870/T_m west edges)
 """
 import json
 from pathlib import Path
@@ -91,6 +102,28 @@ def west_edge(field, thresh=THRESH):
     return round(float(lons.min()), 1) if lons.size else None
 
 
+AREA_BOX = dict(lat=slice(10, 40), lon=slice(110, 180))
+
+
+def area_frac(field, thresh):
+    """Cos-lat weighted fraction of AREA_BOX where field >= thresh."""
+    sub = field.sel(**AREA_BOX)
+    w = np.cos(np.deg2rad(sub.lat)).broadcast_like(sub)
+    return float(w.where(sub >= thresh).sum() / w.sum())
+
+
+def eq_thresh(clim, frac):
+    """Threshold whose >= area fraction in AREA_BOX equals `frac`
+    (weighted quantile of the climatology). 5870-equivalent isoline."""
+    sub = clim.sel(**AREA_BOX)
+    w = np.cos(np.deg2rad(sub.lat)).broadcast_like(sub)
+    v, ww = sub.values.ravel(), w.values.ravel()
+    order = np.argsort(v)[::-1]
+    v, ww = v[order], ww[order]
+    cum = np.cumsum(ww) / ww.sum()
+    return float(v[min(np.searchsorted(cum, frac), v.size - 1)])
+
+
 def wpsh_axis(ax):
     ax.set_extent(EXTENT, crs=ccrs.PlateCarree())
     ax.coastlines(lw=0.8)
@@ -155,6 +188,12 @@ def main():
             comps[(scen, m)] = composites(
                 jja_by_year(files, 2015, 2100), pos, neg)
 
+    # 5870-equivalent threshold per model dataset (equal enclosed area in
+    # AREA_BOX between the dataset's own climatology and NCEP >=5870)
+    f_obs = area_frac(comps["obs"]["clim"], THRESH)
+    teq = {key: round(eq_thresh(c["clim"], f_obs), 1)
+           for key, c in comps.items() if key != "obs"}
+
     # ---- Figure 1: 2x2 overview ------------------------------------------
     proj = ccrs.PlateCarree(central_longitude=150)
     fig, axes = plt.subplots(2, 2, figsize=(13, 8.6), constrained_layout=True,
@@ -176,6 +215,11 @@ def main():
             miss = missing_members(comps, key)
             if miss:
                 ax.text(0.02, 0.04, "no 5870-gpm area: " + ", ".join(miss),
+                        transform=ax.transAxes, fontsize=8, color="0.35")
+            elif key in SCENARIOS:
+                ax.text(0.02, 0.04, "warming lifts the whole field above "
+                        "5870 gpm south of the line —\nthe raw 5870 isoline "
+                        "no longer bounds the WPSH (see Fig. 3)",
                         transform=ax.transAxes, fontsize=8, color="0.35")
         ax.set_title(title, fontsize=10)
     handles = [Line2D([], [], color=C_POS, lw=2, label="PDO positive"),
@@ -204,13 +248,10 @@ def main():
             ax = axes[i, j]
             wpsh_axis(ax)
             c = comps[(exp, m)]
-            draw(ax, c, clim=True)
-            mx = max(float(c["pos"].max()), float(c["neg"].max()),
-                     float(c["clim"].max()))
-            if mx < THRESH:
-                ax.text(0.03, 0.06, f"no 5870-gpm area (max {mx:.0f} gpm)",
-                        transform=ax.transAxes, fontsize=9, color="0.35")
-            ax.set_title(f"{exp} {m}  (pos={c['n_pos']}yr neg={c['n_neg']}yr)",
+            t = teq[(exp, m)]
+            draw(ax, c, clim=True, thresh=t)
+            ax.set_title(f"{exp} {m}  (pos={c['n_pos']}yr "
+                         f"neg={c['n_neg']}yr)  $T_m$={t:.0f} gpm",
                          fontsize=10)
     handles = [Line2D([], [], color=C_POS, lw=2, label="PDO positive"),
                Line2D([], [], color=C_NEG, lw=2, label="PDO negative"),
@@ -218,14 +259,17 @@ def main():
                       label="all-year JJA climatology")]
     fig.legend(handles=handles, loc="lower center", ncol=3, fontsize=10,
                frameon=False)
-    fig.suptitle("Task 6: WPSH 5870-gpm contour (JJA zg500) by member, "
-                 "ACCESS-CM2\nhistorical 1900–2014 vs ssp245 / ssp585 "
-                 "2015–2100", fontsize=13)
+    fig.suptitle("Task 6: WPSH contour (JJA zg500) by member, ACCESS-CM2, "
+                 "drawn at each dataset's 5870-equivalent threshold $T_m$\n"
+                 "($T_m$: same enclosed area over 10–40°N/110–180°E in the "
+                 "dataset's own climatology as the observed 5870-gpm area); "
+                 "historical 1900–2014 vs ssp245 / ssp585 2015–2100",
+                 fontsize=12)
     fig.savefig(FIG / "Task6_Figure2_WPSH_5870_by_member.png", dpi=200,
                 bbox_inches="tight")
     plt.close(fig)
 
-    # ---- Figure 3: bias-adjusted thresholds for the model panels ----------
+    # ---- Figure 3: equivalent-threshold overview (main result) ------------
     fig, axes = plt.subplots(2, 2, figsize=(13, 8.6), constrained_layout=True,
                              subplot_kw={"projection": proj})
     for ax, (key, title) in zip(axes.flat, panels):
@@ -236,9 +280,13 @@ def main():
         else:
             for m in MEMBERS:
                 draw(ax, comps[(key, m)], ls=MEMBER_LS[m], lw=1.8,
-                     thresh=THRESH + bias[m])
+                     thresh=teq[(key, m)])
+            ax.text(0.02, 0.04,
+                    "$T_m$: " + ", ".join(f"{m} {teq[(key, m)]:.0f}"
+                                          for m in MEMBERS) + " gpm",
+                    transform=ax.transAxes, fontsize=8, color="0.35")
             ax.set_title(title.split(" (r1")[0]
-                         + "  —  contour at 5870+$\\Delta_m$", fontsize=10)
+                         + "  —  contour at $T_m$", fontsize=10)
     handles = [Line2D([], [], color=C_POS, lw=2, label="PDO positive"),
                Line2D([], [], color=C_NEG, lw=2, label="PDO negative"),
                Line2D([], [], color=C_CLIM, lw=1.4, ls=":",
@@ -247,12 +295,13 @@ def main():
                        label=f"member {m}") for m in MEMBERS]
     fig.legend(handles=handles, loc="lower center", ncol=6, fontsize=9,
                frameon=False)
-    fig.suptitle("Task 6 (bias-adjusted): model contours drawn at "
-                 "5870+$\\Delta_m$ gpm, where $\\Delta_m$ = member JJA zg500 "
-                 "climatology (1948–2014) minus NCEP, 10–40°N/110–180°E mean\n"
-                 + ", ".join(f"$\\Delta_{{{m}}}$={bias[m]:+.1f} gpm"
-                             for m in MEMBERS), fontsize=11)
-    fig.savefig(FIG / "Task6_Figure3_WPSH_bias_adjusted.png", dpi=200,
+    fig.suptitle("Task 6 (equivalent threshold): model contours at $T_m$, "
+                 "the isoline enclosing the same 10–40°N/110–180°E area in "
+                 "each dataset's own JJA climatology\nas the 5870-gpm line "
+                 "does in NCEP 1948–2014 — corrects the model's "
+                 "latitude-dependent low bias and the mean height rise "
+                 "under warming", fontsize=11)
+    fig.savefig(FIG / "Task6_Figure3_WPSH_equivalent_threshold.png", dpi=200,
                 bbox_inches="tight")
     plt.close(fig)
 
@@ -266,11 +315,14 @@ def main():
     summary = {"threshold_gpm": THRESH, "season": "JJA",
                "west_edge_domain": "10-40N, 100-180E",
                "model_bias_gpm_vs_ncep_1948_2014": bias,
+               "obs_area_fraction_ge_5870": round(f_obs, 3),
                "obs": entry(comps["obs"])}
     for exp in rows:
         summary[exp] = {m: entry(comps[(exp, m)]) for m in MEMBERS}
-        summary[exp + "_bias_adjusted"] = {
-            m: entry(comps[(exp, m)], THRESH + bias[m]) for m in MEMBERS}
+        summary[exp + "_equivalent_threshold"] = {
+            m: dict(threshold_gpm=teq[(exp, m)],
+                    **entry(comps[(exp, m)], teq[(exp, m)]))
+            for m in MEMBERS}
     (RES / "task6_summary.json").write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary, indent=2))
 
