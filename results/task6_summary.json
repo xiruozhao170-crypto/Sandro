@@ -1,0 +1,155 @@
+{
+  "threshold_gpm": 5870.0,
+  "season": "JJA",
+  "west_edge_domain": "10-40N, 100-180E",
+  "model_bias_gpm_vs_ncep_1948_2014": {
+    "r1": -20.9,
+    "r2": -20.2,
+    "r5": -16.7
+  },
+  "obs": {
+    "n_pos": 27,
+    "n_neg": 36,
+    "west_edge_pos": 125.0,
+    "west_edge_neg": 135.0,
+    "west_edge_clim": 130.0
+  },
+  "historical": {
+    "r1": {
+      "n_pos": 62,
+      "n_neg": 45,
+      "west_edge_pos": null,
+      "west_edge_neg": null,
+      "west_edge_clim": null
+    },
+    "r2": {
+      "n_pos": 57,
+      "n_neg": 50,
+      "west_edge_pos": null,
+      "west_edge_neg": null,
+      "west_edge_clim": null
+    },
+    "r5": {
+      "n_pos": 50,
+      "n_neg": 57,
+      "west_edge_pos": 145.3,
+      "west_edge_neg": null,
+      "west_edge_clim": 147.2
+    }
+  },
+  "historical_bias_adjusted": {
+    "r1": {
+      "n_pos": 62,
+      "n_neg": 45,
+      "west_edge_pos": 122.8,
+      "west_edge_neg": 119.1,
+      "west_edge_clim": 120.9
+    },
+    "r2": {
+      "n_pos": 57,
+      "n_neg": 50,
+      "west_edge_pos": 132.2,
+      "west_edge_neg": 120.9,
+      "west_edge_clim": 122.8
+    },
+    "r5": {
+      "n_pos": 50,
+      "n_neg": 57,
+      "west_edge_pos": 119.1,
+      "west_edge_neg": 130.3,
+      "west_edge_clim": 120.9
+    }
+  },
+  "ssp245": {
+    "r1": {
+      "n_pos": 38,
+      "n_neg": 40,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r2": {
+      "n_pos": 41,
+      "n_neg": 37,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r5": {
+      "n_pos": 40,
+      "n_neg": 38,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    }
+  },
+  "ssp245_bias_adjusted": {
+    "r1": {
+      "n_pos": 38,
+      "n_neg": 40,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r2": {
+      "n_pos": 41,
+      "n_neg": 37,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r5": {
+      "n_pos": 40,
+      "n_neg": 38,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    }
+  },
+  "ssp585": {
+    "r1": {
+      "n_pos": 30,
+      "n_neg": 48,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r2": {
+      "n_pos": 45,
+      "n_neg": 33,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r5": {
+      "n_pos": 30,
+      "n_neg": 48,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    }
+  },
+  "ssp585_bias_adjusted": {
+    "r1": {
+      "n_pos": 30,
+      "n_neg": 48,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r2": {
+      "n_pos": 45,
+      "n_neg": 33,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    },
+    "r5": {
+      "n_pos": 30,
+      "n_neg": 48,
+      "west_edge_pos": 100.3,
+      "west_edge_neg": 100.3,
+      "west_edge_clim": 100.3
+    }
+  }
+}

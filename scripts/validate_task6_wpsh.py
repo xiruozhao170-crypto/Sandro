@@ -16,7 +16,7 @@ REPO = Path(__file__).resolve().parents[1]
 def validate_figures():
     import contourpy
     from shapely.geometry import LineString, MultiLineString
-    from task6_wpsh import draw_panel, EXTENT, plt, ccrs
+    from task6_wpsh_codex import draw_panel, EXTENT, plt, ccrs
 
     images = []
     expected = {"overview", "selected_members", "common_period", "ssp245_phase_separated",

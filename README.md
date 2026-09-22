@@ -1,31 +1,5 @@
 # Sandro: PDO–EASM 分析（ACCESS-CM2，按旧 MIROC6 流程重做）
 
-## 新增 Task 6：JJA 西太平洋副热带高压位置
-
-按 Dong (2016, [doi:10.1002/asl.634](https://rmets.onlinelibrary.wiley.com/doi/10.1002/asl.634)) 的 Figure 4(a) 图式，绘制 **500 hPa、5870 gpm** 的 PDO 正/负位相合成等值线。本任务按用户确认使用 **r1、r2、r5**，保留所有 ENSO 状态，PDO 分组严格复用本仓库结果。仅绘制 **JJA**。
-
-| 图像 | 内容 |
-|---|---|
-| [汇总图](figures/task6_wpsh/Figure4_JJA_WPSH_overview.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_overview.svg) | 观测参照、historical、SSP245、SSP585；模式为 r1/r2/r5 各自位相合成后的等权平均 |
-| [逐成员图](figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_selected_members.svg) | 3×3：行 = historical/SSP245/SSP585，列 = r1/r2/r5 |
-| [共同时间窗对照](figures/task6_wpsh/Figure4_JJA_WPSH_common_period.png) · [SVG](figures/task6_wpsh/Figure4_JJA_WPSH_common_period.svg) | 1948–2014 年观测参照与历史三个成员，沿用各自原始 PDO 指数 |
-| [观测/历史正负位相分开图](figures/task6_wpsh/Figure4_JJA_WPSH_observation_historical_phase_separated.png) | 左列 PDO 正位相、右列负位相，单条连续实线显示 |
-| [SSP245 正负位相分开图](figures/task6_wpsh/Figure4_JJA_WPSH_ssp245_phase_separated.png) | r1/r2/r5 三行，正负位相左右对照，避免线条相互遮挡 |
-| [SSP585 正负位相分开图](figures/task6_wpsh/Figure4_JJA_WPSH_ssp585_phase_separated.png) | 同上，SSP585；新增三图均附同名 SVG |
-
-**图像复查更新：**地图已扩大至 90°E–160°W、0–50°N，减轻原图北侧与东侧裁切；叠加图调整了线宽和虚线间隔。正负位相接近时请优先看上述分开图。部分历史合成最大值低于 5870 gpm，因此没有该等值线，已明确标注；32 组数值场均无缺测值。[逐组合成与显示检查表](results/task6_wpsh/contour_display_audit.csv)记录了原因。
-
-观测高度补充使用 **NOAA NCEP/NCAR 再分析（1948–2014）**；历史/未来时段沿用仓库的 1900–2014 / 2015–2100。14 个模式高度文件全部登记，其中两份 r1 SSP585 的 2101–2300 延伸文件超出本次时段，未加入合成。实际合成年份受原有 9 年平滑端点限制，已逐年列出。
-
-[方法、数据来源与复现步骤](docs/Task6_WPSH_method.md) · [绘图代码](scripts/task6_wpsh.py) · [结果与检验](results/task6_wpsh)
-
-```powershell
-python scripts/task6_wpsh.py --data-root 'E:\Sandro Dachuang'
-python scripts/validate_task6_wpsh.py --data-root 'E:\Sandro Dachuang'
-```
-
-## 原有 Task 1–5
-
 用导师提供的新数据 **ACCESS-CM2**（5 成员 r1–r5，替代旧 MIROC6 10 成员）重跑 Task 1–4。
 方法严格沿用旧数据版本的代码思路（任务文档 Task1–4.docx 的规定流程），
 不做任何额外的"改进"（上一版曾引入 EOF 模态自动选择和二次去趋势，本版已全部去掉）：
@@ -50,6 +24,7 @@ python scripts/validate_task6_wpsh.py --data-root 'E:\Sandro Dachuang'
 | `data/ersst.v4.sst.mnmean.nc` | ERSSTv4 观测 SST（NOAA PSL，1854–2020） |
 | `data/precip.mon.total.v2018.nc` | GPCC v2018 观测月降水（0.5°，1891–2016，mm/月） |
 | `data/processed/tos_2deg_*.nc` | tos 重网格化到 ERSST 同款 2°×2° 网格（`regrid_tos.py`，球面 KDTree IDW k=4） |
+| `data/processed/zg500_*.nc` | 500 hPa 位势高度子集（`extract_zg500.py` 从原始 zg 抽取，60–240°E / 15°S–70°N）：ACCESS-CM2 historical(1850–2014)+ssp245+ssp585(2015–2100) × r1/r2/r5（导师 Google Drive `1JNrGqpUA6vcpK0Zv5AOU-ORThdWAJSZj`，原始文件每个 1–1.6 GB，抽取后即删）；`zg500_ncep_...` = NCEP/NCAR R1 月平均 hgt 500 hPa（NOAA PSL，1948–今） |
 
 数据源：南大网盘 `box.nju.edu.cn/d/bb53a9fd82f84563a4c9`；任务文档与旧 MIROC6 示例输出在导师
 Google Drive `1hFPx8SuuVn399gsVioY4fCWsB1HON10F`。
@@ -64,6 +39,8 @@ venv/bin/python scripts/task2_composite.py       # Task 2 观测 + 5 成员位�
 venv/bin/python scripts/task3_spread.py          # Task 3 spread（r2/r3/r5 供 Task 5 未来谱）
 venv/bin/python scripts/task4_future.py          # Task 4 未来情景（ssp245/ssp585 × r1–r5）
 venv/bin/python scripts/task5_spectrum.py        # Task 5 PC1 傅立叶功率谱 / cycle+energy
+venv/bin/python scripts/extract_zg500.py <raw_zg.nc>  # zg 原始文件 -> 500 hPa 子集（逐个）
+venv/bin/python scripts/task6_wpsh.py            # Task 6 WPSH 5870 gpm 位置（JJA，按 PDO 位相）
 ```
 
 共享模块：`pdo_phase.py`（EOF1 PDO + 9 年平滑 JJA 定位相）、`easm_rain.py`（华东 JJA 降水异常、
@@ -161,12 +138,60 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   这正是 Task 3/4 中未来 PC1 子图彼此差异大、位相结构变乱的量化解释。
 - ssp585 谱中 1 年整的尖峰为强迫增暖下残余年循环，已从 cycle 搜索中排除。
 
+## Task 6（WPSH 位置：JJA 500 hPa 5870 gpm 等值线，按 PDO 位相合成，图式参照 Dong 2016 ASL Fig. 4）
+
+方法：JJA（6/7/8 月平均）zg500 按 **Task 2 / Task 4 已存的正/负位相年**（`pos_years`/`neg_years`
+属性，与降水合成完全同一套位相年）分别合成，画 **5870 gpm 等值线**表示 WPSH 位置
+（Dong 2016, Atmos. Sci. Lett. 17:115–120, doi:10.1002/asl.634 的做法）。
+观测 = NCEP/NCAR R1 hgt500（1948 年起，故只用位相年 ∩ 1948–2014：pos 27 年 / neg 36 年）；
+模式 = ACCESS-CM2 **r1/r2/r5**（导师提供 zg 的三个成员）。
+
+| 数据 | 5870 西脊点（10–40°N 内最西经度）pos / neg / 气候态 |
+|---|---|
+| 观测（NCEP + ERSST 位相） | **125.0°E / 135.0°E / 130.0°E** —— 正位相 WPSH 显著西伸，与 Dong (2016) 一致 |
+| historical r1/r2/r5（原始 5870） | 基本无 ≥5870 区（见下） |
+| historical r1/r2/r5（偏差订正 5870+Δm） | r1 122.8/119.1，r2 132.2/120.9，r5 119.1/130.3（pos/neg） |
+| ssp245、ssp585（原始与订正） | 全部饱和到区域西界 100°E（见下） |
+
+两个需要注意的现象（`results/task6_summary.json` 有全部数字）：
+
+1. **ACCESS-CM2 的 zg500 系统性偏低**：1948–2014 JJA 气候态在 10–40°N/110–180°E 的区域平均
+   比 NCEP 低 **Δr1=−20.9 / Δr2=−20.2 / Δr5=−16.7 gpm**，恰好把整个 WPSH 压到 5870 线以下——
+   historical 原始 5870 等值线 r1/r2 完全不存在（区域内最大值 5869/5870）、r5 只剩小片。
+   `Task6_Figure3_WPSH_bias_adjusted.png` 用 5870+Δm 画模式等值线（消掉平均态偏差）后，
+   historical 的 WPSH 形态和西脊点（119–132°E）与观测量级一致。
+2. **固定 5870 阈值在增暖情景下饱和**：ssp245/ssp585 里 500 hPa 高度整体抬升，
+   ≥5870 区扩张覆盖整个副热带，5870 线跳到 ~30–40°N 变成其**北边界**，
+   西脊点指标顶到区域西界（100°E）。此时 5870 线主要反映增暖抬升本身，
+   不再是传统意义的 WPSH 边界（文献中对未来情景常改用消除平均抬升的相对阈值）；
+   同一面板内红/蓝线对比仍给出两位相的相对差异。
+
+图：`Task6_Figure1_WPSH_5870_JJA.png`（2×2：obs / historical / ssp245 / ssp585，
+成员用线型区分，无 5870 区的成员在图内标注）、`Task6_Figure2_WPSH_5870_by_member.png`
+（3×3 逐成员 + 气候态虚线）、`Task6_Figure3_WPSH_bias_adjusted.png`（模式面板改画 5870+Δm）。
+
+### Task 6 早期另一版实现（2026-09-15，Codex 在用户 Windows 本机跑，存档保留）
+
+同一任务此前在用户本机（数据在 `E:\Sandro Dachuang`）用另一工具做过一版，产物保留在
+`figures/task6_wpsh/`（overview / 逐成员 / 1948–2014 共同时间窗 / 正负位相分开图，含 SVG）、
+`results/task6_wpsh/`（validation.json、contour_display_audit.csv）和
+`docs/Task6_WPSH_method.md`。其绘图脚本原名 `task6_wpsh.py`，为当前版本让位已改名
+**`scripts/task6_wpsh_codex.py`**（`validate_task6_wpsh.py` 的导入已同步更新；
+需 `--data-root` 指向 14 个原始 zg 文件，本服务器未保留原始文件，故只能在用户本机复跑）。
+该版观测参照同样是 NCEP/NCAR R1（THREDDS NCSS 子集），也同样发现部分历史合成
+不足 5870 gpm 而无等值线（见其 audit 表）；本版在此基础上补了偏差订正图（Figure 3）
+和西脊点数值汇总。
+
 ## 备注
 
 - Task 1–4 文档在 `docs/`；旧 MIROC6 版示例输出（Drive `task1-2_output`、`task3/4_*_outputs`）为图式参照。
   导师论文 `atmosphere-11-00003-v2.pdf`（Task 5 方法来源）与其重点图（`微信图片_*.png`，
   即论文 Figure 1，图 c 为功率谱模板）在仓库根目录。
-- 本轮改动：**原 Task 6（PC1 功率谱）更名为 Task 5**（脚本/图/结果文件与图题全部改名）——
+- 本轮改动：新增 **Task 6（WPSH 5870 gpm 位置）**：导师在 Google Drive 提供 zg
+  （historical/ssp245/ssp585 × r1/r2/r5，共 12 个原始文件 ~15 GB），
+  逐个下载→`extract_zg500.py` 抽 500 hPa 子集（每个 ~13 MB）→删原始文件；
+  观测另下 NCEP/NCAR R1 月平均 hgt（320 MB，同样只保留 500 hPa 子集）。
+- 前轮改动：**原 Task 6（PC1 功率谱）更名为 Task 5**（脚本/图/结果文件与图题全部改名）——
   因原 Task 5（SSP−观测气候态差）已整体删除（脚本、图、结果均已移除）。
 - 前轮改动：T4-7 改为逐成员 SSP585−SSP245（1×5）；新增 **T4-8** 逐成员 SSP585−obs
   合成差之差（1×5）；Task 4 改为**全部 5 个成员 r1–r5**（2×5 图版式），不再选 best members；
