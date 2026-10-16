@@ -1,0 +1,34 @@
+{
+  "tag": "era5_1979_2020",
+  "label": "ERA5 (0.25-degree grid)",
+  "first": 1979,
+  "last": 2020,
+  "baseline": [
+    1979,
+    2020
+  ],
+  "detrend_degree": 1,
+  "detrend_order": "seasonal",
+  "eof1_variance_percent": 77.85539698036268,
+  "eof2_variance_percent": 9.12432264704368,
+  "pc1_regional_sf_correlation": 0.9534564414341218,
+  "strong_years_full_sd": [
+    1995,
+    1998,
+    2010,
+    2020
+  ],
+  "strong_years_reference_sd": [
+    1995,
+    1998,
+    2010,
+    2020
+  ],
+  "sensitivity": {
+    "other_detrend_order": "monthly",
+    "other_order_eof1_variance_percent": 77.40603464245433,
+    "other_order_pc1_correlation": 0.9984559305269384,
+    "unweighted_eof1_variance_percent": 77.3389373620331,
+    "unweighted_pc1_correlation": 0.9998508627799481
+  }
+}

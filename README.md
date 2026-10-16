@@ -1,5 +1,37 @@
 # Sandro: PDO–EASM 分析（ACCESS-CM2，按旧 MIROC6 流程重做）
 
+## 新增 Task 7：850 hPa 风场 → 流函数 → WPSH EOF 指数
+
+按 [Yang et al. (2022), PNAS](https://www.pnas.org/doi/10.1073/pnas.2120335119)
+计算 **1979–2020 年 ERA5 全球 0.25°、850 hPa u/v 风场**的流函数，取
+**10–40°N、110–180°E** 内的 JJA 流函数距平，线性去趋势后做面积加权 EOF。
+标准化 PC1 为 WPSH 指数，正值表示副高增强。另提供 NCEP/NCAR 再分析对照。
+
+| 资料 | EOF1 方差解释率 | EOF2 | PC1 与区域流函数相关 | PC1 > 1.5 SD 年份 |
+|---|---:|---:|---:|---|
+| ERA5（主结果） | **77.86%** | 9.12% | **0.953** | **1995、1998、2010、2020** |
+| NCEP/NCAR R1 | 75.85% | 9.09% | 0.957 | 1988、1998、2010、2020 |
+
+[ERA5 图](figures/task7_wpsh_eof/era5_1979_2020.png) ·
+[逐年指数 CSV](results/task7_wpsh_eof/era5_1979_2020_index.csv) ·
+[完整 NetCDF](results/task7_wpsh_eof/era5_1979_2020.nc) ·
+[方法、敏感性与复现步骤](docs/Task7_WPSH_streamfunction_EOF.md) ·
+[验证记录](results/task7_wpsh_eof/validation_raw.json)
+
+已通过解析风场、独立 SVD 和原始 ERA5 月风场复核。主结果采用 JJA 去趋势；
+同时保存“先月距平去趋势、再取 JJA”及不做纬度加权的敏感性结果。
+原 Task 1–6 保留。ACCESS-CM2 风场在高地以下存在缺测，本轮先交付再分析结果，
+模式下载/计算接口已准备，但尚未发布模式 WPSH 数值结果。
+
+```bash
+python -m pip install -r requirements-wpsh.txt
+python scripts/fetch_wpsh_winds.py era5       # 需已配置 CDS API
+python scripts/task7_wpsh_eof.py --source era5
+python scripts/task7_wpsh_eof.py --redraw     # 仅用提交的结果重画，无需原始风场
+python -m pytest tests/test_wpsh_streamfunction.py -q
+python scripts/validate_task7_wpsh.py
+```
+
 用导师提供的新数据 **ACCESS-CM2**（5 成员 r1–r5，替代旧 MIROC6 10 成员）重跑 Task 1–4。
 方法严格沿用旧数据版本的代码思路（任务文档 Task1–4.docx 的规定流程），
 不做任何额外的"改进"（上一版曾引入 EOF 模态自动选择和二次去趋势，本版已全部去掉）：

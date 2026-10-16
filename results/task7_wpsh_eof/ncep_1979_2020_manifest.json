@@ -1,0 +1,51 @@
+{
+  "configuration": {
+    "first": 1979,
+    "last": 2020,
+    "baseline": [
+      1979,
+      2020
+    ],
+    "degree": 1,
+    "inputs": [
+      {
+        "file": "data\\wpsh_winds\\ncep_uwnd_850_1979_2020.nc",
+        "sha256": "4963286cc9896a668e30a4d7907180f2bec7e6ea502261f5fe8c7347b541eeff",
+        "bytes": 12845595
+      },
+      {
+        "file": "data\\wpsh_winds\\ncep_vwnd_850_1979_2020.nc",
+        "sha256": "7e6e72638c7a566a0138d99899c8183f90ad838e43db2dbd22c66f2a08bf87dc",
+        "bytes": 12674973
+      }
+    ]
+  },
+  "source": "NCEP/NCAR R1 (2.5-degree grid)",
+  "reference": "https://doi.org/10.1073/pnas.2120335119",
+  "python": "3.13.5",
+  "packages": {
+    "numpy": "2.1.3",
+    "xarray": "2025.4.0",
+    "scipy": "1.15.3",
+    "netCDF4": "1.7.4",
+    "skyborn": "0.4.5",
+    "matplotlib": "3.10.0"
+  },
+  "source_catalogue": "https://psl.noaa.gov/thredds/catalog/Datasets/ncep.reanalysis.derived/pressure/catalog.html",
+  "download_request": [
+    {
+      "file": "ncep_uwnd_850_1979_2020.nc",
+      "url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/ncep.reanalysis.derived/pressure/uwnd.mon.mean.nc?var=uwnd&north=90&south=-90&west=0&east=357.5&horizStride=1&vertCoord=850&timeStride=1&time_start=1979-01-01T00%3A00%3A00Z&time_end=2020-12-01T00%3A00%3A00Z&accept=netcdf4",
+      "sha256": "4963286cc9896a668e30a4d7907180f2bec7e6ea502261f5fe8c7347b541eeff",
+      "source": "NCEP/NCAR Reanalysis 1",
+      "pressure_hPa": 850
+    },
+    {
+      "file": "ncep_vwnd_850_1979_2020.nc",
+      "url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/ncep.reanalysis.derived/pressure/vwnd.mon.mean.nc?var=vwnd&north=90&south=-90&west=0&east=357.5&horizStride=1&vertCoord=850&timeStride=1&time_start=1979-01-01T00%3A00%3A00Z&time_end=2020-12-01T00%3A00%3A00Z&accept=netcdf4",
+      "sha256": "7e6e72638c7a566a0138d99899c8183f90ad838e43db2dbd22c66f2a08bf87dc",
+      "source": "NCEP/NCAR Reanalysis 1",
+      "pressure_hPa": 850
+    }
+  ]
+}

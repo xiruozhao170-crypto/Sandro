@@ -1,0 +1,34 @@
+{
+  "tag": "ncep_1979_2020",
+  "label": "NCEP/NCAR R1 (2.5-degree grid)",
+  "first": 1979,
+  "last": 2020,
+  "baseline": [
+    1979,
+    2020
+  ],
+  "detrend_degree": 1,
+  "detrend_order": "seasonal",
+  "eof1_variance_percent": 75.8474787983478,
+  "eof2_variance_percent": 9.093921747634386,
+  "pc1_regional_sf_correlation": 0.9569493843453724,
+  "strong_years_full_sd": [
+    1988,
+    1998,
+    2010,
+    2020
+  ],
+  "strong_years_reference_sd": [
+    1988,
+    1998,
+    2010,
+    2020
+  ],
+  "sensitivity": {
+    "other_detrend_order": "monthly",
+    "other_order_eof1_variance_percent": 75.33456464035943,
+    "other_order_pc1_correlation": 0.9979129271448685,
+    "unweighted_eof1_variance_percent": 75.17175466392708,
+    "unweighted_pc1_correlation": 0.9998094373654531
+  }
+}

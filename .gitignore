@@ -1,6 +1,7 @@
 venv/
 data/
 __pycache__/
+.pytest_cache/
 *.pyc
 pip_install.log
 ref_old/

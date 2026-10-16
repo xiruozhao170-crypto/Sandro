@@ -1,0 +1,40 @@
+[
+  {
+    "file": "era5_1979_2020.nc",
+    "n_years": 42,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7785539697834216,
+      0.0912432264723927
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1979_JJA_monthly_first_max_abs_error_m2_s": 18.333333333954215,
+    "raw_1979_JJA_relative_rms_error": 8.29977195699649e-07
+  },
+  {
+    "file": "ncep_1979_2020.nc",
+    "n_years": 42,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      0.9999999999999998,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7584747879603078,
+      0.09093921750548803
+    ],
+    "physical_regression_maps_verified": true
+  }
+]

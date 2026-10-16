@@ -1,0 +1,13 @@
+numpy>=1.26
+scipy>=1.11
+pandas>=2.1
+xarray>=2024.1
+netCDF4>=1.6
+matplotlib>=3.8
+cartopy>=0.22
+skyborn==0.4.5
+requests>=2.31
+cdsapi>=0.7
+pydap>=3.5
+legacy-cgi; python_version >= "3.13"
+pytest>=8
