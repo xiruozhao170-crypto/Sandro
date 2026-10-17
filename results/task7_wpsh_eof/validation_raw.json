@@ -1,7 +1,7 @@
 [
   {
-    "file": "era5_1979_2020.nc",
-    "n_years": 42,
+    "file": "access_ssp245_r1.nc",
+    "n_years": 200,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
@@ -12,8 +12,248 @@
       1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7785539697834216,
-      0.0912432264723927
+      0.7595645390256555,
+      0.08389239746765356
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
+    "raw_1900_JJA_relative_rms_error": 3.508851518113141e-07
+  },
+  {
+    "file": "access_ssp245_r1_nearest.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999997
+    ],
+    "independent_svd_variance_fractions": [
+      0.7595284357311627,
+      0.08390041847528981
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 8.0,
+    "raw_1900_JJA_relative_rms_error": 3.024782532794555e-07
+  },
+  {
+    "file": "access_ssp245_r2.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999998
+    ],
+    "independent_svd_variance_fractions": [
+      0.7342629044357109,
+      0.09711226115087258
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.533333333209157,
+    "raw_1900_JJA_relative_rms_error": 2.760862355600342e-07
+  },
+  {
+    "file": "access_ssp245_r2_nearest.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7342492275618071,
+      0.09712500049510615
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 6.557777778245509,
+    "raw_1900_JJA_relative_rms_error": 2.23003021795814e-07
+  },
+  {
+    "file": "access_ssp245_r5.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999993
+    ],
+    "independent_svd_variance_fractions": [
+      0.7254626074189123,
+      0.10782449046972724
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
+    "raw_1900_JJA_relative_rms_error": 3.752509516132839e-07
+  },
+  {
+    "file": "access_ssp245_r5_nearest.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7254525843684345,
+      0.10780418189624931
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 9.866666665300727,
+    "raw_1900_JJA_relative_rms_error": 3.54800622970732e-07
+  },
+  {
+    "file": "access_ssp585_r1.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999998
+    ],
+    "independent_svd_variance_fractions": [
+      0.743959367922009,
+      0.08319828397614912
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
+    "raw_1900_JJA_relative_rms_error": 3.508851518113141e-07
+  },
+  {
+    "file": "access_ssp585_r1_nearest.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7439370698029845,
+      0.08319157906662962
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 8.0,
+    "raw_1900_JJA_relative_rms_error": 3.024782532794555e-07
+  },
+  {
+    "file": "access_ssp585_r2.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.736626549845662,
+      0.09300352247368654
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.533333333209157,
+    "raw_1900_JJA_relative_rms_error": 2.760862355600342e-07
+  },
+  {
+    "file": "access_ssp585_r2_nearest.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      0.9999999999999998,
+      0.9999999999999998
+    ],
+    "independent_svd_variance_fractions": [
+      0.7365556382422929,
+      0.09304052733685994
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 6.557777778245509,
+    "raw_1900_JJA_relative_rms_error": 2.23003021795814e-07
+  },
+  {
+    "file": "access_ssp585_r5.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999998
+    ],
+    "independent_svd_variance_fractions": [
+      0.7483595314731821,
+      0.08741526148952716
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
+    "raw_1900_JJA_relative_rms_error": 3.752509516132839e-07
+  },
+  {
+    "file": "access_ssp585_r5_nearest.nc",
+    "n_years": 200,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      0.999999999999999,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7483281083419924,
+      0.08740921759763458
+    ],
+    "physical_regression_maps_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 9.866666665300727,
+    "raw_1900_JJA_relative_rms_error": 3.54800622970732e-07
+  },
+  {
+    "file": "era5_1979_2020.nc",
+    "n_years": 42,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999998
+    ],
+    "independent_svd_variance_fractions": [
+      0.7785539697834217,
+      0.09124322647239261
     ],
     "physical_regression_maps_verified": true,
     "raw_1979_JJA_monthly_first_max_abs_error_m2_s": 18.333333333954215,
@@ -28,12 +268,12 @@
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      0.9999999999999998,
-      1.0
+      0.9999999999999999,
+      0.9999999999999999
     ],
     "independent_svd_variance_fractions": [
       0.7584747879603078,
-      0.09093921750548803
+      0.09093921750548802
     ],
     "physical_regression_maps_verified": true
   }

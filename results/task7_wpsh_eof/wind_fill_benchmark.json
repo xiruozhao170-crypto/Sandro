@@ -1,0 +1,67 @@
+{
+  "description": "Artificially mask ERA5 with ACCESS topographic masks and measure WPSH errors.\n\nERA5 1979-2020 JJA is regridded to ACCESS's native global grid. Successive\nACCESS historical r1 JJA masks from 1900-1941 are applied month by month.\nAll three branches use identical global inversion, interpolation and EOF steps.\n",
+  "fill_version": "spherical-cartesian-v1",
+  "missing_grid_fraction_mean": 0.10302265781791643,
+  "inputs": [
+    {
+      "file": "era5_uv850_1979_2020_0.25deg.nc",
+      "sha256": "67a59628772a834ae05776b5910ec3579c123ff3c5d241b71a14c8e9cce0d2e3"
+    },
+    {
+      "file": "ua850_historical_r1_1900_1919.nc",
+      "sha256": "347a2421fdb0457993594cf4c27ba2230692e9d9cd6a52907bcb2f11b0de2d92"
+    },
+    {
+      "file": "ua850_historical_r1_1920_1939.nc",
+      "sha256": "19367e6f1d1e741c87a11d094070542c2165d797fd9f805ca7daf0eea8f501cc"
+    },
+    {
+      "file": "ua850_historical_r1_1940_1949.nc",
+      "sha256": "e03ae498e622b6f834a644d629d8eb4de8cb5a94b77042aa0d88e210035dceec"
+    }
+  ],
+  "results": {
+    "complete": {
+      "eof1_variance_percent": 77.64607771724589,
+      "pc1_correlation_with_complete": 1.0,
+      "pc1_rmse_sd": 0.0,
+      "sf_anomaly_rmse_m2_s": 0.0,
+      "sf_anomaly_relative_rmse": 0.0,
+      "strong_event_years": [
+        1995,
+        1998,
+        2010,
+        2020
+      ],
+      "changed_event_years": []
+    },
+    "harmonic": {
+      "eof1_variance_percent": 77.75292514976955,
+      "pc1_correlation_with_complete": 0.9998604826838126,
+      "pc1_rmse_sd": 0.016504270679175016,
+      "sf_anomaly_rmse_m2_s": 36162.579627600244,
+      "sf_anomaly_relative_rmse": 0.018340177015556434,
+      "strong_event_years": [
+        1995,
+        1998,
+        2010,
+        2020
+      ],
+      "changed_event_years": []
+    },
+    "nearest": {
+      "eof1_variance_percent": 77.70938984244268,
+      "pc1_correlation_with_complete": 0.9998640077628224,
+      "pc1_rmse_sd": 0.016294436275501815,
+      "sf_anomaly_rmse_m2_s": 35082.23816684675,
+      "sf_anomaly_relative_rmse": 0.017792272141747553,
+      "strong_event_years": [
+        1995,
+        1998,
+        2010,
+        2020
+      ],
+      "changed_event_years": []
+    }
+  }
+}

@@ -41,13 +41,22 @@ def open_winds(paths, variable, first, last):
 
 
 def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
-        degree, detrend_order="seasonal", regrid=False):
+        degree, detrend_order="seasonal", regrid=False, wind_fill="reject"):
     RESULTS.mkdir(parents=True, exist_ok=True)
     cache = ROOT / f"data/wpsh_winds/cache/{tag}.nc"
     cache.parent.mkdir(parents=True, exist_ok=True)
     inputs = [dict(file=str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else p.name,
                    sha256=sha256(p), bytes=p.stat().st_size) for p in sorted(set(ufiles+vfiles))]
+    if tag.startswith("access_"):
+        for item, path in zip(inputs, sorted(set(ufiles+vfiles))):
+            with xr.open_dataset(path) as source:
+                item["source_url"] = source.attrs["source_url"]
+                item["tracking_id"] = source.attrs.get("tracking_id", "")
+                item["pressure_Pa"] = float(source.plev.item())
     config = dict(first=first, last=last, baseline=baseline, degree=degree, inputs=inputs)
+    if wind_fill != "reject":
+        from wpsh_wind_fill import FILL_VERSION
+        config.update(wind_fill=wind_fill, fill_version=FILL_VERSION)
     fingerprint = json.dumps(config, sort_keys=True)
     if cache.exists():
         with xr.open_dataset(cache) as cached:
@@ -59,7 +68,7 @@ def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
         u, uds = open_winds(ufiles, uvar, first, last)
         v, vds = open_winds(vfiles, vvar, first, last)
         try:
-            products = regional_products(u, v, first, last, baseline, degree)
+            products = regional_products(u, v, first, last, baseline, degree, wind_fill=wind_fill)
         finally:
             for ds in uds+vds:
                 ds.close()
@@ -84,6 +93,7 @@ def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
     unweighted = eof_analysis(field, baseline, weighting="none")
     pc = result.pc.sel(mode=1).values
     summary = dict(tag=tag, label=label, first=first, last=last, baseline=baseline,
+                   wind_fill=wind_fill,
                    detrend_degree=degree, detrend_order=detrend_order,
                    eof1_variance_percent=float(result.variance_fraction.sel(mode=1)*100),
                    eof2_variance_percent=float(result.variance_fraction.sel(mode=2)*100),
@@ -103,6 +113,16 @@ def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
             sd_change_percent=float((future.std(ddof=1)/past.std(ddof=1)-1)*100),
             strong_events_present=int((past > 1.5).sum()), strong_events_future=int((future > 1.5).sum()),
             threshold="PC1 > 1.5 present-period sample SD, after present-period centering")
+        full_pc = result.pc.sel(mode=1)
+        summary["century_comparison_full_period_threshold"] = dict(
+            present="1900-1999", future="2000-2099",
+            strong_events_present=int((full_pc.sel(year=slice(1900, 1999)) > 1.5).sum()),
+            strong_events_future=int((full_pc.sel(year=slice(2000, 2099)) > 1.5).sum()),
+            threshold="PC1 > 1.5 full-1900-2099-period sample SD")
+    if wind_fill != "reject":
+        summary["missing_winds"] = {k: products.attrs[k] for k in
+            ("missing_grid_fraction_mean", "missing_grid_fraction_min", "missing_grid_fraction_max")}
+        summary["missing_winds"]["caveat"] = "Below-ground winds are a numerical extension, not observed or recovered model winds"
     result["pc1_other_detrend_order"] = alt.pc.sel(mode=1, drop=True)
     result["pc1_unweighted"] = unweighted.pc.sel(mode=1, drop=True)
     result["strong_event"] = (result.pc_reference.sel(mode=1, drop=True) > 1.5).astype("int8")
@@ -136,9 +156,13 @@ def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
         request_path = ufiles[0].parent / "download_manifest.json"
     if request_path.exists():
         manifest["download_request"] = json.loads(request_path.read_text())
+        if tag.startswith("access_"):
+            used_names = {p.name for p in ufiles+vfiles}
+            manifest["download_request"] = [r for r in manifest["download_request"] if r["file"] in used_names]
     (RESULTS / f"{tag}_manifest.json").write_text(json.dumps(manifest, indent=2)+"\n")
     print(json.dumps(summary, indent=2), flush=True)
-    plot_result(result)
+    if wind_fill != "nearest":
+        plot_result(result)
 
 
 def map_panel(fig, spec, data, title, limit):
@@ -182,7 +206,8 @@ def plot_result(ds):
     if len(ds.year) < 60:
         for y, value in zip(ds.year.values[strong], pc.values[strong]):
             ax.annotate(str(int(y)), (y, value), xytext=(0, 6), textcoords="offset points", ha="center", fontsize=8)
-    ax.set_ylim(min(-3, float(pc.min())-.3), max(3.5, float(pc.max())+.6))
+    ax.set_ylim(min(-3, float(pc.min())-.3, float(ds.regional_sf_reference.min())-.3),
+                max(3.5, float(pc.max())+.6, float(ds.regional_sf_reference.max())+.3))
     ax.set_xlim(int(ds.year.min())-1, int(ds.year.max())+1)
     ax.set_ylabel("Reference-period SD")
     ax.set_title("(c) JJA WPSH index", loc="left", fontsize=11)
@@ -207,6 +232,8 @@ def main():
     p.add_argument("--members", nargs="+", default=["r1", "r2", "r5"], choices=["r1", "r2", "r5"])
     p.add_argument("--scenarios", nargs="+", default=["ssp245", "ssp585"], choices=["ssp245", "ssp585"])
     p.add_argument("--redraw", action="store_true")
+    p.add_argument("--wind-fill", choices=["reject", "harmonic", "nearest"], default="reject",
+                   help="Explicit below-ground extension, only used for ACCESS")
     args = p.parse_args()
     if args.redraw:
         for file in sorted(RESULTS.glob("*.nc")):
@@ -221,8 +248,11 @@ def main():
                 vfiles = sorted(data.glob(f"va850_historical_{member}_*.nc")) + sorted(data.glob(f"va850_{scenario}_{member}_*.nc"))
                 ufiles = [p for p in ufiles if ".part." not in p.name]
                 vfiles = [p for p in vfiles if ".part." not in p.name]
-                run(f"access_{scenario}_{member}", f"ACCESS-CM2 {member} | historical + {scenario.upper()}",
-                    ufiles, vfiles, "ua", "va", 1900, 2099, [1900, 1999], 2, "monthly", regrid=True)
+                suffix = "" if args.wind_fill == "harmonic" else f"_{args.wind_fill}"
+                run(f"access_{scenario}_{member}{suffix}",
+                    f"ACCESS-CM2 {member} | historical + {scenario.upper()} | {args.wind_fill} wind extension",
+                    ufiles, vfiles, "ua", "va", 1900, 2099, [1900, 1999], 2, "monthly", regrid=True,
+                    wind_fill=args.wind_fill)
     elif args.source == "ncep":
         run("ncep_1979_2020", "NCEP/NCAR R1 (2.5-degree grid)",
             [args.data / "ncep_uwnd_850_1979_2020.nc"], [args.data / "ncep_vwnd_850_1979_2020.nc"],

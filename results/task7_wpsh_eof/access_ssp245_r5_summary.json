@@ -1,0 +1,84 @@
+{
+  "tag": "access_ssp245_r5",
+  "label": "ACCESS-CM2 r5 | historical + SSP245 | harmonic wind extension",
+  "first": 1900,
+  "last": 2099,
+  "baseline": [
+    1900,
+    1999
+  ],
+  "wind_fill": "harmonic",
+  "detrend_degree": 2,
+  "detrend_order": "monthly",
+  "eof1_variance_percent": 72.54626074366345,
+  "eof2_variance_percent": 10.782449047851863,
+  "pc1_regional_sf_correlation": 0.95145444751929,
+  "strong_years_full_sd": [
+    1901,
+    1917,
+    1919,
+    1923,
+    1934,
+    1977,
+    1984,
+    1988,
+    2011,
+    2015,
+    2035,
+    2043,
+    2047,
+    2060,
+    2065,
+    2067
+  ],
+  "strong_years_reference_sd": [
+    1901,
+    1917,
+    1919,
+    1923,
+    1934,
+    1977,
+    1984,
+    1988,
+    2011,
+    2015,
+    2018,
+    2024,
+    2035,
+    2043,
+    2047,
+    2060,
+    2065,
+    2067
+  ],
+  "sensitivity": {
+    "other_detrend_order": "seasonal",
+    "other_order_eof1_variance_percent": 73.25841823954721,
+    "other_order_pc1_correlation": 0.9970432181317345,
+    "unweighted_eof1_variance_percent": 71.77867689360633,
+    "unweighted_pc1_correlation": 0.9996877015772865
+  },
+  "century_comparison": {
+    "present": "1900-1999",
+    "future": "2000-2099",
+    "sd_present": 1.0,
+    "sd_future": 1.0144747660956237,
+    "sd_change_percent": 1.4474766095623703,
+    "strong_events_present": 8,
+    "strong_events_future": 10,
+    "threshold": "PC1 > 1.5 present-period sample SD, after present-period centering"
+  },
+  "century_comparison_full_period_threshold": {
+    "present": "1900-1999",
+    "future": "2000-2099",
+    "strong_events_present": 8,
+    "strong_events_future": 8,
+    "threshold": "PC1 > 1.5 full-1900-2099-period sample SD"
+  },
+  "missing_winds": {
+    "missing_grid_fraction_mean": 0.10267557171934866,
+    "missing_grid_fraction_min": 0.09985632183908046,
+    "missing_grid_fraction_max": 0.10517241379310345,
+    "caveat": "Below-ground winds are a numerical extension, not observed or recovered model winds"
+  }
+}

@@ -144,7 +144,7 @@ They coincide for these 1979–2020 reanalysis runs. Spatial result fields are
 stored as float32 to keep the repository compact; indices and statistics
 are stored as float64.
 
-## ACCESS-CM2 status and interface
+## ACCESS-CM2 model calculation
 
 The public NCI catalogue contains matching r1, r2 and r5 `ua`/`va` data for
 historical, SSP245 and SSP585. The separate
@@ -155,23 +155,100 @@ coordinate. The initial NCSS trial exposed a service issue: it relabelled the
 85000-Pa coordinate as the mean of pressure bounds, 83125 Pa. That route is
 not used in the submitted ACCESS downloader.
 
-The original model has masked 850-hPa winds below high terrain. Approximately
-10% of points in the tested monthly global grid are missing (a grid-point
-fraction, not an area fraction). A global streamfunction is not determined by
-simply ignoring these points. The calculation therefore rejects missing winds.
-**No ACCESS-CM2 WPSH numerical results are submitted in this delivery.**
-They require a documented below-ground extrapolation/imputation decision or
-a supplied complete global wind product. No missing winds were replaced by zero.
+The model has masked 850-hPa winds below high terrain. Approximately 10% of
+native grid points are missing (a grid-point fraction, not an area fraction),
+including the Antarctic polar cap. The original downloaded files retain these
+missing values. The low-level streamfunction solver still rejects missing winds;
+model runs explicitly select the numerical wind extension described below.
 
-The prepared model-analysis configuration joins historical and each scenario
-for 1900–2099, uses monthly quadratic detrending over the combined period,
+The model-analysis configuration joins historical and each scenario
+for **1900–2099**, uses monthly quadratic detrending over the combined period,
 interpolates the resulting streamfunction to a 1° grid, and fits a common
-EOF across both centuries. The default present reference is 1900–1999, as
-requested for a present-period baseline. The reference paper uses a full-record
+EOF across both centuries **within each member/scenario combination**. This is
+six separate EOF fits, not an EOF pooled across members or scenarios. The present
+reference is **1900–1999**, the century selected for the requested present-period
+baseline. The reference paper uses a full-record
 monthly baseline for its models; the configured present-period baseline is
 therefore an explicit adaptation. It must not be described as an exact
 multimodel reproduction. Future WPSH indices retain the present-period SD
 for event comparisons, and the full-period-normalized PC is saved separately.
+Summary JSONs also report strong-event counts using the full-period SD so the
+two threshold conventions can be distinguished. The 2000–2099 comparison century
+contains historical years 2000–2014 and scenario years 2015–2099; it is not
+described as a century of exclusively scenario forcing.
+
+Model deliverables are the six `access_{ssp245,ssp585}_{r1,r2,r5}` result sets,
+the corresponding `_nearest` sensitivity results,
+[combined summary](../results/task7_wpsh_eof/access_summary.csv),
+[index overview](../figures/task7_wpsh_eof/access_overview.png), and
+[century comparison](../figures/task7_wpsh_eof/access_century_comparison.png).
+All are from one model with three members, not six independent climate models.
+No multimodel significance or reproduction of the paper's 32-model aggregate
+is claimed. Each input manifest records original OPeNDAP URL, tracking ID,
+exact pressure, file size and SHA-256.
+The [download integrity audit](../results/task7_wpsh_eof/access_download_validation.json)
+checks all 102 subsets (1,069,982,063 bytes), their SHA-256 checksums, 145 × 192
+global coordinates, pressure level and complete monthly coverage in all 18
+variable/member/experiment groups. Original pressure coordinates differ from
+85000 Pa by at most 1.01 × 10⁻⁸ Pa due to numeric encoding.
+
+### Below-ground wind extension and its limitations
+
+The primary **harmonic extension** in
+[`wpsh_wind_fill.py`](../scripts/wpsh_wind_fill.py) is an explicit numerical
+choice for this independent calculation; it is not a method documented by the
+reference paper. Filling missing points while holding known boundary values is
+also the general principle of NCAR's
+[`poisson_grid_fill`](https://www.ncl.ucar.edu/Document/Functions/Built-in/poisson_grid_fill.shtml),
+but this implementation is not an NCL port or an assertion of NCL equivalence.
+
+1. At each month, convert the valid eastward/northward winds to three Earth-fixed
+   Cartesian vector components. Both wind components must have identical missing
+   masks; other mismatches or infinite values fail explicitly.
+2. Construct a spherical finite-volume graph with cyclic longitude. All
+   longitudes at each geographic pole share a single scalar node. For regular
+   angular spacings, meridional edge conductance is
+   `cos(mid-latitude) * dlon / dlat`, and zonal conductance is
+   `dlat / (cos(latitude) * dlon)`.
+3. For each component, solve `sum_j w_ij (c_i - c_j) = 0` only at missing nodes,
+   with the observed nodes fixed as Dirichlet boundaries. Check the sparse linear
+   system residual. Transform back to tangent eastward/northward components and
+   write only the originally missing wind points. Every original finite u/v
+   value is retained exactly, and polar vector continuity is enforced for filled
+   poles. There is no zero-filled wind field passed to the global inversion.
+4. Fill **each month before temporal averaging or trend estimation**. Masks vary
+   with time, so filling an annual mean would be a different operation. The
+   later linear temporal optimization operates on already completed winds.
+
+The separate **nearest** branch copies the Cartesian wind vector at the nearest
+valid spherical node, then projects it onto the local tangent plane. It uses
+the same original masks and preserves the same finite observations. Both methods
+are run for all six model cases, with PC correlations, index RMSE, century
+variability changes and threshold-crossing disagreements in the summary.
+
+The [ERA5 masking experiment](../results/task7_wpsh_eof/wind_fill_benchmark.json)
+regrids complete 1979–2020 ERA5 JJA winds to the native ACCESS global grid,
+artificially masks them using the successive 1900–1941 ACCESS r1 JJA masks, and
+compares complete, harmonic and nearest branches. Years are paired by sequence,
+not by matching weather; the experiment tests the geographical masking problem.
+All three branches share the same inversion, 1° interpolation, JJA linear
+detrending and EOF analysis. Its correlations and errors quantify reconstruction
+sensitivity on ERA5. They do not validate the unobserved below-ground model
+winds or the physical accuracy of a climate projection. Model results should
+be cited as conditional on the documented extension.
+
+| ERA5 masking branch | EOF1 variance | PC1 correlation with complete | PC1 RMSE (SD) | Regional SF anomaly relative RMSE | Changed strong-event years |
+|---|---:|---:|---:|---:|---|
+| Complete winds on the common grid | 77.6461% | 1 | 0 | 0 | — |
+| Harmonic extension | 77.7529% | 0.999860 | 0.01650 | 1.8340% | None |
+| Nearest extension | 77.7094% | 0.999864 | 0.01629 | 1.7792% | None |
+
+All three branches identify 1995, 1998, 2010 and 2020. Their common-grid complete
+branch differs slightly from the original 0.25° ERA5 calculation because the
+benchmark first regrids winds to the ACCESS grid. The harmonic method was chosen
+before inspecting the benchmark; neither method is claimed to outperform the
+other based on these small differences. Regional errors are unweighted RMS over
+all years and the 10–40°N, 110–180°E EOF domain.
 
 ## Reproduction
 
@@ -183,7 +260,12 @@ python scripts/fetch_wpsh_winds.py era5
 python scripts/fetch_wpsh_winds.py ncep
 python scripts/task7_wpsh_eof.py --source era5
 python scripts/task7_wpsh_eof.py --source ncep
-python -m pytest tests/test_wpsh_streamfunction.py -q
+python scripts/fetch_access_wpsh_winds.py --workers 4
+python scripts/task7_wpsh_eof.py --source access --wind-fill harmonic
+python scripts/task7_wpsh_eof.py --source access --wind-fill nearest
+python scripts/validate_wpsh_fill.py
+python scripts/summarize_access_wpsh.py
+python -m pytest tests/test_wpsh_streamfunction.py tests/test_wpsh_wind_fill.py -q
 python scripts/validate_task7_wpsh.py --raw-check
 ```
 
@@ -191,6 +273,11 @@ ERA5 download requires the user's configured CDS API access and accepted
 dataset terms. Credentials are read by `cdsapi`; they are not included in
 the repository. NOAA downloads need no account. Raw files and computational
 caches are in git-ignored `data/wpsh_winds/`.
+The ACCESS downloader retries truncated OPeNDAP responses and writes its manifest
+as each atomic subset completes. Rerunning resumes completed subsets. To start
+each case while other downloads continue, run `python scripts/run_access_wpsh.py`
+alongside the downloader; it waits for complete year coverage, then runs both
+extensions and the combined summary.
 
 The figures and numerical audits can also be reproduced without raw downloads:
 
@@ -199,12 +286,15 @@ python scripts/task7_wpsh_eof.py --redraw
 python scripts/validate_task7_wpsh.py
 ```
 
-Eight scientific tests cover the analytic sign and magnitude of streamfunction,
+Thirteen scientific tests cover the analytic sign and magnitude of streamfunction,
 removal of divergent winds, global coverage/missing-data rejection, pressure
 selection in Pa/hPa, missing and duplicate months, equivalent linear/quadratic
 temporal processing, and EOF recovery against an independent SVD. The result
 audits additionally verify PC normalization/orthogonality, CSV consistency,
-physical regression maps and the independent raw ERA5 calculation.
+physical regression maps and independent monthly-first raw ERA5/ACCESS checks.
+The additional extension tests check unchanged valid winds, finite polar vectors,
+longitude-rotation equivariance, fixed-mask linearity and correct processing of
+time-varying monthly masks.
 
 ## 中文说明
 
@@ -215,5 +305,8 @@ WPSH 指数。ERA5 的 EOF1 方差解释率为 **77.86%**，强事件年份为
 **1995、1998、2010、2020**，与论文列出的年份一致。
 
 提供可直接使用的逐年 CSV、NetCDF、PNG/SVG、数据校验值、敏感性对照及验证代码。
-Drive 中现有 ACCESS 文件没有风场；公开模式风场在高地以下有缺测，补值方案会
-影响全球流函数，因此本轮模型部分保留下载与计算接口，未发布经过未说明补值的模式结果。
+ACCESS-CM2 使用公开 NCI 原始 85000 Pa 风场，补充 r1、r2、r5 在 SSP245、SSP585
+下的六组 1900–2099 年结果。高地下方缺测采用明确记录的球面调和延拓，并提供最近邻
+延拓对照和 ERA5 人工遮挡检验。补出的风值属于数值假设，不能解释为恢复了真实风场。
+逐月二次去趋势后计算 JJA EOF；以 1900–1999 年标准差判断未来强事件，同时保留
+全时段标准化结果。六组结果仅代表一个模式的三个成员和两个情景，不代表多模式结论。

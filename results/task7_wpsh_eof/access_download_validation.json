@@ -1,0 +1,122 @@
+{
+  "subsets": 102,
+  "total_bytes": 1069982063,
+  "sha256_verified": true,
+  "nominal_pressure_Pa": 85000,
+  "pressure_max_abs_deviation_Pa": 1.0011717677116394e-08,
+  "global_grid": [
+    145,
+    192
+  ],
+  "all_months_exactly_once": true,
+  "groups": [
+    {
+      "group": "ua850_historical_r1",
+      "first_year": 1900,
+      "last_year": 2014,
+      "months": 1380
+    },
+    {
+      "group": "ua850_historical_r2",
+      "first_year": 1900,
+      "last_year": 2014,
+      "months": 1380
+    },
+    {
+      "group": "ua850_historical_r5",
+      "first_year": 1900,
+      "last_year": 2014,
+      "months": 1380
+    },
+    {
+      "group": "ua850_ssp245_r1",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "ua850_ssp245_r2",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "ua850_ssp245_r5",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "ua850_ssp585_r1",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "ua850_ssp585_r2",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "ua850_ssp585_r5",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "va850_historical_r1",
+      "first_year": 1900,
+      "last_year": 2014,
+      "months": 1380
+    },
+    {
+      "group": "va850_historical_r2",
+      "first_year": 1900,
+      "last_year": 2014,
+      "months": 1380
+    },
+    {
+      "group": "va850_historical_r5",
+      "first_year": 1900,
+      "last_year": 2014,
+      "months": 1380
+    },
+    {
+      "group": "va850_ssp245_r1",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "va850_ssp245_r2",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "va850_ssp245_r5",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "va850_ssp585_r1",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "va850_ssp585_r2",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    },
+    {
+      "group": "va850_ssp585_r5",
+      "first_year": 2015,
+      "last_year": 2099,
+      "months": 1020
+    }
+  ]
+}

@@ -1,0 +1,484 @@
+{
+  "configuration": {
+    "first": 1900,
+    "last": 2099,
+    "baseline": [
+      1900,
+      1999
+    ],
+    "degree": 2,
+    "inputs": [
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_1900_1919.nc",
+        "sha256": "347a2421fdb0457993594cf4c27ba2230692e9d9cd6a52907bcb2f11b0de2d92",
+        "bytes": 12652345,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+        "tracking_id": "hdl:21.14100/dbdf914e-7515-45f1-8d5d-5c503412ccea",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_1920_1939.nc",
+        "sha256": "19367e6f1d1e741c87a11d094070542c2165d797fd9f805ca7daf0eea8f501cc",
+        "bytes": 12653091,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+        "tracking_id": "hdl:21.14100/dbdf914e-7515-45f1-8d5d-5c503412ccea",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_1940_1949.nc",
+        "sha256": "e03ae498e622b6f834a644d629d8eb4de8cb5a94b77042aa0d88e210035dceec",
+        "bytes": 6310234,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+        "tracking_id": "hdl:21.14100/dbdf914e-7515-45f1-8d5d-5c503412ccea",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_1950_1969.nc",
+        "sha256": "799bd6ae7b76251d2d90fd8da5789c022904915d0253a1f5449451767852a1f7",
+        "bytes": 12654864,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/28c71824-697f-4e1c-91b6-28a17e226cad",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_1970_1989.nc",
+        "sha256": "f9416a398c87250997a7d4c460765e4dd89e7a4ded85a0ffb89e4c6fba41dce8",
+        "bytes": 12653041,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/28c71824-697f-4e1c-91b6-28a17e226cad",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_1990_2009.nc",
+        "sha256": "bbc4e96872994381694c76ee773073ad23cfbe3fbea5725452f138a4bd5328a0",
+        "bytes": 12651354,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/28c71824-697f-4e1c-91b6-28a17e226cad",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_historical_r1_2010_2014.nc",
+        "sha256": "8c1e0fa63c0ccda35f6139380e0b3c2cf18b110b18027d0503161c70476d8315",
+        "bytes": 3171341,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/28c71824-697f-4e1c-91b6-28a17e226cad",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_ssp245_r1_2015_2034.nc",
+        "sha256": "b8e2db927ade2977caae6105d0c37f768285d3766fb0b4c81eb56f0beca25208",
+        "bytes": 12645312,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/37c484d0-b841-4f5e-ac68-7be287cc8a52",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_ssp245_r1_2035_2054.nc",
+        "sha256": "cb60b9d29c387058671db4dbb8baeefc3936a23ab59269c220780fbaa9e68915",
+        "bytes": 12639671,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/37c484d0-b841-4f5e-ac68-7be287cc8a52",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_ssp245_r1_2055_2074.nc",
+        "sha256": "3e09bf3e1ad2a7d74751c1b1e8bf474abc5df8b2bf1c02e804a206a841985f21",
+        "bytes": 12638561,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/37c484d0-b841-4f5e-ac68-7be287cc8a52",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_ssp245_r1_2075_2094.nc",
+        "sha256": "09828e2b971b17305fa5170c6ba847d05abc1ef05bc3a3723dca26c878e5adcd",
+        "bytes": 12636312,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/37c484d0-b841-4f5e-ac68-7be287cc8a52",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\ua850_ssp245_r1_2095_2099.nc",
+        "sha256": "0cf164dc3af9488f61f33b432582d0fc3039ed6a1d61c1e152d3c5d443be956c",
+        "bytes": 3168726,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/37c484d0-b841-4f5e-ac68-7be287cc8a52",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_1900_1919.nc",
+        "sha256": "7d196f24c2f7f302a9604011104c80fa0cb17dff4d1dae2a0edc7d34d1d8cc88",
+        "bytes": 12393453,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+        "tracking_id": "hdl:21.14100/e161c5ae-0b4f-4eb8-a355-0a43e1961ae7",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_1920_1939.nc",
+        "sha256": "edd4d4f36bafd97d4ec1ab395e59cf9d978e9ce5ed25a5f9049eaea2bc15813c",
+        "bytes": 12392161,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+        "tracking_id": "hdl:21.14100/e161c5ae-0b4f-4eb8-a355-0a43e1961ae7",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_1940_1949.nc",
+        "sha256": "d6e6b8cf758462bd994228d80c14bd5393e9fb35f989157513686263e397b764",
+        "bytes": 6179576,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+        "tracking_id": "hdl:21.14100/e161c5ae-0b4f-4eb8-a355-0a43e1961ae7",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_1950_1969.nc",
+        "sha256": "878f8989fdc126b7b5bff73b3c91971f5567ac2854a82545827dfc951013de3c",
+        "bytes": 12400332,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/a4a56f1f-5dcb-49ae-bbc9-8e21e0a5badf",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_1970_1989.nc",
+        "sha256": "f34ddd9821c685892f66ba58fb7e9736897598f9969d78d2d8e1c985c4bc5803",
+        "bytes": 12393901,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/a4a56f1f-5dcb-49ae-bbc9-8e21e0a5badf",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_1990_2009.nc",
+        "sha256": "fc398a7e82cfdde196b3f06cfc45597b61ac2bb9f72d33b32fd695748dd8a896",
+        "bytes": 12390526,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/a4a56f1f-5dcb-49ae-bbc9-8e21e0a5badf",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_historical_r1_2010_2014.nc",
+        "sha256": "69ab64ebf0d13af71ed1192867b3e59cc170cda7f0a6d0824deee37f57a42538",
+        "bytes": 3108617,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+        "tracking_id": "hdl:21.14100/a4a56f1f-5dcb-49ae-bbc9-8e21e0a5badf",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2015_2034.nc",
+        "sha256": "6208a468d2fdbcf0b6202d688642c682051c0452f543eee739d1497d3cbf09e8",
+        "bytes": 12383640,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2035_2054.nc",
+        "sha256": "cf6be9576d1dc0060946e0a004da9bcdd6d027144fea1aeb30107d8be642e31e",
+        "bytes": 12378029,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2055_2074.nc",
+        "sha256": "6d0bcfa4cbd327b707d936ca7cee2d38886251a5e37368e32eb98d130d19a7ae",
+        "bytes": 12377613,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2075_2094.nc",
+        "sha256": "fcf6d8249b9b074326c392bce676888948cd640462c995cf9f9fd4a395826d0f",
+        "bytes": 12372969,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2095_2099.nc",
+        "sha256": "29d7eec8aa4f9af6020d79da2a7ea48189f1e33a1fa5e4743e5060005a9e07a4",
+        "bytes": 3099687,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
+        "pressure_Pa": 85000.00000001001
+      }
+    ],
+    "wind_fill": "nearest",
+    "fill_version": "spherical-cartesian-v1"
+  },
+  "source": "ACCESS-CM2 r1 | historical + SSP245 | nearest wind extension",
+  "reference": "https://doi.org/10.1073/pnas.2120335119",
+  "python": "3.13.5",
+  "packages": {
+    "numpy": "2.1.3",
+    "xarray": "2025.4.0",
+    "scipy": "1.15.3",
+    "netCDF4": "1.7.4",
+    "skyborn": "0.4.5",
+    "matplotlib": "3.10.0"
+  },
+  "download_request": [
+    {
+      "file": "ua850_historical_r1_1900_1919.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "first_year": 1900,
+      "last_year": 1919,
+      "sha256": "347a2421fdb0457993594cf4c27ba2230692e9d9cd6a52907bcb2f11b0de2d92",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_historical_r1_1920_1939.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "first_year": 1920,
+      "last_year": 1939,
+      "sha256": "19367e6f1d1e741c87a11d094070542c2165d797fd9f805ca7daf0eea8f501cc",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_historical_r1_1940_1949.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "first_year": 1940,
+      "last_year": 1949,
+      "sha256": "e03ae498e622b6f834a644d629d8eb4de8cb5a94b77042aa0d88e210035dceec",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_historical_r1_1950_1969.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 1950,
+      "last_year": 1969,
+      "sha256": "799bd6ae7b76251d2d90fd8da5789c022904915d0253a1f5449451767852a1f7",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_historical_r1_1970_1989.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 1970,
+      "last_year": 1989,
+      "sha256": "f9416a398c87250997a7d4c460765e4dd89e7a4ded85a0ffb89e4c6fba41dce8",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_historical_r1_1990_2009.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 1990,
+      "last_year": 2009,
+      "sha256": "bbc4e96872994381694c76ee773073ad23cfbe3fbea5725452f138a4bd5328a0",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_historical_r1_2010_2014.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 2010,
+      "last_year": 2014,
+      "sha256": "8c1e0fa63c0ccda35f6139380e0b3c2cf18b110b18027d0503161c70476d8315",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_ssp245_r1_2015_2034.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2015,
+      "last_year": 2034,
+      "sha256": "b8e2db927ade2977caae6105d0c37f768285d3766fb0b4c81eb56f0beca25208",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_ssp245_r1_2035_2054.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2035,
+      "last_year": 2054,
+      "sha256": "cb60b9d29c387058671db4dbb8baeefc3936a23ab59269c220780fbaa9e68915",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_ssp245_r1_2055_2074.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2055,
+      "last_year": 2074,
+      "sha256": "3e09bf3e1ad2a7d74751c1b1e8bf474abc5df8b2bf1c02e804a206a841985f21",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_ssp245_r1_2075_2094.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2075,
+      "last_year": 2094,
+      "sha256": "09828e2b971b17305fa5170c6ba847d05abc1ef05bc3a3723dca26c878e5adcd",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "ua850_ssp245_r1_2095_2099.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2095,
+      "last_year": 2099,
+      "sha256": "0cf164dc3af9488f61f33b432582d0fc3039ed6a1d61c1e152d3c5d443be956c",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_1900_1919.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "first_year": 1900,
+      "last_year": 1919,
+      "sha256": "7d196f24c2f7f302a9604011104c80fa0cb17dff4d1dae2a0edc7d34d1d8cc88",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_1920_1939.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "first_year": 1920,
+      "last_year": 1939,
+      "sha256": "edd4d4f36bafd97d4ec1ab395e59cf9d978e9ce5ed25a5f9049eaea2bc15813c",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_1940_1949.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
+      "first_year": 1940,
+      "last_year": 1949,
+      "sha256": "d6e6b8cf758462bd994228d80c14bd5393e9fb35f989157513686263e397b764",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_1950_1969.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 1950,
+      "last_year": 1969,
+      "sha256": "878f8989fdc126b7b5bff73b3c91971f5567ac2854a82545827dfc951013de3c",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_1970_1989.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 1970,
+      "last_year": 1989,
+      "sha256": "f34ddd9821c685892f66ba58fb7e9736897598f9969d78d2d8e1c985c4bc5803",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_1990_2009.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 1990,
+      "last_year": 2009,
+      "sha256": "fc398a7e82cfdde196b3f06cfc45597b61ac2bb9f72d33b32fd695748dd8a896",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_historical_r1_2010_2014.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_195001-201412.nc",
+      "first_year": 2010,
+      "last_year": 2014,
+      "sha256": "69ab64ebf0d13af71ed1192867b3e59cc170cda7f0a6d0824deee37f57a42538",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_ssp245_r1_2015_2034.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2015,
+      "last_year": 2034,
+      "sha256": "6208a468d2fdbcf0b6202d688642c682051c0452f543eee739d1497d3cbf09e8",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_ssp245_r1_2035_2054.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2035,
+      "last_year": 2054,
+      "sha256": "cf6be9576d1dc0060946e0a004da9bcdd6d027144fea1aeb30107d8be642e31e",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_ssp245_r1_2055_2074.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2055,
+      "last_year": 2074,
+      "sha256": "6d0bcfa4cbd327b707d936ca7cee2d38886251a5e37368e32eb98d130d19a7ae",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_ssp245_r1_2075_2094.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2075,
+      "last_year": 2094,
+      "sha256": "fcf6d8249b9b074326c392bce676888948cd640462c995cf9f9fd4a395826d0f",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_ssp245_r1_2095_2099.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2095,
+      "last_year": 2099,
+      "sha256": "29d7eec8aa4f9af6020d79da2a7ea48189f1e33a1fa5e4743e5060005a9e07a4",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    }
+  ]
+}

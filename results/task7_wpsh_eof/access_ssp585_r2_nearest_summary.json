@@ -1,0 +1,88 @@
+{
+  "tag": "access_ssp585_r2_nearest",
+  "label": "ACCESS-CM2 r2 | historical + SSP585 | nearest wind extension",
+  "first": 1900,
+  "last": 2099,
+  "baseline": [
+    1900,
+    1999
+  ],
+  "wind_fill": "nearest",
+  "detrend_degree": 2,
+  "detrend_order": "monthly",
+  "eof1_variance_percent": 73.65556382187596,
+  "eof2_variance_percent": 9.304052734454135,
+  "pc1_regional_sf_correlation": 0.9527998536501812,
+  "strong_years_full_sd": [
+    1922,
+    1944,
+    1947,
+    1964,
+    1987,
+    2002,
+    2014,
+    2019,
+    2024,
+    2028,
+    2031,
+    2041,
+    2058,
+    2071,
+    2084,
+    2093
+  ],
+  "strong_years_reference_sd": [
+    1910,
+    1922,
+    1944,
+    1947,
+    1964,
+    1987,
+    2002,
+    2005,
+    2014,
+    2019,
+    2024,
+    2028,
+    2031,
+    2032,
+    2041,
+    2050,
+    2058,
+    2071,
+    2074,
+    2084,
+    2093,
+    2096
+  ],
+  "sensitivity": {
+    "other_detrend_order": "seasonal",
+    "other_order_eof1_variance_percent": 75.24228196813343,
+    "other_order_pc1_correlation": 0.9967663376342647,
+    "unweighted_eof1_variance_percent": 73.1022632753683,
+    "unweighted_pc1_correlation": 0.9997755412335011
+  },
+  "century_comparison": {
+    "present": "1900-1999",
+    "future": "2000-2099",
+    "sd_present": 1.0,
+    "sd_future": 1.186321663205297,
+    "sd_change_percent": 18.63216632052971,
+    "strong_events_present": 6,
+    "strong_events_future": 16,
+    "threshold": "PC1 > 1.5 present-period sample SD, after present-period centering"
+  },
+  "century_comparison_full_period_threshold": {
+    "present": "1900-1999",
+    "future": "2000-2099",
+    "strong_events_present": 5,
+    "strong_events_future": 11,
+    "threshold": "PC1 > 1.5 full-1900-2099-period sample SD"
+  },
+  "missing_winds": {
+    "missing_grid_fraction_mean": 0.10266286518199234,
+    "missing_grid_fraction_min": 0.09996408045977012,
+    "missing_grid_fraction_max": 0.10517241379310345,
+    "caveat": "Below-ground winds are a numerical extension, not observed or recovered model winds"
+  }
+}

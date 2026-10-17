@@ -20,15 +20,28 @@
 
 已通过解析风场、独立 SVD 和原始 ERA5 月风场复核。主结果采用 JJA 去趋势；
 同时保存“先月距平去趋势、再取 JJA”及不做纬度加权的敏感性结果。
-原 Task 1–6 保留。ACCESS-CM2 风场在高地以下存在缺测，本轮先交付再分析结果，
-模式下载/计算接口已准备，但尚未发布模式 WPSH 数值结果。
+原 Task 1–6 保留。另完成 **ACCESS-CM2 的 r1、r2、r5 × SSP245、SSP585 六组
+1900–2099 年分析**：全球风场反演流函数，逐月二次去趋势，JJA EOF，基准期为
+1900–1999 年。高地下方缺测采用球面调和延拓，每组均有最近邻延拓对照。
+ERA5 人工遮挡试验中，调和延拓 PC1 与完整风场结果相关 **0.99986**，四个强事件
+年份保持一致；这检验了补值对指数的影响，并不意味着恢复了真实地下风场。
+
+[六组结果汇总](docs/Task7_ACCESS_results.md) ·
+[模式指数总览](figures/task7_wpsh_eof/access_overview.png) ·
+[世纪间变化](figures/task7_wpsh_eof/access_century_comparison.png) ·
+[模式汇总 CSV](results/task7_wpsh_eof/access_summary.csv) ·
+[补值检验](results/task7_wpsh_eof/wind_fill_benchmark.json)
 
 ```bash
 python -m pip install -r requirements-wpsh.txt
 python scripts/fetch_wpsh_winds.py era5       # 需已配置 CDS API
 python scripts/task7_wpsh_eof.py --source era5
+python scripts/fetch_access_wpsh_winds.py --workers 4
+python scripts/task7_wpsh_eof.py --source access --wind-fill harmonic
+python scripts/task7_wpsh_eof.py --source access --wind-fill nearest
+python scripts/summarize_access_wpsh.py
 python scripts/task7_wpsh_eof.py --redraw     # 仅用提交的结果重画，无需原始风场
-python -m pytest tests/test_wpsh_streamfunction.py -q
+python -m pytest tests/test_wpsh_streamfunction.py tests/test_wpsh_wind_fill.py -q
 python scripts/validate_task7_wpsh.py
 ```
 

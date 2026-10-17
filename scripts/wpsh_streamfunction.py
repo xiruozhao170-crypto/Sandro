@@ -131,7 +131,7 @@ def temporal_weights(time, first, last, baseline, degree):
     return weights, np.array(jja_design)
 
 
-def aggregate_winds(u, v, first, last, baseline, degree, batch=12):
+def aggregate_winds(u, v, first, last, baseline, degree, batch=12, wind_fill="reject"):
     u, v = xr.align(u, v, join="exact")
     if not np.array_equal(u.time.dt.year, v.time.dt.year) or not np.array_equal(u.time.dt.month, v.time.dt.month):
         raise ValueError("u/v monthly dates differ")
@@ -139,25 +139,40 @@ def aggregate_winds(u, v, first, last, baseline, degree, batch=12):
     validate_global_grid(u.lat.values, u.lon.values)
     shape = (weights.shape[0], u.sizes["lat"], u.sizes["lon"])
     ua, va = np.zeros(shape), np.zeros(shape)
+    filler = None
+    if wind_fill != "reject":
+        from wpsh_wind_fill import WindFiller
+        filler = WindFiller(u.lat.values, u.lon.values)
+    missing_counts = []
     for start in range(0, u.sizes["time"], batch):
         end = min(start+batch, u.sizes["time"])
         w = weights[:, start:end]
         rows = np.flatnonzero(np.any(w != 0, axis=1))
-        for source, dest in ((u, ua), (v, va)):
-            values = source.isel(time=slice(start, end)).values.astype("float64")
+        ub = u.isel(time=slice(start, end)).values.astype("float64")
+        vb = v.isel(time=slice(start, end)).values.astype("float64")
+        missing_counts.extend(np.isnan(ub).mean(axis=(1, 2)).tolist())
+        if filler is not None:
+            for k in range(len(ub)):
+                ub[k], vb[k] = filler.fill(ub[k], vb[k], wind_fill)
+        for values, dest in ((ub, ua), (vb, va)):
             if not np.isfinite(values).all():
                 raise ValueError(f"Missing global winds in months {start}:{end}")
             dest[rows] += np.einsum("ft,tij->fij", w[rows], values, optimize=True)
         if start % 120 == 0:
             print(f"  Read monthly winds {start+1}-{end}/{u.sizes['time']}", flush=True)
-    return ua, va, design
+    return ua, va, design, missing_counts
 
 
-def regional_products(u, v, first, last, baseline, degree, batch=4):
-    ua, va, design = aggregate_winds(u, v, first, last, baseline, degree)
+def regional_products(u, v, first, last, baseline, degree, batch=4, wind_fill="reject"):
+    ua, va, design, missing_counts = aggregate_winds(u, v, first, last, baseline, degree, wind_fill=wind_fill)
     lat, lon = u.lat.values, u.lon.values
     # Keep a wider map than the EOF box for regression diagnostics.
-    iy, ix = np.flatnonzero((lat >= 0) & (lat <= 50)), np.flatnonzero((lon >= 90) & (lon <= 200))
+    # Retain bracketing nodes so a subsequent 1-degree interpolation has no
+    # missing eastern edge on ACCESS's 1.875-degree longitude grid.
+    south, north = lat[lat <= 0].max(), lat[lat >= 50].min()
+    west, east = lon[lon <= 90].max(), lon[lon >= 200].min()
+    iy = np.flatnonzero((lat >= south) & (lat <= north))
+    ix = np.flatnonzero((lon >= west) & (lon <= east))
     fields = []
     for start in range(0, len(ua), batch):
         stop = min(start+batch, len(ua))
@@ -182,6 +197,10 @@ def regional_products(u, v, first, last, baseline, degree, batch=4):
     for name in ds.data_vars:
         ds[name].attrs["units"] = "m2 s-1"
     ds.attrs.update(pressure_hPa=850, source_nlat=len(lat), source_nlon=len(lon),
+                    wind_fill=wind_fill,
+                    missing_grid_fraction_mean=float(np.mean(missing_counts)),
+                    missing_grid_fraction_min=float(np.min(missing_counts)),
+                    missing_grid_fraction_max=float(np.max(missing_counts)),
                     baseline_start=baseline[0], baseline_end=baseline[1],
                     detrend_degree=degree, earth_radius_m=RADIUS,
                     solver="SPHEREPACK global spherical harmonics, full resolved truncation, l=0 streamfunction zero",
