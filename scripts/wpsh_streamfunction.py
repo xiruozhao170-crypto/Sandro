@@ -16,6 +16,36 @@ import xarray as xr
 RADIUS = 6_371_200.0
 DOMAIN = (110, 180, 10, 40)
 CORE = (120, 150, 15, 25)
+HISTORICAL_PERIOD = (1900, 2014)
+FUTURE_PERIOD = (2015, 2099)
+
+
+def compare_periods(pc, historical=HISTORICAL_PERIOD, future=FUTURE_PERIOD):
+    """Compare annual indices using a fixed 1.5-SD threshold and annual rates.
+
+    The input is already standardized with the intended reference period.
+    Rates are percentages of summers, so unequal period lengths are comparable.
+    """
+    if historical[1] >= future[0]:
+        raise ValueError("Historical and future periods must not overlap")
+    result = {}
+    for label, (first, last) in (("historical", historical), ("future", future)):
+        subset = pc.sel(year=slice(first, last))
+        if not np.array_equal(subset.year.values, np.arange(first, last+1)):
+            raise ValueError(f"Incomplete annual coverage for {label}")
+        if not np.isfinite(subset.values).all():
+            raise ValueError(f"Nonfinite index in {label}")
+        n = subset.sizes["year"]
+        count = int((subset > 1.5).sum())
+        result.update({label: f"{first}-{last}", f"n_years_{label}": n,
+                       f"sd_{label}": float(subset.std(ddof=1)),
+                       f"strong_events_{label}": count,
+                       f"strong_event_rate_{label}_percent": 100*count/n})
+    if result["sd_historical"] <= 0:
+        raise ValueError("Historical index must have nonzero variability")
+    result["future_to_historical_sd_ratio"] = result["sd_future"]/result["sd_historical"]
+    result["sd_change_percent"] = (result["future_to_historical_sd_ratio"]-1)*100
+    return result
 
 
 def sha256(path):

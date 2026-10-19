@@ -22,13 +22,15 @@
 同时保存“先月距平去趋势、再取 JJA”及不做纬度加权的敏感性结果。
 原 Task 1–6 保留。另完成 **ACCESS-CM2 的 r1、r2、r5 × SSP245、SSP585 六组
 1900–2099 年分析**：全球风场反演流函数，逐月二次去趋势，JJA EOF，基准期为
-1900–1999 年。高地下方缺测采用球面调和延拓，每组均有最近邻延拓对照。
+1900–2014 年（115 年），未来比较期为 2015–2099 年（85 年），与历史试验边界一致。
+强事件采用固定历史期均值和标准差定义；由于时段长度不同，图中比较发生率（强事件夏季占比），
+同时在表中保留实际次数。高地下方缺测采用球面调和延拓，每组均有最近邻延拓对照。
 ERA5 人工遮挡试验中，调和延拓 PC1 与完整风场结果相关 **0.99986**，四个强事件
 年份保持一致；这检验了补值对指数的影响，并不意味着恢复了真实地下风场。
 
 [六组结果汇总](docs/Task7_ACCESS_results.md) ·
 [模式指数总览](figures/task7_wpsh_eof/access_overview.png) ·
-[世纪间变化](figures/task7_wpsh_eof/access_century_comparison.png) ·
+[历史与未来比较](figures/task7_wpsh_eof/access_period_comparison.png) ·
 [模式汇总 CSV](results/task7_wpsh_eof/access_summary.csv) ·
 [补值检验](results/task7_wpsh_eof/wind_fill_benchmark.json)
 

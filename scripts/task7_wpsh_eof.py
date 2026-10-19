@@ -19,7 +19,8 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-from wpsh_streamfunction import canonical_wind, eof_analysis, regional_products, sha256
+from wpsh_streamfunction import (FUTURE_PERIOD, HISTORICAL_PERIOD, canonical_wind,
+                                compare_periods, eof_analysis, regional_products, sha256)
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results/task7_wpsh_eof"
@@ -106,19 +107,10 @@ def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
                        unweighted_eof1_variance_percent=float(unweighted.variance_fraction.sel(mode=1)*100),
                        unweighted_pc1_correlation=float(np.corrcoef(pc, unweighted.pc.sel(mode=1))[0, 1])))
     if first == 1900 and last == 2099:
-        ref_pc = result.pc_reference.sel(mode=1)
-        past, future = ref_pc.sel(year=slice(1900, 1999)), ref_pc.sel(year=slice(2000, 2099))
-        summary["century_comparison"] = dict(present="1900-1999", future="2000-2099",
-            sd_present=float(past.std(ddof=1)), sd_future=float(future.std(ddof=1)),
-            sd_change_percent=float((future.std(ddof=1)/past.std(ddof=1)-1)*100),
-            strong_events_present=int((past > 1.5).sum()), strong_events_future=int((future > 1.5).sum()),
-            threshold="PC1 > 1.5 present-period sample SD, after present-period centering")
-        full_pc = result.pc.sel(mode=1)
-        summary["century_comparison_full_period_threshold"] = dict(
-            present="1900-1999", future="2000-2099",
-            strong_events_present=int((full_pc.sel(year=slice(1900, 1999)) > 1.5).sum()),
-            strong_events_future=int((full_pc.sel(year=slice(2000, 2099)) > 1.5).sum()),
-            threshold="PC1 > 1.5 full-1900-2099-period sample SD")
+        summary["period_comparison"] = compare_periods(result.pc_reference.sel(mode=1))
+        summary["period_comparison"]["threshold"] = "PC1 > 1.5 historical-period sample SD, after historical-period centering"
+        summary["period_comparison_full_period_threshold"] = compare_periods(result.pc.sel(mode=1))
+        summary["period_comparison_full_period_threshold"]["threshold"] = "PC1 > 1.5 full-1900-2099-period sample SD"
     if wind_fill != "reject":
         summary["missing_winds"] = {k: products.attrs[k] for k in
             ("missing_grid_fraction_mean", "missing_grid_fraction_min", "missing_grid_fraction_max")}
@@ -196,6 +188,9 @@ def plot_result(ds):
     fig.colorbar(mesh, cax=cax, orientation="horizontal", label=r"Streamfunction regression per 1 SD PC ($10^6$ m$^2$ s$^{-1}$)")
     ax = fig.add_subplot(grid[2, :])
     pc = ds.pc_reference.sel(mode=1)
+    if ds.attrs["tag"].startswith("access_"):
+        ax.axvspan(HISTORICAL_PERIOD[0], HISTORICAL_PERIOD[1]+.5, color="#eeeeee", zorder=0)
+        ax.axvline(HISTORICAL_PERIOD[1]+.5, color="#777777", lw=.7)
     ax.plot(ds.year, pc, color="#202020", lw=1.5, label="WPSH PC1")
     ax.plot(ds.year, ds.regional_sf_reference, color="#b44831", lw=1.05, alpha=.9,
             label="Regional streamfunction (15-25 N, 120-150 E)")
@@ -251,7 +246,8 @@ def main():
                 suffix = "" if args.wind_fill == "harmonic" else f"_{args.wind_fill}"
                 run(f"access_{scenario}_{member}{suffix}",
                     f"ACCESS-CM2 {member} | historical + {scenario.upper()} | {args.wind_fill} wind extension",
-                    ufiles, vfiles, "ua", "va", 1900, 2099, [1900, 1999], 2, "monthly", regrid=True,
+                    ufiles, vfiles, "ua", "va", HISTORICAL_PERIOD[0], FUTURE_PERIOD[1],
+                    list(HISTORICAL_PERIOD), 2, "monthly", regrid=True,
                     wind_fill=args.wind_fill)
     elif args.source == "ncep":
         run("ncep_1979_2020", "NCEP/NCAR R1 (2.5-degree grid)",

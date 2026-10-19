@@ -5,14 +5,14 @@
   "last": 2099,
   "baseline": [
     1900,
-    1999
+    2014
   ],
   "wind_fill": "harmonic",
   "detrend_degree": 2,
   "detrend_order": "monthly",
-  "eof1_variance_percent": 74.83595314011359,
-  "eof2_variance_percent": 8.741526150125935,
-  "pc1_regional_sf_correlation": 0.9625172488924005,
+  "eof1_variance_percent": 74.83586346872985,
+  "eof2_variance_percent": 8.741266203877032,
+  "pc1_regional_sf_correlation": 0.9625173383374546,
   "strong_years_full_sd": [
     1901,
     1917,
@@ -52,30 +52,44 @@
     2067,
     2078,
     2083,
-    2085
+    2085,
+    2094
   ],
   "sensitivity": {
     "other_detrend_order": "seasonal",
-    "other_order_eof1_variance_percent": 76.28731685141688,
-    "other_order_pc1_correlation": 0.99968589069284,
-    "unweighted_eof1_variance_percent": 74.1252938559709,
-    "unweighted_pc1_correlation": 0.9997789226852917
+    "other_order_eof1_variance_percent": 76.28731685260554,
+    "other_order_pc1_correlation": 0.999685417598069,
+    "unweighted_eof1_variance_percent": 74.12522568640806,
+    "unweighted_pc1_correlation": 0.9997789314667703
   },
-  "century_comparison": {
-    "present": "1900-1999",
-    "future": "2000-2099",
-    "sd_present": 1.0000000000000002,
-    "sd_future": 1.199952010502948,
-    "sd_change_percent": 19.995201050294774,
-    "strong_events_present": 8,
+  "period_comparison": {
+    "historical": "1900-2014",
+    "n_years_historical": 115,
+    "sd_historical": 1.0,
+    "strong_events_historical": 9,
+    "strong_event_rate_historical_percent": 7.826086956521739,
+    "future": "2015-2099",
+    "n_years_future": 85,
+    "sd_future": 1.2722758379979369,
     "strong_events_future": 12,
-    "threshold": "PC1 > 1.5 present-period sample SD, after present-period centering"
+    "strong_event_rate_future_percent": 14.117647058823529,
+    "future_to_historical_sd_ratio": 1.2722758379979369,
+    "sd_change_percent": 27.227583799793685,
+    "threshold": "PC1 > 1.5 historical-period sample SD, after historical-period centering"
   },
-  "century_comparison_full_period_threshold": {
-    "present": "1900-1999",
-    "future": "2000-2099",
-    "strong_events_present": 7,
-    "strong_events_future": 10,
+  "period_comparison_full_period_threshold": {
+    "historical": "1900-2014",
+    "n_years_historical": 115,
+    "sd_historical": 0.8918542232468749,
+    "strong_events_historical": 8,
+    "strong_event_rate_historical_percent": 6.956521739130435,
+    "future": "2015-2099",
+    "n_years_future": 85,
+    "sd_future": 1.1346845792534168,
+    "strong_events_future": 9,
+    "strong_event_rate_future_percent": 10.588235294117647,
+    "future_to_historical_sd_ratio": 1.2722758379979369,
+    "sd_change_percent": 27.227583799793685,
     "threshold": "PC1 > 1.5 full-1900-2099-period sample SD"
   },
   "missing_winds": {

@@ -10,7 +10,7 @@ import xarray as xr
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from wpsh_streamfunction import (RADIUS, canonical_wind, eof_analysis,
                                 regional_products, streamfunction,
-                                temporal_weights, validate_global_grid)
+                                temporal_weights, validate_global_grid, compare_periods)
 
 
 def analytic_grid(nlat=37, nlon=72):
@@ -101,3 +101,21 @@ def test_covariance_eof_matches_independent_svd():
     ref = ds.pc_reference.sel(year=slice(1979, 1999))
     np.testing.assert_allclose(ref.mean("year"), 0, atol=1e-12)
     np.testing.assert_allclose(ref.std("year", ddof=1), 1, atol=1e-12)
+
+
+def test_historical_future_boundary_and_unequal_period_event_rates():
+    years = np.arange(1900, 2100)
+    values = np.zeros(len(years))
+    values[[0, 114, 115, 199]] = 2  # Include 2014 in historical and 2015 in future.
+    values[1] = 1.5  # The threshold is strict, not >=.
+    pc = xr.DataArray(values, dims="year", coords={"year": years})
+    result = compare_periods(pc)
+    assert result["n_years_historical"] == 115
+    assert result["n_years_future"] == 85
+    assert result["strong_events_historical"] == result["strong_events_future"] == 2
+    np.testing.assert_allclose(result["strong_event_rate_historical_percent"], 200/115)
+    np.testing.assert_allclose(result["strong_event_rate_future_percent"], 200/85)
+    expected_ratio = np.std(values[115:], ddof=1)/np.std(values[:115], ddof=1)
+    np.testing.assert_allclose(result["sd_change_percent"], (expected_ratio-1)*100)
+    with pytest.raises(ValueError, match="Incomplete annual coverage"):
+        compare_periods(pc.drop_sel(year=2014))

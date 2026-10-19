@@ -74,14 +74,31 @@ def validate(path, raw_check=False):
     np.testing.assert_allclose(csv.pc1_reference, ds.pc_reference.sel(mode=1), atol=1e-14)
     np.testing.assert_array_equal(csv.strong_event, ds.strong_event)
     summary = json.loads(path.with_name(path.stem+"_summary.json").read_text())
+    manifest = json.loads(path.with_name(path.stem+"_manifest.json").read_text())
+    assert summary["baseline"] == manifest["configuration"]["baseline"] == [ds.attrs["baseline_start"], ds.attrs["baseline_end"]]
+    climate = ds.sf_jja.sel(year=slice(*summary["baseline"])).mean("year")
+    np.testing.assert_allclose(ds.sf_climatology, climate, atol=20, rtol=3e-6)
     np.testing.assert_allclose(summary["eof1_variance_percent"], float(ds.variance_fraction.sel(mode=1))*100)
     assert summary["strong_years_reference_sd"] == ds.year.values[ds.strong_event.values.astype(bool)].tolist()
-    if "century_comparison" in summary:
-        pc = ds.pc_reference.sel(mode=1)
-        for label, first, last in (("present", 1900, 1999), ("future", 2000, 2099)):
-            subset = pc.sel(year=slice(first, last))
-            assert summary["century_comparison"][f"strong_events_{label}"] == int((subset > 1.5).sum())
-            np.testing.assert_allclose(summary["century_comparison"][f"sd_{label}"], float(subset.std(ddof=1)))
+    if path.stem.startswith("access_"):
+        assert summary["baseline"] == [1900, 2014]
+        assert "century_comparison" not in summary
+        for key, pc in (("period_comparison", ds.pc_reference.sel(mode=1)),
+                        ("period_comparison_full_period_threshold", ds.pc.sel(mode=1))):
+            comparison = summary[key]
+            for label, first, last in (("historical", 1900, 2014), ("future", 2015, 2099)):
+                subset = pc.sel(year=slice(first, last))
+                np.testing.assert_array_equal(subset.year, np.arange(first, last+1))
+                n = last-first+1
+                count = int((subset > 1.5).sum())
+                assert comparison[label] == f"{first}-{last}"
+                assert comparison[f"n_years_{label}"] == n
+                assert comparison[f"strong_events_{label}"] == count
+                np.testing.assert_allclose(comparison[f"strong_event_rate_{label}_percent"], 100*count/n)
+                np.testing.assert_allclose(comparison[f"sd_{label}"], float(subset.std(ddof=1)))
+            ratio = comparison["sd_future"]/comparison["sd_historical"]
+            np.testing.assert_allclose(comparison["future_to_historical_sd_ratio"], ratio)
+            np.testing.assert_allclose(comparison["sd_change_percent"], (ratio-1)*100)
     if ds.attrs["detrend_degree"] == 1:
         direct = detrend(ds.sf_anomaly.values.astype(float), axis=0)
         np.testing.assert_allclose(ds.sf_detrended_seasonal, direct, atol=3, rtol=2e-6)
@@ -115,6 +132,11 @@ def validate(path, raw_check=False):
                  independent_svd_pc_correlations=correlations,
                  independent_svd_variance_fractions=fractions.tolist(),
                  physical_regression_maps_verified=True)
+    if path.stem.startswith("access_"):
+        audit.update(historical_period="1900-2014", future_period="2015-2099",
+                     historical_years=115, future_years=85,
+                     period_counts_rates_and_variability_verified=True,
+                     historical_climatology_and_manifest_verified=True)
     if raw_check and path.stem == "era5_1979_2020":
         raw = ROOT / "data/wpsh_winds/era5_uv850_1979_2020_0.25deg.nc"
         with xr.open_dataset(raw) as winds:

@@ -12,10 +12,16 @@
       1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7595645390256555,
-      0.08389239746765356
+      0.7595611250589482,
+      0.08389450419008489
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp245_r1_nearest.nc",
@@ -27,13 +33,19 @@
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
       1.0,
-      0.9999999999999997
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7595284357311627,
-      0.08390041847528981
+      0.7595250283117105,
+      0.08390252730563892
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp245_r2.nc",
@@ -44,14 +56,20 @@
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      1.0,
-      0.9999999999999998
+      0.9999999999999998,
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7342629044357109,
-      0.09711226115087258
+      0.7342601147258758,
+      0.09711216290311533
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp245_r2_nearest.nc",
@@ -63,13 +81,19 @@
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
       1.0,
-      1.0
+      0.9999999999999996
     ],
     "independent_svd_variance_fractions": [
-      0.7342492275618071,
-      0.09712500049510615
+      0.7342464168628245,
+      0.09712490093840327
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp245_r5.nc",
@@ -80,14 +104,20 @@
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      1.0,
-      0.9999999999999993
+      0.9999999999999996,
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7254626074189123,
-      0.10782449046972724
+      0.725462129063628,
+      0.10782207165893787
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp245_r5_nearest.nc",
@@ -98,14 +128,20 @@
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      1.0,
-      1.0
+      0.9999999999999996,
+      0.9999999999999999
     ],
     "independent_svd_variance_fractions": [
-      0.7254525843684345,
-      0.10780418189624931
+      0.7254521028106435,
+      0.10780176736464626
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp585_r1.nc",
@@ -117,13 +153,19 @@
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
       1.0,
-      0.9999999999999998
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.743959367922009,
-      0.08319828397614912
+      0.7439536366991049,
+      0.08320313098206723
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp585_r1_nearest.nc",
@@ -138,10 +180,16 @@
       1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7439370698029845,
-      0.08319157906662962
+      0.7439313708301869,
+      0.08319640497778635
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp585_r2.nc",
@@ -156,10 +204,16 @@
       1.0
     ],
     "independent_svd_variance_fractions": [
-      0.736626549845662,
-      0.09300352247368654
+      0.7366242396768937,
+      0.09300346941118828
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp585_r2_nearest.nc",
@@ -170,14 +224,20 @@
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      0.9999999999999998,
-      0.9999999999999998
+      1.0,
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7365556382422929,
-      0.09304052733685994
+      0.736553299895112,
+      0.09304046879622917
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp585_r5.nc",
@@ -192,10 +252,16 @@
       0.9999999999999998
     ],
     "independent_svd_variance_fractions": [
-      0.7483595314731821,
-      0.08741526148952716
+      0.7483586346461328,
+      0.08741266206877955
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "access_ssp585_r5_nearest.nc",
@@ -206,14 +272,20 @@
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      0.999999999999999,
-      1.0
+      1.0,
+      0.9999999999999998
     ],
     "independent_svd_variance_fractions": [
-      0.7483281083419924,
-      0.08740921759763458
+      0.748327206086813,
+      0.08740662568584465
     ],
-    "physical_regression_maps_verified": true
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2099",
+    "historical_years": 115,
+    "future_years": 85,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true
   },
   {
     "file": "era5_1979_2020.nc",
