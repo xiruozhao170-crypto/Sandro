@@ -9,20 +9,21 @@ import subprocess
 import sys
 import time
 
+from wpsh_streamfunction import FUTURE_PERIOD, HISTORICAL_PERIOD
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data/wpsh_winds/access"
 
 
 def ready(member, scenario):
     for variable in ("ua", "va"):
-        for experiment, expected in (("historical", 115), (scenario, 85)):
+        for experiment, period in (("historical", HISTORICAL_PERIOD), (scenario, FUTURE_PERIOD)):
             paths = [p for p in DATA.glob(f"{variable}850_{experiment}_{member}_*.nc") if ".part." not in p.name]
             years = []
             for path in paths:
                 first, last = map(int, path.stem.split("_")[-2:])
                 years.extend(range(first, last+1))
-            first = 1900 if experiment == "historical" else 2015
-            if sorted(years) != list(range(first, first+expected)):
+            if sorted(years) != list(range(period[0], period[1]+1)):
                 return False
     return True
 

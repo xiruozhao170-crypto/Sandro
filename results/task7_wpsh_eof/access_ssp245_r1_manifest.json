@@ -1,7 +1,7 @@
 {
   "configuration": {
     "first": 1900,
-    "last": 2099,
+    "last": 2100,
     "baseline": [
       1900,
       2014
@@ -105,6 +105,14 @@
         "pressure_Pa": 85000.00000001001
       },
       {
+        "file": "data\\wpsh_winds\\access\\ua850_ssp245_r1_2100_2100.nc",
+        "sha256": "ae92cb35c0c47032aee8508b82d89cccb12ce9ceef59ca1411cacc5ec98a256d",
+        "bytes": 666009,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/37c484d0-b841-4f5e-ac68-7be287cc8a52",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
         "file": "data\\wpsh_winds\\access\\va850_historical_r1_1900_1919.nc",
         "sha256": "7d196f24c2f7f302a9604011104c80fa0cb17dff4d1dae2a0edc7d34d1d8cc88",
         "bytes": 12393453,
@@ -196,6 +204,14 @@
         "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2095_2099.nc",
         "sha256": "29d7eec8aa4f9af6020d79da2a7ea48189f1e33a1fa5e4743e5060005a9e07a4",
         "bytes": 3099687,
+        "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+        "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
+        "pressure_Pa": 85000.00000001001
+      },
+      {
+        "file": "data\\wpsh_winds\\access\\va850_ssp245_r1_2100_2100.nc",
+        "sha256": "a6410b803a6037aa9415b755bc6d503fde6fe4d5c314d888bb1449df752e3949",
+        "bytes": 651489,
         "source_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
         "tracking_id": "hdl:21.14100/6bbfc1ea-9d53-4d04-ae92-aca4517fc909",
         "pressure_Pa": 85000.00000001001
@@ -349,6 +365,17 @@
       "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
     },
     {
+      "file": "ua850_ssp245_r1_2100_2100.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/ua/gn/v20191108/ua_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2100,
+      "last_year": 2100,
+      "sha256": "ae92cb35c0c47032aee8508b82d89cccb12ce9ceef59ca1411cacc5ec98a256d",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
       "file": "va850_historical_r1_1900_1919.nc",
       "version": "v20191108",
       "source_file": "fs38/publications/CMIP6/CMIP/CSIRO-ARCCSS/ACCESS-CM2/historical/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-194912.nc",
@@ -477,6 +504,17 @@
       "first_year": 2095,
       "last_year": 2099,
       "sha256": "29d7eec8aa4f9af6020d79da2a7ea48189f1e33a1fa5e4743e5060005a9e07a4",
+      "pressure_Pa": 85000,
+      "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
+    },
+    {
+      "file": "va850_ssp245_r1_2100_2100.nc",
+      "version": "v20191108",
+      "source_file": "fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "opendap_url": "https://thredds.nci.org.au/thredds/dodsC/fs38/publications/CMIP6/ScenarioMIP/CSIRO-ARCCSS/ACCESS-CM2/ssp245/r1i1p1f1/Amon/va/gn/v20191108/va_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012.nc",
+      "first_year": 2100,
+      "last_year": 2100,
+      "sha256": "a6410b803a6037aa9415b755bc6d503fde6fe4d5c314d888bb1449df752e3949",
       "pressure_Pa": 85000,
       "missing_values": "Preserved; explicitly select --wind-fill for a documented extension"
     }

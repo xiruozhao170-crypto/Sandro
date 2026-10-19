@@ -1,7 +1,7 @@
 [
   {
     "file": "access_ssp245_r1.nc",
-    "n_years": 200,
+    "n_years": 201,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
@@ -9,25 +9,83 @@
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
       1.0,
-      1.0
+      0.9999999999999998
     ],
     "independent_svd_variance_fractions": [
-      0.7595611250589482,
-      0.08389450419008489
+      0.7602140685507922,
+      0.08347164853291165
     ],
     "physical_regression_maps_verified": true,
     "historical_period": "1900-2014",
-    "future_period": "2015-2099",
+    "future_period": "2015-2100",
     "historical_years": 115,
-    "future_years": 85,
+    "future_years": 86,
     "period_counts_rates_and_variability_verified": true,
     "historical_climatology_and_manifest_verified": true,
     "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
-    "raw_1900_JJA_relative_rms_error": 3.508851518113141e-07
+    "raw_1900_JJA_relative_rms_error": 3.508851518113141e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 6.3999999994412065,
+    "raw_2100_JJA_relative_rms_error": 3.027972103845729e-07
   },
   {
     "file": "access_ssp245_r1_nearest.nc",
-    "n_years": 200,
+    "n_years": 201,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      0.9999999999999997,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7601791605373933,
+      0.08347959405252847
+    ],
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2100",
+    "historical_years": 115,
+    "future_years": 86,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 8.0,
+    "raw_1900_JJA_relative_rms_error": 3.024782532794555e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 8.866666667163372,
+    "raw_2100_JJA_relative_rms_error": 2.9988606358744004e-07
+  },
+  {
+    "file": "access_ssp245_r2.nc",
+    "n_years": 201,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999991
+    ],
+    "independent_svd_variance_fractions": [
+      0.7314708985933291,
+      0.10105493970795781
+    ],
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2100",
+    "historical_years": 115,
+    "future_years": 86,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.533333333209157,
+    "raw_1900_JJA_relative_rms_error": 2.760862355600342e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 8.833333333954215,
+    "raw_2100_JJA_relative_rms_error": 4.110679729737248e-07
+  },
+  {
+    "file": "access_ssp245_r2_nearest.nc",
+    "n_years": 201,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
@@ -38,22 +96,136 @@
       1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7595250283117105,
-      0.08390252730563892
+      0.7314657270936196,
+      0.1010631565344645
     ],
     "physical_regression_maps_verified": true,
     "historical_period": "1900-2014",
-    "future_period": "2015-2099",
+    "future_period": "2015-2100",
     "historical_years": 115,
-    "future_years": 85,
+    "future_years": 86,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 6.557777778245509,
+    "raw_1900_JJA_relative_rms_error": 2.23003021795814e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 7.111111111938953,
+    "raw_2100_JJA_relative_rms_error": 3.5110955937605e-07
+  },
+  {
+    "file": "access_ssp245_r5.nc",
+    "n_years": 201,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      0.9999999999999997,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7250147595300873,
+      0.1083307948004365
+    ],
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2100",
+    "historical_years": 115,
+    "future_years": 86,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
+    "raw_1900_JJA_relative_rms_error": 3.752509516132839e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 7.96000000089407,
+    "raw_2100_JJA_relative_rms_error": 3.896938934903901e-07
+  },
+  {
+    "file": "access_ssp245_r5_nearest.nc",
+    "n_years": 201,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      0.9999999999999998
+    ],
+    "independent_svd_variance_fractions": [
+      0.725007793820156,
+      0.10830883756160875
+    ],
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2100",
+    "historical_years": 115,
+    "future_years": 86,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 9.866666665300727,
+    "raw_1900_JJA_relative_rms_error": 3.54800622970732e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 7.2333333333954215,
+    "raw_2100_JJA_relative_rms_error": 3.6137974185276745e-07
+  },
+  {
+    "file": "access_ssp585_r1.nc",
+    "n_years": 201,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      1.0,
+      1.0
+    ],
+    "independent_svd_variance_fractions": [
+      0.7429925297604274,
+      0.08410911448082005
+    ],
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2100",
+    "historical_years": 115,
+    "future_years": 86,
+    "period_counts_rates_and_variability_verified": true,
+    "historical_climatology_and_manifest_verified": true,
+    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
+    "raw_1900_JJA_relative_rms_error": 3.508851518113141e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 10.333333333954215,
+    "raw_2100_JJA_relative_rms_error": 4.1651937196743087e-07
+  },
+  {
+    "file": "access_ssp585_r1_nearest.nc",
+    "n_years": 201,
+    "finite_fields": true,
+    "pc_zero_mean_unit_sample_sd": true,
+    "reference_pc_normalization": true,
+    "csv_matches_netcdf": true,
+    "pc_orthogonality": true,
+    "independent_svd_pc_correlations": [
+      0.9999999999999991,
+      0.9999999999999993
+    ],
+    "independent_svd_variance_fractions": [
+      0.7429698809936827,
+      0.08409957774314587
+    ],
+    "physical_regression_maps_verified": true,
+    "historical_period": "1900-2014",
+    "future_period": "2015-2100",
+    "historical_years": 115,
+    "future_years": 86,
     "period_counts_rates_and_variability_verified": true,
     "historical_climatology_and_manifest_verified": true,
     "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 8.0,
-    "raw_1900_JJA_relative_rms_error": 3.024782532794555e-07
+    "raw_1900_JJA_relative_rms_error": 3.024782532794555e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 7.0,
+    "raw_2100_JJA_relative_rms_error": 3.221072785555911e-07
   },
   {
-    "file": "access_ssp245_r2.nc",
-    "n_years": 200,
+    "file": "access_ssp585_r2.nc",
+    "n_years": 201,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
@@ -61,181 +233,27 @@
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
       0.9999999999999998,
-      1.0
+      0.9999999999999991
     ],
     "independent_svd_variance_fractions": [
-      0.7342601147258758,
-      0.09711216290311533
+      0.7355380638046064,
+      0.0926953804013775
     ],
     "physical_regression_maps_verified": true,
     "historical_period": "1900-2014",
-    "future_period": "2015-2099",
+    "future_period": "2015-2100",
     "historical_years": 115,
-    "future_years": 85,
+    "future_years": 86,
     "period_counts_rates_and_variability_verified": true,
     "historical_climatology_and_manifest_verified": true,
     "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.533333333209157,
-    "raw_1900_JJA_relative_rms_error": 2.760862355600342e-07
-  },
-  {
-    "file": "access_ssp245_r2_nearest.nc",
-    "n_years": 200,
-    "finite_fields": true,
-    "pc_zero_mean_unit_sample_sd": true,
-    "reference_pc_normalization": true,
-    "csv_matches_netcdf": true,
-    "pc_orthogonality": true,
-    "independent_svd_pc_correlations": [
-      1.0,
-      0.9999999999999996
-    ],
-    "independent_svd_variance_fractions": [
-      0.7342464168628245,
-      0.09712490093840327
-    ],
-    "physical_regression_maps_verified": true,
-    "historical_period": "1900-2014",
-    "future_period": "2015-2099",
-    "historical_years": 115,
-    "future_years": 85,
-    "period_counts_rates_and_variability_verified": true,
-    "historical_climatology_and_manifest_verified": true,
-    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 6.557777778245509,
-    "raw_1900_JJA_relative_rms_error": 2.23003021795814e-07
-  },
-  {
-    "file": "access_ssp245_r5.nc",
-    "n_years": 200,
-    "finite_fields": true,
-    "pc_zero_mean_unit_sample_sd": true,
-    "reference_pc_normalization": true,
-    "csv_matches_netcdf": true,
-    "pc_orthogonality": true,
-    "independent_svd_pc_correlations": [
-      0.9999999999999996,
-      1.0
-    ],
-    "independent_svd_variance_fractions": [
-      0.725462129063628,
-      0.10782207165893787
-    ],
-    "physical_regression_maps_verified": true,
-    "historical_period": "1900-2014",
-    "future_period": "2015-2099",
-    "historical_years": 115,
-    "future_years": 85,
-    "period_counts_rates_and_variability_verified": true,
-    "historical_climatology_and_manifest_verified": true,
-    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
-    "raw_1900_JJA_relative_rms_error": 3.752509516132839e-07
-  },
-  {
-    "file": "access_ssp245_r5_nearest.nc",
-    "n_years": 200,
-    "finite_fields": true,
-    "pc_zero_mean_unit_sample_sd": true,
-    "reference_pc_normalization": true,
-    "csv_matches_netcdf": true,
-    "pc_orthogonality": true,
-    "independent_svd_pc_correlations": [
-      0.9999999999999996,
-      0.9999999999999999
-    ],
-    "independent_svd_variance_fractions": [
-      0.7254521028106435,
-      0.10780176736464626
-    ],
-    "physical_regression_maps_verified": true,
-    "historical_period": "1900-2014",
-    "future_period": "2015-2099",
-    "historical_years": 115,
-    "future_years": 85,
-    "period_counts_rates_and_variability_verified": true,
-    "historical_climatology_and_manifest_verified": true,
-    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 9.866666665300727,
-    "raw_1900_JJA_relative_rms_error": 3.54800622970732e-07
-  },
-  {
-    "file": "access_ssp585_r1.nc",
-    "n_years": 200,
-    "finite_fields": true,
-    "pc_zero_mean_unit_sample_sd": true,
-    "reference_pc_normalization": true,
-    "csv_matches_netcdf": true,
-    "pc_orthogonality": true,
-    "independent_svd_pc_correlations": [
-      1.0,
-      1.0
-    ],
-    "independent_svd_variance_fractions": [
-      0.7439536366991049,
-      0.08320313098206723
-    ],
-    "physical_regression_maps_verified": true,
-    "historical_period": "1900-2014",
-    "future_period": "2015-2099",
-    "historical_years": 115,
-    "future_years": 85,
-    "period_counts_rates_and_variability_verified": true,
-    "historical_climatology_and_manifest_verified": true,
-    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
-    "raw_1900_JJA_relative_rms_error": 3.508851518113141e-07
-  },
-  {
-    "file": "access_ssp585_r1_nearest.nc",
-    "n_years": 200,
-    "finite_fields": true,
-    "pc_zero_mean_unit_sample_sd": true,
-    "reference_pc_normalization": true,
-    "csv_matches_netcdf": true,
-    "pc_orthogonality": true,
-    "independent_svd_pc_correlations": [
-      1.0,
-      1.0
-    ],
-    "independent_svd_variance_fractions": [
-      0.7439313708301869,
-      0.08319640497778635
-    ],
-    "physical_regression_maps_verified": true,
-    "historical_period": "1900-2014",
-    "future_period": "2015-2099",
-    "historical_years": 115,
-    "future_years": 85,
-    "period_counts_rates_and_variability_verified": true,
-    "historical_climatology_and_manifest_verified": true,
-    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 8.0,
-    "raw_1900_JJA_relative_rms_error": 3.024782532794555e-07
-  },
-  {
-    "file": "access_ssp585_r2.nc",
-    "n_years": 200,
-    "finite_fields": true,
-    "pc_zero_mean_unit_sample_sd": true,
-    "reference_pc_normalization": true,
-    "csv_matches_netcdf": true,
-    "pc_orthogonality": true,
-    "independent_svd_pc_correlations": [
-      1.0,
-      1.0
-    ],
-    "independent_svd_variance_fractions": [
-      0.7366242396768937,
-      0.09300346941118828
-    ],
-    "physical_regression_maps_verified": true,
-    "historical_period": "1900-2014",
-    "future_period": "2015-2099",
-    "historical_years": 115,
-    "future_years": 85,
-    "period_counts_rates_and_variability_verified": true,
-    "historical_climatology_and_manifest_verified": true,
-    "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.533333333209157,
-    "raw_1900_JJA_relative_rms_error": 2.760862355600342e-07
+    "raw_1900_JJA_relative_rms_error": 2.760862355600342e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 6.572222222574055,
+    "raw_2100_JJA_relative_rms_error": 4.464814124452746e-07
   },
   {
     "file": "access_ssp585_r2_nearest.nc",
-    "n_years": 200,
+    "n_years": 201,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
@@ -246,48 +264,52 @@
       1.0
     ],
     "independent_svd_variance_fractions": [
-      0.736553299895112,
-      0.09304046879622917
+      0.7354645771006487,
+      0.09273416113014131
     ],
     "physical_regression_maps_verified": true,
     "historical_period": "1900-2014",
-    "future_period": "2015-2099",
+    "future_period": "2015-2100",
     "historical_years": 115,
-    "future_years": 85,
+    "future_years": 86,
     "period_counts_rates_and_variability_verified": true,
     "historical_climatology_and_manifest_verified": true,
     "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 6.557777778245509,
-    "raw_1900_JJA_relative_rms_error": 2.23003021795814e-07
+    "raw_1900_JJA_relative_rms_error": 2.23003021795814e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 9.417777778580785,
+    "raw_2100_JJA_relative_rms_error": 5.554901130806343e-07
   },
   {
     "file": "access_ssp585_r5.nc",
-    "n_years": 200,
+    "n_years": 201,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
     "csv_matches_netcdf": true,
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
-      1.0,
-      0.9999999999999998
+      0.9999999999999996,
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.7483586346461328,
-      0.08741266206877955
+      0.7482090898352276,
+      0.08740134143602922
     ],
     "physical_regression_maps_verified": true,
     "historical_period": "1900-2014",
-    "future_period": "2015-2099",
+    "future_period": "2015-2100",
     "historical_years": 115,
-    "future_years": 85,
+    "future_years": 86,
     "period_counts_rates_and_variability_verified": true,
     "historical_climatology_and_manifest_verified": true,
     "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 7.599999999627471,
-    "raw_1900_JJA_relative_rms_error": 3.752509516132839e-07
+    "raw_1900_JJA_relative_rms_error": 3.752509516132839e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 5.14666666649282,
+    "raw_2100_JJA_relative_rms_error": 2.86868853300408e-07
   },
   {
     "file": "access_ssp585_r5_nearest.nc",
-    "n_years": 200,
+    "n_years": 201,
     "finite_fields": true,
     "pc_zero_mean_unit_sample_sd": true,
     "reference_pc_normalization": true,
@@ -295,21 +317,23 @@
     "pc_orthogonality": true,
     "independent_svd_pc_correlations": [
       1.0,
-      0.9999999999999998
+      1.0
     ],
     "independent_svd_variance_fractions": [
-      0.748327206086813,
-      0.08740662568584465
+      0.748174668385501,
+      0.08739514292582751
     ],
     "physical_regression_maps_verified": true,
     "historical_period": "1900-2014",
-    "future_period": "2015-2099",
+    "future_period": "2015-2100",
     "historical_years": 115,
-    "future_years": 85,
+    "future_years": 86,
     "period_counts_rates_and_variability_verified": true,
     "historical_climatology_and_manifest_verified": true,
     "raw_1900_JJA_monthly_first_max_abs_error_m2_s": 9.866666665300727,
-    "raw_1900_JJA_relative_rms_error": 3.54800622970732e-07
+    "raw_1900_JJA_relative_rms_error": 3.54800622970732e-07,
+    "raw_2100_JJA_monthly_first_max_abs_error_m2_s": 10.866666665300727,
+    "raw_2100_JJA_relative_rms_error": 4.347985819472074e-07
   },
   {
     "file": "era5_1979_2020.nc",

@@ -104,18 +104,30 @@ def test_covariance_eof_matches_independent_svd():
 
 
 def test_historical_future_boundary_and_unequal_period_event_rates():
-    years = np.arange(1900, 2100)
+    years = np.arange(1900, 2101)
     values = np.zeros(len(years))
-    values[[0, 114, 115, 199]] = 2  # Include 2014 in historical and 2015 in future.
+    values[[0, 114, 115, 199, 200]] = 2  # Include 2014 in historical and 2015/2100 in future.
     values[1] = 1.5  # The threshold is strict, not >=.
     pc = xr.DataArray(values, dims="year", coords={"year": years})
     result = compare_periods(pc)
     assert result["n_years_historical"] == 115
-    assert result["n_years_future"] == 85
-    assert result["strong_events_historical"] == result["strong_events_future"] == 2
+    assert result["n_years_future"] == 86
+    assert result["strong_events_historical"] == 2
+    assert result["strong_events_future"] == 3
     np.testing.assert_allclose(result["strong_event_rate_historical_percent"], 200/115)
-    np.testing.assert_allclose(result["strong_event_rate_future_percent"], 200/85)
+    np.testing.assert_allclose(result["strong_event_rate_future_percent"], 300/86)
     expected_ratio = np.std(values[115:], ddof=1)/np.std(values[:115], ddof=1)
     np.testing.assert_allclose(result["sd_change_percent"], (expected_ratio-1)*100)
     with pytest.raises(ValueError, match="Incomplete annual coverage"):
         compare_periods(pc.drop_sel(year=2014))
+    with pytest.raises(ValueError, match="Incomplete annual coverage"):
+        compare_periods(pc.drop_sel(year=2100))
+
+
+def test_download_chunks_include_2100_without_overlapping_existing_subsets():
+    from fetch_access_wpsh_winds import subset_year_ranges
+    chunks = list(subset_year_ranges(2015, 2100))
+    assert chunks[-2:] == [(2095, 2099), (2100, 2100)]
+    assert all(last-first+1 <= 20 for first, last in chunks)
+    years = [year for first, last in chunks for year in range(first, last+1)]
+    assert years == list(range(2015, 2101))

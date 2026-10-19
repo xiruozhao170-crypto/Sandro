@@ -15,6 +15,9 @@ RESULTS = ROOT / "results/task7_wpsh_eof"
 FIGURES = ROOT / "figures/task7_wpsh_eof"
 HISTORICAL_LABEL = "-".join(map(str, HISTORICAL_PERIOD))
 FUTURE_LABEL = "-".join(map(str, FUTURE_PERIOD))
+FULL_LABEL = f"{HISTORICAL_PERIOD[0]}-{FUTURE_PERIOD[1]}"
+HISTORICAL_YEARS = HISTORICAL_PERIOD[1]-HISTORICAL_PERIOD[0]+1
+FUTURE_YEARS = FUTURE_PERIOD[1]-FUTURE_PERIOD[0]+1
 
 
 def save_figure(fig, name):
@@ -74,19 +77,19 @@ def main():
             ax.axhline(0, color="#777777", lw=.5)
             ax.axhline(1.5, color="#73468b", lw=.8, ls="--", label="Strong-event threshold")
             ax.set_title(f"{scenario.upper()} / {member} | EOF1 {summary['eof1_variance_percent']:.1f}% | fill correlation {corr:.6f}", fontsize=10, loc="left")
-            ax.set_xlim(1900, 2099)
+            ax.set_xlim(HISTORICAL_PERIOD[0], FUTURE_PERIOD[1])
             ax.set_ylabel(f"PC1 ({HISTORICAL_LABEL} SD)", fontsize=9)
             ax.tick_params(labelsize=8)
             ax.grid(axis="y", alpha=.16)
     axes[0, 0].legend(loc="upper left", fontsize=7, ncol=1)
-    fig.suptitle(f"ACCESS-CM2 | JJA 850-hPa WPSH from streamfunction EOF1\nMonthly quadratic detrending, 1900-2099; shaded historical reference: {HISTORICAL_LABEL}", fontsize=14)
+    fig.suptitle(f"ACCESS-CM2 | JJA 850-hPa WPSH from streamfunction EOF1\nMonthly quadratic detrending, {FULL_LABEL}; shaded historical reference: {HISTORICAL_LABEL}", fontsize=14)
     save_figure(fig, "access_overview")
     plt.close(fig)
     table = pd.DataFrame(rows)
     table.to_csv(RESULTS / "access_summary.csv", index=False)
     report = dict(reference_period=HISTORICAL_LABEL, comparison_period=FUTURE_LABEL,
-                  historical_years=HISTORICAL_PERIOD[1]-HISTORICAL_PERIOD[0]+1,
-                  future_years=FUTURE_PERIOD[1]-FUTURE_PERIOD[0]+1,
+                  historical_years=HISTORICAL_YEARS,
+                  future_years=FUTURE_YEARS,
                   strong_threshold="PC1 > 1.5 historical-period sample SD",
                   event_rate_units="Percent of summers; 100 * strong-event count / years in each period",
                   note="Six runs of one model, not six independent models; extensions do not recover real below-ground winds",
@@ -101,8 +104,8 @@ def main():
     axes[0].set_ylabel("Change in PC1 standard deviation (%)")
     axes[0].set_title(f"(a) {FUTURE_LABEL} relative to {HISTORICAL_LABEL}", loc="left", fontsize=11)
     axes[0].legend(fontsize=8)
-    axes[1].bar(x-.18, table.strong_event_rate_historical_percent, width=.36, label=f"{HISTORICAL_LABEL} (115 years)", color="#3477a1")
-    axes[1].bar(x+.18, table.strong_event_rate_future_percent, width=.36, label=f"{FUTURE_LABEL} (85 years)", color="#bc653b")
+    axes[1].bar(x-.18, table.strong_event_rate_historical_percent, width=.36, label=f"{HISTORICAL_LABEL} ({HISTORICAL_YEARS} years)", color="#3477a1")
+    axes[1].bar(x+.18, table.strong_event_rate_future_percent, width=.36, label=f"{FUTURE_LABEL} ({FUTURE_YEARS} years)", color="#bc653b")
     axes[1].set_ylabel("Strong-event frequency (% of summers)")
     axes[1].set_title("(b) PC1 > 1.5 historical-period SD", loc="left", fontsize=11)
     axes[1].margins(y=.25)
@@ -116,19 +119,20 @@ def main():
     plt.close(fig)
     lines = ["# ACCESS-CM2 WPSH results", "",
              "Computed from global 850-hPa winds with harmonic below-ground extension.",
-             "JJA EOF domain: 10–40°N, 110–180°E. Monthly quadratic detrending: 1900–2099.",
-             "Historical reference: 1900–2014 (115 years); future comparison: 2015–2099 (85 years).", "",
+             f"JJA EOF domain: 10–40°N, 110–180°E. Monthly quadratic detrending: {FULL_LABEL}.",
+             f"Historical reference: {HISTORICAL_LABEL} ({HISTORICAL_YEARS} years); future comparison: {FUTURE_LABEL} ({FUTURE_YEARS} years).", "",
              "Both climatological anomalies and index normalization use the historical period.",
-             "Each member/scenario retains one EOF fit over 1900–2099; ERA5/NCEP remain 1979–2020.", "",
+             f"Each member/scenario retains one EOF fit over {FULL_LABEL}; ERA5/NCEP remain 1979–2020.", "",
              "| Scenario | Member | EOF1 variance | SD change | Strong events: historical → future | Frequency (% of summers): historical → future | Harmonic/nearest PC1 correlation |",
              "|---|---|---:|---:|---:|---:|---:|"]
     for r in rows:
         lines.append(f"| {r['scenario'].upper()} | {r['member']} | {r['eof1_variance_percent']:.2f}% | {r['sd_change_percent']:+.2f}% | {r['strong_events_historical']} → {r['strong_events_future']} | {r['strong_event_rate_historical_percent']:.2f} → {r['strong_event_rate_future_percent']:.2f} | {r['harmonic_nearest_pc1_correlation']:.6f} |")
     lines += ["", "Strong events use PC1 > 1.5 historical-period sample SD after historical-period centering.",
-              "Because the periods contain 115 and 85 summers, compare annual frequencies, not raw counts.",
+              f"Because the periods contain {HISTORICAL_YEARS} and {FUTURE_YEARS} summers, compare annual frequencies, not raw counts.",
               "Frequency (%) = 100 × event count / number of summers. Counts are retained for transparency.",
               "The separate full-period-threshold statistics are retained in each run's summary JSON.", "",
               "These results supersede the earlier 1900–1999 versus 2000–2099 century comparison.",
+              "The future period now includes 2100, using additional winds from the same pinned source versions.",
               "The two scenario fits can yield slightly different historical indices for the same member",
               "because detrending and EOF fitting use each complete historical-plus-scenario record.", "",
               "These six runs are from one model with three members; they do not establish",

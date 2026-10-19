@@ -2,7 +2,7 @@
   "tag": "access_ssp585_r5_nearest",
   "label": "ACCESS-CM2 r5 | historical + SSP585 | nearest wind extension",
   "first": 1900,
-  "last": 2099,
+  "last": 2100,
   "baseline": [
     1900,
     2014
@@ -10,9 +10,9 @@
   "wind_fill": "nearest",
   "detrend_degree": 2,
   "detrend_order": "monthly",
-  "eof1_variance_percent": 74.83272060652475,
-  "eof2_variance_percent": 8.740662566333315,
-  "pc1_regional_sf_correlation": 0.9625370164784888,
+  "eof1_variance_percent": 74.81746684171952,
+  "eof2_variance_percent": 8.739514290850728,
+  "pc1_regional_sf_correlation": 0.9627801779646097,
   "strong_years_full_sd": [
     1901,
     1917,
@@ -57,44 +57,44 @@
   ],
   "sensitivity": {
     "other_detrend_order": "seasonal",
-    "other_order_eof1_variance_percent": 76.28287098032888,
-    "other_order_pc1_correlation": 0.9996942938285927,
-    "unweighted_eof1_variance_percent": 74.12134050191239,
-    "unweighted_pc1_correlation": 0.9997793088262884
+    "other_order_eof1_variance_percent": 76.34042870816972,
+    "other_order_pc1_correlation": 0.9993637290068179,
+    "unweighted_eof1_variance_percent": 74.11757817319139,
+    "unweighted_pc1_correlation": 0.9997759106064251
   },
   "period_comparison": {
     "historical": "1900-2014",
     "n_years_historical": 115,
-    "sd_historical": 1.0,
+    "sd_historical": 1.0000000000000002,
     "strong_events_historical": 9,
     "strong_event_rate_historical_percent": 7.826086956521739,
-    "future": "2015-2099",
-    "n_years_future": 85,
-    "sd_future": 1.2719217676423178,
+    "future": "2015-2100",
+    "n_years_future": 86,
+    "sd_future": 1.2730442589844115,
     "strong_events_future": 12,
-    "strong_event_rate_future_percent": 14.117647058823529,
-    "future_to_historical_sd_ratio": 1.2719217676423178,
-    "sd_change_percent": 27.192176764231778,
+    "strong_event_rate_future_percent": 13.953488372093023,
+    "future_to_historical_sd_ratio": 1.2730442589844113,
+    "sd_change_percent": 27.30442589844113,
     "threshold": "PC1 > 1.5 historical-period sample SD, after historical-period centering"
   },
   "period_comparison_full_period_threshold": {
     "historical": "1900-2014",
     "n_years_historical": 115,
-    "sd_historical": 0.8919840451481755,
+    "sd_historical": 0.8910225252026139,
     "strong_events_historical": 8,
     "strong_event_rate_historical_percent": 6.956521739130435,
-    "future": "2015-2099",
-    "n_years_future": 85,
-    "sd_future": 1.1345339234136125,
+    "future": "2015-2100",
+    "n_years_future": 86,
+    "sd_future": 1.1343111103349806,
     "strong_events_future": 9,
-    "strong_event_rate_future_percent": 10.588235294117647,
-    "future_to_historical_sd_ratio": 1.2719217676423178,
-    "sd_change_percent": 27.192176764231778,
-    "threshold": "PC1 > 1.5 full-1900-2099-period sample SD"
+    "strong_event_rate_future_percent": 10.465116279069768,
+    "future_to_historical_sd_ratio": 1.2730442589844113,
+    "sd_change_percent": 27.30442589844113,
+    "threshold": "PC1 > 1.5 full-1900-2100-period sample SD"
   },
   "missing_winds": {
-    "missing_grid_fraction_mean": 0.10265836027298851,
-    "missing_grid_fraction_min": 0.09938936781609195,
+    "missing_grid_fraction_mean": 0.1026548739778121,
+    "missing_grid_fraction_min": 0.09935344827586207,
     "missing_grid_fraction_max": 0.10517241379310345,
     "caveat": "Below-ground winds are a numerical extension, not observed or recovered model winds"
   }

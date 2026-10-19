@@ -19,13 +19,18 @@ RESULTS = ROOT / "results/task7_wpsh_eof"
 def validate_access_downloads():
     directory = ROOT / "data/wpsh_winds/access"
     records = json.loads((directory / "download_manifest.json").read_text())
-    if len(records) != 102 or len({r["file"] for r in records}) != 102:
-        raise AssertionError("Expected 102 distinct complete ACCESS subsets")
+    if len(records) != 114 or len({r["file"] for r in records}) != 114:
+        raise AssertionError("Expected 114 distinct complete ACCESS subsets, including 12 for 2100")
+    by_name = {r["file"]: r for r in records}
     coverage = {}
     total_bytes = 0
     pressure_errors = []
     for record in records:
         path = directory / record["file"]
+        if record["first_year"] == 2100:
+            previous = by_name[record["file"].replace("2100_2100", "2095_2099")]
+            assert record["source_file"] == previous["source_file"]
+            assert record["version"] == previous["version"]
         assert sha256(path) == record["sha256"], f"Checksum mismatch: {path.name}"
         with xr.open_dataset(path) as ds:
             pressure = float(ds.plev.item())
@@ -42,11 +47,12 @@ def validate_access_downloads():
     groups = []
     for key, dates in sorted(coverage.items()):
         historical = "_historical_" in key
-        first, last = (1900, 2014) if historical else (2015, 2099)
+        first, last = (1900, 2014) if historical else (2015, 2100)
         np.testing.assert_array_equal(sorted(dates), np.arange(first*12+1, (last+1)*12+1))
         groups.append(dict(group=key, first_year=first, last_year=last, months=len(dates)))
     assert len(groups) == 18
-    report = dict(subsets=102, total_bytes=total_bytes, sha256_verified=True,
+    report = dict(subsets=len(records), total_bytes=total_bytes, sha256_verified=True,
+                  terminal_year=2100, terminal_year_subsets=12, terminal_year_source_versions_verified=True,
                   nominal_pressure_Pa=85000, pressure_max_abs_deviation_Pa=max(pressure_errors),
                   global_grid=[145, 192],
                   all_months_exactly_once=True, groups=groups)
@@ -82,11 +88,13 @@ def validate(path, raw_check=False):
     assert summary["strong_years_reference_sd"] == ds.year.values[ds.strong_event.values.astype(bool)].tolist()
     if path.stem.startswith("access_"):
         assert summary["baseline"] == [1900, 2014]
+        assert summary["last"] == manifest["configuration"]["last"] == 2100
+        np.testing.assert_array_equal(ds.year, np.arange(1900, 2101))
         assert "century_comparison" not in summary
         for key, pc in (("period_comparison", ds.pc_reference.sel(mode=1)),
                         ("period_comparison_full_period_threshold", ds.pc.sel(mode=1))):
             comparison = summary[key]
-            for label, first, last in (("historical", 1900, 2014), ("future", 2015, 2099)):
+            for label, first, last in (("historical", 1900, 2014), ("future", 2015, 2100)):
                 subset = pc.sel(year=slice(first, last))
                 np.testing.assert_array_equal(subset.year, np.arange(first, last+1))
                 n = last-first+1
@@ -133,8 +141,8 @@ def validate(path, raw_check=False):
                  independent_svd_variance_fractions=fractions.tolist(),
                  physical_regression_maps_verified=True)
     if path.stem.startswith("access_"):
-        audit.update(historical_period="1900-2014", future_period="2015-2099",
-                     historical_years=115, future_years=85,
+        audit.update(historical_period="1900-2014", future_period="2015-2100",
+                     historical_years=115, future_years=86,
                      period_counts_rates_and_variability_verified=True,
                      historical_climatology_and_manifest_verified=True)
     if raw_check and path.stem == "era5_1979_2020":
@@ -153,20 +161,21 @@ def validate(path, raw_check=False):
         audit["raw_1979_JJA_relative_rms_error"] = float(np.sqrt(((actual-expected)**2).mean())/np.sqrt((actual**2).mean()))
     if raw_check and path.stem.startswith("access_"):
         from wpsh_wind_fill import WindFiller
-        member = path.stem.split("_")[2]
+        scenario, member = path.stem.split("_")[1:3]
         data = ROOT / "data/wpsh_winds/access"
-        with xr.open_dataset(data / f"ua850_historical_{member}_1900_1919.nc") as ud, xr.open_dataset(data / f"va850_historical_{member}_1900_1919.nc") as vd:
-            u = canonical_wind(ud, "ua").sel(time=slice("1900-06", "1900-08"))
-            v = canonical_wind(vd, "va").sel(time=slice("1900-06", "1900-08"))
-            filler = WindFiller(u.lat.values, u.lon.values)
-            uv = [filler.fill(u.values[i], v.values[i], ds.attrs["wind_fill"]) for i in range(3)]
-            sf = streamfunction(np.stack([a for a, _ in uv]), np.stack([b for _, b in uv]), u.lat, u.lon)
-            actual = xr.DataArray(sf.mean(axis=0), dims=("lat", "lon"), coords=dict(lat=u.lat, lon=u.lon))
-            actual = actual.sortby("lat").interp(lat=ds.lat, lon=ds.lon)
-        expected = ds.sf_jja.sel(year=1900)
-        np.testing.assert_allclose(actual, expected, atol=20, rtol=3e-6)
-        audit["raw_1900_JJA_monthly_first_max_abs_error_m2_s"] = float(abs(actual-expected).max())
-        audit["raw_1900_JJA_relative_rms_error"] = float(np.sqrt(((actual-expected)**2).mean())/np.sqrt((actual**2).mean()))
+        for year, experiment, chunk in ((1900, "historical", "1900_1919"), (2100, scenario, "2100_2100")):
+            with xr.open_dataset(data / f"ua850_{experiment}_{member}_{chunk}.nc") as ud, xr.open_dataset(data / f"va850_{experiment}_{member}_{chunk}.nc") as vd:
+                u = canonical_wind(ud, "ua").sel(time=slice(f"{year}-06", f"{year}-08"))
+                v = canonical_wind(vd, "va").sel(time=slice(f"{year}-06", f"{year}-08"))
+                filler = WindFiller(u.lat.values, u.lon.values)
+                uv = [filler.fill(u.values[i], v.values[i], ds.attrs["wind_fill"]) for i in range(3)]
+                sf = streamfunction(np.stack([a for a, _ in uv]), np.stack([b for _, b in uv]), u.lat, u.lon)
+                actual = xr.DataArray(sf.mean(axis=0), dims=("lat", "lon"), coords=dict(lat=u.lat, lon=u.lon))
+                actual = actual.sortby("lat").interp(lat=ds.lat, lon=ds.lon)
+            expected = ds.sf_jja.sel(year=year)
+            np.testing.assert_allclose(actual, expected, atol=20, rtol=3e-6)
+            audit[f"raw_{year}_JJA_monthly_first_max_abs_error_m2_s"] = float(abs(actual-expected).max())
+            audit[f"raw_{year}_JJA_relative_rms_error"] = float(np.sqrt(((actual-expected)**2).mean())/np.sqrt((actual**2).mean()))
     return audit
 
 

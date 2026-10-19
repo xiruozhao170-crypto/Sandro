@@ -106,11 +106,11 @@ def run(tag, label, ufiles, vfiles, uvar, vvar, first, last, baseline,
                        other_order_pc1_correlation=float(np.corrcoef(pc, alt.pc.sel(mode=1))[0, 1]),
                        unweighted_eof1_variance_percent=float(unweighted.variance_fraction.sel(mode=1)*100),
                        unweighted_pc1_correlation=float(np.corrcoef(pc, unweighted.pc.sel(mode=1))[0, 1])))
-    if first == 1900 and last == 2099:
+    if first == HISTORICAL_PERIOD[0] and last == FUTURE_PERIOD[1]:
         summary["period_comparison"] = compare_periods(result.pc_reference.sel(mode=1))
         summary["period_comparison"]["threshold"] = "PC1 > 1.5 historical-period sample SD, after historical-period centering"
         summary["period_comparison_full_period_threshold"] = compare_periods(result.pc.sel(mode=1))
-        summary["period_comparison_full_period_threshold"]["threshold"] = "PC1 > 1.5 full-1900-2099-period sample SD"
+        summary["period_comparison_full_period_threshold"]["threshold"] = f"PC1 > 1.5 full-{first}-{last}-period sample SD"
     if wind_fill != "reject":
         summary["missing_winds"] = {k: products.attrs[k] for k in
             ("missing_grid_fraction_mean", "missing_grid_fraction_min", "missing_grid_fraction_max")}

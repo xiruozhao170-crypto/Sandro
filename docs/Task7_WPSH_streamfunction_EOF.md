@@ -162,13 +162,14 @@ missing values. The low-level streamfunction solver still rejects missing winds;
 model runs explicitly select the numerical wind extension described below.
 
 The model-analysis configuration joins historical and each scenario
-for **1900–2099**, uses monthly quadratic detrending over the combined period,
+for **1900–2100**, uses monthly quadratic detrending over the combined period,
 interpolates the resulting streamfunction to a 1° grid, and fits a common
 EOF across the combined historical and future record **within each member/scenario combination**. This is
 six separate EOF fits, not an EOF pooled across members or scenarios. The present
 reference is **1900–2014 (115 years)**, matching the historical period in the
-earlier project tasks. The future comparison is **2015–2099 (85 years)**,
-matching the available scenario winds. The reference paper uses a full-record
+earlier project tasks. The future comparison is **2015–2100 (86 years)**,
+including all twelve months of 2100 from the same source versions as the earlier
+scenario winds. The reference paper uses a full-record
 monthly baseline for its models; the configured present-period baseline is
 therefore an explicit adaptation. It must not be described as an exact
 multimodel reproduction. Future WPSH indices retain the present-period SD
@@ -182,8 +183,10 @@ The standard-deviation change is `100 * (SD_future / SD_historical - 1)`.
 Climatological anomalies, reference-normalized indices, thresholds and period
 statistics have all been recalculated for this baseline from the original winds.
 This supersedes the earlier 1900–1999 versus 2000–2099 comparison. The EOF
-still spans the combined 1900–2099 record, and the ERA5/NCEP analysis remains
-1979–2020. Scenario-specific detrending and EOF fits can yield slightly different
+now spans the combined 1900–2100 record, and the ERA5/NCEP analysis remains
+1979–2020. Adding 2100 also updates the full-record trend and EOF fits, so
+earlier PC values can change slightly even with the same historical reference.
+Scenario-specific detrending and EOF fits can yield slightly different
 historical indices for the same member despite shared original historical winds.
 
 Model deliverables are the six `access_{ssp245,ssp585}_{r1,r2,r5}` result sets,
@@ -200,10 +203,12 @@ No multimodel significance or reproduction of the paper's 32-model aggregate
 is claimed. Each input manifest records original OPeNDAP URL, tracking ID,
 exact pressure, file size and SHA-256.
 The [download integrity audit](../results/task7_wpsh_eof/access_download_validation.json)
-checks all 102 subsets (1,069,982,063 bytes), their SHA-256 checksums, 145 × 192
+checks all 114 subsets (including twelve new u/v subsets for 2100), their SHA-256 checksums, 145 × 192
 global coordinates, pressure level and complete monthly coverage in all 18
 variable/member/experiment groups. Original pressure coordinates differ from
-85000 Pa by at most 1.01 × 10⁻⁸ Pa due to numeric encoding.
+85000 Pa by at most 1.01 × 10⁻⁸ Pa due to numeric encoding. The audit also checks
+that each 2100 subset uses the same original file and version as its 2095–2099
+predecessor. Subsetting keeps 2100 separate so existing downloads remain reusable.
 
 ### Below-ground wind extension and its limitations
 
@@ -292,6 +297,11 @@ each case while other downloads continue, run `python scripts/run_access_wpsh.py
 alongside the downloader; it waits for complete year coverage, then runs both
 extensions and the combined summary.
 
+For an existing download through 2099, append only the missing final year using
+`python scripts/fetch_access_wpsh_winds.py --extend-to-2100 --workers 3`.
+This reads the prior manifest and pins the original source versions, rather
+than selecting a newer release. A fresh full download also includes 2100.
+
 The figures and numerical audits can also be reproduced without raw downloads:
 
 ```bash
@@ -309,8 +319,10 @@ The additional extension tests check unchanged valid winds, finite polar vectors
 longitude-rotation equivariance, fixed-mask linearity and correct processing of
 time-varying monthly masks. Period-comparison checks cover the 2014/2015 boundary,
 strict event threshold and occurrence rates for unequal historical/future lengths.
-The result audits verify all 115 historical and 85 future years, reference
+The result audits verify all 115 historical and 86 future years, reference
 climatology, manifest baseline, event counts, rates and standard-deviation changes.
+The raw-wind checks independently calculate both the 1900 and 2100 JJA fields
+month by month, confirming that the added final summer is included in the results.
 
 ## 中文说明
 
@@ -322,9 +334,10 @@ WPSH 指数。ERA5 的 EOF1 方差解释率为 **77.86%**，强事件年份为
 
 提供可直接使用的逐年 CSV、NetCDF、PNG/SVG、数据校验值、敏感性对照及验证代码。
 ACCESS-CM2 使用公开 NCI 原始 85000 Pa 风场，补充 r1、r2、r5 在 SSP245、SSP585
-下的六组 1900–2099 年结果。高地下方缺测采用明确记录的球面调和延拓，并提供最近邻
+下的六组 1900–2100 年结果。高地下方缺测采用明确记录的球面调和延拓，并提供最近邻
 延拓对照和 ERA5 人工遮挡检验。补出的风值属于数值假设，不能解释为恢复了真实风场。
 逐月二次去趋势后计算 JJA EOF；历史参考期统一为 1900–2014 年（115 年），未来比较期为
-2015–2099 年（85 年）。气候平均态、参考期标准化和强事件阈值均按新的历史期重算，
+2015–2100 年（86 年）。2100 年的全球月风场沿用同版本原始资料补齐，纳入完整时段的
+去趋势、EOF、指数和统计重算。气候平均态、参考期标准化和强事件阈值均使用上述历史期，
 同时保留全时段标准化结果。强事件图比较夏季发生率（次数÷时段年数），表中另保留实际次数。
 六组结果仅代表一个模式的三个成员和两个情景，不代表多模式结论。
