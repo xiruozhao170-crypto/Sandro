@@ -1,0 +1,101 @@
+{
+  "documents": [
+    {
+      "name": "Task 1.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Tasks（新）\\Task 1.docx",
+      "bytes": 954809,
+      "sha256": "97f8d4cc4a186ad0b090a60527dfe7a16e4d3f08f8770d3ac07d08bf152f711a"
+    },
+    {
+      "name": "Task 2.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Tasks（新）\\Task 2.docx",
+      "bytes": 619615,
+      "sha256": "2d111037256ee7887aa048b44623f05ad52d8d08620f037fb92d81d5cf745410"
+    },
+    {
+      "name": "Task 3.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Tasks（新）\\Task 3.docx",
+      "bytes": 15879,
+      "sha256": "0c2e4eb3b148178cad971b5b0155893b94d0b7c5bd7991aabe414f453f62d200"
+    },
+    {
+      "name": "Task 4.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Tasks（新）\\Task 4.docx",
+      "bytes": 16694,
+      "sha256": "e09ab18668479d8448956bd2fb9905eaa827b968fb7e40fdee8812c8a28e73dc"
+    },
+    {
+      "name": "Materials to Read.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Articles\\Materials to Read.docx",
+      "bytes": 12426,
+      "sha256": "ca52f7de520545330466484e532d336ea91508bccb310bbcec3345242a308ba4"
+    },
+    {
+      "name": "Review.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\立项答辩\\Review.docx",
+      "bytes": 1498447,
+      "sha256": "104a1ddc4409310a9ebaec272801b83981498582b9caccb47291691c5768c737"
+    },
+    {
+      "name": "Proposal.docx",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\立项答辩\\Proposal.docx",
+      "bytes": 2768453,
+      "sha256": "6343c25847fa53771fcf60db2ab1398d3636ba339b260545adbb8022ac4d503f"
+    },
+    {
+      "name": "Atmospheric Science Letters - 2015 - Dong - Influences of the Pacific Decadal Oscillation on the East Asian Summer Monsoon.pdf",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Articles\\Atmospheric Science Letters - 2015 - Dong - Influences of the Pacific Decadal Oscillation on the East Asian Summer Monsoon.pdf",
+      "bytes": 1172506,
+      "sha256": "1d19ecf223768d3897ae19ba9270139b8d1ec09d2d91cdddef79e9d432b55528"
+    },
+    {
+      "name": "Climate and climate models.pdf",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Articles\\Climate and climate models.pdf",
+      "bytes": 3638434,
+      "sha256": "9db698a0538c0c105db7e24788b49208611f32a7e3b1012a10cedb749e1d6875"
+    },
+    {
+      "name": "Climate change and variability overview.pdf",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Articles\\Climate change and variability overview.pdf",
+      "bytes": 10174995,
+      "sha256": "ac685000d7aad5ed5d88983b3bb417517e688b421a6c3bf4bb300c4848d87e22"
+    },
+    {
+      "name": "Lehner and Deser 2023_ERClim_Origin, importance, and predictive limits of internal climate.pdf",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Articles\\Lehner and Deser 2023_ERClim_Origin, importance, and predictive limits of internal climate.pdf",
+      "bytes": 12358328,
+      "sha256": "10e1835dfe08e9eb563c834e448b1ee322f8e1d89bfa5779f38b36d62470fca4"
+    },
+    {
+      "name": "Potential Correlation between the Decadal East Asian Summer Monsoon Variability and the Pacific Decadal Oscillation.pdf",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\Articles\\Potential Correlation between the Decadal East Asian Summer Monsoon Variability and the Pacific Decadal Oscillation.pdf",
+      "bytes": 412370,
+      "sha256": "da704634328563fea4aac59a9d90be1ee7c2916c40c00109be60802960151845"
+    },
+    {
+      "name": "yang-et-al-2022-increased-variability-of-the-western-pacific-subtropical-high-under-greenhouse-warming.pdf",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\sandro 大创\\yang-et-al-2022-increased-variability-of-the-western-pacific-subtropical-high-under-greenhouse-warming.pdf",
+      "bytes": 19088867,
+      "sha256": "833418d9770879d7f75fa387a1060a9b1b9eb79df15b7bf0b7978f70c103be24"
+    },
+    {
+      "name": "atmosphere-11-00003-v2.pdf",
+      "source": "C:\\Users\\86133\\Sandro\\atmosphere-11-00003-v2.pdf",
+      "bytes": 2687878,
+      "sha256": "ca8425cf408a8baf42629439562900cfda9081d6fc5e7ace0e10a38db9fa5047"
+    },
+    {
+      "name": "task1-2(MICRO6+ERSST).ipynb",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\task1-2(MICRO6+ERSST).ipynb",
+      "bytes": 2682889,
+      "sha256": "54509f32093bdb80311bd7622b7ed1aedc5861f94aec4aa597db0ebc0071d7b6"
+    },
+    {
+      "name": "task3-4_regression_covariance_pattern_T4-6_T4-7_added (1).ipynb",
+      "source": "D:\\HuaweiMoveData\\Users\\86133\\Desktop\\task3-4_regression_covariance_pattern_T4-6_T4-7_added (1).ipynb",
+      "bytes": 4624546,
+      "sha256": "bfa839011d4974709e547c07ac85130cf859718ec1e18253f81f504e9f335059"
+    }
+  ],
+  "note": "Source identity only. Personal information in proposal/review is not reproduced."
+}

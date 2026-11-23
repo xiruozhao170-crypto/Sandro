@@ -1,0 +1,175 @@
+{
+  "scope": "Audit of committed outputs, not rerun from raw data",
+  "historical": {
+    "r1": {
+      "rain_pattern_correlation_with_observation": -0.17029172646332907,
+      "n_pos": 62,
+      "n_neg": 45
+    },
+    "r2": {
+      "rain_pattern_correlation_with_observation": -0.05523026976510477,
+      "n_pos": 57,
+      "n_neg": 50
+    },
+    "r3": {
+      "rain_pattern_correlation_with_observation": 0.20388212331679953,
+      "n_pos": 54,
+      "n_neg": 53
+    },
+    "r4": {
+      "rain_pattern_correlation_with_observation": -0.2278807273392965,
+      "n_pos": 55,
+      "n_neg": 52
+    },
+    "r5": {
+      "rain_pattern_correlation_with_observation": 0.12037984177645186,
+      "n_pos": 50,
+      "n_neg": 57
+    }
+  },
+  "future": {
+    "ssp245_r1": {
+      "rain_pattern_correlation_with_own_historical": -0.08884141226420005,
+      "eof_correlation_with_observation_unweighted": 0.6958890675556553,
+      "n_pos": 38,
+      "n_neg": 40
+    },
+    "ssp585_r1": {
+      "rain_pattern_correlation_with_own_historical": 0.3327589859434654,
+      "eof_correlation_with_observation_unweighted": 0.42332869379543514,
+      "n_pos": 30,
+      "n_neg": 48
+    },
+    "ssp245_r2": {
+      "rain_pattern_correlation_with_own_historical": -0.08608306107491187,
+      "eof_correlation_with_observation_unweighted": 0.41811338574937895,
+      "n_pos": 41,
+      "n_neg": 37
+    },
+    "ssp585_r2": {
+      "rain_pattern_correlation_with_own_historical": -0.34593567129199937,
+      "eof_correlation_with_observation_unweighted": 0.7342233305342385,
+      "n_pos": 45,
+      "n_neg": 33
+    },
+    "ssp245_r3": {
+      "rain_pattern_correlation_with_own_historical": 0.23437288054973393,
+      "eof_correlation_with_observation_unweighted": 0.6112370706033893,
+      "n_pos": 36,
+      "n_neg": 42
+    },
+    "ssp585_r3": {
+      "rain_pattern_correlation_with_own_historical": 0.15312321554231426,
+      "eof_correlation_with_observation_unweighted": -0.4018651197048444,
+      "n_pos": 50,
+      "n_neg": 28
+    },
+    "ssp245_r4": {
+      "rain_pattern_correlation_with_own_historical": -0.1259904132609699,
+      "eof_correlation_with_observation_unweighted": 0.5107715160480459,
+      "n_pos": 39,
+      "n_neg": 39
+    },
+    "ssp585_r4": {
+      "rain_pattern_correlation_with_own_historical": -0.1239921120788916,
+      "eof_correlation_with_observation_unweighted": -0.3025441371904879,
+      "n_pos": 45,
+      "n_neg": 33
+    },
+    "ssp245_r5": {
+      "rain_pattern_correlation_with_own_historical": 0.13092035706092692,
+      "eof_correlation_with_observation_unweighted": 0.5568962360927895,
+      "n_pos": 40,
+      "n_neg": 38
+    },
+    "ssp585_r5": {
+      "rain_pattern_correlation_with_own_historical": 0.19058690388102767,
+      "eof_correlation_with_observation_unweighted": 0.45293374087597504,
+      "n_pos": 30,
+      "n_neg": 48
+    }
+  },
+  "task5_matched_members_peak_band_fraction": {
+    "historical": 0.3555333333333333,
+    "ssp245": 0.12143333333333334,
+    "ssp585": 0.12773333333333334
+  },
+  "task5_note": "Different peak bands and record lengths: descriptive fractions, not a fixed-band significance test.",
+  "task6_equivalent_threshold_reconstruction": {
+    "obs_fraction": 0.3176599144935608,
+    "members": {
+      "historical_r1": {
+        "threshold_gpm_unrounded": 5856.61000905797,
+        "recorded_rounded": 5856.6,
+        "west_edges": {
+          "pos": 137.8,
+          "neg": 134.1
+        }
+      },
+      "historical_r2": {
+        "threshold_gpm_unrounded": 5855.861911231887,
+        "recorded_rounded": 5855.9,
+        "west_edges": {
+          "pos": 139.7,
+          "neg": 134.1
+        }
+      },
+      "historical_r5": {
+        "threshold_gpm_unrounded": 5860.103362771742,
+        "recorded_rounded": 5860.1,
+        "west_edges": {
+          "pos": 134.1,
+          "neg": 137.8
+        }
+      },
+      "ssp245_r1": {
+        "threshold_gpm_unrounded": 5912.186500726742,
+        "recorded_rounded": 5912.2,
+        "west_edges": {
+          "pos": 135.9,
+          "neg": 134.1
+        }
+      },
+      "ssp245_r2": {
+        "threshold_gpm_unrounded": 5912.443056564922,
+        "recorded_rounded": 5912.4,
+        "west_edges": {
+          "pos": 128.4,
+          "neg": 137.8
+        }
+      },
+      "ssp245_r5": {
+        "threshold_gpm_unrounded": 5918.206259084305,
+        "recorded_rounded": 5918.2,
+        "west_edges": {
+          "pos": 132.2,
+          "neg": 137.8
+        }
+      },
+      "ssp585_r1": {
+        "threshold_gpm_unrounded": 5932.107527858527,
+        "recorded_rounded": 5932.1,
+        "west_edges": {
+          "pos": 141.6,
+          "neg": 135.9
+        }
+      },
+      "ssp585_r2": {
+        "threshold_gpm_unrounded": 5933.140337330427,
+        "recorded_rounded": 5933.1,
+        "west_edges": {
+          "pos": 143.4,
+          "neg": 113.4
+        }
+      },
+      "ssp585_r5": {
+        "threshold_gpm_unrounded": 5938.869034641474,
+        "recorded_rounded": 5938.9,
+        "west_edges": {
+          "pos": 132.2,
+          "neg": 143.4
+        }
+      }
+    }
+  }
+}

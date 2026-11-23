@@ -1,5 +1,13 @@
 # Sandro: PDO–EASM 分析（ACCESS-CM2，按旧 MIROC6 流程重做）
 
+## 完整研究报告（2026-11-23）
+
+[报告正文](docs/Report_2026-11-23.md) · [图像附录](docs/Report_figure_appendix_2026-11-23.md) · [数据批次及图像来源](docs/Report_data_provenance_2026-11-23.md)
+
+新版按 MIROC6 Task 1—4、ACCESS 补充分析及 Task 5—7 重写，正文与附录收录 69 张研究图和 1 张方法参考图，列出 22 条参考文献。已按要求排除区域检查图及 Task 3—4 成员平均降水图。旧初稿由本版替代。
+
+两批 9 月 ACCESS zg 下载已核对为同源的 500 hPa 子集与全层文件；具体图像对应关系、验证范围及原始文件版本见来源附录。当前报告依据代码与保存结果，修正了旧说明中的 T4-7/T4-8 差分对象、Task 5 显著性解释和 Task 6 等面积阈值方法。
+
 ## 新增 Task 7：850 hPa 风场 → 流函数 → WPSH EOF 指数
 
 按 [Yang et al. (2022), PNAS](https://www.pnas.org/doi/10.1073/pnas.2120335119)
@@ -127,7 +135,7 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   合成差的空间相关（旧 notebook 的选择标准，改陆地掩膜后只算陆地格点）：
   **r1 = 0.45、r2 = 0.58、r3 = 0.25、r4 = 0.47、r5 = 0.77**。
   诊断参考——与观测合成型的相关：r1 = −0.17、r2 = −0.06、r3 = 0.20、r4 = −0.23、r5 = 0.12
-  （自由耦合模式内部变率与观测不同步，低相关属预期）。
+  （这是按各自 PDO 位相合成后的空间型相关，不能仅用自由耦合模式与观测时间不同步解释其偏低）。
 - `Task3_Figure4_Positive_Negative_Rainfall_Spread.png`：正/负位相降水异常的跨成员方差。
 - **Task 4 使用全部成员 r1–r5；Task 5 未来谱成员 = r2, r3, r5（指定）**。
 
@@ -146,10 +154,9 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 | ssp585 | r4 | 19.0% | **−0.30** | 45/33 |
 | ssp585 | r5 | 19.3% | 0.45 | 30/48 |
 
-- 图 `Task4_T4-1`–`T4-7`（成员图均为 2×5：行 = 情景，列 = r1–r5）：未来 PDO EOF1、PC1、
-  正/负位相降水、逐成员合成差、5 成员平均合成差（historical vs ssp245 vs ssp585，
-  `Task4_T4-5_Composite_Difference_MemberMean.png`）、逐成员 SSP585−SSP245 情景差（1×5）、
-  逐成员 SSP585−obs 合成差之差（T4-8，1×5：各成员 ssp585 合成差减观测 1900–2014 合成差）。
+- `Task4_T4-1`—`T4-6` 包含未来 EOF、PC1、正负位相降水及合成差；`T4-5` 为成员平均图，本次报告不收录。
+- `Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png` 为每个成员的 SSP245 合成差减自身历史合成差。
+- `Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png` 为每个成员的 SSP585 合成差减自身历史合成差。
 - 5 成员平均合成差与历史型的空间相关（陆地格点）：ssp245 = −0.24、ssp585 = −0.00；
   两情景之间 −0.07（`task4_summary.json`）——**PDO–华东夏季降水关系在未来情景下
   与历史型差异明显，且情景间不一致**。
@@ -157,91 +164,51 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   （如 ssp585 r3 = −0.40、r4 = −0.30，与观测型相关为负）；这是任务文档规定方法
   （EOF1 + 线性去趋势）下的真实结果，解释未来合成图时需留意。
 
-## Task 5（PC1 傅立叶功率谱：cycle 周期与 energy，方法按导师论文 Fig 1c）
+## Task 5（PDO PC1 功率谱）
 
-方法 = 导师论文（Atmosphere 2020, 11, 3, doi:10.3390/atmos11010003）图 1c：
-对**月分辨率归一化 PC1** 做 periodogram（傅立叶变换的功率谱），叠加由 lag-1 自相关拟合的
-**AR1 红噪声理论谱**（Gilman et al. 1963）及其 **90%/95% χ² 置信线**；谱做 5 点 Daniell 平滑
-（dof≈10，原始 periodogram 每 bin 仅 2 dof、单点噪声尖峰会假超线）。
+借鉴 [Veiga 等（2020）](https://doi.org/10.3390/atmos11010003) Figure 1 的谱诊断思路，对未经九年平滑的标准化月度 PC1 计算周期图、五点 Daniell 平滑、AR(1) 红噪声和近似逐频点 90%/95% 阈值。原论文研究 AMM，本项目未复现其海温—风场 MCA。
 
-- **cycle**：搜索窗口 [2 年, 记录长度/3] 内超过置信线的最强谱峰对应的周期
-  （更长周期在记录内不足 3 个循环、与趋势不可分；1 年整峰为残余年循环，均排除）。
-- **energy**：谱峰附近连续超过红噪声背景的频段上对 PSD 积分（Parseval：全谱积分 = PC1 总方差
-  = 1 σ²），同时给出其占总方差的比例。
+历史使用 r1–r5，未来使用指定 r2/r3/r5。主峰搜索范围为 2 年至记录长度的三分之一；没有超过阈值的峰会回退到超过背景的峰，因此并非所有报告的周期都“显著”。所谓 energy 为所选峰带的统计方差，不是物理能量。
 
-| 序列 | cycle（年） | 显著性 | energy（σ²，占方差） |
-|---|---|---|---|
-| obs (ERSSTv4) | 28.8 | 95% | 0.23（23%） |
-| r1 / r2 / r3 / r4 / r5 | 10.5 / 38.3 / 38.3 / 38.3 / 28.8 | 90–95% | 0.18–0.42（18–41%） |
-| ssp245 r2 / r3 / r5 | 28.7 / 28.7 / 2.2 | 不显著 / 90% / 95% | 0.07–0.19（7–19%） |
-| ssp585 r2 / r3 / r5 | 28.7 / 28.7 / 28.7 | 95% / 不显著 / 不显著 | 0.07–0.15（8–17%） |
+[历史谱](figures/Task5_Figure1_Historical_PC1_Spectrum.png) · [未来谱](figures/Task5_Figure2_Future_PC1_Spectrum.png) · [汇总](figures/Task5_Figure3_Cycle_Energy_Summary.png) · [数值](results/task5_summary.json)
 
-- 图：`Task5_Figure1_Historical_PC1_Spectrum.png`（obs + r1–r5）、
-  `Task5_Figure2_Future_PC1_Spectrum.png`（ssp245/ssp585 × r2/r3/r5）、
-  `Task5_Figure3_Cycle_Energy_Summary.png`（周期 + 能量汇总条形图）；
-  数值：`results/task5_summary.json`。
-- **主要结论**：历史时期（观测与 5 成员）PDO PC1 的年代际–多年代际 cycle（约 10–38 年）
-  能量占总方差 18–41%（观测 23%）；未来情景下该 cycle 能量降到 7–19%
-  （ssp245 平均 12%、ssp585 平均 13%），**PDO 低频循环显著减弱、变率向高频移动**——
-  这正是 Task 3/4 中未来 PC1 子图彼此差异大、位相结构变乱的量化解释。
-- ssp585 谱中 1 年整的尖峰为强迫增暖下残余年循环，已从 cycle 搜索中排除。
+观测主峰为 28.75 年。共同成员 r2/r3/r5 的所选峰带占比平均为历史 35.55%、SSP245 12.14%、SSP585 12.77%，但频带和记录长度不同，且 SSP245 r5 主峰为 2.21 年。这些数值不能作为 PDO 年代际变率“显著减弱”的检验；接近一年周期的尖峰成因也尚未单独验证。完整解释见报告第 6 节。
 
-## Task 6（WPSH 位置：JJA 500 hPa 5870 gpm 等值线，按 PDO 位相合成，图式参照 Dong 2016 ASL Fig. 4）
+## Task 6（PDO 位相下的 500 hPa 副高轮廓）
 
-方法：JJA（6/7/8 月平均）zg500 按 **Task 2 / Task 4 已存的正/负位相年**（`pos_years`/`neg_years`
-属性，与降水合成完全同一套位相年）分别合成，画 **5870 gpm 等值线**表示 WPSH 位置
-（Dong 2016, Atmos. Sci. Lett. 17:115–120, doi:10.1002/asl.634 的做法）。
-观测 = NCEP/NCAR R1 hgt500（1948 年起，故只用位相年 ∩ 1948–2014：pos 27 年 / neg 36 年）；
-模式 = ACCESS-CM2 **r1/r2/r5**（导师提供 zg 的三个成员）。
+沿用 Task 2/4 位相年份，模式成员 r1/r2/r5；历史 1900–2014、未来 2015–2100，观测为 NCEP/NCAR 1948–2014（实际位相样本 27/36）。参考 Dong（2016）绘制固定 5870 gpm，但保留全部 ENSO 状态。
 
-| 数据 | 5870 西脊点（10–40°N 内最西经度）pos / neg / 气候态 |
-|---|---|
-| 观测（NCEP + ERSST 位相） | **125.0°E / 135.0°E / 130.0°E** —— 正位相 WPSH 显著西伸，与 Dong (2016) 一致 |
-| historical r1/r2/r5（原始 5870） | 基本无 ≥5870 区（见下） |
-| historical r1/r2/r5（偏差订正 5870+Δm） | r1 122.8/119.1，r2 132.2/120.9，r5 119.1/130.3（pos/neg） |
-| ssp245、ssp585（原始与订正） | 全部饱和到区域西界 100°E（见下） |
+现行模式主诊断使用**等面积阈值 Tm**：在 10–40°N、110–180°E 内，使各自气候态达到阈值的面积比例等于观测高于 5870 gpm 的比例（0.31766）。这替代了早期的统一偏差订正 `5870+Δm`。
 
-两个需要注意的现象（`results/task6_summary.json` 有全部数字）：
+|试验|r1 Tm|r2 Tm|r5 Tm|
+|---|---:|---:|---:|
+|historical|5856.6|5855.9|5860.1|
+|SSP245|5912.2|5912.4|5918.2|
+|SSP585|5932.1|5933.1|5938.9|
 
-1. **ACCESS-CM2 的 zg500 系统性偏低**：1948–2014 JJA 气候态在 10–40°N/110–180°E 的区域平均
-   比 NCEP 低 **Δr1=−20.9 / Δr2=−20.2 / Δr5=−16.7 gpm**，恰好把整个 WPSH 压到 5870 线以下——
-   historical 原始 5870 等值线 r1/r2 完全不存在（区域内最大值 5869/5870）、r5 只剩小片。
-   `Task6_Figure3_WPSH_bias_adjusted.png` 用 5870+Δm 画模式等值线（消掉平均态偏差）后，
-   historical 的 WPSH 形态和西脊点（119–132°E）与观测量级一致。
-2. **固定 5870 阈值在增暖情景下饱和**：ssp245/ssp585 里 500 hPa 高度整体抬升，
-   ≥5870 区扩张覆盖整个副热带，5870 线跳到 ~30–40°N 变成其**北边界**，
-   西脊点指标顶到区域西界（100°E）。此时 5870 线主要反映增暖抬升本身，
-   不再是传统意义的 WPSH 边界（文献中对未来情景常改用消除平均抬升的相对阈值）；
-   同一面板内红/蓝线对比仍给出两位相的相对差异。
+单位 gpm。固定阈值下历史有缺线、未来最西格点落到约 100.3°E 的诊断边界；不能把它作为精确副高西脊点。等面积阈值下，各成员的 PDO 位相西界变化仍不一致，未进行西界差的显著性检验。
 
-图：`Task6_Figure1_WPSH_5870_JJA.png`（2×2：obs / historical / ssp245 / ssp585，
-成员用线型区分，无 5870 区的成员在图内标注）、`Task6_Figure2_WPSH_5870_by_member.png`
-（3×3 逐成员 + 气候态虚线）、`Task6_Figure3_WPSH_bias_adjusted.png`（模式面板改画 5870+Δm）。
+- [固定 5870 gpm](figures/Task6_Figure1_WPSH_5870_JJA.png)
+- [逐成员等面积阈值](figures/Task6_Figure2_WPSH_5870_by_member.png)：保留旧文件名，但实际使用 Tm。
+- [等面积阈值总览](figures/Task6_Figure3_WPSH_equivalent_threshold.png)
+- [当前数值](results/task6_summary.json)
 
-### Task 6 早期另一版实现（2026-09-15，Codex 在用户 Windows 本机跑，存档保留）
+### Task 6 早期本地实现
 
-同一任务此前在用户本机（数据在 `E:\Sandro Dachuang`）用另一工具做过一版，产物保留在
-`figures/task6_wpsh/`（overview / 逐成员 / 1948–2014 共同时间窗 / 正负位相分开图，含 SVG）、
-`results/task6_wpsh/`（validation.json、contour_display_audit.csv）和
-`docs/Task6_WPSH_method.md`。其绘图脚本原名 `task6_wpsh.py`，为当前版本让位已改名
-**`scripts/task6_wpsh_codex.py`**（`validate_task6_wpsh.py` 的导入已同步更新；
-需 `--data-root` 指向 14 个原始 zg 文件，本服务器未保留原始文件，故只能在用户本机复跑）。
-该版观测参照同样是 NCEP/NCAR R1（THREDDS NCSS 子集），也同样发现部分历史合成
-不足 5870 gpm 而无等值线（见其 audit 表）；本版在此基础上补了偏差订正图（Figure 3）
-和西脊点数值汇总。
+`figures/task6_wpsh/` 的六张图及对应 SVG、`results/task6_wpsh/` 和 [早期方法](docs/Task6_WPSH_method.md)保留。代码为 `scripts/task6_wpsh_codex.py`，输入是移动硬盘根目录的原始全层 zg；14 个文件列入清单，12 个用于至 2100 年的分析。这套图使用固定 5870 gpm。它与现行方法的关系及两次下载核对见[来源附录](docs/Report_data_provenance_2026-11-23.md)。
 
-## 备注
+## 备注与历史变更记录
 
 - Task 1–4 文档在 `docs/`；旧 MIROC6 版示例输出（Drive `task1-2_output`、`task3/4_*_outputs`）为图式参照。
   导师论文 `atmosphere-11-00003-v2.pdf`（Task 5 方法来源）与其重点图（`微信图片_*.png`，
   即论文 Figure 1，图 c 为功率谱模板）在仓库根目录。
-- 本轮改动：新增 **Task 6（WPSH 5870 gpm 位置）**：导师在 Google Drive 提供 zg
+- 早期改动记录（后续已改为等面积阈值）：新增 **Task 6（WPSH 5870 gpm 位置）**：导师在 Google Drive 提供 zg
   （historical/ssp245/ssp585 × r1/r2/r5，共 12 个原始文件 ~15 GB），
   逐个下载→`extract_zg500.py` 抽 500 hPa 子集（每个 ~13 MB）→删原始文件；
   观测另下 NCEP/NCAR R1 月平均 hgt（320 MB，同样只保留 500 hPa 子集）。
 - 前轮改动：**原 Task 6（PC1 功率谱）更名为 Task 5**（脚本/图/结果文件与图题全部改名）——
   因原 Task 5（SSP−观测气候态差）已整体删除（脚本、图、结果均已移除）。
-- 前轮改动：T4-7 改为逐成员 SSP585−SSP245（1×5）；新增 **T4-8** 逐成员 SSP585−obs
+- 早期改动记录（后续已改为 SSP245−hist / SSP585−hist）：T4-7 曾改为逐成员 SSP585−SSP245（1×5）；新增 **T4-8** 逐成员 SSP585−obs
   合成差之差（1×5）；Task 4 改为**全部 5 个成员 r1–r5**（2×5 图版式），不再选 best members；
   功率谱任务的未来谱暂仍用 r2/r3/r5。
 - 前轮改动：①同一幅图内的 colorbar 统一（`task1_pdo_members` 六面板共用一套色标、
