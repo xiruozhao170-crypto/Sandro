@@ -2,14 +2,13 @@
 ACCESS-CM2 historical members (r1-r5; the course doc assumes 10 MIROC6 runs,
 the new dataset supplies 5).
 
-Reads the per-member results of Task 2 (results/task2_<m>.nc) and computes,
-grid-point by grid-point across members, the ensemble mean and variance of
-the PDO EOF1 pattern and of the rainfall composites (diff and each phase).
+Reads the per-member results of Task 2 (results/task2_<m>.nc) and computes
+the mean and variance of the PDO EOF1 pattern and the across-member
+variance of rainfall composites (diff and each phase). Rainfall maps stay
+member-specific; no across-member rainfall mean is computed or saved.
 The members used in the Task 5 future spectra are prescribed (r2, r3, r5;
-Task 4 runs all five members).  The pattern
-correlations of each member's composite difference with the all-member
-ensemble mean (the old MIROC6 ranking criterion) and with the observed
-composite are kept as diagnostics only.
+Task 4 runs all five members). The pattern correlations of each member's
+composite difference with the observed composite are diagnostics only.
 
 Figures (mirroring the old MIROC6 outputs):
   Task3_Figure1_PDO_EOF1_Spread.png        r1-r5 EOF1 + across-member variance
@@ -133,7 +132,7 @@ def figure3_composite_spread(rain, coords, corrs, path):
         cf = ax.contourf(lo, la, rain["diff"][i], levels=lev, cmap="BrBG",
                          transform=ccrs.PlateCarree(), extend="both")
         _map_axis(ax)
-        ax.set_title(f"{m} Composite (Pos$-$Neg)   r(ens)={corrs[m]:.2f}")
+        ax.set_title(f"{m} Composite (Pos$-$Neg)   r(obs)={corrs[m]:.2f}")
     ax = axes.flat[-1]
     cf2 = ax.contourf(lo, la, var, levels=15, cmap="YlOrRd",
                       transform=ccrs.PlateCarree(), extend="max")
@@ -145,7 +144,7 @@ def figure3_composite_spread(rain, coords, corrs, path):
                  shrink=0.85, pad=0.02)
     fig.suptitle("Task 3 Figure 3: East China JJA Rainfall Composite "
                  "(Pos$-$Neg, r1–r5) + Spread\nACCESS-CM2 Historical "
-                 "1900–2014  |  r(ens) = pattern corr vs 5-member-mean composite",
+                 "1900–2014  |  r(obs) = pattern corr vs observed composite",
                  fontsize=13)
     fig.savefig(path, dpi=200, bbox_inches="tight")
     plt.close(fig)
@@ -177,11 +176,6 @@ def figure4_phase_spread(rain, coords, path):
 def main():
     pdo_eofs, pcs, rain, counts, coords = stack_members()
 
-    # diagnostic only: pattern correlation of each member's composite
-    # difference with the all-member ensemble mean (the old ranking criterion)
-    ens_diff = np.nanmean(rain["diff"], axis=0)
-    corrs = {m: float(pattern_corr(rain["diff"][i], ens_diff))
-             for i, m in enumerate(MEMBERS)}
     # members for the Task 5 future spectra are prescribed, not ranked
     best3 = ["r2", "r3", "r5"]
 
@@ -195,34 +189,29 @@ def main():
         {
             "pdo_eof_mean": (("lat", "lon"), pdo_eofs.mean(0)),
             "pdo_eof_var": (("lat", "lon"), pdo_eofs.var(0, ddof=1)),
-            "rain_pos_mean": (("rlat", "rlon"), np.nanmean(rain["pos"], 0)),
-            "rain_neg_mean": (("rlat", "rlon"), np.nanmean(rain["neg"], 0)),
-            "rain_diff_mean": (("rlat", "rlon"), np.nanmean(rain["diff"], 0)),
             "rain_pos_var": (("rlat", "rlon"), np.nanvar(rain["pos"], 0, ddof=1)),
             "rain_neg_var": (("rlat", "rlon"), np.nanvar(rain["neg"], 0, ddof=1)),
             "rain_diff_var": (("rlat", "rlon"), np.nanvar(rain["diff"], 0, ddof=1)),
         },
         coords=coords,
         attrs={"members": ",".join(MEMBERS),
-               "description": "Task 3 across-member mean/variance, ACCESS-CM2 "
+               "description": "Task 3 PDO mean/variance and rainfall variance, ACCESS-CM2 "
                               "historical r1-r5, 1900-2014, PDO = EOF1"},
     )
     out.to_netcdf(RES / "task3_spread.nc")
 
     figure1_eof_spread(pdo_eofs, coords, FIG / "Task3_Figure1_PDO_EOF1_Spread.png")
     figure2_pc1(pcs, counts, FIG / "Task3_Figure2_PC1.png")
-    figure3_composite_spread(rain, coords, corrs,
+    figure3_composite_spread(rain, coords, corrs_obs,
                              FIG / "Task3_Figure3_Rainfall_Composite_Spread.png")
     figure4_phase_spread(rain, coords,
                          FIG / "Task3_Figure4_Positive_Negative_Rainfall_Spread.png")
 
-    summary = {"pattern_corr_vs_ensemble_mean_composite": corrs,
-               "pattern_corr_vs_obs_composite": corrs_obs,
+    summary = {"pattern_corr_vs_obs_composite": corrs_obs,
                "best3": best3}
     (RES / "task3_summary.json").write_text(json.dumps(summary, indent=2))
-    print("pattern corr vs ensemble-mean composite:", corrs)
     print("pattern corr vs obs composite (diagnostic):", corrs_obs)
-    print("best 3 members for Task 4:", best3)
+    print("prescribed members for Task 5 future spectra:", best3)
 
 
 if __name__ == "__main__":

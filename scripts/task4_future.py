@@ -10,11 +10,12 @@ Figures (mirroring the old MIROC6 T4 outputs, adapted to 2 scenarios):
   Task4_T4-2_Future_PC1_by_member.png            2x5 PC1 + smoothed
   Task4_T4-3_Positive_Phase_Rainfall_by_member.png
   Task4_T4-4_Negative_Phase_Rainfall_by_member.png
-  Task4_T4-5_Composite_Difference_MemberMean.png   hist / ssp245 / ssp585
   Task4_T4-6_Composite_Difference_by_member.png
   Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png  1x5 per member
   Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png 1x5 per member
 Outputs: results/task4_<scen>_<m>.nc, results/task4_summary.json
+Rainfall composites and comparisons remain member-specific. The former
+T4-5 across-member rainfall mean is retired; figure numbering is retained.
 """
 import json
 from pathlib import Path
@@ -106,7 +107,6 @@ def main():
         ds = xr.open_dataset(RES / f"task2_{m}.nc")
         hist_diff.append(ds["rain_diff"].values)
         rl, rn = ds["rlat"].values, ds["rlon"].values
-    hist_diff_mean = np.nanmean(hist_diff, axis=0)
 
     summary = {"members": MEMBERS, "scenarios": {}}
     results = {}  # (scen, m) -> dict(pdo=..., comp=...)
@@ -176,28 +176,6 @@ def main():
         "Task 4-6: JJA Rainfall Composite Difference (Pos$-$Neg) by member\n"
         "ACCESS-CM2 2015–2100", "BrBG", "mm/day")
 
-    # T4-5 member-mean composite difference: historical vs scenarios
-    ens = {scen: np.nanmean([results[(scen, m)]["comp"]["diff"].values
-                             for m in MEMBERS], axis=0) for scen in SCENARIOS}
-    fields = [hist_diff_mean, ens["ssp245"], ens["ssp585"]]
-    labels = ["historical 1900–2014", "ssp245 2015–2100", "ssp585 2015–2100"]
-    lev = _sym_levels(*fields)
-    fig, axes = plt.subplots(1, 3, figsize=(15, 5.4), constrained_layout=True,
-                             subplot_kw={"projection": ccrs.PlateCarree()})
-    for ax, fld, ttl in zip(axes, fields, labels):
-        cf = ax.contourf(rn, rl, fld, levels=lev, cmap="BrBG",
-                         transform=ccrs.PlateCarree(), extend="both")
-        _map_axis(ax)
-        ax.set_title(ttl)
-    fig.colorbar(cf, ax=axes.ravel().tolist(), label="mm/day", shrink=0.8,
-                 pad=0.02)
-    fig.suptitle("Task 4-5: Composite Difference (Pos$-$Neg), mean of r1–r5\n"
-                 "ACCESS-CM2: historical vs future scenarios",
-                 fontsize=13)
-    fig.savefig(FIG / "Task4_T4-5_Composite_Difference_MemberMean.png",
-                dpi=200, bbox_inches="tight")
-    plt.close(fig)
-
     # T4-7 / T4-8: each member's future composite minus its own historical one
     for scen, tag, name in [
             ("ssp245", "4-7",
@@ -225,10 +203,14 @@ def main():
         plt.close(fig)
 
     for scen in SCENARIOS:
-        summary["scenarios"][scen]["ens_diff_corr_vs_hist"] = round(
-            float(pattern_corr(ens[scen], hist_diff_mean)), 3)
-    summary["ssp585_vs_ssp245_ens_diff_corr"] = round(
-        float(pattern_corr(ens["ssp585"], ens["ssp245"])), 3)
+        for i, m in enumerate(MEMBERS):
+            summary["scenarios"][scen][m]["rain_diff_corr_vs_own_hist"] = round(
+                float(pattern_corr(results[(scen, m)]["comp"]["diff"].values,
+                                   hist_diff[i])), 3)
+    summary["ssp585_vs_ssp245_diff_corr_by_member"] = {
+        m: round(float(pattern_corr(results[("ssp585", m)]["comp"]["diff"].values,
+                                    results[("ssp245", m)]["comp"]["diff"].values)), 3)
+        for m in MEMBERS}
 
     (RES / "task4_summary.json").write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary, indent=2))

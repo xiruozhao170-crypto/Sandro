@@ -16,9 +16,17 @@ def main():
     obs = xr.open_dataset(RES / 'task2_obs.nc')
     summary3 = json.loads((RES / 'task3_summary.json').read_text())
     summary4 = json.loads((RES / 'task4_summary.json').read_text())
+    assert 'pattern_corr_vs_ensemble_mean_composite' not in summary3
+    assert 'ssp585_vs_ssp245_ens_diff_corr' not in summary4
+    for s in ['ssp245', 'ssp585']:
+        assert 'ens_diff_corr_vs_hist' not in summary4['scenarios'][s]
+    assert not (ROOT / 'figures/Task4_T4-5_Composite_Difference_MemberMean.png').exists()
+    rainfall = {phase: [] for phase in ['pos', 'neg', 'diff']}
     for m in ['r1','r2','r3','r4','r5']:
         h = xr.open_dataset(RES / f'task2_{m}.nc')
         np.testing.assert_allclose(h.rain_pos-h.rain_neg, h.rain_diff, atol=1e-12)
+        for phase in rainfall:
+            rainfall[phase].append(h[f'rain_{phase}'].values)
         rc = corr(h.rain_diff.values, obs.rain_diff.values)
         assert abs(rc-summary3['pattern_corr_vs_obs_composite'][m]) < 1e-10
         report['historical'][m] = {'rain_pattern_correlation_with_observation': rc,
@@ -32,9 +40,20 @@ def main():
                 'rain_pattern_correlation_with_own_historical': corr(f.rain_diff.values,h.rain_diff.values),
                 'eof_correlation_with_observation_unweighted': corr(f.pdo_eof.values, obs.pdo_eof.values),
                 'n_pos':int(f.attrs['n_pos']), 'n_neg':int(f.attrs['n_neg'])}
+            assert round(report['future'][f'{s}_{m}']['rain_pattern_correlation_with_own_historical'], 3) == summary4['scenarios'][s][m]['rain_diff_corr_vs_own_hist']
             f.close()
+        with xr.open_dataset(RES / f'task4_ssp245_{m}.nc') as low, xr.open_dataset(RES / f'task4_ssp585_{m}.nc') as high:
+            assert round(corr(high.rain_diff.values, low.rain_diff.values), 3) == summary4['ssp585_vs_ssp245_diff_corr_by_member'][m]
         h.close()
     obs.close()
+    with xr.open_dataset(RES / 'task3_spread.nc') as spread:
+        for phase, fields in rainfall.items():
+            assert f'rain_{phase}_mean' not in spread
+            values = np.stack(fields)
+            land = np.isfinite(values).all(axis=0)
+            np.testing.assert_allclose(spread[f'rain_{phase}_var'].values[land], values[:, land].var(axis=0, ddof=1))
+            assert np.isnan(spread[f'rain_{phase}_var'].values[~land]).all()
+    report['rainfall_output_policy'] = 'Per-member composites and comparisons; member variance retained; rainfall member means and their diagnostics removed.'
     s5=json.loads((RES/'task5_summary.json').read_text())
     report['task5_matched_members_peak_band_fraction']={g: float(np.mean([
         s5[m if g=='historical' else f'{g} {m}']['cycle_energy_frac_of_variance']

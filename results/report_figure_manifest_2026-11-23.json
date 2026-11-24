@@ -21,7 +21,8 @@
     {
       "source_index": 47,
       "file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-5_Composite_Difference_MemberMean.png",
-      "reason": "ACCESS-CM2 成员平均降水合成差"
+      "reason": "ACCESS-CM2 成员平均降水合成差",
+      "removed_from_repository_on": "2026-11-25"
     }
   ],
   "figures": [
@@ -642,15 +643,16 @@
       "title": "ACCESS-CM2 历史降水合成差及成员方差",
       "repo_path": "figures/Task3_Figure3_Rainfall_Composite_Spread.png",
       "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task3_Figure3_Rainfall_Composite_Spread.png",
-      "source_sha256": "8044c25bf151f87339e1b1b5a9ac6fc6fb0de204f4b0a74da9a20e9edbb4e46c",
+      "source_sha256": "d2c741de5b79577fc1b085b569836118eddaaf3b4787f61505903d21d37cb4e6",
       "image_size": [
         3022,
-        1980
+        1979
       ],
       "batch": "A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程",
       "scope": "1900—2014 年；历史 r1–r5。",
-      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。面板 r(ens) 为与五成员平均合成差的空间相关，不是观测技巧。",
-      "figure_label": "图 8"
+      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。面板 r(obs) 为各成员合成差与观测合成差的空间相关。2026-11-25 从逐成员结果重画，移除基于降水成员平均的标注。",
+      "figure_label": "图 8",
+      "updated_on": "2026-11-25"
     },
     {
       "source_index": 42,

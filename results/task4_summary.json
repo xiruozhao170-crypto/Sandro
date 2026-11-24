@@ -12,67 +12,81 @@
         "eof1_varfrac": 0.1579,
         "eof1_corr_with_obs_hist": 0.696,
         "n_pos": 38,
-        "n_neg": 40
+        "n_neg": 40,
+        "rain_diff_corr_vs_own_hist": -0.089
       },
       "r2": {
         "eof1_varfrac": 0.1505,
         "eof1_corr_with_obs_hist": 0.418,
         "n_pos": 41,
-        "n_neg": 37
+        "n_neg": 37,
+        "rain_diff_corr_vs_own_hist": -0.086
       },
       "r3": {
         "eof1_varfrac": 0.1853,
         "eof1_corr_with_obs_hist": 0.611,
         "n_pos": 36,
-        "n_neg": 42
+        "n_neg": 42,
+        "rain_diff_corr_vs_own_hist": 0.234
       },
       "r4": {
         "eof1_varfrac": 0.1647,
         "eof1_corr_with_obs_hist": 0.511,
         "n_pos": 39,
-        "n_neg": 39
+        "n_neg": 39,
+        "rain_diff_corr_vs_own_hist": -0.126
       },
       "r5": {
         "eof1_varfrac": 0.1546,
         "eof1_corr_with_obs_hist": 0.557,
         "n_pos": 40,
-        "n_neg": 38
-      },
-      "ens_diff_corr_vs_hist": -0.237
+        "n_neg": 38,
+        "rain_diff_corr_vs_own_hist": 0.131
+      }
     },
     "ssp585": {
       "r1": {
         "eof1_varfrac": 0.1635,
         "eof1_corr_with_obs_hist": 0.423,
         "n_pos": 30,
-        "n_neg": 48
+        "n_neg": 48,
+        "rain_diff_corr_vs_own_hist": 0.333
       },
       "r2": {
         "eof1_varfrac": 0.1799,
         "eof1_corr_with_obs_hist": 0.734,
         "n_pos": 45,
-        "n_neg": 33
+        "n_neg": 33,
+        "rain_diff_corr_vs_own_hist": -0.346
       },
       "r3": {
         "eof1_varfrac": 0.1806,
         "eof1_corr_with_obs_hist": -0.402,
         "n_pos": 50,
-        "n_neg": 28
+        "n_neg": 28,
+        "rain_diff_corr_vs_own_hist": 0.153
       },
       "r4": {
         "eof1_varfrac": 0.1896,
         "eof1_corr_with_obs_hist": -0.303,
         "n_pos": 45,
-        "n_neg": 33
+        "n_neg": 33,
+        "rain_diff_corr_vs_own_hist": -0.124
       },
       "r5": {
         "eof1_varfrac": 0.1933,
         "eof1_corr_with_obs_hist": 0.453,
         "n_pos": 30,
-        "n_neg": 48
-      },
-      "ens_diff_corr_vs_hist": -0.003
+        "n_neg": 48,
+        "rain_diff_corr_vs_own_hist": 0.191
+      }
     }
   },
-  "ssp585_vs_ssp245_ens_diff_corr": -0.069
+  "ssp585_vs_ssp245_diff_corr_by_member": {
+    "r1": -0.034,
+    "r2": 0.195,
+    "r3": 0.141,
+    "r4": -0.145,
+    "r5": 0.453
+  }
 }

@@ -85,6 +85,8 @@ Task 7 为单独补充的全球 ua/va 风场资料，不能由 500 hPa zg 或 to
 
 排除所有 Task 1 regioncheck/region validation 图；排除 MIROC6 T4-5 三成员平均降水合成差、MIROC6 T4-7 三成员平均的 SSP585−SSP126，以及 ACCESS T4-5 五成员平均降水合成差。Task 3 Spread 面板是成员间方差，因此保留。早期 Task 6 的平均场图是位势高度，不属于本次要求排除的降水成员平均图。
 
+2026-11-25 将降水成员平均的排除范围扩展到仓库产物和生成代码：删除 ACCESS T4-5 PNG，移除 `task3_spread.nc` 的 `rain_pos_mean`、`rain_neg_mean`、`rain_diff_mean` 及 Task 3—4 相应均值相关统计。Task 3 图 3 已从逐成员结果重画，改标 r(obs)，图像清单中的校验码已更新；其逐成员降水场和成员间方差不变。Task 4 汇总改为各成员未来与自身历史、同一成员两情景间的相关。原始资料、逐成员 NetCDF 和其余研究图保留，报告仍收录 69 张研究图。
+
 现行 ACCESS T4-7、T4-8 分别是各成员 SSP245−historical、SSP585−historical 的合成差变化。该更改见 Git `7fb16af`，旧 README 中 SSP585−SSP245、SSP585−obs 的说明已同步纠正。
 
 ## 6　核查范围与复核入口

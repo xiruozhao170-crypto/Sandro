@@ -89,6 +89,7 @@
       "n_neg": 48
     }
   },
+  "rainfall_output_policy": "Per-member composites and comparisons; member variance retained; rainfall member means and their diagnostics removed.",
   "task5_matched_members_peak_band_fraction": {
     "historical": 0.3555333333333333,
     "ssp245": 0.12143333333333334,
