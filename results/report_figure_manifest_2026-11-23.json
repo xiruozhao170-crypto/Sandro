@@ -1,7 +1,7 @@
 {
-  "included_research_figures": 69,
+  "included_research_figures": 65,
   "main_figures": 17,
-  "appendix_research_figures": 52,
+  "appendix_research_figures": 48,
   "excluded": [
     {
       "source_index": 0,
@@ -535,78 +535,33 @@
     },
     {
       "source_index": 34,
-      "title": "ACCESS-CM2 r1 历史位相降水三联图",
-      "repo_path": "figures/task2_r1_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_r1_three_panels.png",
-      "source_sha256": "cf3ca69848d7e666886f13bd1deaac718de5bc8810e15cc533f351143c244f4b",
+      "title": "ACCESS-CM2 R1–R5 历史位相降水总图",
+      "repo_path": "figures/task2_members_three_panels.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_members_three_panels.png",
+      "source_sha256": "85943781f8056f81e2808f4ba130d49c701c35373b9b9b6d0cd76175098b68f0",
       "image_size": [
-        3822,
-        1181
+        2972,
+        4841
       ],
       "batch": "A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程",
       "scope": "1900—2014 年；历史 r1–r5。",
-      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。",
-      "figure_label": "图 A25"
-    },
-    {
-      "source_index": 35,
-      "title": "ACCESS-CM2 r2 历史位相降水三联图",
-      "repo_path": "figures/task2_r2_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_r2_three_panels.png",
-      "source_sha256": "2d9674b08ee862bb5ee4d7c3d540c61d0c19d66e8b3fb94a2daa7b3a228ca95a",
-      "image_size": [
-        3822,
-        1181
+      "note": "5 行 × 3 列；R1–R5 × 正位相/负位相/合成差，共用色标（mm/day）。仅陆地，白点为逐格点 p<0.1，未校正自相关和多重比较。",
+      "figure_label": "图 A25–A29",
+      "source_indices": [
+        34,
+        35,
+        36,
+        37,
+        38
       ],
-      "batch": "A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程",
-      "scope": "1900—2014 年；历史 r1–r5。",
-      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。",
-      "figure_label": "图 A26"
-    },
-    {
-      "source_index": 36,
-      "title": "ACCESS-CM2 r3 历史位相降水三联图",
-      "repo_path": "figures/task2_r3_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_r3_three_panels.png",
-      "source_sha256": "8d2cb84df055652b04cca8ab439e6ee511e7f2b0bf98e90eddd814c9273ffe4b",
-      "image_size": [
-        3822,
-        1181
-      ],
-      "batch": "A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程",
-      "scope": "1900—2014 年；历史 r1–r5。",
-      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。",
-      "figure_label": "图 A27"
-    },
-    {
-      "source_index": 37,
-      "title": "ACCESS-CM2 r4 历史位相降水三联图",
-      "repo_path": "figures/task2_r4_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_r4_three_panels.png",
-      "source_sha256": "587bd6f3bf9e6c9f958cac3ff6a6de54f24754699ac91d000614add178b39da2",
-      "image_size": [
-        3822,
-        1181
-      ],
-      "batch": "A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程",
-      "scope": "1900—2014 年；历史 r1–r5。",
-      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。",
-      "figure_label": "图 A28"
-    },
-    {
-      "source_index": 38,
-      "title": "ACCESS-CM2 r5 历史位相降水三联图",
-      "repo_path": "figures/task2_r5_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_r5_three_panels.png",
-      "source_sha256": "95c8cfa26530e8833c2258b291079d9e274b8a6978502b3489661e780e4d8b3c",
-      "image_size": [
-        3822,
-        1181
-      ],
-      "batch": "A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程",
-      "scope": "1900—2014 年；历史 r1–r5。",
-      "note": "仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。",
-      "figure_label": "图 A29"
+      "updated_on": "2026-11-28",
+      "source_results": [
+        "results/task2_r1.nc",
+        "results/task2_r2.nc",
+        "results/task2_r3.nc",
+        "results/task2_r4.nc",
+        "results/task2_r5.nc"
+      ]
     },
     {
       "source_index": 39,

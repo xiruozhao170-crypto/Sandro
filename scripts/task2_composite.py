@@ -7,8 +7,8 @@ phases come from the JJA mean of the 9-yr smoothed PC1 (Task 2.docx).
 
 Outputs per tag in {obs, r1..r5}:
   results/task2_<tag>.nc                 composites + PDO index/phases
-  figures/task2_<tag>_three_panels.png
-Plus figures/task2_pdo_timeseries.png (obs + all members).
+Figures: task2_obs_three_panels.png, task2_members_three_panels.png (5x3),
+and task2_pdo_timeseries.png (obs + all members).
 """
 import json
 from pathlib import Path
@@ -69,12 +69,13 @@ def run(tag, tos_path, tos_var, rain_path, rain_var, label,
     anom = jja_anomaly_mmday(rain_mm)
     comp = composite(anom, pdo["pos_years"], pdo["neg_years"])
     save_dataset(tag, pdo, comp, RES / f"task2_{tag}.nc")
-    rainfall_three_panels(
-        comp,
-        f"East China JJA Rainfall — PDO Phase Analysis  |  {label}\n"
-        "1900–2014  |  9-yr running mean",
-        FIG / f"task2_{tag}_three_panels.png",
-    )
+    if tag == "obs":
+        rainfall_three_panels(
+            comp,
+            f"East China JJA Rainfall — PDO Phase Analysis  |  {label}\n"
+            "1900–2014  |  9-yr running mean",
+            FIG / "task2_obs_three_panels.png",
+        )
     print(f"[{tag}] EOF1 var={pdo['varfrac'][0]*100:.1f}% "
           f"corr_obs={pdo['corr_ref']:.2f} "
           f"pos={comp['n_pos']}yr neg={comp['n_neg']}yr")
@@ -108,6 +109,8 @@ def main():
             "n_pos": comp["n_pos"], "n_neg": comp["n_neg"],
         }
 
+    from task2_member_panels import main as plot_member_panels
+    plot_member_panels()
     pdo_timeseries_panels(entries, FIG / "task2_pdo_timeseries.png")
     (RES / "task2_summary.json").write_text(json.dumps(summary, indent=2))
     print("saved figures/task2_pdo_timeseries.png, results/task2_summary.json")

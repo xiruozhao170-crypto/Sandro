@@ -18,7 +18,6 @@ from scipy.spatial import cKDTree
 REPO = Path(__file__).resolve().parents[1]
 SRC = REPO / "data/ACCESS-CM2_data"
 OUT = REPO / "data/processed"
-OUT.mkdir(exist_ok=True)
 
 # ERSST-style global 2-deg grid
 TGT_LAT = np.arange(-88, 89, 2.0)
@@ -77,6 +76,7 @@ def regrid_file(path, mask, idx, w):
 
 
 def main():
+    OUT.mkdir(parents=True, exist_ok=True)
     files = sorted(SRC.glob("tos_Omon_*.nc"))
     mask, idx, w = build_weights(files[0])
     for f in files:

@@ -1,11 +1,11 @@
 {
   "report_documents": 3,
-  "research_figures": 69,
+  "research_figures": 65,
   "reference_figures": 1,
   "main_figures": 17,
-  "appendix_research_figures": 52,
+  "appendix_research_figures": 48,
   "references": 22,
-  "local_links_checked": 157,
+  "local_links_checked": 149,
   "all_figure_hashes_match": true,
   "inclusion_exclusion_rules_pass": true,
   "scope": "Artifact integrity; scientific evidence reviewed separately."

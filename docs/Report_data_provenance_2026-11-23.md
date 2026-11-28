@@ -81,11 +81,11 @@ Task 7 为单独补充的全球 ua/va 风场资料，不能由 500 hPa zg 或 to
 
 ## 5　选图范围与排除项
 
-正文 17 张、图像附录 52 张，共 69 张研究图；另有导师论文 Figure 1 截图一张。组合图和其中单图同时保留是为了选版，不增加独立证据数量。
+正文 17 张、图像附录 48 张，共 65 张研究图；另有导师论文 Figure 1 截图一张。组合图和其中单图同时保留是为了选版，不增加独立证据数量。
 
 排除所有 Task 1 regioncheck/region validation 图；排除 MIROC6 T4-5 三成员平均降水合成差、MIROC6 T4-7 三成员平均的 SSP585−SSP126，以及 ACCESS T4-5 五成员平均降水合成差。Task 3 Spread 面板是成员间方差，因此保留。早期 Task 6 的平均场图是位势高度，不属于本次要求排除的降水成员平均图。
 
-2026-11-25 将降水成员平均的排除范围扩展到仓库产物和生成代码：删除 ACCESS T4-5 PNG，移除 `task3_spread.nc` 的 `rain_pos_mean`、`rain_neg_mean`、`rain_diff_mean` 及 Task 3—4 相应均值相关统计。Task 3 图 3 已从逐成员结果重画，改标 r(obs)，图像清单中的校验码已更新；其逐成员降水场和成员间方差不变。Task 4 汇总改为各成员未来与自身历史、同一成员两情景间的相关。原始资料、逐成员 NetCDF 和其余研究图保留，报告仍收录 69 张研究图。
+2026-11-25 将降水成员平均的排除范围扩展到仓库产物和生成代码：删除 ACCESS T4-5 PNG，移除 `task3_spread.nc` 的 `rain_pos_mean`、`rain_neg_mean`、`rain_diff_mean` 及 Task 3—4 相应均值相关统计。Task 3 图 3 已从逐成员结果重画，改标 r(obs)，图像清单中的校验码已更新；其逐成员降水场和成员间方差不变。Task 4 汇总改为各成员未来与自身历史、同一成员两情景间的相关。原始资料、逐成员 NetCDF 和其余研究图保留，当时报告仍收录 69 张研究图。
 
 现行 ACCESS T4-7、T4-8 分别是各成员 SSP245−historical、SSP585−historical 的合成差变化。该更改见 Git `7fb16af`，旧 README 中 SSP585−SSP245、SSP585−obs 的说明已同步纠正。
 
@@ -103,3 +103,5 @@ python scripts/validate_report_package.py
 ```
 
 原始大文件未复制进 GitHub。报告与图像可以直接在仓库浏览；需要重跑原始资料审计时，应连接移动硬盘并调整 `--root`。本次文档及笔记本来源校验记录见 [report_source_documents_2026-11-23.json](../results/report_source_documents_2026-11-23.json)。
+
+2026-11-28 将 Task 1 R1–R5 区域检查合为五子图，将 Task 2 R1–R5 三联图合为 5×3 总图，并删除原十张分图。Task 1 保留原取样月份（1900 年 8 月）及 IDW k=4 重网格方法；月场缓存供重画使用。Task 2 从既有逐成员 NetCDF 重画，15 个面板统一色标，位相、降水数值和显著性白点判据不变。附录原 A25–A29 合并为一张，研究图文件数减为 65；区域检查图仍不计入报告。

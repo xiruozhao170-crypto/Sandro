@@ -8,8 +8,9 @@ Recipe (Task 1.docx):
   5. Anomalies: subtract the 1900-2014 monthly climatology.
   6. EOF1 = PDO spatial pattern, PC1 = PDO index.
 
-Usage:  python task1_pdo.py <dataset>     dataset in {ersst, access}
-Outputs: results/task1_pdo_<dataset>.nc, figures/task1_*_<dataset>.png
+Usage: python task1_pdo.py <dataset>  dataset in {ersst, access_r1..access_r5}
+Outputs: results/task1_pdo_<dataset>.nc, figures/task1_pdo_<dataset>.png
+Member regional checks share figures/task1_regioncheck_access_members.png.
 """
 import sys
 from pathlib import Path
@@ -74,6 +75,10 @@ def load_north_pacific(path, var):
 
 def sanity_map(da, label, tag):
     """Plot one arbitrary month to confirm the regional selection."""
+    if tag == "access" or tag.startswith("access_r"):
+        from task1_regioncheck import update_member
+        update_member(da, "r1" if tag == "access" else tag.removeprefix("access_"))
+        return
     fig = plt.figure(figsize=(9, 4))
     ax = plt.axes(projection=ccrs.PlateCarree(central_longitude=180))
     da.isel(time=7).plot(
@@ -168,8 +173,7 @@ def main(tag):
                               "20N-60N 110E-250E, sqrt(cos(lat)) weights"},
     )
     out.to_netcdf(RES / f"task1_pdo_{tag}.nc")
-    print(f"[{tag}] saved results/task1_pdo_{tag}.nc, "
-          f"figures/task1_pdo_{tag}.png, figures/task1_regioncheck_{tag}.png")
+    print(f"[{tag}] saved results/task1_pdo_{tag}.nc, figures/task1_pdo_{tag}.png")
 
 
 if __name__ == "__main__":

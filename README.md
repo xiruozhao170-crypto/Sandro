@@ -4,7 +4,7 @@
 
 [报告正文](docs/Report_2026-11-23.md) · [图像附录](docs/Report_figure_appendix_2026-11-23.md) · [数据批次及图像来源](docs/Report_data_provenance_2026-11-23.md)
 
-新版按 MIROC6 Task 1—4、ACCESS 补充分析及 Task 5—7 重写，正文与附录收录 69 张研究图和 1 张方法参考图，列出 22 条参考文献。已按要求排除区域检查图及 Task 3—4 成员平均降水图。旧初稿由本版替代。
+新版按 MIROC6 Task 1—4、ACCESS 补充分析及 Task 5—7 重写，正文与附录收录 65 张研究图和 1 张方法参考图，列出 22 条参考文献。已按要求排除区域检查图及 Task 3—4 成员平均降水图。旧初稿由本版替代。
 
 两批 9 月 ACCESS zg 下载已核对为同源的 500 hPa 子集与全层文件；具体图像对应关系、验证范围及原始文件版本见来源附录。当前报告依据代码与保存结果，修正了旧说明中的 T4-7/T4-8 差分对象、Task 5 显著性解释和 Task 6 等面积阈值方法。
 
@@ -115,8 +115,13 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 | r4 | 17.3% | **0.21**（EOF1 为黑潮延伸体主导型，EOF1/2 方差 17.3% vs 14.0% 近简并） |
 | r5 | 19.1% | 0.84 |
 
-图：`figures/task1_pdo_*.png`（EOF1 + PC1）、`task1_regioncheck_*.png`（区域抽查）、
-`task1_pdo_members.png`（成员总览）；结果：`results/task1_pdo_*.nc`、`task1_summary.json`。
+图：`figures/task1_pdo_*.png`（EOF1 + PC1）、
+[五成员区域检查](figures/task1_regioncheck_access_members.png)（R1–R5 五个子图，共用 SST 色标）、
+`task1_regioncheck_ersst.png`（观测区域抽查）、`task1_pdo_members.png`（成员总览）；
+结果：`results/task1_pdo_*.nc`、`task1_summary.json`。
+区域检查仍取 1900 年 8 月；该月五成员 SST 保存在 `results/task1_regioncheck_access.nc`，
+可用 `python scripts/task1_regioncheck.py` 直接重画。若要从原始资料重建，运行
+`python scripts/task1_regioncheck.py --data-root <数据目录>`（含 `processed/` 或 `ACCESS-CM2_data/`）。
 
 ## Task 2（PDO 位相合成华东 JJA 降水，9 年滑动平均 + JJA 定位相）
 
@@ -124,7 +129,10 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
   合成型：PDO+ 时华北/黄淮显著偏旱、江南-华南偏湿差异显著（白点 p<0.1），与 Yu 2013 图 2d 一致。
 - 模式成员（全部用 EOF1）：r1 62/45、r2 57/50、r3 54/53、r4 55/52、r5 50/57（pos/neg 年数）。
 - 图：`task2_pdo_timeseries.png`（观测+5 成员，红蓝柱 + 9 年滑动黑线）、
-  `task2_<tag>_three_panels.png`（正位相 / 负位相 / 合成差三联图）、
+  `task2_obs_three_panels.png`（观测三联图）、
+  [五成员位相降水总图](figures/task2_members_three_panels.png)（5 行 × 3 列；
+  各行依次为 R1–R5，列为正位相 / 负位相 / 合成差；15 个子图共用色标，保留 p<0.1 白点；
+  `python scripts/task2_member_panels.py` 从已存结果重画）、
   `task2_composite_obs_members.png`（obs + r1–r5 合成差 2×3 总览，共用色标，
   白点 p<0.1；`task2_composite_grid.py` 从已存 results 出图）。
 

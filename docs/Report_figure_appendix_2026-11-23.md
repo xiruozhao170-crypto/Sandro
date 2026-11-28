@@ -2,11 +2,13 @@
 
 版本：2026-11-23。配套[报告正文](Report_2026-11-23.md)与[数据来源核对](Report_data_provenance_2026-11-23.md)。
 
-正文嵌入 17 张研究图，本附录嵌入其余 52 张研究图和 1 张方法参考图，合计保留 69 张研究图。这里保留单图与组合图等不同排版，便于最后选图；它们不是相互独立的证据。所有 Task 1 区域检查图、MIROC6 T4-5/T4-7 和 ACCESS T4-5 成员平均降水图均未纳入。成员间方差图用于不确定性诊断，予以保留。
+正文嵌入 17 张研究图，本附录嵌入其余 48 张研究图和 1 张方法参考图，合计保留 65 张研究图。这里保留单图与组合图等不同排版，便于最后选图；它们不是相互独立的证据。所有 Task 1 区域检查图、MIROC6 T4-5/T4-7 和 ACCESS T4-5 成员平均降水图均未纳入。成员间方差图用于不确定性诊断，予以保留。
 
 2026-11-25 已将 ACCESS T4-5 成员平均降水图从仓库删除并停用生成；正文图 8 改标各成员与观测的相关 r(obs)。逐成员降水图及方差图继续保留，收录图数不变。
 
-图中英文原标签保持原样，解释以中文图注为准。图片均可点击查看原分辨率；MIROC6 除最早两张 Task 1 图外使用硬盘中的高清输出。正文和本附录的文件、来源和 SHA256 见[图像清单](../results/report_figure_manifest_2026-11-23.json)。
+2026-11-28 将原图 A25–A29 合并为一张五成员总图，研究图文件数由 69 减为 65；保留后续图号以便追溯。
+
+图中英文标签对应原有分析内容，解释以中文图注为准。图片均可点击查看原分辨率；MIROC6 除最早两张 Task 1 图外使用硬盘中的高清输出。正文和本附录的文件、来源和 SHA256 见[图像清单](../results/report_figure_manifest_2026-11-23.json)。
 
 ## 图像索引
 
@@ -43,11 +45,7 @@
 |图 7|[ACCESS-CM2 五成员与观测降水合成差对照](../figures/task2_composite_obs_members.png)|正文|
 |图 A23|[ACCESS 流程中的 GPCC 位相降水三联图](../figures/task2_obs_three_panels.png)|本附录|
 |图 A24|[ACCESS-CM2 与观测 PDO 时间序列](../figures/task2_pdo_timeseries.png)|本附录|
-|图 A25|[ACCESS-CM2 r1 历史位相降水三联图](../figures/task2_r1_three_panels.png)|本附录|
-|图 A26|[ACCESS-CM2 r2 历史位相降水三联图](../figures/task2_r2_three_panels.png)|本附录|
-|图 A27|[ACCESS-CM2 r3 历史位相降水三联图](../figures/task2_r3_three_panels.png)|本附录|
-|图 A28|[ACCESS-CM2 r4 历史位相降水三联图](../figures/task2_r4_three_panels.png)|本附录|
-|图 A29|[ACCESS-CM2 r5 历史位相降水三联图](../figures/task2_r5_three_panels.png)|本附录|
+|图 A25–A29|[ACCESS-CM2 R1–R5 历史位相降水总图](../figures/task2_members_three_panels.png)|本附录|
 |图 A30|[ACCESS-CM2 历史 PDO 空间型及成员方差](../figures/Task3_Figure1_PDO_EOF1_Spread.png)|本附录|
 |图 A31|[ACCESS-CM2 历史 PC1 与九年平滑序列](../figures/Task3_Figure2_PC1.png)|本附录|
 |图 8|[ACCESS-CM2 历史降水合成差及成员方差](../figures/Task3_Figure3_Rainfall_Composite_Spread.png)|正文|
@@ -226,35 +224,11 @@
 
 **图 A24　ACCESS-CM2 与观测 PDO 时间序列。1900—2014 年；历史 r1–r5。  数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
 
-## 图 A25　ACCESS-CM2 r1 历史位相降水三联图
+## 图 A25–A29　ACCESS-CM2 R1–R5 历史位相降水总图
 
-![图 A25 ACCESS-CM2 r1 历史位相降水三联图](../figures/task2_r1_three_panels.png)
+![图 A25–A29 ACCESS-CM2 R1–R5 历史位相降水总图](../figures/task2_members_three_panels.png)
 
-**图 A25　ACCESS-CM2 r1 历史位相降水三联图。1900—2014 年；历史 r1–r5。 仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。 数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
-
-## 图 A26　ACCESS-CM2 r2 历史位相降水三联图
-
-![图 A26 ACCESS-CM2 r2 历史位相降水三联图](../figures/task2_r2_three_panels.png)
-
-**图 A26　ACCESS-CM2 r2 历史位相降水三联图。1900—2014 年；历史 r1–r5。 仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。 数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
-
-## 图 A27　ACCESS-CM2 r3 历史位相降水三联图
-
-![图 A27 ACCESS-CM2 r3 历史位相降水三联图](../figures/task2_r3_three_panels.png)
-
-**图 A27　ACCESS-CM2 r3 历史位相降水三联图。1900—2014 年；历史 r1–r5。 仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。 数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
-
-## 图 A28　ACCESS-CM2 r4 历史位相降水三联图
-
-![图 A28 ACCESS-CM2 r4 历史位相降水三联图](../figures/task2_r4_three_panels.png)
-
-**图 A28　ACCESS-CM2 r4 历史位相降水三联图。1900—2014 年；历史 r1–r5。 仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。 数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
-
-## 图 A29　ACCESS-CM2 r5 历史位相降水三联图
-
-![图 A29 ACCESS-CM2 r5 历史位相降水三联图](../figures/task2_r5_three_panels.png)
-
-**图 A29　ACCESS-CM2 r5 历史位相降水三联图。1900—2014 年；历史 r1–r5。 仅陆地；降水异常/合成差为 mm/day，成员方差为 (mm/day)²。白点若存在，表示未校正自相关和多重比较的逐格点 p<0.1。 数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
+**图 A25–A29**　原五张逐成员三联图合并为一张 5 行 × 3 列图。行依次为 R1–R5；列依次为 PDO 正位相、负位相降水异常及正减负合成差。1900—2014 年，九年滑动平均 PDO 的 JJA 均值判定位相。15 个子图共用色标，单位 mm/day；保留陆地掩膜和逐格点 p<0.1 白点，显著性未校正自相关及多重比较。数据来源：A：ACCESS 海温/降水五成员资料，现行 EOF1/线性去趋势流程。
 
 ## 图 A30　ACCESS-CM2 历史 PDO 空间型及成员方差
 
@@ -398,4 +372,4 @@
 
 ![Veiga 等（2020）Figure 1，用户提供的截图](../微信图片_2026-09-07_140833_197.png)
 
-**图 A53**　用户提供的 Veiga 等（2020）Figure 1 截图，来源：[原论文](https://doi.org/10.3390/atmos11010003)，开放许可 CC BY 4.0。原图讨论大西洋经向模态（AMM），包含海温—风场耦合空间型、时间系数及相对于红噪声的功率谱。本项目只借鉴“空间结构—时间系数—谱检验”的诊断思路；并未计算这张图中的大西洋模态，也未将其周期当作 PDO 的已知周期。截图不计入本项目的 69 张研究结果图。
+**图 A53**　用户提供的 Veiga 等（2020）Figure 1 截图，来源：[原论文](https://doi.org/10.3390/atmos11010003)，开放许可 CC BY 4.0。原图讨论大西洋经向模态（AMM），包含海温—风场耦合空间型、时间系数及相对于红噪声的功率谱。本项目只借鉴“空间结构—时间系数—谱检验”的诊断思路；并未计算这张图中的大西洋模态，也未将其周期当作 PDO 的已知周期。截图不计入本项目的 65 张研究结果图。
