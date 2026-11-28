@@ -20,7 +20,7 @@ def main():
     assert 'ssp585_vs_ssp245_ens_diff_corr' not in summary4
     for s in ['ssp245', 'ssp585']:
         assert 'ens_diff_corr_vs_hist' not in summary4['scenarios'][s]
-    assert not (ROOT / 'figures/Task4_T4-5_Composite_Difference_MemberMean.png').exists()
+    assert not (ROOT / 'figures/task1-4/Task4_T4-5_Composite_Difference_MemberMean.png').exists()
     rainfall = {phase: [] for phase in ['pos', 'neg', 'diff']}
     for m in ['r1','r2','r3','r4','r5']:
         h = xr.open_dataset(RES / f'task2_{m}.nc')

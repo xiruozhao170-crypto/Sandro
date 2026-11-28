@@ -13,7 +13,7 @@ from easm_plots import _map_axis, _sym_levels
 
 ROOT = Path(__file__).resolve().parents[1]
 MEMBERS = [f"r{i}" for i in range(1, 6)]
-OUTPUT = ROOT / "figures/task2_members_three_panels.png"
+OUTPUT = ROOT / "figures/task1-4/task2_members_three_panels.png"
 
 
 def main():
@@ -57,7 +57,7 @@ def main():
     fig.suptitle("Task 2: East China JJA rainfall | ACCESS-CM2 historical R1–R5\n"
                  "1900–2014 | 9-yr running-mean PDO phases | white dots: p < 0.1",
                  fontsize=14, y=.985)
-    OUTPUT.parent.mkdir(exist_ok=True)
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUTPUT, dpi=250, bbox_inches="tight")
     plt.close(fig)
     print(f"Saved {OUTPUT}")

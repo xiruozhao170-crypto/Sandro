@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MEMBERS = [f"r{i}" for i in range(1, 6)]
 CACHE = ROOT / "results/task1_regioncheck_access.nc"
 OBS_CACHE = ROOT / "results/task1_regioncheck_ersst.nc"
-OUTPUT = ROOT / "figures/task1_regioncheck_obs_members.png"
+OUTPUT = ROOT / "figures/task1-4/task1_regioncheck_obs_members.png"
 
 
 def save_fields(fields):
@@ -128,7 +128,7 @@ def plot_checks():
                  ticks=np.arange(lo, hi + 1, 5))
     fig.suptitle("Task 1: North Pacific regional checks | ERSSTv4 + ACCESS-CM2 R1–R5\n"
                  "August 1900 (month #8) | 20–60°N, 110–250°E", fontsize=15, y=.97)
-    OUTPUT.parent.mkdir(exist_ok=True)
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUTPUT, dpi=250, bbox_inches="tight")
     plt.close(fig)
     print(f"Saved {OUTPUT}")

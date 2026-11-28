@@ -106,4 +106,4 @@ python scripts/validate_report_package.py
 
 2026-11-28 将 Task 1 R1–R5 区域检查合为五子图，将 Task 2 R1–R5 三联图合为 5×3 总图，并删除原十张分图。Task 1 保留原取样月份（1900 年 8 月）及 IDW k=4 重网格方法；月场缓存供重画使用。Task 2 从既有逐成员 NetCDF 重画，15 个面板统一色标，位相、降水数值和显著性白点判据不变。附录原 A25–A29 合并为一张，研究图文件数减为 65；区域检查图仍不计入报告。
 
-同日进一步将 Task 1 的 ERSSTv4 观测区域检查与 R1–R5 合并为[六子图总图](../figures/task1_regioncheck_obs_members.png)（3 行 × 2 列，共用 SST 色标），删除原观测图及五成员总图。观测仍取 1900 年 8 月，新增 `results/task1_regioncheck_ersst.nc` 月场缓存；五成员数据不变，报告研究图计数不变。
+同日进一步将 Task 1 的 ERSSTv4 观测区域检查与 R1–R5 合并为[六子图总图](../figures/task1-4/task1_regioncheck_obs_members.png)（3 行 × 2 列，共用 SST 色标），删除原观测图及五成员总图。观测仍取 1900 年 8 月，新增 `results/task1_regioncheck_ersst.nc` 月场缓存；五成员数据不变，报告研究图计数不变。

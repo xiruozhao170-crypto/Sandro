@@ -20,7 +20,7 @@
     },
     {
       "source_index": 47,
-      "file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-5_Composite_Difference_MemberMean.png",
+      "file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-5_Composite_Difference_MemberMean.png",
       "reason": "ACCESS-CM2 成员平均降水合成差",
       "removed_from_repository_on": "2026-11-25"
     }
@@ -29,7 +29,7 @@
     {
       "source_index": 1,
       "title": "MIROC6 单成员与 ERSSTv4 的 PDO 空间型",
-      "repo_path": "figures/report_miroc6/MIROC6_01_cell_004_output_03.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_01_cell_004_output_03.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_004_output_03.png",
       "source_sha256": "7728c0dfbfc6056aff6748bd5fcf9ca5c200baec0f5355630ad1de94e35bf4d0",
       "image_size": [
@@ -46,7 +46,7 @@
     {
       "source_index": 2,
       "title": "MIROC6 单成员与 ERSSTv4 的月度 PC1",
-      "repo_path": "figures/report_miroc6/MIROC6_02_cell_004_output_04.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_02_cell_004_output_04.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_004_output_04.png",
       "source_sha256": "3d8fc08672634354b699077e1d99ebe29331b9ec67e3e60b6cc60f096d0d9d4d",
       "image_size": [
@@ -63,7 +63,7 @@
     {
       "source_index": 3,
       "title": "GPCC 正 PDO 位相降水异常",
-      "repo_path": "figures/report_miroc6/MIROC6_03_cell_005_output_01.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_03_cell_005_output_01.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_01.png",
       "source_sha256": "540d63d8c7250db251564bc3528b43c5ecbee37184f4d9ca1d4593025e7db11a",
       "image_size": [
@@ -80,7 +80,7 @@
     {
       "source_index": 4,
       "title": "GPCC 负 PDO 位相降水异常",
-      "repo_path": "figures/report_miroc6/MIROC6_04_cell_005_output_03.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_04_cell_005_output_03.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_03.png",
       "source_sha256": "1def29493bef99484ac959edae4c1e2a032d3251fca2492b033920e02b1205d8",
       "image_size": [
@@ -97,7 +97,7 @@
     {
       "source_index": 5,
       "title": "GPCC 正减负位相降水合成差",
-      "repo_path": "figures/report_miroc6/MIROC6_05_cell_005_output_05.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_05_cell_005_output_05.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_05.png",
       "source_sha256": "8f440890e6513b22d252edd7756310aa8b13f7d975c668321def71560ee997aa",
       "image_size": [
@@ -114,7 +114,7 @@
     {
       "source_index": 6,
       "title": "GPCC 位相降水三联图",
-      "repo_path": "figures/report_miroc6/MIROC6_06_cell_005_output_07.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_06_cell_005_output_07.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_07.png",
       "source_sha256": "9484dee2494f93cec85dcbed3d434b1d444fd73599e83eaa0d898977a4c746ef",
       "image_size": [
@@ -131,7 +131,7 @@
     {
       "source_index": 7,
       "title": "MIROC6 r10 正位相降水异常",
-      "repo_path": "figures/report_miroc6/MIROC6_07_cell_005_output_09.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_07_cell_005_output_09.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_09.png",
       "source_sha256": "635d35e82fdb293717161efe15130a182029ce44b30437271cc2ad7ea664a584",
       "image_size": [
@@ -148,7 +148,7 @@
     {
       "source_index": 8,
       "title": "MIROC6 r10 负位相降水异常",
-      "repo_path": "figures/report_miroc6/MIROC6_08_cell_005_output_11.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_08_cell_005_output_11.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_11.png",
       "source_sha256": "0ef74de189bb78ec6a652ce061ad41dda21ddb05ec95a726945f417e99c928f2",
       "image_size": [
@@ -165,7 +165,7 @@
     {
       "source_index": 9,
       "title": "MIROC6 r10 正减负位相降水合成差",
-      "repo_path": "figures/report_miroc6/MIROC6_09_cell_005_output_13.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_09_cell_005_output_13.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_13.png",
       "source_sha256": "6f0d2beb78d0be9935130b17a4df849ed3fbdc7ca458e730222fa62213ef15a2",
       "image_size": [
@@ -182,7 +182,7 @@
     {
       "source_index": 10,
       "title": "MIROC6 r10 位相降水三联图",
-      "repo_path": "figures/report_miroc6/MIROC6_10_cell_005_output_15.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_10_cell_005_output_15.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_15.png",
       "source_sha256": "27e1cb5fc5d221965568b06c3733ea0a8e82cb28a2a3ca98bf9744b7920e0387",
       "image_size": [
@@ -199,7 +199,7 @@
     {
       "source_index": 11,
       "title": "观测与 MIROC6 r10 的 PDO 平滑序列",
-      "repo_path": "figures/report_miroc6/MIROC6_11_cell_005_output_17.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_11_cell_005_output_17.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_17.png",
       "source_sha256": "f66da21673cb05bac909db6c80833f2ec1277696d20020cf709aae08def181bf",
       "image_size": [
@@ -216,7 +216,7 @@
     {
       "source_index": 12,
       "title": "观测与 MIROC6 r10 的降水位相对照",
-      "repo_path": "figures/report_miroc6/MIROC6_12_cell_005_output_19.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_12_cell_005_output_19.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_19.png",
       "source_sha256": "c8b15b960271968b8558b5a4c7fcd596fffa23496b77317e36e19c6caaf9f3bd",
       "image_size": [
@@ -233,7 +233,7 @@
     {
       "source_index": 13,
       "title": "MIROC6 十成员历史 PDO 空间型及成员方差",
-      "repo_path": "figures/report_miroc6/MIROC6_13_Task3_Figure1_PDO_EOF1_Spread_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_13_Task3_Figure1_PDO_EOF1_Spread_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure1_PDO_EOF1_Spread_4x3.png",
       "source_sha256": "cebc7c7fa206e62b9f385a60a2c74990c29be3e49f28491fde837d40e8aed561",
       "image_size": [
@@ -250,7 +250,7 @@
     {
       "source_index": 14,
       "title": "MIROC6 十成员历史 PDO 时间序列",
-      "repo_path": "figures/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png",
       "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure2_PC1_5x2.png",
       "source_sha256": "33c089809b04ac4c012aa0d56804f3f15d361d55a4c8c339f9963549c79005ae",
       "image_size": [
@@ -267,7 +267,7 @@
     {
       "source_index": 15,
       "title": "MIROC6 十成员历史降水合成差及成员方差",
-      "repo_path": "figures/report_miroc6/MIROC6_15_Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_15_Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
       "source_sha256": "93ad4eba1460b29fa62497649939a772466146f39a2c4388acc0452925987d25",
       "image_size": [
@@ -284,7 +284,7 @@
     {
       "source_index": 16,
       "title": "MIROC6 正、负位相降水的成员方差",
-      "repo_path": "figures/report_miroc6/MIROC6_16_Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_16_Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
       "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
       "source_sha256": "21d1c615df77555e1fcf2592e61b63895c30331d7c8bef3edd73df505116f564",
       "image_size": [
@@ -301,7 +301,7 @@
     {
       "source_index": 17,
       "title": "MIROC6 四情景三成员未来 PDO 空间型",
-      "repo_path": "figures/report_miroc6/MIROC6_17_Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_17_Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
       "source_sha256": "35fd1ffa8bda571fcafa1aca6f91a56d4c6857d18cd39b7613892cb5ccc9cfd6",
       "image_size": [
@@ -318,7 +318,7 @@
     {
       "source_index": 18,
       "title": "MIROC6 四情景三成员未来 PC1",
-      "repo_path": "figures/report_miroc6/MIROC6_18_Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_18_Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
       "source_sha256": "a052a0ff1035c2401ae2fa788873ebff14c765bc8fd919504126fc896c5bdc0d",
       "image_size": [
@@ -335,7 +335,7 @@
     {
       "source_index": 19,
       "title": "MIROC6 四情景三成员正位相降水异常",
-      "repo_path": "figures/report_miroc6/MIROC6_19_Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_19_Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
       "source_sha256": "e8a5eded6ef45336d593d64a996815b9f230307bfa226568c6c4b5cb09fa98a0",
       "image_size": [
@@ -352,7 +352,7 @@
     {
       "source_index": 20,
       "title": "MIROC6 四情景三成员负位相降水异常",
-      "repo_path": "figures/report_miroc6/MIROC6_20_Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_20_Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
       "source_sha256": "9d850898eb7a580ec3afd453e299bce75bc06fbde4838480ae839a508cf8a223",
       "image_size": [
@@ -369,7 +369,7 @@
     {
       "source_index": 22,
       "title": "MIROC6 四情景三成员正减负位相降水合成差",
-      "repo_path": "figures/report_miroc6/MIROC6_22_Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_22_Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
       "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
       "source_sha256": "4147d3353acb497d470a78fe3f4e50690789ec38f7b5fc5443af0cb78e6ed9ad",
       "image_size": [
@@ -386,8 +386,8 @@
     {
       "source_index": 24,
       "title": "ACCESS-CM2 r1 历史 PDO 空间型与 PC1",
-      "repo_path": "figures/task1_pdo_access_r1.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_access_r1.png",
+      "repo_path": "figures/task1-4/task1_pdo_access_r1.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_access_r1.png",
       "source_sha256": "18387707906f8e42f635c7ce7d557ca06d13185aec96e6db0f6b9acc3b348a30",
       "image_size": [
         1562,
@@ -401,8 +401,8 @@
     {
       "source_index": 25,
       "title": "ACCESS-CM2 r2 历史 PDO 空间型与 PC1",
-      "repo_path": "figures/task1_pdo_access_r2.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_access_r2.png",
+      "repo_path": "figures/task1-4/task1_pdo_access_r2.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_access_r2.png",
       "source_sha256": "9a3acbe94d46bec79630a5da41362794743c22744dad053e897696d487c79de6",
       "image_size": [
         1562,
@@ -416,8 +416,8 @@
     {
       "source_index": 26,
       "title": "ACCESS-CM2 r3 历史 PDO 空间型与 PC1",
-      "repo_path": "figures/task1_pdo_access_r3.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_access_r3.png",
+      "repo_path": "figures/task1-4/task1_pdo_access_r3.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_access_r3.png",
       "source_sha256": "1e94bfa23725453125717481f9e437e82d32d6b3eddaa8bddc9996e4fa284f63",
       "image_size": [
         1562,
@@ -431,8 +431,8 @@
     {
       "source_index": 27,
       "title": "ACCESS-CM2 r4 历史 PDO 空间型与 PC1",
-      "repo_path": "figures/task1_pdo_access_r4.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_access_r4.png",
+      "repo_path": "figures/task1-4/task1_pdo_access_r4.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_access_r4.png",
       "source_sha256": "3ff11d62a6bf1977b92903751a0ffd13df5865759825e7744e1e97be299f660d",
       "image_size": [
         1562,
@@ -446,8 +446,8 @@
     {
       "source_index": 28,
       "title": "ACCESS-CM2 r5 历史 PDO 空间型与 PC1",
-      "repo_path": "figures/task1_pdo_access_r5.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_access_r5.png",
+      "repo_path": "figures/task1-4/task1_pdo_access_r5.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_access_r5.png",
       "source_sha256": "bf10627ae35fc76962aa737f95af6fbb70f249be4c240a74dd7309ff809db20e",
       "image_size": [
         1562,
@@ -461,8 +461,8 @@
     {
       "source_index": 29,
       "title": "ERSSTv4 PDO 空间型与 PC1",
-      "repo_path": "figures/task1_pdo_ersst.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_ersst.png",
+      "repo_path": "figures/task1-4/task1_pdo_ersst.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_ersst.png",
       "source_sha256": "1ce29294becce42cc324495c060acb023870d3cb98dc326b71f3dcbcc7fcf62e",
       "image_size": [
         1562,
@@ -476,8 +476,8 @@
     {
       "source_index": 30,
       "title": "ACCESS-CM2 五成员与观测 PDO 对照",
-      "repo_path": "figures/task1_pdo_members.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1_pdo_members.png",
+      "repo_path": "figures/task1-4/task1_pdo_members.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task1_pdo_members.png",
       "source_sha256": "c135aeeb4b486607bba86584ccca3e86f6fb35ffbc4ab982adda9605b9ca5297",
       "image_size": [
         3146,
@@ -491,8 +491,8 @@
     {
       "source_index": 31,
       "title": "ACCESS-CM2 五成员与观测降水合成差对照",
-      "repo_path": "figures/task2_composite_obs_members.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_composite_obs_members.png",
+      "repo_path": "figures/task1-4/task2_composite_obs_members.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task2_composite_obs_members.png",
       "source_sha256": "73d4348c12ea1147a6db5c297c74ec4a41e8ab9d3fb68c3d8a358c29bd472042",
       "image_size": [
         2998,
@@ -506,8 +506,8 @@
     {
       "source_index": 32,
       "title": "ACCESS 流程中的 GPCC 位相降水三联图",
-      "repo_path": "figures/task2_obs_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_obs_three_panels.png",
+      "repo_path": "figures/task1-4/task2_obs_three_panels.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task2_obs_three_panels.png",
       "source_sha256": "2ecd5bc33ca35ae22bca6a7d8cb3fbee8cead9851cba12d384bbb119444608a2",
       "image_size": [
         3822,
@@ -521,8 +521,8 @@
     {
       "source_index": 33,
       "title": "ACCESS-CM2 与观测 PDO 时间序列",
-      "repo_path": "figures/task2_pdo_timeseries.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_pdo_timeseries.png",
+      "repo_path": "figures/task1-4/task2_pdo_timeseries.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task2_pdo_timeseries.png",
       "source_sha256": "b7b191fa10162386a1b06b323a1a31f92fd2ed39d4c9c25bbf15f921532e8e45",
       "image_size": [
         2575,
@@ -536,8 +536,8 @@
     {
       "source_index": 34,
       "title": "ACCESS-CM2 R1–R5 历史位相降水总图",
-      "repo_path": "figures/task2_members_three_panels.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task2_members_three_panels.png",
+      "repo_path": "figures/task1-4/task2_members_three_panels.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\task2_members_three_panels.png",
       "source_sha256": "85943781f8056f81e2808f4ba130d49c701c35373b9b9b6d0cd76175098b68f0",
       "image_size": [
         2972,
@@ -566,8 +566,8 @@
     {
       "source_index": 39,
       "title": "ACCESS-CM2 历史 PDO 空间型及成员方差",
-      "repo_path": "figures/Task3_Figure1_PDO_EOF1_Spread.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task3_Figure1_PDO_EOF1_Spread.png",
+      "repo_path": "figures/task1-4/Task3_Figure1_PDO_EOF1_Spread.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task3_Figure1_PDO_EOF1_Spread.png",
       "source_sha256": "c5c3545ed15c6810669a2a71bc801780e97d3121cc7566a57c5d9f95f85e586f",
       "image_size": [
         3323,
@@ -581,8 +581,8 @@
     {
       "source_index": 40,
       "title": "ACCESS-CM2 历史 PC1 与九年平滑序列",
-      "repo_path": "figures/Task3_Figure2_PC1.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task3_Figure2_PC1.png",
+      "repo_path": "figures/task1-4/Task3_Figure2_PC1.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task3_Figure2_PC1.png",
       "source_sha256": "79e1a47397d322638303b69ba9dba507e2c547652b3fb266942b4c30629f051c",
       "image_size": [
         2979,
@@ -596,8 +596,8 @@
     {
       "source_index": 41,
       "title": "ACCESS-CM2 历史降水合成差及成员方差",
-      "repo_path": "figures/Task3_Figure3_Rainfall_Composite_Spread.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task3_Figure3_Rainfall_Composite_Spread.png",
+      "repo_path": "figures/task1-4/Task3_Figure3_Rainfall_Composite_Spread.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task3_Figure3_Rainfall_Composite_Spread.png",
       "source_sha256": "d2c741de5b79577fc1b085b569836118eddaaf3b4787f61505903d21d37cb4e6",
       "image_size": [
         3022,
@@ -612,8 +612,8 @@
     {
       "source_index": 42,
       "title": "ACCESS-CM2 正、负位相降水的成员方差",
-      "repo_path": "figures/Task3_Figure4_Positive_Negative_Rainfall_Spread.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task3_Figure4_Positive_Negative_Rainfall_Spread.png",
+      "repo_path": "figures/task1-4/Task3_Figure4_Positive_Negative_Rainfall_Spread.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task3_Figure4_Positive_Negative_Rainfall_Spread.png",
       "source_sha256": "7ad8ad61ffd1043faf483429337dbea5dde1b91ccc8fdd815684c95d8a3141cb",
       "image_size": [
         2622,
@@ -627,8 +627,8 @@
     {
       "source_index": 43,
       "title": "ACCESS-CM2 两情景五成员未来 PDO 空间型",
-      "repo_path": "figures/Task4_T4-1_Future_PDO_EOF1_by_member.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-1_Future_PDO_EOF1_by_member.png",
+      "repo_path": "figures/task1-4/Task4_T4-1_Future_PDO_EOF1_by_member.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-1_Future_PDO_EOF1_by_member.png",
       "source_sha256": "d9eedbe86b217f98b45a7cdcd3d93d448ada1e7f2d0e3155854d7f1adedee3ec",
       "image_size": [
         4423,
@@ -642,8 +642,8 @@
     {
       "source_index": 44,
       "title": "ACCESS-CM2 两情景五成员未来 PC1",
-      "repo_path": "figures/Task4_T4-2_Future_PC1_by_member.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-2_Future_PC1_by_member.png",
+      "repo_path": "figures/task1-4/Task4_T4-2_Future_PC1_by_member.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-2_Future_PC1_by_member.png",
       "source_sha256": "0c9218dd6fb443d1f168ed38aa2a398d1c013e828e7f1df476a7164cca71996a",
       "image_size": [
         4778,
@@ -657,8 +657,8 @@
     {
       "source_index": 45,
       "title": "ACCESS-CM2 两情景五成员正位相降水异常",
-      "repo_path": "figures/Task4_T4-3_Positive_Phase_Rainfall_by_member.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-3_Positive_Phase_Rainfall_by_member.png",
+      "repo_path": "figures/task1-4/Task4_T4-3_Positive_Phase_Rainfall_by_member.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-3_Positive_Phase_Rainfall_by_member.png",
       "source_sha256": "cbd2ae0bf6f9d3fe57005965c221edea20b5f53aa25bb09e293905edb0fade46",
       "image_size": [
         4292,
@@ -672,8 +672,8 @@
     {
       "source_index": 46,
       "title": "ACCESS-CM2 两情景五成员负位相降水异常",
-      "repo_path": "figures/Task4_T4-4_Negative_Phase_Rainfall_by_member.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-4_Negative_Phase_Rainfall_by_member.png",
+      "repo_path": "figures/task1-4/Task4_T4-4_Negative_Phase_Rainfall_by_member.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-4_Negative_Phase_Rainfall_by_member.png",
       "source_sha256": "c5ce688e3277d4c529361bdb3ffa6f37992588d087f46d91a395bc8b96e2dd51",
       "image_size": [
         4292,
@@ -687,8 +687,8 @@
     {
       "source_index": 48,
       "title": "ACCESS-CM2 两情景五成员降水合成差",
-      "repo_path": "figures/Task4_T4-6_Composite_Difference_by_member.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-6_Composite_Difference_by_member.png",
+      "repo_path": "figures/task1-4/Task4_T4-6_Composite_Difference_by_member.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-6_Composite_Difference_by_member.png",
       "source_sha256": "a99e8e1e7386987ca57886fce62abea52814789ffcb78f5e4934fe0318e1967a",
       "image_size": [
         4291,
@@ -702,8 +702,8 @@
     {
       "source_index": 49,
       "title": "ACCESS-CM2 SSP245 相对历史的降水合成差变化",
-      "repo_path": "figures/Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png",
+      "repo_path": "figures/task1-4/Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png",
       "source_sha256": "2e2db94cb49ab90ba41326f057e36962b33679a8747bd0a1b1c6c3872ccaf706",
       "image_size": [
         4423,
@@ -717,8 +717,8 @@
     {
       "source_index": 50,
       "title": "ACCESS-CM2 SSP585 相对历史的降水合成差变化",
-      "repo_path": "figures/Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png",
-      "source_file": "C:\\Users\\86133\\Sandro\\figures\\Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png",
+      "repo_path": "figures/task1-4/Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png",
+      "source_file": "C:\\Users\\86133\\Sandro\\figures\\task1-4\\Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png",
       "source_sha256": "f15e629aec214838180a6992d570074d739f258cc7f694da45ac205bf591b654",
       "image_size": [
         4423,

@@ -37,7 +37,7 @@ def main():
         labels.add(entry['figure_label'])
         assert not any(s in p.name.lower() for s in ['regioncheck', 'region_validation', 'membermean', '3membermean'])
     assert {x['source_index'] for x in manifest['excluded']} == {0,21,23,47}
-    assert len(list((ROOT/'figures/report_miroc6').glob('*.png'))) == 21
+    assert len(list((ROOT/'figures/task1-4/report_miroc6').glob('*.png'))) == 21
     main_text = (ROOT/'docs/Report_2026-11-23.md').read_text(encoding='utf-8')
     assert len(re.findall(r'^\d+\. ',main_text.split('## 参考文献')[1],re.M)) == 22
     result = {'report_documents':len(documents),'research_figures':65,'reference_figures':1,

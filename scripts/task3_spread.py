@@ -35,7 +35,8 @@ from easm_plots import _map_axis, _sym_levels
 
 REPO = Path(__file__).resolve().parents[1]
 RES = REPO / "results"
-FIG = REPO / "figures"
+FIG = REPO / "figures/task1-4"
+FIG.mkdir(parents=True, exist_ok=True)
 
 MEMBERS = ["r1", "r2", "r3", "r4", "r5"]
 

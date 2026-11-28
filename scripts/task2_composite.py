@@ -24,7 +24,8 @@ from easm_plots import rainfall_three_panels, pdo_timeseries_panels
 REPO = Path(__file__).resolve().parents[1]
 DATA = REPO / "data"
 RES = REPO / "results"
-FIG = REPO / "figures"
+FIG = REPO / "figures/task1-4"
+FIG.mkdir(parents=True, exist_ok=True)
 
 MEMBERS = ["r1", "r2", "r3", "r4", "r5"]
 
@@ -113,7 +114,7 @@ def main():
     plot_member_panels()
     pdo_timeseries_panels(entries, FIG / "task2_pdo_timeseries.png")
     (RES / "task2_summary.json").write_text(json.dumps(summary, indent=2))
-    print("saved figures/task2_pdo_timeseries.png, results/task2_summary.json")
+    print("saved figures/task1-4/task2_pdo_timeseries.png, results/task2_summary.json")
 
 
 if __name__ == "__main__":

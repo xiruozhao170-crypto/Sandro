@@ -13,6 +13,7 @@ Figures (mirroring the old MIROC6 T4 outputs, adapted to 2 scenarios):
   Task4_T4-6_Composite_Difference_by_member.png
   Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png  1x5 per member
   Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png 1x5 per member
+  Task4_T4-7-8_Composite_Difference_SSP_minus_Historical.png 2x5 combined
 Outputs: results/task4_<scen>_<m>.nc, results/task4_summary.json
 Rainfall composites and comparisons remain member-specific. The former
 T4-5 across-member rainfall mean is retired; figure numbering is retained.
@@ -39,7 +40,8 @@ from task2_composite import save_dataset
 REPO = Path(__file__).resolve().parents[1]
 DATA = REPO / "data"
 RES = REPO / "results"
-FIG = REPO / "figures"
+FIG = REPO / "figures/task1-4"
+FIG.mkdir(parents=True, exist_ok=True)
 
 SCENARIOS = ["ssp245", "ssp585"]
 MEMBERS = ["r1", "r2", "r3", "r4", "r5"]
@@ -201,6 +203,9 @@ def main():
                      "by member\nACCESS-CM2", fontsize=13, y=1.06)
         fig.savefig(FIG / name, dpi=200, bbox_inches="tight")
         plt.close(fig)
+
+    from task4_historical_comparison import main as plot_historical_comparison
+    plot_historical_comparison()
 
     for scen in SCENARIOS:
         for i, m in enumerate(MEMBERS):
