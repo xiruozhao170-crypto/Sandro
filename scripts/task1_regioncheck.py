@@ -1,7 +1,7 @@
-"""Draw the five Task 1 regional checks from saved August 1900 SST fields.
+"""Draw six Task 1 regional checks: ERSSTv4 observations and ACCESS R1-R5.
 
 Run without arguments to redraw from the small committed NetCDF cache.
-Use --data-root to rebuild that cache from processed or native ACCESS SST.
+Use --data-root to rebuild ACCESS SST and --ersst-file for ERSSTv4 SST.
 """
 import argparse
 from pathlib import Path
@@ -19,7 +19,8 @@ from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 ROOT = Path(__file__).resolve().parents[1]
 MEMBERS = [f"r{i}" for i in range(1, 6)]
 CACHE = ROOT / "results/task1_regioncheck_access.nc"
-OUTPUT = ROOT / "figures/task1_regioncheck_access_members.png"
+OBS_CACHE = ROOT / "results/task1_regioncheck_ersst.nc"
+OUTPUT = ROOT / "figures/task1_regioncheck_obs_members.png"
 
 
 def save_fields(fields):
@@ -37,7 +38,7 @@ def save_fields(fields):
 
 
 def update_member(da, member):
-    """Called by task1_pdo.py; update the cache and redraw once all five exist."""
+    """Called by task1_pdo.py; update the member cache and combined figure."""
     fields = {}
     if CACHE.exists():
         with xr.open_dataset(CACHE) as ds:
@@ -45,8 +46,26 @@ def update_member(da, member):
                       for m in ds.member.values}
     fields[member] = da.isel(time=7, drop=True).load()
     save_fields(fields)
-    if all(m in fields for m in MEMBERS):
-        plot_members()
+    plot_if_ready()
+
+
+def save_observation(field):
+    """Cache the same August 1900 observational field as the original check."""
+    field = field.sortby("lat").sel(lat=slice(20, 60), lon=slice(110, 250))
+    ds = field.rename("sst").to_dataset()
+    ds.attrs.update(description="Task 1 regional check, ERSSTv4 observations",
+                    region="20-60N, 110-250E", month="1900-08")
+    OBS_CACHE.parent.mkdir(exist_ok=True)
+    ds.to_netcdf(OBS_CACHE)
+
+
+def plot_if_ready():
+    """Allow Task 1 to run one dataset at a time before all six are cached."""
+    if CACHE.exists() and OBS_CACHE.exists():
+        with xr.open_dataset(CACHE) as ds:
+            ready = all(m in ds.member.values for m in MEMBERS)
+        if ready:
+            plot_checks()
 
 
 def rebuild_cache(data_root):
@@ -78,19 +97,22 @@ def rebuild_cache(data_root):
     save_fields(fields)
 
 
-def plot_members():
+def plot_checks():
     with xr.open_dataset(CACHE) as source:
         ds = source.sel(member=MEMBERS).load()
-    lo = np.floor(float(ds.sst.min()) / 5) * 5
-    hi = np.ceil(float(ds.sst.max()) / 5) * 5
+    with xr.open_dataset(OBS_CACHE) as source:
+        obs = source.sst.load()
+    panels = [("ERSSTv4 (obs)", obs)] + [
+        (f"ACCESS-CM2 {m.upper()}", ds.sst.sel(member=m)) for m in MEMBERS]
+    lo = np.floor(min(float(field.min()) for _, field in panels) / 5) * 5
+    hi = np.ceil(max(float(field.max()) for _, field in panels) / 5) * 5
     fig = plt.figure(figsize=(14, 8.8))
     grid = fig.add_gridspec(3, 4, left=.055, right=.96, bottom=.16,
                            top=.88, hspace=.38, wspace=.38)
-    slots = [grid[0, :2], grid[0, 2:], grid[1, :2], grid[1, 2:], grid[2, 1:3]]
-    for i, (member, slot) in enumerate(zip(MEMBERS, slots)):
+    slots = [grid[row, col:col+2] for row in range(3) for col in (0, 2)]
+    for i, ((label, field), slot) in enumerate(zip(panels, slots)):
         ax = fig.add_subplot(slot, projection=ccrs.PlateCarree(central_longitude=180))
-        field = ds.sst.sel(member=member)
-        cf = ax.pcolormesh(ds.lon, ds.lat, field, cmap="RdYlBu_r", vmin=lo, vmax=hi,
+        cf = ax.pcolormesh(field.lon, field.lat, field, cmap="RdYlBu_r", vmin=lo, vmax=hi,
                           transform=ccrs.PlateCarree(), shading="auto")
         ax.coastlines(linewidth=.7)
         ax.add_feature(cfeature.LAND, facecolor="0.85")
@@ -100,11 +122,11 @@ def plot_members():
         ax.xaxis.set_major_formatter(LongitudeFormatter())
         ax.yaxis.set_major_formatter(LatitudeFormatter())
         ax.tick_params(labelsize=9)
-        ax.set_title(f"({chr(97+i)})  {member.upper()}", loc="left", fontsize=12)
+        ax.set_title(f"({chr(97+i)})  {label}", loc="left", fontsize=12)
     cax = fig.add_axes([.27, .075, .46, .025])
     fig.colorbar(cf, cax=cax, orientation="horizontal", label="SST (°C)",
                  ticks=np.arange(lo, hi + 1, 5))
-    fig.suptitle("Task 1: North Pacific regional checks | ACCESS-CM2 historical R1–R5\n"
+    fig.suptitle("Task 1: North Pacific regional checks | ERSSTv4 + ACCESS-CM2 R1–R5\n"
                  "August 1900 (month #8) | 20–60°N, 110–250°E", fontsize=15, y=.97)
     OUTPUT.parent.mkdir(exist_ok=True)
     fig.savefig(OUTPUT, dpi=250, bbox_inches="tight")
@@ -114,8 +136,12 @@ def plot_members():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-root", type=Path, help="Rebuild cached SST from this data directory")
+    parser.add_argument("--data-root", type=Path, help="Rebuild ACCESS SST from this data directory")
+    parser.add_argument("--ersst-file", type=Path, help="Rebuild observation cache from ERSSTv4 monthly SST")
     args = parser.parse_args()
     if args.data_root:
         rebuild_cache(args.data_root)
-    plot_members()
+    if args.ersst_file:
+        with xr.open_dataset(args.ersst_file) as ds:
+            save_observation(ds.sst.sel(time="1900-08").isel(time=0, drop=True).load())
+    plot_checks()

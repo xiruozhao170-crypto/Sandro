@@ -116,12 +116,14 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 | r5 | 19.1% | 0.84 |
 
 图：`figures/task1_pdo_*.png`（EOF1 + PC1）、
-[五成员区域检查](figures/task1_regioncheck_access_members.png)（R1–R5 五个子图，共用 SST 色标）、
-`task1_regioncheck_ersst.png`（观测区域抽查）、`task1_pdo_members.png`（成员总览）；
+[观测与五成员区域检查](figures/task1_regioncheck_obs_members.png)（3 行 × 2 列，
+依次为 ERSSTv4 观测和 ACCESS-CM2 R1–R5，六个子图共用 SST 色标）、
+`task1_pdo_members.png`（成员总览）；
 结果：`results/task1_pdo_*.nc`、`task1_summary.json`。
 区域检查仍取 1900 年 8 月；该月五成员 SST 保存在 `results/task1_regioncheck_access.nc`，
-可用 `python scripts/task1_regioncheck.py` 直接重画。若要从原始资料重建，运行
-`python scripts/task1_regioncheck.py --data-root <数据目录>`（含 `processed/` 或 `ACCESS-CM2_data/`）。
+观测 SST 保存在 `results/task1_regioncheck_ersst.nc`，可用 `python scripts/task1_regioncheck.py` 直接重画。
+若要从原始资料重建，运行 `python scripts/task1_regioncheck.py --data-root <数据目录> --ersst-file <ERSSTv4月海温文件>`
+（数据目录含 `processed/` 或 `ACCESS-CM2_data/`；两个参数也可单独使用以更新对应缓存）。
 
 ## Task 2（PDO 位相合成华东 JJA 降水，9 年滑动平均 + JJA 定位相）
 

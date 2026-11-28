@@ -10,7 +10,7 @@ Recipe (Task 1.docx):
 
 Usage: python task1_pdo.py <dataset>  dataset in {ersst, access_r1..access_r5}
 Outputs: results/task1_pdo_<dataset>.nc, figures/task1_pdo_<dataset>.png
-Member regional checks share figures/task1_regioncheck_access_members.png.
+All regional checks share figures/task1_regioncheck_obs_members.png.
 """
 import sys
 from pathlib import Path
@@ -74,22 +74,14 @@ def load_north_pacific(path, var):
 
 
 def sanity_map(da, label, tag):
-    """Plot one arbitrary month to confirm the regional selection."""
+    """Update the six-panel regional check with month #8 of this dataset."""
+    from task1_regioncheck import update_member, save_observation, plot_if_ready
+
     if tag == "access" or tag.startswith("access_r"):
-        from task1_regioncheck import update_member
         update_member(da, "r1" if tag == "access" else tag.removeprefix("access_"))
-        return
-    fig = plt.figure(figsize=(9, 4))
-    ax = plt.axes(projection=ccrs.PlateCarree(central_longitude=180))
-    da.isel(time=7).plot(
-        ax=ax, transform=ccrs.PlateCarree(), cmap="RdYlBu_r",
-        cbar_kwargs={"label": "SST (degC)"},
-    )
-    ax.coastlines()
-    ax.add_feature(cfeature.LAND, facecolor="0.85")
-    ax.set_title(f"{label}: SST, month #8 of record (region check)")
-    fig.savefig(FIG / f"task1_regioncheck_{tag}.png", dpi=200, bbox_inches="tight")
-    plt.close(fig)
+    else:
+        save_observation(da.isel(time=7, drop=True))
+        plot_if_ready()
 
 
 def compute_pdo(da):
