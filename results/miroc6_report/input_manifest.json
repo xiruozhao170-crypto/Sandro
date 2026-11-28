@@ -1,0 +1,790 @@
+{
+  "historical_period": [
+    1900,
+    2014
+  ],
+  "future_period": [
+    2015,
+    2100
+  ],
+  "future_members": [
+    "r1",
+    "r5",
+    "r9"
+  ],
+  "scenarios": [
+    "ssp126",
+    "ssp245",
+    "ssp370",
+    "ssp585"
+  ],
+  "observations": [
+    "ERSSTv4",
+    "GPCC v2018"
+  ],
+  "smooth_months": 108,
+  "phase_definition": "sign of JJA mean of centered smoothed PC1",
+  "spread": "sample variance across r1-r10 only, ddof=1; observation excluded",
+  "rainfall_mask": "finite GPCC coverage during 1900-2014; ocean covered at Natural Earth 1:50 million coastline",
+  "selection": "r1, r5, r9 explicitly requested; no skill ranking",
+  "historical_cache_sha256": [
+    {
+      "file": "r10_composite.npy",
+      "sha256": "283bacbdbcabdf0ff9239451be0950be724ee248507f8c9673e201bdd153a3b7"
+    },
+    {
+      "file": "r10_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r10_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r10_eof1.npy",
+      "sha256": "ddbaf3761f21b898d8a2ccca6039e8e93cbe5f2239d08c728c9fea543f1efdf9"
+    },
+    {
+      "file": "r10_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r10_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r10_neg_mean.npy",
+      "sha256": "909b7756ebcd70c3e816d0cc416a17f5e9ea44ec26105913ce7dba2842771afa"
+    },
+    {
+      "file": "r10_neg_years.npy",
+      "sha256": "b112552ff9912f7a8ea9dccc9f5018e38e92c88dca80e2985f2f03e938c51efb"
+    },
+    {
+      "file": "r10_pc1.npy",
+      "sha256": "a60fb89d7ebccb975b3e688d5818e467505d328e4a6d84ef25f2a5268724189c"
+    },
+    {
+      "file": "r10_pc1_smooth.npy",
+      "sha256": "1ceafb9dc619c3331060e44a5dd954946442c9d784119882d87928ed3eced44f"
+    },
+    {
+      "file": "r10_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r10_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r10_pos_mean.npy",
+      "sha256": "2d97fcab146316161eb8e81707af128a34be7683331640e78c5138f936b5616d"
+    },
+    {
+      "file": "r10_pos_years.npy",
+      "sha256": "bcac81303558228f34667ebfc6947a153e080e57e4c5f6f0f443fb41c83babff"
+    },
+    {
+      "file": "r10_var_frac.npy",
+      "sha256": "483bd4bb29eda395e21b42b6e7aa9794845058f07be1de094c924dc20a63cfe0"
+    },
+    {
+      "file": "r1_composite.npy",
+      "sha256": "12e3d433dd0b72e69e67c3837c12f87801231322b903ce00cb3afbd1e048be44"
+    },
+    {
+      "file": "r1_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r1_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r1_eof1.npy",
+      "sha256": "87daad7802212b6bafc992d95a3f2c21f4205006754b57c6cc3def5c1abeabab"
+    },
+    {
+      "file": "r1_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r1_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r1_neg_mean.npy",
+      "sha256": "a9822b2180f640df3b40b752b5f945d0eb4a5bd35d7b0e0769d789f36cc2d2fc"
+    },
+    {
+      "file": "r1_neg_years.npy",
+      "sha256": "92832b27c49b3dec875880801a73fffbdca4fdeb1ce338cd38915af8bcc7878d"
+    },
+    {
+      "file": "r1_pc1.npy",
+      "sha256": "58543818205fe1774f8dc8667695992a3ff50c16f295b55394a162e98b49b12e"
+    },
+    {
+      "file": "r1_pc1_smooth.npy",
+      "sha256": "b20b8d5453513b03d13be8763dcec96827f9a6bc40aeb725a4992bb0472c1481"
+    },
+    {
+      "file": "r1_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r1_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r1_pos_mean.npy",
+      "sha256": "d44141e1d6c3534ed6f2607bf413c0728c29153b1d1e55cdd4746f676b5a9f9d"
+    },
+    {
+      "file": "r1_pos_years.npy",
+      "sha256": "88628babe86ffacecf6e3f4656f41b8507ce8ad4ca9db2afa37510daf9b5642e"
+    },
+    {
+      "file": "r1_var_frac.npy",
+      "sha256": "668eddf375b1af4fe1aafad1ecfa623ce359e759e1ba48842133a27c8f9bbb21"
+    },
+    {
+      "file": "r2_composite.npy",
+      "sha256": "d449173053f9cb2d4e272f6d5ac4e2ca36d55420bb1b1fe32b15932c5985729d"
+    },
+    {
+      "file": "r2_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r2_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r2_eof1.npy",
+      "sha256": "811e3ce364f37e26207bad6473176682943d7fca6304b6865683ff118ee35d55"
+    },
+    {
+      "file": "r2_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r2_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r2_neg_mean.npy",
+      "sha256": "584cfa1d82a8ce5e442c1f6bee0a2f23ed18ca27af870f2a68842e7f13db8eb2"
+    },
+    {
+      "file": "r2_neg_years.npy",
+      "sha256": "c1b223ba83b0604907a00d354399ce4f44dd4bdf938f12dabf636b8ec9595bb3"
+    },
+    {
+      "file": "r2_pc1.npy",
+      "sha256": "7208148e517059124e98e1b73402890f48cdb1487771b8b23a71dc9bb980abfd"
+    },
+    {
+      "file": "r2_pc1_smooth.npy",
+      "sha256": "72d5e254de76f46561a35eb05373cfed0d52172c27241a2a76d00a9dd2f4023e"
+    },
+    {
+      "file": "r2_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r2_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r2_pos_mean.npy",
+      "sha256": "ef69a418ee0ed34da09198b5ff5de5285e20596ee06975cf9b137d9f6e019d00"
+    },
+    {
+      "file": "r2_pos_years.npy",
+      "sha256": "62a2191c45f6ed78f542ab652ceec9ccdb7165fe72dba206f011ae70030b26c2"
+    },
+    {
+      "file": "r2_var_frac.npy",
+      "sha256": "beff71c308bf7fdda615cdf00b2069d5aa2ea174908ff75e8043b813eb12705f"
+    },
+    {
+      "file": "r3_composite.npy",
+      "sha256": "375c3eaa6b97083f64d3b7e13436ea242ac65b8f18d0abebf805e557e589329b"
+    },
+    {
+      "file": "r3_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r3_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r3_eof1.npy",
+      "sha256": "0e13047a471f0e88a5f796c608698dbbf22d4158ff438bb98f478cf2843d7e36"
+    },
+    {
+      "file": "r3_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r3_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r3_neg_mean.npy",
+      "sha256": "2e6fa4ab38d03de2141dad09aaf153eee2e1d39deab64e82e573974846295ce0"
+    },
+    {
+      "file": "r3_neg_years.npy",
+      "sha256": "4fba2736f4062cc26a30486215de27f4cc6913c828e11afd956bb3072f604289"
+    },
+    {
+      "file": "r3_pc1.npy",
+      "sha256": "68efec0ae53abb3442adcaa4ff2c4981bf7f23221e35d7933da96ff9aa168b91"
+    },
+    {
+      "file": "r3_pc1_smooth.npy",
+      "sha256": "c3801f24c6ff0bd960f30174152933ec93d7b6c7dffcfa6f1c0ecd8785fd6315"
+    },
+    {
+      "file": "r3_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r3_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r3_pos_mean.npy",
+      "sha256": "e3d4137ab04c09218feee4ba754458010ac3ac92521e09b6027f887ff37d505f"
+    },
+    {
+      "file": "r3_pos_years.npy",
+      "sha256": "faafe1191280a6fcedb7129907e00fa7a541981a8ee437410745b0d118d22561"
+    },
+    {
+      "file": "r3_var_frac.npy",
+      "sha256": "07bb6276b44e5552f6f3c4748ac5459c1fad1413c2393584ebf3d432bbb01d4c"
+    },
+    {
+      "file": "r4_composite.npy",
+      "sha256": "86063ee9891c74e4d3e435d0286700f472d5bc627d7107d5332302a5a9d7e712"
+    },
+    {
+      "file": "r4_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r4_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r4_eof1.npy",
+      "sha256": "a441b8b1724d8ca88b70e1a824908be1c238efacd14475791a5b522e48a22e7e"
+    },
+    {
+      "file": "r4_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r4_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r4_neg_mean.npy",
+      "sha256": "267bc4d242defd3a3ee3db82f806fefb99af3c3b5c4e4cd37176e27bb1474a14"
+    },
+    {
+      "file": "r4_neg_years.npy",
+      "sha256": "025c16ba35b94020582ed3220ca6b166aa595a6c1e31361b3658dbb302680e07"
+    },
+    {
+      "file": "r4_pc1.npy",
+      "sha256": "1777445528c33a0630a4cad821cf31e3c494ea236e1611a38df64f7a77314c45"
+    },
+    {
+      "file": "r4_pc1_smooth.npy",
+      "sha256": "f585978d6ebecb7dd49a3c4aab601f197f19a8c4a5b329ee001206ff490e84f6"
+    },
+    {
+      "file": "r4_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r4_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r4_pos_mean.npy",
+      "sha256": "ce48105b8a337f6180dc79dfbf07436a68c99c7c6e284c112411fd9e7184a044"
+    },
+    {
+      "file": "r4_pos_years.npy",
+      "sha256": "57276c1d9381a9e41b8fe33e0a66f80151faac5e4c55e70e394d14bf40c3e535"
+    },
+    {
+      "file": "r4_var_frac.npy",
+      "sha256": "4626079dd2f529ad06019f5999d8cc324c0514553672b13ab64527c989589fb7"
+    },
+    {
+      "file": "r5_composite.npy",
+      "sha256": "0cd947322311f8d9eb4d10090ab98ee1ab5da326e25929a3cf158f6323f9edd6"
+    },
+    {
+      "file": "r5_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r5_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r5_eof1.npy",
+      "sha256": "d891fa5e53b599ce540e95a2300da40f814bbb63403a71e13a66f0eb6ad00159"
+    },
+    {
+      "file": "r5_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r5_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r5_neg_mean.npy",
+      "sha256": "a6a1bb55487c380485d4703f5f2f1ea21353f6b9fa905809b86c8384dd2bede0"
+    },
+    {
+      "file": "r5_neg_years.npy",
+      "sha256": "c050f144cebb8beeaad7177df2dba4756d32b3b7b7ce82f11f1f548d9ef91623"
+    },
+    {
+      "file": "r5_pc1.npy",
+      "sha256": "039c918c21bf0ab5cebf87d3a6c5d68d860b9071fde34edab179e9953abbf4f1"
+    },
+    {
+      "file": "r5_pc1_smooth.npy",
+      "sha256": "5d9f36993179742ec4a49a5c337a2b604fd911fb10b820a450edda59a280b6f2"
+    },
+    {
+      "file": "r5_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r5_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r5_pos_mean.npy",
+      "sha256": "56492d3193ac9de18f20289ddd22479d743a8eaa191bc709da12feab763735c0"
+    },
+    {
+      "file": "r5_pos_years.npy",
+      "sha256": "89c7dbe2b9154413f5491d65b3f7ee2a3c1f7a402797c4b96bf84663766b1933"
+    },
+    {
+      "file": "r5_var_frac.npy",
+      "sha256": "a7d2f9e7b3c270b4a218b76d297a43bb08911f515ba31ee14174945a77f7ed47"
+    },
+    {
+      "file": "r6_composite.npy",
+      "sha256": "484989c93d89556259d7e248d5049a3ea67b3ee9ad373bd7c8ce7c2aa1e50632"
+    },
+    {
+      "file": "r6_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r6_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r6_eof1.npy",
+      "sha256": "a71c661cb5efd66301031df352ef96e13a95fb7cab45f56b6746ca4740025784"
+    },
+    {
+      "file": "r6_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r6_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r6_neg_mean.npy",
+      "sha256": "9fd16ac0cb103d29bf5b7d2261f25544fba1bf091f150c19fa6f9a1a00db273f"
+    },
+    {
+      "file": "r6_neg_years.npy",
+      "sha256": "7000914a46dbe1cd2cd85de088c0285f8bd8098c000d88503d01ff056ff88c74"
+    },
+    {
+      "file": "r6_pc1.npy",
+      "sha256": "d60864c575adf0452466c9185fa603459f794719d4bcc1d2935b3eb92f77fb23"
+    },
+    {
+      "file": "r6_pc1_smooth.npy",
+      "sha256": "7130d3347f9c67871ec0b8cbc4850ff61731774a962c25d52840f0c278d90c38"
+    },
+    {
+      "file": "r6_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r6_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r6_pos_mean.npy",
+      "sha256": "cc3853c3078e40256ba1276b25af08e0e303a64aba00ee3e97764368dd52d374"
+    },
+    {
+      "file": "r6_pos_years.npy",
+      "sha256": "c551deb070ce2481c4c494b5ccbb3758f7205813050314f304081e0ccea7a13b"
+    },
+    {
+      "file": "r6_var_frac.npy",
+      "sha256": "5b750b89a1b58bb853f3315f04928718cf7bab5533d3da168a3072095ca5060d"
+    },
+    {
+      "file": "r7_composite.npy",
+      "sha256": "c84018acbbea30274bc2de3ef5171fbe0fca4c5542b9d0400bc55816692305d7"
+    },
+    {
+      "file": "r7_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r7_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r7_eof1.npy",
+      "sha256": "3d06ac96e2edb8a95603da38f1071713696ee54cdf2c79e1342dea37fd8927d2"
+    },
+    {
+      "file": "r7_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r7_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r7_neg_mean.npy",
+      "sha256": "880114adc5e010deae4e0ec2ab3d4f5ca382e7a493828ab9a0946ea13b9bce96"
+    },
+    {
+      "file": "r7_neg_years.npy",
+      "sha256": "a23c9a7d7dfdf6ba146604be3eeda1fafc81204879f7c5667986d068c0666932"
+    },
+    {
+      "file": "r7_pc1.npy",
+      "sha256": "7b9a2f7ccbe6d562e47f79ef8ee6420367e8906b71ef1fdd8c6ab1dfd7433341"
+    },
+    {
+      "file": "r7_pc1_smooth.npy",
+      "sha256": "d5c353ee7a2849fd6cff630cdbf7df69b5744f55b11c69b423d3d7fa768a6f66"
+    },
+    {
+      "file": "r7_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r7_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r7_pos_mean.npy",
+      "sha256": "a26cdbd0fd9b6e63a72f4f61210cf01c25cd32b15c57bf72b0f0c88ba92f8dae"
+    },
+    {
+      "file": "r7_pos_years.npy",
+      "sha256": "5f98db32f2126c2251d1ec1c42ff3047dfe29d33303a2ef5e929c86a748e459f"
+    },
+    {
+      "file": "r7_var_frac.npy",
+      "sha256": "9a7b445cf8e2a7c17be57ae5cd54269ca733b5ee908b529192fe957c24c3d0f7"
+    },
+    {
+      "file": "r8_composite.npy",
+      "sha256": "a2acc55a716a13aa683bbbfb168421daf8be138c98492a7c1b751a92f34d5fc5"
+    },
+    {
+      "file": "r8_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r8_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r8_eof1.npy",
+      "sha256": "3b071353a2873b70b9ac3e889ebf3d24f2b5c09a657e3453d5ab9465364c19f5"
+    },
+    {
+      "file": "r8_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r8_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r8_neg_mean.npy",
+      "sha256": "3eb0b7885638368fec6fad88c6aefcb7f836148f47efb009faadf9008f5c86e0"
+    },
+    {
+      "file": "r8_neg_years.npy",
+      "sha256": "d512f8c338a9b2d74a583318d2ae399b56e1e6546bffaec18d0acba864cb2500"
+    },
+    {
+      "file": "r8_pc1.npy",
+      "sha256": "be68be8c5277b35773bb9c168cb666cf148857ca6f940382d9cf276d367bc63c"
+    },
+    {
+      "file": "r8_pc1_smooth.npy",
+      "sha256": "9742eecabb15fa368b89f16db4f93a2a07a6ae806675afd106e448f39d91b7e2"
+    },
+    {
+      "file": "r8_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r8_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r8_pos_mean.npy",
+      "sha256": "6748797b068faa2b09dffb178c69940edafaec6b3c30c2923bd33f759800219a"
+    },
+    {
+      "file": "r8_pos_years.npy",
+      "sha256": "efb257f46870b2fa974e574b09878297366e42ea2d830bf6f16184797658aa9e"
+    },
+    {
+      "file": "r8_var_frac.npy",
+      "sha256": "861dd79d47a0034d0bd456c6be363158add1e7c8747ade43de119d80bad5458b"
+    },
+    {
+      "file": "r9_composite.npy",
+      "sha256": "8b1a4ea20af8cbdb832122d3c8fcc0dc5b71105d3eb2a44f91bfa7b5ba8ed117"
+    },
+    {
+      "file": "r9_ec_lats.npy",
+      "sha256": "bfaf2029e998176bdf6dda574aa3828d70e451864ef0997cef096dfb8d99d520"
+    },
+    {
+      "file": "r9_ec_lons.npy",
+      "sha256": "e6e155c650474c404a6932ba2d2d71464c4a6a02cf82850f823ed5b6d9628448"
+    },
+    {
+      "file": "r9_eof1.npy",
+      "sha256": "1c24e56a6cba4569c31d6eb4ae1b93f1b6fecbe648b53516c6ebd358bea532c8"
+    },
+    {
+      "file": "r9_eof1_lats.npy",
+      "sha256": "8cc4d89942f428f49d65c9b7f2d38c3c89771310529fd24c04ab38c3c0c24c64"
+    },
+    {
+      "file": "r9_eof1_lons.npy",
+      "sha256": "851d0f5f73a3dfe99d9d637ac2f373d7fa5a54dc5fa5e9214007855fc530a4bc"
+    },
+    {
+      "file": "r9_neg_mean.npy",
+      "sha256": "586e4a2ce53c164f6e7e490e4e445e74126884d9a0fdeba77517b224cddf6e20"
+    },
+    {
+      "file": "r9_neg_years.npy",
+      "sha256": "a07cf4b21196c52db86d9e56200d6025d786fdd122169fe33245abb69ed620bf"
+    },
+    {
+      "file": "r9_pc1.npy",
+      "sha256": "137af94a54a42c3af3737ba21c61d594046bc1e0fd6817dab1e834c82c85b9cd"
+    },
+    {
+      "file": "r9_pc1_smooth.npy",
+      "sha256": "5abb8aced8a8998300a31463d95008bc8643b9900a141aa0a5245bc418b32a43"
+    },
+    {
+      "file": "r9_pc1_smooth_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r9_pc1_years.npy",
+      "sha256": "5a62b8e86c8c31a23f99246d0a50b6963234bb13cd64cf132a196408bb6f5689"
+    },
+    {
+      "file": "r9_pos_mean.npy",
+      "sha256": "3e63ef833c975bb50bb32fb206f5569125e21e58311cbd944a9449964108cb47"
+    },
+    {
+      "file": "r9_pos_years.npy",
+      "sha256": "a42bb68a20a66865a69bca7aaafde8255e8499fcd3869d9e054897e2afe8166b"
+    },
+    {
+      "file": "r9_var_frac.npy",
+      "sha256": "58b6fa8fdb258e267777d447d5e068d39f9e9d88d8f01d2ee73b6d804d18e627"
+    }
+  ],
+  "raw_sources": [
+    {
+      "path": "E:\\Sandro Dachuang\\precip.mon.total.v2018.nc",
+      "size_bytes": 389813234,
+      "mtime_ns": 1770263136716366900
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\sst.mnmean.v4.nc",
+      "size_bytes": 52167702,
+      "mtime_ns": 1770263177870066000
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_Historical\\pr_Amon_MIROC6_historical_r10i1p1f1_185001-201412_interp_nan.nc",
+      "size_bytes": 2053151626,
+      "mtime_ns": 1770531976578834900
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP126\\tos_Omon_MIROC6_ssp126_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771711629902001700
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP126\\pr_Amon_MIROC6_ssp126_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771711134175165900
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP126\\tos_Omon_MIROC6_ssp126_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771711644050395300
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP126\\pr_Amon_MIROC6_ssp126_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771711378311528100
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP126\\tos_Omon_MIROC6_ssp126_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771711657911535600
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP126\\pr_Amon_MIROC6_ssp126_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771711622892975800
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP245\\tos_Omon_MIROC6_ssp245_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771712474905128900
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP245\\pr_Amon_MIROC6_ssp245_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771711974552172900
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP245\\tos_Omon_MIROC6_ssp245_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294443,
+      "mtime_ns": 1771712488558628100
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP245\\pr_Amon_MIROC6_ssp245_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148726,
+      "mtime_ns": 1771712220405255600
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP245\\tos_Omon_MIROC6_ssp245_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294443,
+      "mtime_ns": 1771712502117012200
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP245\\pr_Amon_MIROC6_ssp245_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148726,
+      "mtime_ns": 1771712468297796500
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP370\\tos_Omon_MIROC6_ssp370_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294131,
+      "mtime_ns": 1771714384780036000
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP370\\pr_Amon_MIROC6_ssp370_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148417,
+      "mtime_ns": 1771713760659236100
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP370\\tos_Omon_MIROC6_ssp370_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294131,
+      "mtime_ns": 1771714409350779000
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP370\\pr_Amon_MIROC6_ssp370_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148417,
+      "mtime_ns": 1771714011556782400
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP370\\tos_Omon_MIROC6_ssp370_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294131,
+      "mtime_ns": 1771714434720955800
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP370\\pr_Amon_MIROC6_ssp370_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148417,
+      "mtime_ns": 1771714373385400300
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP585\\tos_Omon_MIROC6_ssp585_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771714913127418300
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP585\\pr_Amon_MIROC6_ssp585_r1i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771714385749462600
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP585\\tos_Omon_MIROC6_ssp585_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771714926526233100
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP585\\pr_Amon_MIROC6_ssp585_r5i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771714659177299700
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP585\\tos_Omon_MIROC6_ssp585_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 66294202,
+      "mtime_ns": 1771714940029591800
+    },
+    {
+      "path": "E:\\Sandro Dachuang\\MIROC6_SSP585\\pr_Amon_MIROC6_ssp585_r9i1p1f1_201501-210012_interp_nan.nc",
+      "size_bytes": 1070148488,
+      "mtime_ns": 1771714906569690500
+    }
+  ],
+  "notebook_reference_case": {
+    "case": "ssp126_r3",
+    "max_absolute_errors": {
+      "eof1": 7.771561172376096e-16,
+      "pc1": 2.220446049250313e-15,
+      "pc1_smooth": 1.1102230246251565e-15,
+      "pos_mean": 0.0,
+      "neg_mean": 0.0,
+      "composite": 0.0
+    }
+  },
+  "runtime_versions": {
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "xarray": "2025.4.0",
+    "eofs": "0.0.0",
+    "matplotlib": "3.10.0",
+    "cartopy": "0.25.0",
+    "netCDF4": "1.7.4",
+    "pillow": "11.1.0"
+  }
+}

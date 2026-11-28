@@ -154,7 +154,19 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 
 Task 1–4 的图像统一位于 [`figures/task1-4/`](figures/task1-4/)；
 其中 [`report_access/`](figures/task1-4/report_access/) 存放现行 ACCESS 分析及配套观测图，
-[`report_miroc6/`](figures/task1-4/report_miroc6/) 保留旧 MIROC6 图像的归档结构。
+[`report_miroc6/`](figures/task1-4/report_miroc6/) 保存 MIROC6 Task 1–4 图。2026-11-29 已为 Task 3 的 EOF1、PC1、降水合成图加入观测面板，将 Task 4 四情景的五张图统一改为 r1、r5、r9，并将该目录所有降水图改为仅显示陆地。
+
+生成代码为 [`scripts/miroc6_report.py`](scripts/miroc6_report.py)，数值及输入清单位于 [`results/miroc6_report/`](results/miroc6_report/)。历史十成员沿用已核对的缓存，ERSSTv4/GPCC 观测与未来新成员从原始数据计算。观测不参与十成员方差；保留原 PNG 文件名以维持报告链接，其中历史 PC1 图实际增加了第六行观测。
+
+```powershell
+# 安装重画与重算所需依赖
+python -m pip install -r requirements-miroc6.txt
+# 从已提交的数值结果重画
+python scripts/miroc6_report.py
+# 从本地原始资料和已核对的历史缓存重新计算
+python scripts/miroc6_report.py --data-root "E:/Sandro Dachuang" --compute
+python scripts/validate_miroc6_report.py
+```
 
 | 情景 | 成员 | EOF1 方差 | 与观测历史 PDO 型相关 | pos/neg 年数 |
 |---|---|---|---|---|

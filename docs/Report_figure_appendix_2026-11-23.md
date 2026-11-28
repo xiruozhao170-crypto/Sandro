@@ -8,14 +8,14 @@
 
 2026-11-28 将原图 A25–A29 合并为一张五成员总图，研究图文件数由 69 减为 65；保留后续图号以便追溯。
 
-图中英文标签对应原有分析内容，解释以中文图注为准。图片均可点击查看原分辨率；MIROC6 除最早两张 Task 1 图外使用硬盘中的高清输出。正文和本附录的文件、来源和 SHA256 见[图像清单](../results/report_figure_manifest_2026-11-23.json)。
+2026-11-29 已重绘 MIROC6 降水图为仅显示陆地，Task 3 新增观测面板，Task 4 统一更换为 r1、r5、r9。图中英文标签与下方图注同步更新，图片均可点击查看原分辨率。正文和本附录的文件、来源和 SHA256 见[图像清单](../results/report_figure_manifest_2026-11-23.json)。
 
 ## 图像索引
 
 |编号|内容|位置|
 |---|---|---|
-|图 1|[MIROC6 单成员与 ERSSTv4 的 PDO 空间型](../figures/task1-4/report_miroc6/MIROC6_01_cell_004_output_03.png)|正文|
-|图 A01|[MIROC6 单成员与 ERSSTv4 的月度 PC1](../figures/task1-4/report_miroc6/MIROC6_02_cell_004_output_04.png)|本附录|
+|图 1|[MIROC6 单成员与 ERSSTv4 的 PDO 空间型](../figures/task1-4/report_miroc6/MIROC6_01_PDO_obs%20vs%20miroc.png)|正文|
+|图 A01|[MIROC6 单成员与 ERSSTv4 的月度 PC1](../figures/task1-4/report_miroc6/MIROC6_02_PDO%20obs%20vs%20miroc%20series.png)|本附录|
 |图 A02|[GPCC 正 PDO 位相降水异常](../figures/task1-4/report_miroc6/MIROC6_03_cell_005_output_01.png)|本附录|
 |图 A03|[GPCC 负 PDO 位相降水异常](../figures/task1-4/report_miroc6/MIROC6_04_cell_005_output_03.png)|本附录|
 |图 A04|[GPCC 正减负位相降水合成差](../figures/task1-4/report_miroc6/MIROC6_05_cell_005_output_05.png)|本附录|
@@ -26,9 +26,9 @@
 |图 A09|[MIROC6 r10 位相降水三联图](../figures/task1-4/report_miroc6/MIROC6_10_cell_005_output_15.png)|本附录|
 |图 A10|[观测与 MIROC6 r10 的 PDO 平滑序列](../figures/task1-4/report_miroc6/MIROC6_11_cell_005_output_17.png)|本附录|
 |图 2|[观测与 MIROC6 r10 的降水位相对照](../figures/task1-4/report_miroc6/MIROC6_12_cell_005_output_19.png)|正文|
-|图 3|[MIROC6 十成员历史 PDO 空间型及成员方差](../figures/task1-4/report_miroc6/MIROC6_13_Task3_Figure1_PDO_EOF1_Spread_4x3.png)|正文|
-|图 A11|[MIROC6 十成员历史 PDO 时间序列](../figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png)|本附录|
-|图 4|[MIROC6 十成员历史降水合成差及成员方差](../figures/task1-4/report_miroc6/MIROC6_15_Task3_Figure3_Rainfall_Composite_Spread_4x3.png)|正文|
+|图 3|[MIROC6 十成员与观测历史 PDO 空间型及成员方差](../figures/task1-4/report_miroc6/MIROC6_13_Task3_Figure1_PDO_EOF1_Spread_4x3.png)|正文|
+|图 A11|[MIROC6 十成员与观测历史 PDO 时间序列](../figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png)|本附录|
+|图 4|[MIROC6 十成员与观测历史降水合成差及成员方差](../figures/task1-4/report_miroc6/MIROC6_15_Task3_Figure3_Rainfall_Composite_Spread_4x3.png)|正文|
 |图 A12|[MIROC6 正、负位相降水的成员方差](../figures/task1-4/report_miroc6/MIROC6_16_Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png)|本附录|
 |图 A13|[MIROC6 四情景三成员未来 PDO 空间型](../figures/task1-4/report_miroc6/MIROC6_17_Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png)|本附录|
 |图 A14|[MIROC6 四情景三成员未来 PC1](../figures/task1-4/report_miroc6/MIROC6_18_Task4_T4-2_Future_PC1_SSP_by_member_4x3.png)|本附录|
@@ -82,7 +82,7 @@
 
 ## 图 A01　MIROC6 单成员与 ERSSTv4 的月度 PC1
 
-![图 A01 MIROC6 单成员与 ERSSTv4 的月度 PC1](../figures/task1-4/report_miroc6/MIROC6_02_cell_004_output_04.png)
+![图 A01 MIROC6 单成员与 ERSSTv4 的月度 PC1](../figures/task1-4/report_miroc6/MIROC6_02_PDO%20obs%20vs%20miroc%20series.png)
 
 **图 A01　MIROC6 单成员与 ERSSTv4 的月度 PC1。1900—2014 年；Task 1–2 为 r10i1p1f1。  数据来源：M：MIROC6 notebook 与硬盘输出。
 
@@ -90,49 +90,49 @@
 
 ![图 A02 GPCC 正 PDO 位相降水异常](../figures/task1-4/report_miroc6/MIROC6_03_cell_005_output_01.png)
 
-**图 A02　GPCC 正 PDO 位相降水异常。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A02　GPCC 正 PDO 位相降水异常。1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A03　GPCC 负 PDO 位相降水异常
 
 ![图 A03 GPCC 负 PDO 位相降水异常](../figures/task1-4/report_miroc6/MIROC6_04_cell_005_output_03.png)
 
-**图 A03　GPCC 负 PDO 位相降水异常。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A03　GPCC 负 PDO 位相降水异常。1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A04　GPCC 正减负位相降水合成差
 
 ![图 A04 GPCC 正减负位相降水合成差](../figures/task1-4/report_miroc6/MIROC6_05_cell_005_output_05.png)
 
-**图 A04　GPCC 正减负位相降水合成差。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A04　GPCC 正减负位相降水合成差。1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A05　GPCC 位相降水三联图
 
 ![图 A05 GPCC 位相降水三联图](../figures/task1-4/report_miroc6/MIROC6_06_cell_005_output_07.png)
 
-**图 A05　GPCC 位相降水三联图。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A05　GPCC 位相降水三联图。1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A06　MIROC6 r10 正位相降水异常
 
 ![图 A06 MIROC6 r10 正位相降水异常](../figures/task1-4/report_miroc6/MIROC6_07_cell_005_output_09.png)
 
-**图 A06　MIROC6 r10 正位相降水异常。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A06　MIROC6 r10 正位相降水异常。1900—2014 年；Task 1–2 为 r10i1p1f1。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A07　MIROC6 r10 负位相降水异常
 
 ![图 A07 MIROC6 r10 负位相降水异常](../figures/task1-4/report_miroc6/MIROC6_08_cell_005_output_11.png)
 
-**图 A07　MIROC6 r10 负位相降水异常。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A07　MIROC6 r10 负位相降水异常。1900—2014 年；Task 1–2 为 r10i1p1f1。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A08　MIROC6 r10 正减负位相降水合成差
 
 ![图 A08 MIROC6 r10 正减负位相降水合成差](../figures/task1-4/report_miroc6/MIROC6_09_cell_005_output_13.png)
 
-**图 A08　MIROC6 r10 正减负位相降水合成差。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A08　MIROC6 r10 正减负位相降水合成差。1900—2014 年；Task 1–2 为 r10i1p1f1。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A09　MIROC6 r10 位相降水三联图
 
 ![图 A09 MIROC6 r10 位相降水三联图](../figures/task1-4/report_miroc6/MIROC6_10_cell_005_output_15.png)
 
-**图 A09　MIROC6 r10 位相降水三联图。1900—2014 年；Task 1–2 为 r10i1p1f1。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A09　MIROC6 r10 位相降水三联图。1900—2014 年；Task 1–2 为 r10i1p1f1。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A10　观测与 MIROC6 r10 的 PDO 平滑序列
 
@@ -140,41 +140,41 @@
 
 **图 A10　观测与 MIROC6 r10 的 PDO 平滑序列。1900—2014 年；Task 1–2 为 r10i1p1f1。  数据来源：M：MIROC6 notebook 与硬盘输出。
 
-## 图 A11　MIROC6 十成员历史 PDO 时间序列
+## 图 A11　MIROC6 十成员与观测历史 PDO 时间序列
 
-![图 A11 MIROC6 十成员历史 PDO 时间序列](../figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png)
+![图 A11 MIROC6 十成员与观测历史 PDO 时间序列](../figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png)
 
-**图 A11　MIROC6 十成员历史 PDO 时间序列。1900—2014 年；r1–r10。  数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A11　MIROC6 十成员与观测历史 PDO 时间序列。1900—2014 年；MIROC6 r1–r10，加 ERSSTv4 观测对照。 红蓝为月度标准化 PC1，黑线为九年滑动平均；第六行是观测。为保持链接，文件名保留原 5x2 字样。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A12　MIROC6 正、负位相降水的成员方差
 
 ![图 A12 MIROC6 正、负位相降水的成员方差](../figures/task1-4/report_miroc6/MIROC6_16_Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png)
 
-**图 A12　MIROC6 正、负位相降水的成员方差。1900—2014 年；r1–r10。 Spread 是成员间样本方差，不是成员平均降水图。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A12　MIROC6 正、负位相降水的成员方差。1900—2014 年；r1–r10。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。Spread 是十个模式成员的样本方差（ddof=1），不包含观测。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A13　MIROC6 四情景三成员未来 PDO 空间型
 
 ![图 A13 MIROC6 四情景三成员未来 PDO 空间型](../figures/task1-4/report_miroc6/MIROC6_17_Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png)
 
-**图 A13　MIROC6 四情景三成员未来 PDO 空间型。2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。 空间型为 SST 对标准化 PC1 的回归型，不能把色标当成无量纲特征向量。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A13　MIROC6 四情景三成员未来 PDO 空间型。2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。 空间型为 SST 对标准化 PC1 的回归/协方差型，单位为 °C。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A14　MIROC6 四情景三成员未来 PC1
 
 ![图 A14 MIROC6 四情景三成员未来 PC1](../figures/task1-4/report_miroc6/MIROC6_18_Task4_T4-2_Future_PC1_SSP_by_member_4x3.png)
 
-**图 A14　MIROC6 四情景三成员未来 PC1。2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。  数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A14　MIROC6 四情景三成员未来 PC1。2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。  数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A15　MIROC6 四情景三成员正位相降水异常
 
 ![图 A15 MIROC6 四情景三成员正位相降水异常](../figures/task1-4/report_miroc6/MIROC6_19_Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png)
 
-**图 A15　MIROC6 四情景三成员正位相降水异常。2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A15　MIROC6 四情景三成员正位相降水异常。2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A16　MIROC6 四情景三成员负位相降水异常
 
 ![图 A16 MIROC6 四情景三成员负位相降水异常](../figures/task1-4/report_miroc6/MIROC6_20_Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png)
 
-**图 A16　MIROC6 四情景三成员负位相降水异常。2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。 降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。 数据来源：M：MIROC6 notebook 与硬盘输出。
+**图 A16　MIROC6 四情景三成员负位相降水异常。2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。 仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。 数据来源：M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘。
 
 ## 图 A17　ACCESS-CM2 r1 历史 PDO 空间型与 PC1
 

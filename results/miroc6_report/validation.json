@@ -1,0 +1,224 @@
+{
+  "cases": [
+    {
+      "case": "observation",
+      "months": 1380,
+      "positive_years": 53,
+      "negative_years": 54,
+      "eof1_variance_percent": 20.472902059555054,
+      "numerical_sha256": "aa2534093a61f5c63a85a432b908e6ba6ae4aa27b9289e7343fd7c779a0b2052"
+    },
+    {
+      "case": "historical_r1",
+      "months": 1380,
+      "positive_years": 44,
+      "negative_years": 63,
+      "eof1_variance_percent": 26.93395439576034,
+      "numerical_sha256": "f9649e96af536ae2311dcccf947d7f0da6572fb8535717b9527e63fd17698122"
+    },
+    {
+      "case": "historical_r2",
+      "months": 1380,
+      "positive_years": 48,
+      "negative_years": 59,
+      "eof1_variance_percent": 28.044512882825444,
+      "numerical_sha256": "0890d3fbd7a78e552272982159d62f5ef6f6a84c9dc52a5bbe8a35ed3bac3084"
+    },
+    {
+      "case": "historical_r3",
+      "months": 1380,
+      "positive_years": 60,
+      "negative_years": 47,
+      "eof1_variance_percent": 25.207459694988447,
+      "numerical_sha256": "c4b2d2024f5c85792918d2574e173ab564cfb2eb1c58270852500a675fcd43b8"
+    },
+    {
+      "case": "historical_r4",
+      "months": 1380,
+      "positive_years": 56,
+      "negative_years": 51,
+      "eof1_variance_percent": 26.82965123682987,
+      "numerical_sha256": "97b166debb79d8013306647ce316ff377ee964696aca5c0c408d3aafb43b5bdc"
+    },
+    {
+      "case": "historical_r5",
+      "months": 1380,
+      "positive_years": 68,
+      "negative_years": 39,
+      "eof1_variance_percent": 29.03564430824479,
+      "numerical_sha256": "a2bdf92bc13ff80cb1f70d1e5321badfd13bbaaab720f0b0a0ffa0c10f99f89b"
+    },
+    {
+      "case": "historical_r6",
+      "months": 1380,
+      "positive_years": 56,
+      "negative_years": 51,
+      "eof1_variance_percent": 28.276511587981425,
+      "numerical_sha256": "31b6d83d66c4aba3ff2e78728bb1e4ea895d76d1c2b26df6565e52bbd943d479"
+    },
+    {
+      "case": "historical_r7",
+      "months": 1380,
+      "positive_years": 57,
+      "negative_years": 50,
+      "eof1_variance_percent": 28.407004830545844,
+      "numerical_sha256": "ef4ccda6ec2656993eb4fea14ee33a1fff76a817a6310fee269df35ce25de445"
+    },
+    {
+      "case": "historical_r8",
+      "months": 1380,
+      "positive_years": 62,
+      "negative_years": 45,
+      "eof1_variance_percent": 27.7966097660452,
+      "numerical_sha256": "dba676aab44aae5fa0c21f0cae98b3340ff1cbb54f15a6d38b3236b4378288b0"
+    },
+    {
+      "case": "historical_r9",
+      "months": 1380,
+      "positive_years": 59,
+      "negative_years": 48,
+      "eof1_variance_percent": 26.55420685548804,
+      "numerical_sha256": "8776fafec4bcba9d27f39e64be88285ed83567bb3c9f308817d2e7e9b64f7004"
+    },
+    {
+      "case": "historical_r10",
+      "months": 1380,
+      "positive_years": 62,
+      "negative_years": 45,
+      "eof1_variance_percent": 24.626041271682965,
+      "numerical_sha256": "367ee48f6693886319c9109c3f5ecd6fc0e250311772feeeeb6ec4ba1cb9c4ea"
+    },
+    {
+      "case": "ssp126_r1",
+      "months": 1032,
+      "positive_years": 43,
+      "negative_years": 35,
+      "eof1_variance_percent": 27.851253260719083,
+      "numerical_sha256": "a279f9dd7dfd74bc2dee3da0a6b59675d46e1f6cdfcd089860f2693c942c6b06"
+    },
+    {
+      "case": "ssp126_r5",
+      "months": 1032,
+      "positive_years": 36,
+      "negative_years": 42,
+      "eof1_variance_percent": 32.044989027949214,
+      "numerical_sha256": "2df29160040ae4678479de281547752b3cbd3b3322437329b5b91eea6b0408d6"
+    },
+    {
+      "case": "ssp126_r9",
+      "months": 1032,
+      "positive_years": 36,
+      "negative_years": 42,
+      "eof1_variance_percent": 25.770775884958518,
+      "numerical_sha256": "e58955cb7e3d29b72b126fa236297ee70a9485892ab7b7fe286c57d66a2a6ff9"
+    },
+    {
+      "case": "ssp245_r1",
+      "months": 1032,
+      "positive_years": 32,
+      "negative_years": 46,
+      "eof1_variance_percent": 25.989193776296453,
+      "numerical_sha256": "857f8f55bb33013b79da1804199e02b8bb93d769ec99da4d681c11ec7f9c6599"
+    },
+    {
+      "case": "ssp245_r5",
+      "months": 1032,
+      "positive_years": 42,
+      "negative_years": 36,
+      "eof1_variance_percent": 26.055383168935276,
+      "numerical_sha256": "dfab7b478060549e226d884ac9f1d77824f5de6836ccda3431ffeb7391b88197"
+    },
+    {
+      "case": "ssp245_r9",
+      "months": 1032,
+      "positive_years": 49,
+      "negative_years": 29,
+      "eof1_variance_percent": 24.766846577961886,
+      "numerical_sha256": "b591ed343980cc40a37f234bbcf2d881c6aad959e82224a024f6af5fb5812bd6"
+    },
+    {
+      "case": "ssp370_r1",
+      "months": 1032,
+      "positive_years": 38,
+      "negative_years": 40,
+      "eof1_variance_percent": 26.65855801227431,
+      "numerical_sha256": "c1824e43e9a53f8d9badef9ae52c59fccf26bd287927feb5cdfac0ec9fc3b123"
+    },
+    {
+      "case": "ssp370_r5",
+      "months": 1032,
+      "positive_years": 38,
+      "negative_years": 40,
+      "eof1_variance_percent": 27.417527433107065,
+      "numerical_sha256": "e90ddd2e2e475d923f7e1a52cbf654a0c8fa7397bfe4a9a0191d87a7139e3e2c"
+    },
+    {
+      "case": "ssp370_r9",
+      "months": 1032,
+      "positive_years": 33,
+      "negative_years": 45,
+      "eof1_variance_percent": 30.00459697246855,
+      "numerical_sha256": "692a70f6fe3e13a863182d29b92b8a106dc508121be4d182821aa9ebdee69d53"
+    },
+    {
+      "case": "ssp585_r1",
+      "months": 1032,
+      "positive_years": 43,
+      "negative_years": 35,
+      "eof1_variance_percent": 25.284985503992193,
+      "numerical_sha256": "e44337fec2b3c196b547a9a7131db00fa3cdd68ddc89ecb7cddac139a8f0c92b"
+    },
+    {
+      "case": "ssp585_r5",
+      "months": 1032,
+      "positive_years": 42,
+      "negative_years": 36,
+      "eof1_variance_percent": 21.213670458953366,
+      "numerical_sha256": "61ca58af0a78dbd1e577cf2be2a3c4b3f815b99375539fbccd072a151209a4ab"
+    },
+    {
+      "case": "ssp585_r9",
+      "months": 1032,
+      "positive_years": 38,
+      "negative_years": 40,
+      "eof1_variance_percent": 25.46686852516081,
+      "numerical_sha256": "664cc85d59947a0694355ea07ca185287a577f18c09930a7af9a42b9ad6bdd01"
+    }
+  ],
+  "updated_figures": 18,
+  "monthly_time_coverage_verified": true,
+  "phase_years_rederived": true,
+  "all_precipitation_ocean_grid_values_nan": true,
+  "every_precipitation_map_has_coastline_ocean_overlay": true,
+  "rendered_ocean_samples": [
+    {
+      "lon": 124.3,
+      "lat": 19.7,
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "lon": 125.3,
+      "lat": 28.2,
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "lon": 123.3,
+      "lat": 33.2,
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    }
+  ],
+  "notebook_reference_case_reproduced": true,
+  "figure_hashes_and_required_panels_verified": true
+}

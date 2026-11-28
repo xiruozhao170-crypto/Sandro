@@ -29,7 +29,7 @@
     {
       "source_index": 1,
       "title": "MIROC6 单成员与 ERSSTv4 的 PDO 空间型",
-      "repo_path": "figures/task1-4/report_miroc6/MIROC6_01_cell_004_output_03.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_01_PDO_obs vs miroc.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_004_output_03.png",
       "source_sha256": "7728c0dfbfc6056aff6748bd5fcf9ca5c200baec0f5355630ad1de94e35bf4d0",
       "image_size": [
@@ -46,7 +46,7 @@
     {
       "source_index": 2,
       "title": "MIROC6 单成员与 ERSSTv4 的月度 PC1",
-      "repo_path": "figures/task1-4/report_miroc6/MIROC6_02_cell_004_output_04.png",
+      "repo_path": "figures/task1-4/report_miroc6/MIROC6_02_PDO obs vs miroc series.png",
       "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_004_output_04.png",
       "source_sha256": "3d8fc08672634354b699077e1d99ebe29331b9ec67e3e60b6cc60f096d0d9d4d",
       "image_size": [
@@ -64,137 +64,249 @@
       "source_index": 3,
       "title": "GPCC 正 PDO 位相降水异常",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_03_cell_005_output_01.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_01.png",
-      "source_sha256": "540d63d8c7250db251564bc3528b43c5ecbee37184f4d9ca1d4593025e7db11a",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_03_cell_005_output_01.png",
+      "source_sha256": "9ad0d065733861370a0c0f2ea2529b61f228d7b99238f7ca498230e95628d080",
       "image_size": [
-        692,
-        542
+        1826,
+        1485
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_01.png",
-      "notebook_png_sha256": "540d63d8c7250db251564bc3528b43c5ecbee37184f4d9ca1d4593025e7db11a",
-      "figure_label": "图 A02"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 A02",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_01.png",
+        "source_sha256": "540d63d8c7250db251564bc3528b43c5ecbee37184f4d9ca1d4593025e7db11a",
+        "image_size": [
+          692,
+          542
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_01.png",
+        "notebook_png_sha256": "540d63d8c7250db251564bc3528b43c5ecbee37184f4d9ca1d4593025e7db11a"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 4,
       "title": "GPCC 负 PDO 位相降水异常",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_04_cell_005_output_03.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_03.png",
-      "source_sha256": "1def29493bef99484ac959edae4c1e2a032d3251fca2492b033920e02b1205d8",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_04_cell_005_output_03.png",
+      "source_sha256": "5f6fa5b35de340bd96869a2d4305b6988de10402e9a72cdaa7230eb8bb1b07e0",
       "image_size": [
-        692,
-        542
+        1826,
+        1485
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_03.png",
-      "notebook_png_sha256": "1def29493bef99484ac959edae4c1e2a032d3251fca2492b033920e02b1205d8",
-      "figure_label": "图 A03"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 A03",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_03.png",
+        "source_sha256": "1def29493bef99484ac959edae4c1e2a032d3251fca2492b033920e02b1205d8",
+        "image_size": [
+          692,
+          542
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_03.png",
+        "notebook_png_sha256": "1def29493bef99484ac959edae4c1e2a032d3251fca2492b033920e02b1205d8"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 5,
       "title": "GPCC 正减负位相降水合成差",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_05_cell_005_output_05.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_05.png",
-      "source_sha256": "8f440890e6513b22d252edd7756310aa8b13f7d975c668321def71560ee997aa",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_05_cell_005_output_05.png",
+      "source_sha256": "efeb1be6ed4e7091f96c84962b0d183aa71126a06cf0400ab423f1af151663a9",
       "image_size": [
-        692,
-        542
+        1826,
+        1800
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_05.png",
-      "notebook_png_sha256": "8f440890e6513b22d252edd7756310aa8b13f7d975c668321def71560ee997aa",
-      "figure_label": "图 A04"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。",
+      "figure_label": "图 A04",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_05.png",
+        "source_sha256": "8f440890e6513b22d252edd7756310aa8b13f7d975c668321def71560ee997aa",
+        "image_size": [
+          692,
+          542
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_05.png",
+        "notebook_png_sha256": "8f440890e6513b22d252edd7756310aa8b13f7d975c668321def71560ee997aa"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 6,
       "title": "GPCC 位相降水三联图",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_06_cell_005_output_07.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_07.png",
-      "source_sha256": "9484dee2494f93cec85dcbed3d434b1d444fd73599e83eaa0d898977a4c746ef",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_06_cell_005_output_07.png",
+      "source_sha256": "05b28569ef9502972b66221274cb22ae71dbd9d094c2a59e465ad558080001e1",
       "image_size": [
-        1510,
-        566
+        4216,
+        1677
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_07.png",
-      "notebook_png_sha256": "9484dee2494f93cec85dcbed3d434b1d444fd73599e83eaa0d898977a4c746ef",
-      "figure_label": "图 A05"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；ERSSTv4 PDO 位相与 GPCC 降水。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。",
+      "figure_label": "图 A05",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_07.png",
+        "source_sha256": "9484dee2494f93cec85dcbed3d434b1d444fd73599e83eaa0d898977a4c746ef",
+        "image_size": [
+          1510,
+          566
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_07.png",
+        "notebook_png_sha256": "9484dee2494f93cec85dcbed3d434b1d444fd73599e83eaa0d898977a4c746ef"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 7,
       "title": "MIROC6 r10 正位相降水异常",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_07_cell_005_output_09.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_09.png",
-      "source_sha256": "635d35e82fdb293717161efe15130a182029ce44b30437271cc2ad7ea664a584",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_07_cell_005_output_09.png",
+      "source_sha256": "91b2559b072aac26fc4a5485668b2a753b7ca6e077be987a1f9312ad94a1b2c8",
       "image_size": [
-        692,
-        542
+        1826,
+        1485
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
       "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_09.png",
-      "notebook_png_sha256": "635d35e82fdb293717161efe15130a182029ce44b30437271cc2ad7ea664a584",
-      "figure_label": "图 A06"
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 A06",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_09.png",
+        "source_sha256": "635d35e82fdb293717161efe15130a182029ce44b30437271cc2ad7ea664a584",
+        "image_size": [
+          692,
+          542
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_09.png",
+        "notebook_png_sha256": "635d35e82fdb293717161efe15130a182029ce44b30437271cc2ad7ea664a584"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 8,
       "title": "MIROC6 r10 负位相降水异常",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_08_cell_005_output_11.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_11.png",
-      "source_sha256": "0ef74de189bb78ec6a652ce061ad41dda21ddb05ec95a726945f417e99c928f2",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_08_cell_005_output_11.png",
+      "source_sha256": "cd9cbea91fd16ae08b11fe60d7a1320f9ee8a3ee73f31e197cda110922e25593",
       "image_size": [
-        692,
-        542
+        1826,
+        1485
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
       "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_11.png",
-      "notebook_png_sha256": "0ef74de189bb78ec6a652ce061ad41dda21ddb05ec95a726945f417e99c928f2",
-      "figure_label": "图 A07"
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 A07",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_11.png",
+        "source_sha256": "0ef74de189bb78ec6a652ce061ad41dda21ddb05ec95a726945f417e99c928f2",
+        "image_size": [
+          692,
+          542
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_11.png",
+        "notebook_png_sha256": "0ef74de189bb78ec6a652ce061ad41dda21ddb05ec95a726945f417e99c928f2"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 9,
       "title": "MIROC6 r10 正减负位相降水合成差",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_09_cell_005_output_13.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_13.png",
-      "source_sha256": "6f0d2beb78d0be9935130b17a4df849ed3fbdc7ca458e730222fa62213ef15a2",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_09_cell_005_output_13.png",
+      "source_sha256": "3f570f4b9f3017067ca3d87bd1928e7bfc82b8d9393a2958fd12c65cd40e170c",
       "image_size": [
-        692,
-        542
+        1799,
+        1800
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
       "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_13.png",
-      "notebook_png_sha256": "6f0d2beb78d0be9935130b17a4df849ed3fbdc7ca458e730222fa62213ef15a2",
-      "figure_label": "图 A08"
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。",
+      "figure_label": "图 A08",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_13.png",
+        "source_sha256": "6f0d2beb78d0be9935130b17a4df849ed3fbdc7ca458e730222fa62213ef15a2",
+        "image_size": [
+          692,
+          542
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_13.png",
+        "notebook_png_sha256": "6f0d2beb78d0be9935130b17a4df849ed3fbdc7ca458e730222fa62213ef15a2"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 10,
       "title": "MIROC6 r10 位相降水三联图",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_10_cell_005_output_15.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_15.png",
-      "source_sha256": "27e1cb5fc5d221965568b06c3733ea0a8e82cb28a2a3ca98bf9744b7920e0387",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_10_cell_005_output_15.png",
+      "source_sha256": "efececac6340757f75e14f49b36ba1b88708847761b63c0deeb31f4d566f20bb",
       "image_size": [
-        1510,
-        566
+        4216,
+        1677
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
       "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_15.png",
-      "notebook_png_sha256": "27e1cb5fc5d221965568b06c3733ea0a8e82cb28a2a3ca98bf9744b7920e0387",
-      "figure_label": "图 A09"
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。",
+      "figure_label": "图 A09",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_15.png",
+        "source_sha256": "27e1cb5fc5d221965568b06c3733ea0a8e82cb28a2a3ca98bf9744b7920e0387",
+        "image_size": [
+          1510,
+          566
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_15.png",
+        "notebook_png_sha256": "27e1cb5fc5d221965568b06c3733ea0a8e82cb28a2a3ca98bf9744b7920e0387"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 11,
@@ -217,171 +329,311 @@
       "source_index": 12,
       "title": "观测与 MIROC6 r10 的降水位相对照",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_12_cell_005_output_19.png",
-      "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_19.png",
-      "source_sha256": "c8b15b960271968b8558b5a4c7fcd596fffa23496b77317e36e19c6caaf9f3bd",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_12_cell_005_output_19.png",
+      "source_sha256": "1d38166fda540a2b70d1cda46bd572477cd14f8cc2bc48024da3cb72fb007982",
       "image_size": [
-        1556,
-        1013
+        4155,
+        3351
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
       "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_19.png",
-      "notebook_png_sha256": "c8b15b960271968b8558b5a4c7fcd596fffa23496b77317e36e19c6caaf9f3bd",
-      "figure_label": "图 2"
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。白点为逐格点 Welch p<0.1，未校正自相关和多重比较。",
+      "figure_label": "图 2",
+      "previous_version": {
+        "source_file": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_19.png",
+        "source_sha256": "c8b15b960271968b8558b5a4c7fcd596fffa23496b77317e36e19c6caaf9f3bd",
+        "image_size": [
+          1556,
+          1013
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；Task 1–2 为 r10i1p1f1。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T12\\cell_005_output_19.png",
+        "notebook_png_sha256": "c8b15b960271968b8558b5a4c7fcd596fffa23496b77317e36e19c6caaf9f3bd"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 13,
-      "title": "MIROC6 十成员历史 PDO 空间型及成员方差",
+      "title": "MIROC6 十成员与观测历史 PDO 空间型及成员方差",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_13_Task3_Figure1_PDO_EOF1_Spread_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure1_PDO_EOF1_Spread_4x3.png",
-      "source_sha256": "cebc7c7fa206e62b9f385a60a2c74990c29be3e49f28491fde837d40e8aed561",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_13_Task3_Figure1_PDO_EOF1_Spread_4x3.png",
+      "source_sha256": "3633824c6f9cc74edd416f1d1a3e934b3a17892b051d33da7501bfa7f5da03d8",
       "image_size": [
-        4290,
-        4137
+        4604,
+        4108
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；r1–r10。",
-      "note": "空间型为 SST 对标准化 PC1 的回归型，不能把色标当成无量纲特征向量。Spread 是成员间样本方差，不是成员平均降水图。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_01.png",
-      "notebook_png_sha256": "e624d912354a5db802427f960cc2a4daa49590bdfc80f819d613076d83037fbf",
-      "figure_label": "图 3"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；MIROC6 r1–r10，加 ERSSTv4 观测对照。",
+      "note": "空间型为 SST 对标准化 PC1 的回归/协方差型，单位为 °C；观测和模式使用相同色标。Spread 是十个模式成员的样本方差（ddof=1），不包含观测。",
+      "figure_label": "图 3",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure1_PDO_EOF1_Spread_4x3.png",
+        "source_sha256": "cebc7c7fa206e62b9f385a60a2c74990c29be3e49f28491fde837d40e8aed561",
+        "image_size": [
+          4290,
+          4137
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；r1–r10。",
+        "note": "空间型为 SST 对标准化 PC1 的回归型，不能把色标当成无量纲特征向量。Spread 是成员间样本方差，不是成员平均降水图。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_01.png",
+        "notebook_png_sha256": "e624d912354a5db802427f960cc2a4daa49590bdfc80f819d613076d83037fbf"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 14,
-      "title": "MIROC6 十成员历史 PDO 时间序列",
+      "title": "MIROC6 十成员与观测历史 PDO 时间序列",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png",
-      "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure2_PC1_5x2.png",
-      "source_sha256": "33c089809b04ac4c012aa0d56804f3f15d361d55a4c8c339f9963549c79005ae",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_14_Task3_Figure2_PC1_5x2.png",
+      "source_sha256": "bb0ad55f99921f22a6edbc2f7d6527c541e7dcf7feff62ec14dac43c64e713a2",
       "image_size": [
-        4467,
-        3715
+        4647,
+        4649
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；r1–r10。",
-      "note": "",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_03.png",
-      "notebook_png_sha256": "ab27392eea3d541c4ea8a5de80e7b654b2330dc397957a70d928a6822953ff75",
-      "figure_label": "图 A11"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；MIROC6 r1–r10，加 ERSSTv4 观测对照。",
+      "note": "红蓝为月度标准化 PC1，黑线为九年滑动平均；第六行是观测。为保持链接，文件名保留原 5x2 字样。",
+      "figure_label": "图 A11",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure2_PC1_5x2.png",
+        "source_sha256": "33c089809b04ac4c012aa0d56804f3f15d361d55a4c8c339f9963549c79005ae",
+        "image_size": [
+          4467,
+          3715
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；r1–r10。",
+        "note": "",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_03.png",
+        "notebook_png_sha256": "ab27392eea3d541c4ea8a5de80e7b654b2330dc397957a70d928a6822953ff75"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 15,
-      "title": "MIROC6 十成员历史降水合成差及成员方差",
+      "title": "MIROC6 十成员与观测历史降水合成差及成员方差",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_15_Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
-      "source_sha256": "93ad4eba1460b29fa62497649939a772466146f39a2c4388acc0452925987d25",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_15_Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
+      "source_sha256": "ae1382f8c1870ec3e60deaffbbb2a6f0502c7f392e5cc68fa8a32d1cc52b87b8",
       "image_size": [
-        3700,
-        4691
+        4040,
+        4950
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "1900—2014 年；r1–r10。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。Spread 是成员间样本方差，不是成员平均降水图。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_05.png",
-      "notebook_png_sha256": "5f7ccdff9a5cab7677c30a6eb1bbfb54371cfeb23600138f167974489f1772b4",
-      "figure_label": "图 4"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "1900—2014 年；MIROC6 r1–r10，加 ERSSTv4 位相与 GPCC 降水观测对照。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。Spread 是十个模式成员的样本方差（ddof=1），不包含观测。",
+      "figure_label": "图 4",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure3_Rainfall_Composite_Spread_4x3.png",
+        "source_sha256": "93ad4eba1460b29fa62497649939a772466146f39a2c4388acc0452925987d25",
+        "image_size": [
+          3700,
+          4691
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；r1–r10。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。Spread 是成员间样本方差，不是成员平均降水图。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_05.png",
+        "notebook_png_sha256": "5f7ccdff9a5cab7677c30a6eb1bbfb54371cfeb23600138f167974489f1772b4"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 16,
       "title": "MIROC6 正、负位相降水的成员方差",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_16_Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
-      "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
-      "source_sha256": "21d1c615df77555e1fcf2592e61b63895c30331d7c8bef3edd73df505116f564",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_16_Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
+      "source_sha256": "4e2d15f2413e8455fbe0980bd07930e6919b6abe928b97d3437a34bad89a6a5f",
       "image_size": [
-        3221,
-        1751
+        3345,
+        2071
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
       "scope": "1900—2014 年；r1–r10。",
-      "note": "Spread 是成员间样本方差，不是成员平均降水图。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_07.png",
-      "notebook_png_sha256": "2fad5315d70d65883192298637d64088bdc5814d0c546698263a74d2fc99b592",
-      "figure_label": "图 A12"
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。Spread 是十个模式成员的样本方差（ddof=1），不包含观测。",
+      "figure_label": "图 A12",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task3_historical_subplot_outputs\\Task3_Figure4_Positive_Negative_Rainfall_Spread_1x2.png",
+        "source_sha256": "21d1c615df77555e1fcf2592e61b63895c30331d7c8bef3edd73df505116f564",
+        "image_size": [
+          3221,
+          1751
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "1900—2014 年；r1–r10。",
+        "note": "Spread 是成员间样本方差，不是成员平均降水图。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_002_output_07.png",
+        "notebook_png_sha256": "2fad5315d70d65883192298637d64088bdc5814d0c546698263a74d2fc99b592"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 17,
       "title": "MIROC6 四情景三成员未来 PDO 空间型",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_17_Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
-      "source_sha256": "35fd1ffa8bda571fcafa1aca6f91a56d4c6857d18cd39b7613892cb5ccc9cfd6",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_17_Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
+      "source_sha256": "182816aaa95888ddf1c1881080608efaa0653ba761d4b357bbcbf20a2e2d410f",
       "image_size": [
-        4290,
-        4181
+        4604,
+        4066
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
-      "note": "空间型为 SST 对标准化 PC1 的回归型，不能把色标当成无量纲特征向量。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_01.png",
-      "notebook_png_sha256": "16c86e463b4818fcce8902d50efa6a8acb0cb3aa6db76ddda0d7a47b297e14e8",
-      "figure_label": "图 A13"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。",
+      "note": "空间型为 SST 对标准化 PC1 的回归/协方差型，单位为 °C。",
+      "figure_label": "图 A13",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-1_Future_PDO_EOF1_SSP_by_member_4x3.png",
+        "source_sha256": "35fd1ffa8bda571fcafa1aca6f91a56d4c6857d18cd39b7613892cb5ccc9cfd6",
+        "image_size": [
+          4290,
+          4181
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
+        "note": "空间型为 SST 对标准化 PC1 的回归型，不能把色标当成无量纲特征向量。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_01.png",
+        "notebook_png_sha256": "16c86e463b4818fcce8902d50efa6a8acb0cb3aa6db76ddda0d7a47b297e14e8"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 18,
       "title": "MIROC6 四情景三成员未来 PC1",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_18_Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
-      "source_sha256": "a052a0ff1035c2401ae2fa788873ebff14c765bc8fd919504126fc896c5bdc0d",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_18_Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
+      "source_sha256": "b2d0288a0c1897ddfe1e08b9ccb0dff3496b536de3c60bc8974f17ea669c1cc7",
       "image_size": [
-        4467,
-        3413
+        4764,
+        3539
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。",
       "note": "",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_03.png",
-      "notebook_png_sha256": "c98709346b285e8052683c0d75661f66fdc94a2d2c6699e1920218913fd19031",
-      "figure_label": "图 A14"
+      "figure_label": "图 A14",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-2_Future_PC1_SSP_by_member_4x3.png",
+        "source_sha256": "a052a0ff1035c2401ae2fa788873ebff14c765bc8fd919504126fc896c5bdc0d",
+        "image_size": [
+          4467,
+          3413
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
+        "note": "",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_03.png",
+        "notebook_png_sha256": "c98709346b285e8052683c0d75661f66fdc94a2d2c6699e1920218913fd19031"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 19,
       "title": "MIROC6 四情景三成员正位相降水异常",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_19_Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
-      "source_sha256": "e8a5eded6ef45336d593d64a996815b9f230307bfa226568c6c4b5cb09fa98a0",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_19_Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
+      "source_sha256": "599e60022182dcf47f2ab2dd7ca32040c27f640c90aa61de3e5f50abc4272c90",
       "image_size": [
-        3655,
-        4403
+        4112,
+        4899
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_05.png",
-      "notebook_png_sha256": "b3c0d98aa753216f5bc9d5a6b18a1c6512da62c68e6c2b9013d6459301291974",
-      "figure_label": "图 A15"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 A15",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-3_Positive_Phase_Rainfall_SSP_by_member_4x3.png",
+        "source_sha256": "e8a5eded6ef45336d593d64a996815b9f230307bfa226568c6c4b5cb09fa98a0",
+        "image_size": [
+          3655,
+          4403
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_05.png",
+        "notebook_png_sha256": "b3c0d98aa753216f5bc9d5a6b18a1c6512da62c68e6c2b9013d6459301291974"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 20,
       "title": "MIROC6 四情景三成员负位相降水异常",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_20_Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
-      "source_sha256": "9d850898eb7a580ec3afd453e299bce75bc06fbde4838480ae839a508cf8a223",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_20_Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
+      "source_sha256": "a2217ad22b02c6a44c3c6dfcfe514b6a2c3e1283962a0f05a8c52f4c5cc5d364",
       "image_size": [
-        3655,
-        4403
+        4112,
+        4899
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_07.png",
-      "notebook_png_sha256": "4225ca4cd05a1fd9885d19cfd94a18afc72fa3aed7538ed5064389cc83077ce7",
-      "figure_label": "图 A16"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 A16",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-4_Negative_Phase_Rainfall_SSP_by_member_4x3.png",
+        "source_sha256": "9d850898eb7a580ec3afd453e299bce75bc06fbde4838480ae839a508cf8a223",
+        "image_size": [
+          3655,
+          4403
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_07.png",
+        "notebook_png_sha256": "4225ca4cd05a1fd9885d19cfd94a18afc72fa3aed7538ed5064389cc83077ce7"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 22,
       "title": "MIROC6 四情景三成员正减负位相降水合成差",
       "repo_path": "figures/task1-4/report_miroc6/MIROC6_22_Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
-      "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
-      "source_sha256": "4147d3353acb497d470a78fe3f4e50690789ec38f7b5fc5443af0cb78e6ed9ad",
+      "source_file": "figures/task1-4/report_miroc6/MIROC6_22_Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
+      "source_sha256": "39cc09c4f0149d4afb7f73faddfa75d685c4495f2a182d6894ab45d168132d66",
       "image_size": [
-        3655,
-        4399
+        4112,
+        4899
       ],
-      "batch": "M：MIROC6 notebook 与硬盘输出",
-      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
-      "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
-      "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_11.png",
-      "notebook_png_sha256": "efbb623d075ee947182be022abac4a1c67f6e658b7050e4235651031eaa8b383",
-      "figure_label": "图 5"
+      "batch": "M：MIROC6 原始资料与历史缓存、ERSSTv4/GPCC；2026-11-29 重算/重绘",
+      "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；r1、r5、r9。",
+      "note": "仅显示陆地；采用 GPCC 有效覆盖掩膜，并沿 Natural Earth 1:5000万 海岸线隐藏海洋填色。降水异常/合成差单位为 mm/day，方差单位为 (mm/day)²。",
+      "figure_label": "图 5",
+      "previous_version": {
+        "source_file": "E:\\Sandro Dachuang\\task4_future_subplot_outputs\\Task4_T4-6_Composite_Difference_SSP_by_member_4x3.png",
+        "source_sha256": "4147d3353acb497d470a78fe3f4e50690789ec38f7b5fc5443af0cb78e6ed9ad",
+        "image_size": [
+          3655,
+          4399
+        ],
+        "batch": "M：MIROC6 notebook 与硬盘输出",
+        "scope": "2015—2100 年；SSP126、SSP245、SSP370、SSP585；仅 r3、r4、r6。",
+        "note": "降水单位 mm/day；MIROC6 原图保留了海域，不能与 ACCESS 陆地掩膜图直接比较面积统计。",
+        "notebook_embedded_output": "D:\\Sandro_report_work\\MIROC6_T34\\cell_004_output_11.png",
+        "notebook_png_sha256": "efbb623d075ee947182be022abac4a1c67f6e658b7050e4235651031eaa8b383"
+      },
+      "generator": "scripts/miroc6_report.py",
+      "numerical_manifest": "results/miroc6_report/input_manifest.json",
+      "updated_on": "2026-11-29"
     },
     {
       "source_index": 24,

@@ -77,7 +77,11 @@ Task 7 为单独补充的全球 ua/va 风场资料，不能由 500 hPa zg 或 to
 
 文件名中的 `MICRO6` 是原笔记本命名，实际模式为 MIROC6。文件筛选的字典序会令 `r10` 排在 `r1` 前，故不能把早期单成员图自动认作 r1。
 
-硬盘 `task1-2_output` 中旧模式图显示 44/63 个正/负位相夏季，且降水分布与指定笔记本输出不同。报告没有用这些高清旧图替换指定 notebook 图。当前 Task 1—2 的 12 张有效图均从指定 notebook 的内嵌 PNG 提取；Task 3—4 的九张有效图采用硬盘对应 subplot 目录的高清输出，已与 notebook 的面板、成员、情景和分布逐项目视核对。源文件、嵌入输出名称及 SHA256 均列入[图像清单](../results/report_figure_manifest_2026-11-23.json)。高清图与 notebook 显示图分辨率不同，并非字节相同。
+硬盘 `task1-2_output` 的另一版模式图显示 44/63 个正/负位相夏季，与指定 notebook 的 r10 结果不同，报告没有混用这批图。2026-11-29 重绘前，Task 1—2 图来自 notebook，Task 3—4 图来自已逐像素复核的 subplot 输出。
+
+2026-11-29 更新：Task 3 沿用已核对的十成员历史数值缓存，新增从 ERSSTv4 和 GPCC 计算的观测面板；观测不进入成员方差。Task 4 从四情景的 r1、r5、r9 原始 tos/pr 文件重新计算，五张未来图统一使用这三个成员。全部 MIROC6 报告降水图应用 GPCC 有效覆盖掩膜，并按 Natural Earth 1:5000万 海岸线遮去海洋；Task 1 的两张 PDO 图和 Task 2 的 PDO 时间序列图保留原内容。
+
+新实现先复算 SSP126 r3 作为原 notebook 的参考案例：降水合成值完全一致，EOF/PC 的误差约为 10⁻¹⁵。新的数值、输入记录和验证见 [miroc6_report](../results/miroc6_report/input_manifest.json)、[验证结果](../results/miroc6_report/validation.json)及[生成脚本](../scripts/miroc6_report.py)。[图像清单](../results/report_figure_manifest_2026-11-23.json)保存当前 PNG 校验码，原版本来源移入 `previous_version`。当前重绘图不再声称与原 notebook 内嵌 PNG 相同。
 
 ## 5　选图范围与排除项
 
