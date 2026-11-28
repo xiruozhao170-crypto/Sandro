@@ -4,7 +4,7 @@ Reads the saved Task 2 results (results/task2_<tag>.nc) and draws the six
 composite maps in one 2x3 figure with a single shared colorbar; white dots
 mark p<0.1 as in the three-panel figures.
 
-Output: figures/task1-4/task2_composite_obs_members.png
+Output: figures/task1-4/report_access/task2_composite_obs_members.png
 """
 from pathlib import Path
 
@@ -20,7 +20,7 @@ from easm_plots import _map_axis, _sym_levels
 
 REPO = Path(__file__).resolve().parents[1]
 RES = REPO / "results"
-FIG = REPO / "figures/task1-4"
+FIG = REPO / "figures/task1-4/report_access"
 FIG.mkdir(parents=True, exist_ok=True)
 
 TAGS = [("obs", "ERSSTv4 + GPCC (obs)")] + [
@@ -55,7 +55,7 @@ def main():
     fig.savefig(FIG / "task2_composite_obs_members.png", dpi=200,
                 bbox_inches="tight")
     plt.close(fig)
-    print("saved figures/task1-4/task2_composite_obs_members.png")
+    print("saved figures/task1-4/report_access/task2_composite_obs_members.png")
 
 
 if __name__ == "__main__":

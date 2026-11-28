@@ -18,7 +18,7 @@ from easm_plots import _map_axis, _sym_levels
 ROOT = Path(__file__).resolve().parents[1]
 MEMBERS = [f"r{i}" for i in range(1, 6)]
 SCENARIOS = ["ssp245", "ssp585"]
-OUTPUT = ROOT / "figures/task1-4/Task4_T4-7-8_Composite_Difference_SSP_minus_Historical.png"
+OUTPUT = ROOT / "figures/task1-4/report_access/Task4_T4-7-8_Composite_Difference_SSP_minus_Historical.png"
 
 
 def load_differences():

@@ -115,8 +115,8 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 | r4 | 17.3% | **0.21**（EOF1 为黑潮延伸体主导型，EOF1/2 方差 17.3% vs 14.0% 近简并） |
 | r5 | 19.1% | 0.84 |
 
-图：`figures/task1-4/task1_pdo_*.png`（EOF1 + PC1）、
-[观测与五成员区域检查](figures/task1-4/task1_regioncheck_obs_members.png)（3 行 × 2 列，
+图：`figures/task1-4/report_access/task1_pdo_*.png`（EOF1 + PC1）、
+[观测与五成员区域检查](figures/task1-4/report_access/task1_regioncheck_obs_members.png)（3 行 × 2 列，
 依次为 ERSSTv4 观测和 ACCESS-CM2 R1–R5，六个子图共用 SST 色标）、
 `task1_pdo_members.png`（成员总览）；
 结果：`results/task1_pdo_*.nc`、`task1_summary.json`。
@@ -132,7 +132,7 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 - 模式成员（全部用 EOF1）：r1 62/45、r2 57/50、r3 54/53、r4 55/52、r5 50/57（pos/neg 年数）。
 - 图：`task2_pdo_timeseries.png`（观测+5 成员，红蓝柱 + 9 年滑动黑线）、
   `task2_obs_three_panels.png`（观测三联图）、
-  [五成员位相降水总图](figures/task1-4/task2_members_three_panels.png)（5 行 × 3 列；
+  [五成员位相降水总图](figures/task1-4/report_access/task2_members_three_panels.png)（5 行 × 3 列；
   各行依次为 R1–R5，列为正位相 / 负位相 / 合成差；15 个子图共用色标，保留 p<0.1 白点；
   `python scripts/task2_member_panels.py` 从已存结果重画）、
   `task2_composite_obs_members.png`（obs + r1–r5 合成差 2×3 总览，共用色标，
@@ -153,7 +153,8 @@ GPCC 网格插值、合成 + Welch t 检验）、`easm_plots.py`（三联图/时
 ## Task 4（未来情景 ssp245 / ssp585，全部成员 r1–r5，2015–2100，方法与历史完全相同）
 
 Task 1–4 的图像统一位于 [`figures/task1-4/`](figures/task1-4/)；
-其中 `report_miroc6/` 保留旧 MIROC6 图像的归档结构。
+其中 [`report_access/`](figures/task1-4/report_access/) 存放现行 ACCESS 分析及配套观测图，
+[`report_miroc6/`](figures/task1-4/report_miroc6/) 保留旧 MIROC6 图像的归档结构。
 
 | 情景 | 成员 | EOF1 方差 | 与观测历史 PDO 型相关 | pos/neg 年数 |
 |---|---|---|---|---|
@@ -171,7 +172,7 @@ Task 1–4 的图像统一位于 [`figures/task1-4/`](figures/task1-4/)；
 - `Task4_T4-1`—`T4-4` 和 `T4-6` 包含未来 EOF、PC1、逐成员正负位相降水及合成差；原 `T4-5` 成员平均降水图已删除并停用生成，保留其余图号。
 - `Task4_T4-7_Scenario_Difference_SSP245_minus_Historical.png` 为每个成员的 SSP245 合成差减自身历史合成差。
 - `Task4_T4-8_Composite_Difference_SSP585_minus_Historical.png` 为每个成员的 SSP585 合成差减自身历史合成差。
-- [T4-7 / T4-8 合并图](figures/task1-4/Task4_T4-7-8_Composite_Difference_SSP_minus_Historical.png)：
+- [T4-7 / T4-8 合并图](figures/task1-4/report_access/Task4_T4-7-8_Composite_Difference_SSP_minus_Historical.png)：
   2 行 × 5 列，上行为 SSP245−historical，下行为 SSP585−historical，列为 R1–R5，
   十个子图共用色标；原 T4-7、T4-8 图同时保留在新目录中。
   运行 `python scripts/task4_historical_comparison.py` 可从既有结果重画，完整 Task 4 流程也会生成此图。

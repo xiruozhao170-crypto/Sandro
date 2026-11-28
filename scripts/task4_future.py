@@ -40,7 +40,7 @@ from task2_composite import save_dataset
 REPO = Path(__file__).resolve().parents[1]
 DATA = REPO / "data"
 RES = REPO / "results"
-FIG = REPO / "figures/task1-4"
+FIG = REPO / "figures/task1-4/report_access"
 FIG.mkdir(parents=True, exist_ok=True)
 
 SCENARIOS = ["ssp245", "ssp585"]

@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MEMBERS = [f"r{i}" for i in range(1, 6)]
 CACHE = ROOT / "results/task1_regioncheck_access.nc"
 OBS_CACHE = ROOT / "results/task1_regioncheck_ersst.nc"
-OUTPUT = ROOT / "figures/task1-4/task1_regioncheck_obs_members.png"
+OUTPUT = ROOT / "figures/task1-4/report_access/task1_regioncheck_obs_members.png"
 
 
 def save_fields(fields):

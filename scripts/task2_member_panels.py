@@ -13,7 +13,7 @@ from easm_plots import _map_axis, _sym_levels
 
 ROOT = Path(__file__).resolve().parents[1]
 MEMBERS = [f"r{i}" for i in range(1, 6)]
-OUTPUT = ROOT / "figures/task1-4/task2_members_three_panels.png"
+OUTPUT = ROOT / "figures/task1-4/report_access/task2_members_three_panels.png"
 
 
 def main():

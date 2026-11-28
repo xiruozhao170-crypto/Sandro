@@ -9,8 +9,8 @@ Recipe (Task 1.docx):
   6. EOF1 = PDO spatial pattern, PC1 = PDO index.
 
 Usage: python task1_pdo.py <dataset>  dataset in {ersst, access_r1..access_r5}
-Outputs: results/task1_pdo_<dataset>.nc, figures/task1-4/task1_pdo_<dataset>.png
-All regional checks share figures/task1-4/task1_regioncheck_obs_members.png.
+Outputs: results/task1_pdo_<dataset>.nc, figures/task1-4/report_access/task1_pdo_<dataset>.png
+All regional checks share figures/task1-4/report_access/task1_regioncheck_obs_members.png.
 """
 import sys
 from pathlib import Path
@@ -28,7 +28,7 @@ import cartopy.feature as cfeature
 
 REPO = Path(__file__).resolve().parents[1]
 RES = REPO / "results"
-FIG = REPO / "figures/task1-4"
+FIG = REPO / "figures/task1-4/report_access"
 RES.mkdir(exist_ok=True)
 FIG.mkdir(parents=True, exist_ok=True)
 
@@ -165,7 +165,7 @@ def main(tag):
                               "20N-60N 110E-250E, sqrt(cos(lat)) weights"},
     )
     out.to_netcdf(RES / f"task1_pdo_{tag}.nc")
-    print(f"[{tag}] saved results/task1_pdo_{tag}.nc, figures/task1-4/task1_pdo_{tag}.png")
+    print(f"[{tag}] saved results/task1_pdo_{tag}.nc, figures/task1-4/report_access/task1_pdo_{tag}.png")
 
 
 if __name__ == "__main__":
